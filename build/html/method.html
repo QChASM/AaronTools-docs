@@ -158,10 +158,6 @@
   <p class="caption" role="heading"><span class="caption-text">Pages:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html#any-os-using-pip">Any OS, using pip</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html#download-from-github">Download from GitHub</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html#set-up-environment">Set up environment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html#windows-10">Windows 10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tut_list.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cls.html">Command Line Scripts</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="api.html">Python API Documentation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
@@ -220,17 +216,23 @@
 <dt class="sig sig-object py" id="AaronTools.theory.Method">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.</span></span><span class="sig-name descname"><span class="pre">Method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_semiempirical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_oniom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oniom_layer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_mm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Method" title="Permalink to this definition">#</a></dt>
 <dd><p>functional object
-used to ensure the proper keyword is used
-e.g.
+used to ensure the proper keyword is used</p>
+<p>e.g.
 using Functional(‘PBE0’) will use PBE1PBE in a gaussian input file</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.Method.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_semiempirical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_oniom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oniom_layer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_mm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Method.__init__" title="Permalink to this definition">#</a></dt>
-<dd><p>name: str, functional name
-is_semiempirical: bool, basis set is not required
-is_oniom: bool, oniom_layer must be in kwargs, is_mm must be in kwargs
-oniom_layer: str, oniom layer method describes, must be “H”, “M”, or “L”
-is_mm: bool, basis set is not required</p>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – functional name</p></li>
+<li><p><strong>is_semiempirical</strong> (<em>bool</em>) – basis set is not required</p></li>
+<li><p><strong>is_oniom</strong> (<em>bool</em>) – oniom_layer must be in kwargs, is_mm must be in kwargs</p></li>
+<li><p><strong>oniom_layer</strong> (<em>str</em>) – oniom layer method describes, must be “H”, “M”, or “L”</p></li>
+<li><p><strong>is_mm</strong> (<em>bool</em>) – basis set is not required</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -266,9 +268,15 @@ is_mm: bool, basis set is not required</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.Method.sanity_check_method">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sanity_check_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">program</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Method.sanity_check_method" title="Permalink to this definition">#</a></dt>
-<dd><p>check to see if method is available in the specified program
-name - str, name of method
-program, str, gaussian, orca, psi4, or qchem</p>
+<dd><p>check to see if method is available in the specified program</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – name of method</p></li>
+<li><p><strong>program</strong> (<em>str</em>) – program name (gaussian, orca, psi4, or qchem)</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -277,20 +285,26 @@ program, str, gaussian, orca, psi4, or qchem</p>
 <dt class="sig sig-object py" id="AaronTools.theory.SAPTMethod">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.</span></span><span class="sig-name descname"><span class="pre">SAPTMethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.SAPTMethod" title="Permalink to this definition">#</a></dt>
 <dd><p>method used to differentiate between regular methods and sapt
-methods because the molecule will need to be split into monomers
-if using a sapt method, the geometry given to Theory or Geometry.write
-should have a ‘components’ attribute with each monomer being a coordinate
-the charge and multiplicity given to Theory should be a list, with the first
+methods because the molecule will need to be split into monomers</p>
+<p>if using a sapt method, the geometry given to Theory or Geometry.write
+should have a ‘components’ attribute with each monomer being a component</p>
+<p>the charge and multiplicity given to Theory should be a list, with the first
 item in each list being the overall charge/multiplicity and the subsequent items
 being the charge/multiplicity of the monomers (components)</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.SAPTMethod.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.SAPTMethod.__init__" title="Permalink to this definition">#</a></dt>
-<dd><p>name: str, functional name
-is_semiempirical: bool, basis set is not required
-is_oniom: bool, oniom_layer must be in kwargs, is_mm must be in kwargs
-oniom_layer: str, oniom layer method describes, must be “H”, “M”, or “L”
-is_mm: bool, basis set is not required</p>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – functional name</p></li>
+<li><p><strong>is_semiempirical</strong> (<em>bool</em>) – basis set is not required</p></li>
+<li><p><strong>is_oniom</strong> (<em>bool</em>) – oniom_layer must be in kwargs, is_mm must be in kwargs</p></li>
+<li><p><strong>oniom_layer</strong> (<em>str</em>) – oniom layer method describes, must be “H”, “M”, or “L”</p></li>
+<li><p><strong>is_mm</strong> (<em>bool</em>) – basis set is not required</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

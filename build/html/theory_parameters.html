@@ -158,10 +158,6 @@
   <p class="caption" role="heading"><span class="caption-text">Pages:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html#any-os-using-pip">Any OS, using pip</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html#download-from-github">Download from GitHub</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html#set-up-environment">Set up environment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html#windows-10">Windows 10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tut_list.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cls.html">Command Line Scripts</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="api.html">Python API Documentation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
@@ -240,14 +236,11 @@ The value should be as specified.</p>
 <li><p>PSI4_AFTER_JOB: list(str) $METHOD will be replaced with method name</p></li>
 <li><p>PSI4_COMMENT: list(str)</p></li>
 <li><p>PSI4_MOLECULE: dict(str:list(str)) e.g. {‘symmetry’: [‘c1’]}</p></li>
-<li><dl class="simple">
-<dt>PSI4_COORDINATES: dict() with keys:</dt><dd><p>‘coords’ - array of coordinates with one item for each atom
+<li><p>PSI4_COORDINATES: dict() with keys:
+‘coords’ - array of coordinates with one item for each atom
 ‘variables’ - list of name (str), value (float), is_angstrom (bool) tuples
 this is ignored if using a SAPTMethod with a low-spin combination
-of monomers</p>
-</dd>
-</dl>
-</li>
+of monomers</p></li>
 <li><p>PSI4_JOB: dict(optimize/frequencies/etc: list(str $METHOD replaced w/ method))</p></li>
 <li><p>PSI4_OPTKING: dict(setting_name: [value])</p></li>
 </ul>
@@ -289,11 +282,8 @@ of monomers</p>
 </dl>
 <ul class="simple">
 <li><p>XTB_CONTROL_BLOCKS: dict - stuff in xcontrol file</p></li>
-<li><dl class="simple">
-<dt>XTB_COMMAND_LINE: dict(str:list) - command line stuff, values should be </dt><dd><p>emtpy lists if the command line flag (key) has no arguments</p>
-</dd>
-</dl>
-</li>
+<li><p>XTB_COMMAND_LINE: dict(str:list) - command line stuff, values should be 
+emtpy lists if the command line flag (key) has no arguments</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">CREST<span class="colon">:</span></dt>

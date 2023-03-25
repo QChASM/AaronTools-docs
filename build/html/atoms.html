@@ -158,10 +158,6 @@
   <p class="caption" role="heading"><span class="caption-text">Pages:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html#any-os-using-pip">Any OS, using pip</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html#download-from-github">Download from GitHub</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html#set-up-environment">Set up environment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html#windows-10">Windows 10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tut_list.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cls.html">Command Line Scripts</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="api.html">Python API Documentation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
@@ -220,8 +216,7 @@
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.atoms.</span></span><span class="sig-name descname"><span class="pre">Atom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom" title="Permalink to this definition">#</a></dt>
 <dd><p>Attributes:</p>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li><p>element         str</p></li>
 <li><p>coords          np.array(float)</p></li>
 <li><p>flag            bool            true if frozen, false if relaxed</p></li>
@@ -235,20 +230,19 @@
 <li><p>_connectivity   int             max connections without hypervalence</p></li>
 <li><p>_saturation     int             max connections without hypervalence or charges</p></li>
 </ul>
-</div></blockquote>
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.__init__" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>str</strong> (<em>name</em>) – element symbol</p></li>
-<li><p><strong>np.ndarray</strong> (<em>coords</em>) – position</p></li>
-<li><p><strong>flag</strong> – whether atom is frozen</p></li>
-<li><p><strong>str</strong> – name of atom</p></li>
-<li><p><strong>list</strong> (<em>tags</em>) – misc. data</p></li>
-<li><p><strong>float</strong> (<em>mass</em>) – partial charge of atom</p></li>
-<li><p><strong>float</strong> – mass of atom</p></li>
+<li><p><strong>element</strong> (<em>str</em>) – element symbol</p></li>
+<li><p><strong>coords</strong> (<em>np.ndarray</em>) – position</p></li>
+<li><p><strong>flag</strong> (<em>bool</em>) – whether atom is frozen</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – atom name</p></li>
+<li><p><strong>tags</strong> (<em>list</em>) – misc. data</p></li>
+<li><p><strong>charge</strong> (<em>float</em>) – partial charge of atom</p></li>
+<li><p><strong>mass</strong> (<em>float</em>) – mass of atom</p></li>
 </ul>
 </dd>
 </dl>
@@ -290,12 +284,14 @@ like with scipy.spatial.distance_matrix</p>
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.get_invariant">
 <span class="sig-name descname"><span class="pre">get_invariant</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.get_invariant" title="Permalink to this definition">#</a></dt>
 <dd><p>gets initial invariant, which is formulated using:</p>
-<p># number of non-hydrogen connections (d{1}): nconn
-# sum of bond order of non-hydrogen bonds * 10 (d{2}): nB
-# atomic number (d{3}): z
-# sign of charge (d{1}) (not used)
-# absolute charge (d{1}) (not used)
-# number of attached hydrogens (d{1}): nH</p>
+<ol class="arabic simple">
+<li><p>number of non-hydrogen connections (d{1}): nconn</p></li>
+<li><p>sum of bond order of non-hydrogen bonds * 10 (d{2}): nB</p></li>
+<li><p>atomic number (d{3}): z</p></li>
+<li><p>sign of charge (d{1}) (not used)</p></li>
+<li><p>absolute charge (d{1}) (not used)</p></li>
+<li><p>number of attached hydrogens (d{1}): nH</p></li>
+</ol>
 </dd></dl>
 
 <dl class="py method">
@@ -410,9 +406,9 @@ changes by +/- 1</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>str</strong> (<em>old_shape</em>) – vsepr geometry name</p></li>
-<li><p><strong>int</strong> (<em>bond_change</em>) – connectivity (see Atom._connectivity)</p></li>
-<li><p><strong>int</strong> – +1 or -1, indicating that the number of bonds is changing by 1</p></li>
+<li><p><strong>old_shape</strong> (<em>str</em>) – vsepr geometry name</p></li>
+<li><p><strong>new_connectivity</strong> (<em>int</em>) – connectivity (see Atom._connectivity)</p></li>
+<li><p><strong>bond_change</strong> (<em>int</em>) – +1 or -1, indicating that the number of bonds is changing by 1</p></li>
 </ul>
 </dd>
 </dl>

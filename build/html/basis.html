@@ -158,10 +158,6 @@
   <p class="caption" role="heading"><span class="caption-text">Pages:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html#any-os-using-pip">Any OS, using pip</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html#download-from-github">Download from GitHub</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html#set-up-environment">Set up environment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html#windows-10">Windows 10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tut_list.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cls.html">Command Line Scripts</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="api.html">Python API Documentation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
@@ -223,26 +219,21 @@
 <dt class="field-odd">Has attributes<span class="colon">:</span></dt>
 <dd class="field-odd"><p></p></dd>
 </dl>
-<ul class="simple">
+<ul>
 <li><p>name          - same as initialization keyword</p></li>
 <li><p>elements      - same as initialization keyword</p></li>
 <li><p>aux_type      - same as initialization keyword</p></li>
-<li><dl class="simple">
-<dt>elements      - list of element symbols for elements this basis applies to</dt><dd><p>updated with Basis.refresh_elements
-Basis.refresh_elements is called when writing an input file</p>
-</dd>
-</dl>
+<li><p>elements      - list of element symbols for elements this basis applies to
+updated with Basis.refresh_elements</p>
+<p>Basis.refresh_elements is called when writing an input file</p>
 </li>
 <li><p>ele_selection - list of finders used to determine which elements this basis applies to</p></li>
 <li><p>not_anys      - list of finders used to determine which elements this basis does not apply to</p></li>
 <li><p>ONIOM-only attributes:</p></li>
 <li><p>oniom_layer   - same as initialization keyword</p></li>
 <li><p>atom_selection - list of finders used to determine which atoms this basis applies to</p></li>
-<li><dl class="simple">
-<dt>atoms         - list of atoms this basis applies to</dt><dd><p>updated with Bases.refresh_atoms</p>
-</dd>
-</dl>
-</li>
+<li><p>atoms         - list of atoms this basis applies to
+updated with Bases.refresh_atoms</p></li>
 <li><p>default_notany_atoms - finder for atoms that are not in the given layer</p></li>
 </ul>
 <dl class="py method">
@@ -251,18 +242,18 @@ Basis.refresh_elements is called when writing an input file</p>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>str</strong> (<em>name</em>) – basis set base name (e.g. 6-31G)</p></li>
-<li><p><strong>list</strong><strong>(</strong><strong>str</strong><strong>)</strong> (<em>elements</em>) – list of element symbols or finders to determine the basis set applies to
+<li><p><strong>name</strong> (<em>str</em>) – basis set base name (e.g. 6-31G)</p></li>
+<li><p><strong>elements</strong> (<em>list</em><em>(</em><em>str</em><em>)</em>) – list of element symbols or finders to determine the basis set applies to
 elements may also be ‘tm’ or ‘all’ to indicate any transition metal and
 all elements, respectively
 elements may start with ‘!’ to exclude that element from the basis
 for example, elements=’!H’ will apply to default elements, minus H</p></li>
-<li><p><strong>str</strong><strong>|</strong><strong>None</strong> (<em>aux_type</em>) – <ul>
+<li><p><strong>aux_type</strong> (<em>str</em><em>|</em><em>None</em>) – <ul>
 <li><p>ORCA: one of BasisSet.ORCA_AUX</p></li>
 <li><p>Psi4: one of BasisSet.PSI4_AUX</p></li>
 </ul>
 </p></li>
-<li><p><strong>str</strong><strong>|</strong><strong>bool</strong> (<em>user_defined</em>) – path to file containing basis info from basissetexchange.org
+<li><p><strong>user_defined</strong> (<em>str</em><em>|</em><em>bool</em>) – path to file containing basis info from basissetexchange.org
 or similar
 False for builtin basis sets</p></li>
 </ul>
@@ -272,7 +263,7 @@ False for builtin basis sets</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>str</strong><strong>|</strong><strong>None</strong> (<em>oniom_layer</em>) – must be ‘H’, ‘M’, or ‘L’ if not None</p></li>
+<li><p><strong>oniom_layer</strong> (<em>str</em><em>|</em><em>None</em>) – must be ‘H’, ‘M’, or ‘L’ if not None</p></li>
 <li><p><strong>atoms</strong> – list of finders or ‘tm’ to determine what atoms the basis set applies to</p></li>
 </ul>
 </dd>
@@ -327,8 +318,8 @@ that are built-in to the specified program</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>str</strong> (<em>program</em>) – keyword of basis set (e.g. def2SVP)</p></li>
-<li><p><strong>str</strong> – program name (gaussian, psi4, etc.)</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – keyword of basis set (e.g. def2SVP)</p></li>
+<li><p><strong>program</strong> (<em>str</em>) – program name (gaussian, psi4, etc.)</p></li>
 </ul>
 </dd>
 </dl>
@@ -346,18 +337,18 @@ that are built-in to the specified program</p>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>str</strong> (<em>name</em>) – basis set base name (e.g. 6-31G)</p></li>
-<li><p><strong>list</strong><strong>(</strong><strong>str</strong><strong>)</strong> (<em>elements</em>) – list of element symbols or finders to determine the basis set applies to
+<li><p><strong>name</strong> (<em>str</em>) – basis set base name (e.g. 6-31G)</p></li>
+<li><p><strong>elements</strong> (<em>list</em><em>(</em><em>str</em><em>)</em>) – list of element symbols or finders to determine the basis set applies to
 elements may also be ‘tm’ or ‘all’ to indicate any transition metal and
 all elements, respectively
 elements may start with ‘!’ to exclude that element from the basis
 for example, elements=’!H’ will apply to default elements, minus H</p></li>
-<li><p><strong>str</strong><strong>|</strong><strong>None</strong> (<em>aux_type</em>) – <ul>
+<li><p><strong>aux_type</strong> (<em>str</em><em>|</em><em>None</em>) – <ul>
 <li><p>ORCA: one of BasisSet.ORCA_AUX</p></li>
 <li><p>Psi4: one of BasisSet.PSI4_AUX</p></li>
 </ul>
 </p></li>
-<li><p><strong>str</strong><strong>|</strong><strong>bool</strong> (<em>user_defined</em>) – path to file containing basis info from basissetexchange.org
+<li><p><strong>user_defined</strong> (<em>str</em><em>|</em><em>bool</em>) – path to file containing basis info from basissetexchange.org
 or similar
 False for builtin basis sets</p></li>
 </ul>
@@ -367,7 +358,7 @@ False for builtin basis sets</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>str</strong><strong>|</strong><strong>None</strong> (<em>oniom_layer</em>) – must be ‘H’, ‘M’, or ‘L’ if not None</p></li>
+<li><p><strong>oniom_layer</strong> (<em>str</em><em>|</em><em>None</em>) – must be ‘H’, ‘M’, or ‘L’ if not None</p></li>
 <li><p><strong>atoms</strong> – list of finders or ‘tm’ to determine what atoms the basis set applies to</p></li>
 </ul>
 </dd>
@@ -382,8 +373,8 @@ that are built-in to the specified program</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>str</strong> (<em>program</em>) – keyword of basis set (e.g. def2SVP)</p></li>
-<li><p><strong>str</strong> – program name (gaussian, psi4, etc.)</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – keyword of basis set (e.g. def2SVP)</p></li>
+<li><p><strong>program</strong> (<em>str</em>) – program name (gaussian, psi4, etc.)</p></li>
 </ul>
 </dd>
 </dl>
@@ -452,7 +443,7 @@ ecp - ECP</p>
 <span class="sig-name descname"><span class="pre">get_psi4_basis_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sapt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.BasisSet.get_psi4_basis_info" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>bool</strong> (<em>sapt</em>) – use df_basis_sapt instead of df_basis_scf for jk basis</p>
+<dd class="field-odd"><p><strong>sapt</strong> (<em>bool</em>) – use df_basis_sapt instead of df_basis_scf for jk basis</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>dict for get_psi4_header</p>

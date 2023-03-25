@@ -158,10 +158,6 @@
   <p class="caption" role="heading"><span class="caption-text">Pages:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html#any-os-using-pip">Any OS, using pip</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html#download-from-github">Download from GitHub</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html#set-up-environment">Set up environment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html#windows-10">Windows 10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tut_list.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cls.html">Command Line Scripts</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="api.html">Python API Documentation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
@@ -348,12 +344,12 @@ string.</p>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>Geometry</strong> (<em>geom</em>) – structure</p></li>
-<li><p><strong>str</strong> (<em>style</em>) – program name</p></li>
-<li><p><strong>dict</strong> (<em>kwargs</em>) – see Theory.make_header</p></li>
-<li><p><strong>bool</strong> (<em>sanity_check_method</em>) – check if method is available in recent version
+<li><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – structure</p></li>
+<li><p><strong>style</strong> (<em>str</em>) – program name</p></li>
+<li><p><strong>conditional_kwargs</strong> (<em>dict</em>) – see Theory.make_header</p></li>
+<li><p><strong>sanity_check_method</strong> (<em>bool</em>) – check if method is available in recent version
 of the target software package (Psi4 only)</p></li>
-<li><p><strong>dict</strong> – see AaronTools.theory parameters for more details</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em>) – see AaronTools.theory parameters for more details</p></li>
 </ul>
 </dd>
 </dl>
@@ -365,9 +361,9 @@ of the target software package (Psi4 only)</p></li>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>Geometry</strong> (<em>geom</em>) – structure:</p></li>
-<li><p><strong>str</strong> (<em>style</em>) – file format (e.g. gaussian, orca, psi4, oniom, or sqm)</p></li>
-<li><p><strong>dict</strong> (<em>kwargs</em>) – <p>keys are ORCA_*, PSI4_*, or GAUSSIAN_*</p>
+<li><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – structure</p></li>
+<li><p><strong>style</strong> (<em>str</em>) – file format (e.g. gaussian, orca, psi4, oniom, or sqm)</p></li>
+<li><p><strong>conditional_kwargs</strong> (<em>dict</em>) – <p>keys are ORCA_*, PSI4_*, or GAUSSIAN_*</p>
 <p>items in conditional_kwargs will only be added
 to the input if they would otherwise be preset.
 For example, if self.job_type is FrequencyJob and a Gaussian
@@ -376,10 +372,10 @@ conditional_kwargs = {GAUSSIAN_ROUTE:{‘opt’:[‘noeigentest’]}}
 will not add opt=noeigentest to the route
 but if it’s an OptimizationJob, it will add opt=noeigentest</p>
 </p></li>
-<li><p><strong>bool</strong> (<em>sanity_check_method</em>) – check if method is available in recent version
+<li><p><strong>sanity_check_method</strong> (<em>bool</em>) – check if method is available in recent version
 of the target software package (Psi4 checks when its
 footer is created)</p></li>
-<li><p><strong>dict</strong> – see AaronTools.theory parameters for more details</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em>) – see AaronTools.theory parameters for more details</p></li>
 </ul>
 </dd>
 </dl>
@@ -391,11 +387,11 @@ footer is created)</p></li>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>Geometry</strong> (<em>geom</em>) – structure</p></li>
-<li><p><strong>str</strong> (<em>style</em>) – gaussian, psi4, or sqm</p></li>
-<li><p><strong>dict</strong> (<em>kwargs</em>) – theory parameters, which will
+<li><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – structure</p></li>
+<li><p><strong>style</strong> (<em>str</em>) – gaussian, psi4, or sqm</p></li>
+<li><p><strong>conditional_kwargs</strong> (<em>dict</em>) – theory parameters, which will
 only be added if the corresponding section is used elsewhere</p></li>
-<li><p><strong>dict</strong> – see AaronTools.theory parameters for more details</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em>) – see AaronTools.theory parameters for more details</p></li>
 </ul>
 </dd>
 </dl>
