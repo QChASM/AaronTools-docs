@@ -22,7 +22,7 @@ copyright = '2023, V. M. Ingman, A. J. Schaefer, L. R. Andreola, and S. E. Wheel
 author = 'V. M. Ingman, A. J. Schaefer, L. R. Andreola, and S. E. Wheeler'
 
 # The full version, including alpha/beta/rc tags
-release = '1.0b18'
+release = '1.0b19'
 
 
 # -- General configuration ---------------------------------------------------

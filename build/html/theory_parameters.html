@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="AaronTools’s Atom class" href="atoms.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="AaronTools’s IntegrationGrid class" href="integration_grid.html" />
 
     <!-- Generated with Sphinx 6.1.3 and Furo 2023.03.23 -->
-        <title>AaronTools 1.0b19 documentation</title>
+        <title>Theory parameters - AaronTools 1.0b19 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="#"><div class="brand">AaronTools 1.0b19 documentation</div></a>
+      <a href="index.html"><div class="brand">AaronTools 1.0b19 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -143,7 +143,7 @@
   <aside class="sidebar-drawer">
     <div class="sidebar-container">
       
-      <div class="sidebar-sticky"><a class="sidebar-brand" href="#">
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
   <span class="sidebar-brand-text">AaronTools 1.0b19 documentation</span>
@@ -155,18 +155,18 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="atoms.html">AaronTools’s Atom class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="geometry.html">AaronTools’s Geometry class</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="theory.html">AaronTools’s theory module</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="theory.html">AaronTools’s theory module</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="theory_class.html">AaronTools’s Theory class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="theory_parameters.html">Theory parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="job_types.html">AaronTools’s JobType classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="basis.html">AaronTools’s Basis classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="method.html">AaronTools’s Method classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dispersion.html">AaronTools’s EmpiricalDispersion class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="solvent.html">AaronTools’s ImplicitSolvent class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="integration_grid.html">AaronTools’s IntegrationGrid class</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Theory parameters</a></li>
 </ul>
 </li>
 </ul>
@@ -203,39 +203,93 @@
           </label>
         </div>
         <article role="main">
-          <section id="welcome-to-aarontools-s-documentation">
-<h1>Welcome to AaronTools’s documentation!<a class="headerlink" href="#welcome-to-aarontools-s-documentation" title="Permalink to this heading">#</a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="atoms.html">AaronTools’s Atom class</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="atoms.html#AaronTools.atoms.Atom"><code class="docutils literal notranslate"><span class="pre">Atom</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="geometry.html">AaronTools’s Geometry class</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry"><code class="docutils literal notranslate"><span class="pre">Geometry</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="theory.html">AaronTools’s theory module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="theory_class.html">AaronTools’s Theory class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="theory_parameters.html">Theory parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="job_types.html">AaronTools’s JobType classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="basis.html">AaronTools’s Basis classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="method.html">AaronTools’s Method classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dispersion.html">AaronTools’s EmpiricalDispersion class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="solvent.html">AaronTools’s ImplicitSolvent class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="integration_grid.html">AaronTools’s IntegrationGrid class</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</section>
-<section id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading">#</a></h1>
+          <section id="module-AaronTools.theory">
+<span id="theory-parameters"></span><h1>Theory parameters<a class="headerlink" href="#module-AaronTools.theory" title="Permalink to this heading">#</a></h1>
+<p>Theory methods that construct headers, footers, or molecule specifications
+can take some keyword arguments (i.e. <cite>**kwargs</cite>).
+For these methods, you can use the parameters below. 
+The value should be as specified.</p>
+<dl class="field-list simple">
+<dt class="field-odd">ORCA<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
 <ul class="simple">
-<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
-<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+<li><p>ORCA_ROUTE: list(str)</p></li>
+<li><p>ORCA_BLOCKS: dict(list(str)) - keys are block names minus %</p></li>
+<li><p>ORCA_COORDINATES: ignored</p></li>
+<li><p>ORCA_COMMENT: list(str)</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Psi4<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<ul class="simple">
+<li><p>PSI4_SETTINGS: dict(setting_name: [value])</p></li>
+<li><p>PSI4_BEFORE_GEOM: list(str)</p></li>
+<li><p>PSI4_AFTER_JOB: list(str) $METHOD will be replaced with method name</p></li>
+<li><p>PSI4_COMMENT: list(str)</p></li>
+<li><p>PSI4_MOLECULE: dict(str:list(str)) e.g. {‘symmetry’: [‘c1’]}</p></li>
+<li><dl class="simple">
+<dt>PSI4_COORDINATES: dict() with keys:</dt><dd><p>‘coords’ - array of coordinates with one item for each atom
+‘variables’ - list of name (str), value (float), is_angstrom (bool) tuples
+this is ignored if using a SAPTMethod with a low-spin combination
+of monomers</p>
+</dd>
+</dl>
+</li>
+<li><p>PSI4_JOB: dict(optimize/frequencies/etc: list(str $METHOD replaced w/ method))</p></li>
+<li><p>PSI4_OPTKING: dict(setting_name: [value])</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Gaussian<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<ul class="simple">
+<li><p>GAUSSIAN_PRE_ROUTE: dict(list(str)) - keys are link0 minus %</p></li>
+<li><p>GAUSSIAN_ROUTE: dict(list(str)) - e.g. {‘opt’: [‘NoEigenTest’, ‘Tight’]}</p></li>
+<li><p>GAUSSIAN_COORDINATES: list of coordinates and variables/constants</p></li>
+<li><p>GAUSSIAN_CONSTRAINTS: list(str)</p></li>
+<li><p>GAUSSIAN_GEN_BASIS: list(str) - only filled by BasisSet automatically when writing footer</p></li>
+<li><p>GAUSSIAN_GEN_ECP: list(str) - only filled by BasisSet automatically when writing footer</p></li>
+<li><p>GAUSSIAN_POST: list(str)</p></li>
+<li><p>GAUSSIAN_COMMENT: list(str)</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">SQM<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<ul class="simple">
+<li><p>SQM_COMMENT: list(str)</p></li>
+<li><p>SQM_QMMM: dict()</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Q-Chem<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<ul class="simple">
+<li><p>QCHEM_MOLECULE: list(str) - $molecule section</p></li>
+<li><p>QCHEM_REM: dict(str:str) - $rem section</p></li>
+<li><p>QCHEM_COMMENT: list(str) - comments</p></li>
+<li><p>QCHEM_SETTINGS: dict(str:str) - all other sections</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">xTB<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<ul class="simple">
+<li><p>XTB_CONTROL_BLOCKS: dict - stuff in xcontrol file</p></li>
+<li><dl class="simple">
+<dt>XTB_COMMAND_LINE: dict(str:list) - command line stuff, values should be </dt><dd><p>emtpy lists if the command line flag (key) has no arguments</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">CREST<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<ul class="simple">
+<li><p>CREST_COMMAND_LINE: crest command line - see XTB_COMMAND_LINE</p></li>
 </ul>
 </section>
 
@@ -244,16 +298,18 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="atoms.html">
+          
+          <a class="prev-page" href="integration_grid.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
-                  <span>Next</span>
+                  <span>Previous</span>
                 </div>
-                <div class="title">AaronTools’s Atom class</div>
+                
+                <div class="title">AaronTools’s IntegrationGrid class</div>
+                
               </div>
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          
         </div>
         <div class="bottom-of-page">
           <div class="left-details">

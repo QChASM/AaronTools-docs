@@ -6,6 +6,7 @@ AaronTools's theory module
     :caption: Contents:
    
     theory_class
+    theory_parameters
     job_types
     basis
     method
@@ -13,7 +14,3 @@ AaronTools's theory module
     solvent
     integration_grid
     
-Theory parameters
-======================================
-
-.. automodule:: AaronTools.theory
