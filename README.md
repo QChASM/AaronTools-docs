@@ -1,13 +1,13 @@
-= AaronTools Documentation =
+# AaronTools Documentation 
 
-This is the documentation for <a href=https://github.com/QChASM/AaronTools.py">AaronTools</a>.
+This is the documentation for <a href="https://github.com/QChASM/AaronTools.py">AaronTools</a>.
 Documentation is built using Sphinx.
 
-== Usage ==
+## Usage
 
 These pages can be found at readthedocs (coming soon<sup>TM</sup>).
 
-== Building Docs ==
+## Building Docs
 
 Requirements (available via pip):
 
