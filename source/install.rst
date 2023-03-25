@@ -6,16 +6,12 @@ Requirements
 -------------
 
 * Python 3.x
-* SciPy >= 0.13.x 
-
+* SciPy ≥ 0.13.x 
 
 Recommended
 ------------
 
-* RDKit - AaronTools can utilize RDKit (if installed) to generate molecular structures
-    (*i.e.* with the fetchMolecule command line script or the :code:`from_string` methods of
-    the :code:`Geometry`, :code:`Substituent`, or :code:`Ring` classes.)
-    Without RDKit, it falls back to the CATCVS database.
+* RDKit - AaronTools can utilize RDKit (if installed) to generate molecular structures (*i.e.* with the fetchMolecule command line script or the :code:`from_string` methods of the :code:`Geometry`, :code:`Substituent`, or :code:`Ring` classes). Without RDKit, it falls back to the CATCVS database.
 * jinja2 - For parsing template files used in job submission routines
 * pdfminer and pdfminer.six - The PDFparse command line script uses these to grab structures from PDF files. 
 * matplotlib - Plotting simulated spectra (IR, Raman, UV/Vis, etc.)
@@ -109,8 +105,8 @@ Download from GitHub
 Command Prompt
 """""""""""""""""""
 
-* Open the Command Prompt. 
-* Clone AaronTools.py from GitHub into a directory named "AaronTools":
+#. Open the Command Prompt. 
+#. Clone AaronTools.py from GitHub into a directory named "AaronTools":
 
 .. code-block:: batch
 
@@ -122,31 +118,38 @@ Command Prompt
 GitHub Desktop
 """"""""""""""""""""
 
-* File &rarr; Clone repository...
-* on the URL tab, enter https://github.com/QChASM/AaronTools.py.git
-* remove the '.py' from the end of the local path, or otherwise select a folder named AaronTools
-* click 'Clone'
+#. File &rarr; Clone repository...
+#. on the URL tab, enter https://github.com/QChASM/AaronTools.py.git
+#. remove the '.py' from the end of the local path, or otherwise select a folder named AaronTools
+#. click 'Clone'
 
 .. image:: images/github_desktop_install.png
 
 Environment setup
 ^^^^^^^^^^^^^^^^^^^^^^
 
-* On the taskbar, search "Edit environment variables for your account". This should bring up the environment variable settings. 
-* If the PYTHONPATH environment variable is not set:
-    * click 'New...'
-    * in the 'Variable name' line, type PYTHONPATH
-    * for the 'Variable value', click 'Browse Directory...' can locate the directory containing Aarontools (C:\\Users\\CoolUser\\QChASM in the command prompt example above).
-    * click 'OK'
-* If the PYTHONPATH environment variable is set:
-    * select PYTHONPATH on the variable list and click 'Edit...'
-    * add a semicolon (;) to the end of the current variable value
-    * type out the path to the directory containing AaronTools (C:\\Users\\CoolUser\\QChASM in the command prompt example above).
-    * click 'OK'
-* Setup your AaronTools libraries
-    * set the AARONLIB environment variable to your AaronTools libraries folder
+#. On the taskbar, search "Edit environment variables for your account". This should bring up the environment variable settings. 
+#. If the PYTHONPATH environment variable is not set:
+    
+    #. click 'New...'
+    #. in the 'Variable name' line, type PYTHONPATH
+    #. for the 'Variable value', click 'Browse Directory...' can locate the directory containing Aarontools (C:\\Users\\CoolUser\\QChASM in the command prompt example above).
+    #. click 'OK'
+    
+#. If the PYTHONPATH environment variable is set:
+    
+    #. select PYTHONPATH on the variable list and click 'Edit...'
+    #. add a semicolon (;) to the end of the current variable value
+    #. type out the path to the directory containing AaronTools (C:\\Users\\CoolUser\\QChASM in the command prompt example above).
+    #. click 'OK'
+    
+#. Setup your AaronTools libraries
+    
+    #. set the AARONLIB environment variable to your AaronTools libraries folder
+    
         * If the variable is not set, it will default to a folder named 'Aaron_libs' in your user folder
-    * Create folders named 'Ligands', 'Subs', and 'Rings' in your AaronTools libraries folder
+        
+    #. Create folders named 'Ligands', 'Subs', and 'Rings' in your AaronTools libraries folder
 
 You may need to associate the .py extension with Python in order to use the AaronTools command line scripts. This can be done by right-clicking on a file with a .py extension, selecting "open with", choose another app, checking "always use this app to open .py files", and locating your Python.
 
