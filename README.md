@@ -21,3 +21,6 @@ Ensure you separate source from build during the quickstart.
 ```sh
 make html
 ```
+
+## Documenting Things
+Read a sphinx tutorial. Basically, the files people modify are all in the build directory. Autodoc automatically adds docstrings if you ask it to. 
