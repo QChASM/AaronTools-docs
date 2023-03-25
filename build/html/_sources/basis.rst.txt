@@ -1,4 +1,4 @@
-AaronTools's Basis classes
+Basis Set classes
 ======================================
 
 .. autoclass:: AaronTools.theory.Basis

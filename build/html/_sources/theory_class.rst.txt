@@ -1,4 +1,4 @@
-AaronTools's Theory class
+``Theory`` class
 ======================================
 
 .. autoclass:: AaronTools.theory.Theory

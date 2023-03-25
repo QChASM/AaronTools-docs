@@ -1,4 +1,4 @@
-AaronTools's ImplicitSolvent class
+``ImplicitSolvent`` class
 ======================================
 
 .. autoclass:: AaronTools.theory.ImplicitSolvent

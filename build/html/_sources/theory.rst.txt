@@ -1,4 +1,4 @@
-AaronTools's theory module
+``theory`` module
 ======================================
 
 .. toctree::

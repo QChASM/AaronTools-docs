@@ -1,4 +1,4 @@
-AaronTools's Atom class
+``Atom`` class
 ======================================
 
 .. autoclass:: AaronTools.atoms.Atom

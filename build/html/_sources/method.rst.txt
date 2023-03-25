@@ -1,4 +1,4 @@
-AaronTools's Method classes
+``Method`` classes
 ======================================
 
 .. autoclass:: AaronTools.theory.Method

@@ -1,4 +1,4 @@
-AaronTools's IntegrationGrid class
+``IntegrationGrid`` class
 ======================================
 
 .. autoclass:: AaronTools.theory.IntegrationGrid

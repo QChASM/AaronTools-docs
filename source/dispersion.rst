@@ -1,4 +1,4 @@
-AaronTools's EmpiricalDispersion class
+``EmpiricalDispersion`` class
 ======================================
 
 .. autoclass:: AaronTools.theory.EmpiricalDispersion

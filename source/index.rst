@@ -6,13 +6,18 @@
 Welcome to AaronTools's documentation!
 ======================================
 
+AaronTools is a Python module for facilitating many tasks in computational quantum chemistry workflows
+
+
 .. toctree::
     :maxdepth: 2
-    :caption: Contents:
-   
-    atoms
-    geometry
-    theory
+    :caption: Pages:
+    
+    install
+    tut_list
+    cls
+    api
+
 
 
 Indices and tables

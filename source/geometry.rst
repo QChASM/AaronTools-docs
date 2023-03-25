@@ -1,4 +1,4 @@
-AaronTools's Geometry class
+``Geometry`` class
 ======================================
 
 .. autoclass:: AaronTools.geometry.Geometry

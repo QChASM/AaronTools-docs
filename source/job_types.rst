@@ -1,4 +1,4 @@
-AaronTools's JobType classes
+``JobType`` classes
 ======================================
 
 .. automodule:: AaronTools.theory.job_types

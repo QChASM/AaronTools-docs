@@ -3,12 +3,13 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="AaronTools’s IntegrationGrid class" href="integration_grid.html" /><link rel="prev" title="AaronTools’s EmpiricalDispersion class" href="dispersion.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="IntegrationGrid class" href="integration_grid.html" /><link rel="prev" title="EmpiricalDispersion class" href="dispersion.html" />
 
     <!-- Generated with Sphinx 6.1.3 and Furo 2023.03.23 -->
-        <title>AaronTools’s ImplicitSolvent class - AaronTools 1.0b19 documentation</title>
+        <title>ImplicitSolvent class - AaronTools 1.0b19 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
     
@@ -154,21 +155,31 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+  <p class="caption" role="heading"><span class="caption-text">Pages:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="atoms.html">AaronTools’s Atom class</a></li>
-<li class="toctree-l1"><a class="reference internal" href="geometry.html">AaronTools’s Geometry class</a></li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="theory.html">AaronTools’s theory module</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="theory_class.html">AaronTools’s Theory class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="job_types.html">AaronTools’s JobType classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="basis.html">AaronTools’s Basis classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="method.html">AaronTools’s Method classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dispersion.html">AaronTools’s EmpiricalDispersion class</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">AaronTools’s ImplicitSolvent class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="integration_grid.html">AaronTools’s IntegrationGrid class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html#any-os-using-pip">Any OS, using pip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html#download-from-github">Download from GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html#set-up-environment">Set up environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html#windows-10">Windows 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tut_list.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cls.html">Command Line Scripts</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="api.html">Python API Documentation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="atoms.html"><code class="docutils literal notranslate"><span class="pre">Atom</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometry.html"><code class="docutils literal notranslate"><span class="pre">Geometry</span></code> class</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="theory.html"><code class="docutils literal notranslate"><span class="pre">theory</span></code> module</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="theory_class.html"><code class="docutils literal notranslate"><span class="pre">Theory</span></code> class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory_parameters.html">Theory parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="job_types.html"><code class="docutils literal notranslate"><span class="pre">JobType</span></code> classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="basis.html">Basis Set classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="method.html"><code class="docutils literal notranslate"><span class="pre">Method</span></code> classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dispersion.html"><code class="docutils literal notranslate"><span class="pre">EmpiricalDispersion</span></code> class</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">ImplicitSolvent</span></code> class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="integration_grid.html"><code class="docutils literal notranslate"><span class="pre">IntegrationGrid</span></code> class</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="theory.html#module-AaronTools.theory">Theory parameters</a></li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -203,8 +214,8 @@
           </label>
         </div>
         <article role="main">
-          <section id="aarontools-s-implicitsolvent-class">
-<h1>AaronTools’s ImplicitSolvent class<a class="headerlink" href="#aarontools-s-implicitsolvent-class" title="Permalink to this heading">#</a></h1>
+          <section id="implicitsolvent-class">
+<h1><code class="docutils literal notranslate"><span class="pre">ImplicitSolvent</span></code> class<a class="headerlink" href="#implicitsolvent-class" title="Permalink to this heading">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="AaronTools.theory.ImplicitSolvent">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.</span></span><span class="sig-name descname"><span class="pre">ImplicitSolvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">solvent_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solvent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.ImplicitSolvent" title="Permalink to this definition">#</a></dt>
@@ -260,7 +271,7 @@
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">AaronTools’s IntegrationGrid class</div>
+                <div class="title"><code class="docutils literal notranslate"><span class="pre">IntegrationGrid</span></code> class</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -271,7 +282,7 @@
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">AaronTools’s EmpiricalDispersion class</div>
+                <div class="title"><code class="docutils literal notranslate"><span class="pre">EmpiricalDispersion</span></code> class</div>
                 
               </div>
             </a>
@@ -305,7 +316,7 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">AaronTools’s ImplicitSolvent class</a><ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">ImplicitSolvent</span></code> class</a><ul>
 <li><a class="reference internal" href="#AaronTools.theory.ImplicitSolvent"><code class="docutils literal notranslate"><span class="pre">ImplicitSolvent</span></code></a><ul>
 <li><a class="reference internal" href="#AaronTools.theory.ImplicitSolvent.__init__"><code class="docutils literal notranslate"><span class="pre">ImplicitSolvent.__init__()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.theory.ImplicitSolvent.get_gaussian"><code class="docutils literal notranslate"><span class="pre">ImplicitSolvent.get_gaussian()</span></code></a></li>
@@ -329,5 +340,7 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/scripts/furo.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
     </body>
 </html>
