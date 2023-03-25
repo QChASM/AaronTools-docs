@@ -266,11 +266,16 @@ To <strong>disable all remote connections</strong> set</p>
 </section>
 <section id="linux-mac">
 <h2>Linux/Mac<a class="headerlink" href="#linux-mac" title="Permalink to this heading">#</a></h2>
+<section id="download-from-github">
+<h3>Download from GitHub<a class="headerlink" href="#download-from-github" title="Permalink to this heading">#</a></h3>
 <p>Clone AaronTools.py from GitHub into a directory named “AaronTools”.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/QChASM
 git<span class="w"> </span>clone<span class="w"> </span>https://github.com/QChASM/AaronTools.py.git<span class="w"> </span>AaronTools
 </pre></div>
 </div>
+</section>
+<section id="set-up-environment">
+<h3>Set up environment<a class="headerlink" href="#set-up-environment" title="Permalink to this heading">#</a></h3>
 <p>In your <code class="code docutils literal notranslate"><span class="pre">.bashrc</span></code> or similar:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span>/home/<span class="nv">$USER</span>/QChASM/:<span class="nv">$PYTHONPATH</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">AARONLIB</span><span class="o">=</span>/home/<span class="nv">$USER</span>/Aaron_libs
@@ -290,8 +295,13 @@ environment variable. In your shell’s startup file (<em>e.g.</em> <code class=
 </pre></div>
 </div>
 </section>
+</section>
 <section id="windows-10">
 <h2>Windows 10<a class="headerlink" href="#windows-10" title="Permalink to this heading">#</a></h2>
+<section id="id1">
+<h3>Download from GitHub<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<section id="command-prompt">
+<h4>Command Prompt<a class="headerlink" href="#command-prompt" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Open the Command Prompt.</p></li>
 <li><p>Clone AaronTools.py from GitHub into a directory named “AaronTools”:</p></li>
@@ -302,6 +312,9 @@ C<span class="p">:</span><span class="nl">\Users\CoolUser</span><span class="c1"
 C<span class="p">:</span><span class="nl">\Users\CoolUser\QChASM</span><span class="c1">&gt;git clone https://github.com/QChASM/AaronTools.py.git AaronTools</span>
 </pre></div>
 </div>
+</section>
+<section id="github-desktop">
+<h4>GitHub Desktop<a class="headerlink" href="#github-desktop" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>File &amp;rarr; Clone repository…</p></li>
 <li><p>on the URL tab, enter <a class="reference external" href="https://github.com/QChASM/AaronTools.py.git">https://github.com/QChASM/AaronTools.py.git</a></p></li>
@@ -309,6 +322,10 @@ C<span class="p">:</span><span class="nl">\Users\CoolUser\QChASM</span><span cla
 <li><p>click ‘Clone’</p></li>
 </ul>
 <img alt="_images/github_desktop_install.png" src="_images/github_desktop_install.png" />
+</section>
+</section>
+<section id="environment-setup">
+<h3>Environment setup<a class="headerlink" href="#environment-setup" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>On the taskbar, search “Edit environment variables for your account”. This should bring up the environment variable settings.</p></li>
 <li><dl class="simple">
@@ -347,6 +364,7 @@ C<span class="p">:</span><span class="nl">\Users\CoolUser\QChASM</span><span cla
 </li>
 </ul>
 <p>You may need to associate the .py extension with Python in order to use the AaronTools command line scripts. This can be done by right-clicking on a file with a .py extension, selecting “open with”, choose another app, checking “always use this app to open .py files”, and locating your Python.</p>
+</section>
 </section>
 <section id="testing-installation">
 <h2>Testing installation<a class="headerlink" href="#testing-installation" title="Permalink to this heading">#</a></h2>
@@ -419,8 +437,20 @@ C<span class="p">:</span><span class="nl">\Users\CoolUser\QChASM</span><span cla
 <li><a class="reference internal" href="#security-external-connections">Security/External Connections</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#linux-mac">Linux/Mac</a></li>
-<li><a class="reference internal" href="#windows-10">Windows 10</a></li>
+<li><a class="reference internal" href="#linux-mac">Linux/Mac</a><ul>
+<li><a class="reference internal" href="#download-from-github">Download from GitHub</a></li>
+<li><a class="reference internal" href="#set-up-environment">Set up environment</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#windows-10">Windows 10</a><ul>
+<li><a class="reference internal" href="#id1">Download from GitHub</a><ul>
+<li><a class="reference internal" href="#command-prompt">Command Prompt</a></li>
+<li><a class="reference internal" href="#github-desktop">GitHub Desktop</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#environment-setup">Environment setup</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#testing-installation">Testing installation</a></li>
 </ul>
 </li>

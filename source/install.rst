@@ -1,14 +1,16 @@
 Installation Guide
 ==================
 
+
 Requirements
-*************
+-------------
 
 * Python 3.x
 * SciPy >= 0.13.x 
 
+
 Recommended
-***********
+------------
 
 * RDKit - AaronTools can utilize RDKit (if installed) to generate molecular structures
     (*i.e.* with the fetchMolecule command line script or the :code:`from_string` methods of
@@ -18,8 +20,9 @@ Recommended
 * pdfminer and pdfminer.six - The PDFparse command line script uses these to grab structures from PDF files. 
 * matplotlib - Plotting simulated spectra (IR, Raman, UV/Vis, etc.)
 
+
 Any OS, using pip
-*****************
+------------------
 
 .. code-block:: bash
     
@@ -36,7 +39,7 @@ One way to find this is by running:
     python -c "import sys; import os; print(os.path.dirname(sys.executable))"
 
 Install with optional dependencies
-##################################
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
 
@@ -44,7 +47,7 @@ Install with optional dependencies
 
 
 Security/External Connections
-#############################
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Unless RDKit is installed and accessible, AaronTools will try to connect to external servers for
 the generation of structures from IUPAC names and SMILES.
@@ -55,12 +58,11 @@ To **disable all remote connections** set
 in $QCHASM/AaronTools/config.ini
 
 
-
 Linux/Mac
-*********
+-----------
 
 Download from GitHub
---------------------
+^^^^^^^^^^^^^^^^^^^^^^
 
 Clone AaronTools.py from GitHub into a directory named "AaronTools". 
 
@@ -71,7 +73,7 @@ Clone AaronTools.py from GitHub into a directory named "AaronTools".
 
 
 Set up environment
-------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 In your :code:`.bashrc` or similar:
 
@@ -99,13 +101,13 @@ environment variable. In your shell's startup file (*e.g.* :code:`.bashrc`):
 
 
 Windows 10
-**********
+-----------------
 
 Download from GitHub
---------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 Command Prompt
-^^^^^^^^^^^^^^
+"""""""""""""""""""
 
 * Open the Command Prompt. 
 * Clone AaronTools.py from GitHub into a directory named "AaronTools":
@@ -118,7 +120,7 @@ Command Prompt
     C:\Users\CoolUser\QChASM>git clone https://github.com/QChASM/AaronTools.py.git AaronTools
 
 GitHub Desktop
-^^^^^^^^^^^^^^
+""""""""""""""""""""
 
 * File &rarr; Clone repository...
 * on the URL tab, enter https://github.com/QChASM/AaronTools.py.git
@@ -128,7 +130,7 @@ GitHub Desktop
 .. image:: images/github_desktop_install.png
 
 Environment setup
------------------
+^^^^^^^^^^^^^^^^^^^^^^
 
 * On the taskbar, search "Edit environment variables for your account". This should bring up the environment variable settings. 
 * If the PYTHONPATH environment variable is not set:
@@ -148,8 +150,9 @@ Environment setup
 
 You may need to associate the .py extension with Python in order to use the AaronTools command line scripts. This can be done by right-clicking on a file with a .py extension, selecting "open with", choose another app, checking "always use this app to open .py files", and locating your Python.
 
+
 Testing installation
-********************
+---------------------
 
 .. code-block:: bash
     
