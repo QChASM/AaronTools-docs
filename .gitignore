@@ -1,6 +1,6 @@
 /build/doctrees/
 build/html/_sources/
-*.pickle
-*.doctree
+**.pickle
+**.doctree
 build/html/.buildinfo
-*.txt
+**.txt

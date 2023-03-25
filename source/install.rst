@@ -90,7 +90,8 @@ If you have not already done so (for example to use the `Perl version of AaronTo
     mkdir $AARONLIB/Subs 
     mkdir $AARONLIB/TS_geoms
 
-To access the AaronTools command line scripts more easily, you can add AaronTools/bin to your PATH environment variable. In your shell's startup file (''e.g.'' .bashrc):
+To access the AaronTools command line scripts more easily, you can add AaronTools/bin to your :code:`PATH`
+environment variable. In your shell's startup file (*e.g.* :code:`.bashrc`):
 
 .. code-block:: bash
 
