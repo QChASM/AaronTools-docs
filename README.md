@@ -14,6 +14,7 @@ Requirements (available via pip):
 * sphinx
 * autodoc
 * furo (the theme)
+* sphinx-copybutton
 
 You make also need to run `sphinx-quickstart` to create the `make` script.
 Ensure you separate source from build during the quickstart.
