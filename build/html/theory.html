@@ -1,0 +1,396 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="AaronTools’s Theory class" href="theory_class.html" /><link rel="prev" title="AaronTools’s Geometry class" href="geometry.html" />
+
+    <!-- Generated with Sphinx 6.1.3 and Furo 2023.03.23 -->
+        <title>AaronTools’s theory module - AaronTools 1.0b18 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">AaronTools 1.0b18 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">AaronTools 1.0b18 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="atoms.html">AaronTools’s Atom class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geometry.html">AaronTools’s Geometry class</a></li>
+<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">AaronTools’s theory module</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="theory_class.html">AaronTools’s Theory class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_types.html">AaronTools’s JobType classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basis.html">AaronTools’s Basis classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="method.html">AaronTools’s Method classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dispersion.html">AaronTools’s EmpiricalDispersion class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="solvent.html">AaronTools’s ImplicitSolvent class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integration_grid.html">AaronTools’s IntegrationGrid class</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#module-AaronTools.theory">Theory parameters</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="aarontools-s-theory-module">
+<h1>AaronTools’s theory module<a class="headerlink" href="#aarontools-s-theory-module" title="Permalink to this heading">#</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="theory_class.html">AaronTools’s Theory class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="theory_class.html#AaronTools.theory.Theory"><code class="docutils literal notranslate"><span class="pre">Theory</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="job_types.html">AaronTools’s JobType classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="job_types.html#AaronTools.theory.job_types.ConformerSearchJob"><code class="docutils literal notranslate"><span class="pre">ConformerSearchJob</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_types.html#AaronTools.theory.job_types.ForceJob"><code class="docutils literal notranslate"><span class="pre">ForceJob</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_types.html#AaronTools.theory.job_types.FrequencyJob"><code class="docutils literal notranslate"><span class="pre">FrequencyJob</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_types.html#AaronTools.theory.job_types.JobType"><code class="docutils literal notranslate"><span class="pre">JobType</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_types.html#AaronTools.theory.job_types.OptimizationJob"><code class="docutils literal notranslate"><span class="pre">OptimizationJob</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_types.html#AaronTools.theory.job_types.SinglePointJob"><code class="docutils literal notranslate"><span class="pre">SinglePointJob</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_types.html#AaronTools.theory.job_types.TDDFTJob"><code class="docutils literal notranslate"><span class="pre">TDDFTJob</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_types.html#AaronTools.theory.job_types.job_from_string"><code class="docutils literal notranslate"><span class="pre">job_from_string()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="basis.html">AaronTools’s Basis classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="basis.html#AaronTools.theory.Basis"><code class="docutils literal notranslate"><span class="pre">Basis</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="basis.html#AaronTools.theory.ECP"><code class="docutils literal notranslate"><span class="pre">ECP</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="basis.html#AaronTools.theory.BasisSet"><code class="docutils literal notranslate"><span class="pre">BasisSet</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="method.html">AaronTools’s Method classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="method.html#AaronTools.theory.Method"><code class="docutils literal notranslate"><span class="pre">Method</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="method.html#AaronTools.theory.SAPTMethod"><code class="docutils literal notranslate"><span class="pre">SAPTMethod</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dispersion.html">AaronTools’s EmpiricalDispersion class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dispersion.html#AaronTools.theory.EmpiricalDispersion"><code class="docutils literal notranslate"><span class="pre">EmpiricalDispersion</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="solvent.html">AaronTools’s ImplicitSolvent class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="solvent.html#AaronTools.theory.ImplicitSolvent"><code class="docutils literal notranslate"><span class="pre">ImplicitSolvent</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="integration_grid.html">AaronTools’s IntegrationGrid class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="integration_grid.html#AaronTools.theory.IntegrationGrid"><code class="docutils literal notranslate"><span class="pre">IntegrationGrid</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="module-AaronTools.theory">
+<span id="theory-parameters"></span><h1>Theory parameters<a class="headerlink" href="#module-AaronTools.theory" title="Permalink to this heading">#</a></h1>
+<p>Theory methods that construct headers, footers, or molecule specifications
+can take some keyword arguments (i.e. <cite>**kwargs</cite>).
+For these methods, you can use the parameters below. 
+The value should be as specified.</p>
+<dl class="field-list simple">
+<dt class="field-odd">ORCA<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<ul class="simple">
+<li><p>ORCA_ROUTE: list(str)</p></li>
+<li><p>ORCA_BLOCKS: dict(list(str)) - keys are block names minus %</p></li>
+<li><p>ORCA_COORDINATES: ignored</p></li>
+<li><p>ORCA_COMMENT: list(str)</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Psi4<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<ul class="simple">
+<li><p>PSI4_SETTINGS: dict(setting_name: [value])</p></li>
+<li><p>PSI4_BEFORE_GEOM: list(str)</p></li>
+<li><p>PSI4_AFTER_JOB: list(str) $METHOD will be replaced with method name</p></li>
+<li><p>PSI4_COMMENT: list(str)</p></li>
+<li><p>PSI4_MOLECULE: dict(str:list(str)) e.g. {‘symmetry’: [‘c1’]}</p></li>
+<li><dl class="simple">
+<dt>PSI4_COORDINATES: dict() with keys:</dt><dd><p>‘coords’ - array of coordinates with one item for each atom
+‘variables’ - list of name (str), value (float), is_angstrom (bool) tuples
+this is ignored if using a SAPTMethod with a low-spin combination
+of monomers</p>
+</dd>
+</dl>
+</li>
+<li><p>PSI4_JOB: dict(optimize/frequencies/etc: list(str $METHOD replaced w/ method))</p></li>
+<li><p>PSI4_OPTKING: dict(setting_name: [value])</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Gaussian<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<ul class="simple">
+<li><p>GAUSSIAN_PRE_ROUTE: dict(list(str)) - keys are link0 minus %</p></li>
+<li><p>GAUSSIAN_ROUTE: dict(list(str)) - e.g. {‘opt’: [‘NoEigenTest’, ‘Tight’]}</p></li>
+<li><p>GAUSSIAN_COORDINATES: list of coordinates and variables/constants</p></li>
+<li><p>GAUSSIAN_CONSTRAINTS: list(str)</p></li>
+<li><p>GAUSSIAN_GEN_BASIS: list(str) - only filled by BasisSet automatically when writing footer</p></li>
+<li><p>GAUSSIAN_GEN_ECP: list(str) - only filled by BasisSet automatically when writing footer</p></li>
+<li><p>GAUSSIAN_POST: list(str)</p></li>
+<li><p>GAUSSIAN_COMMENT: list(str)</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">SQM<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<ul class="simple">
+<li><p>SQM_COMMENT: list(str)</p></li>
+<li><p>SQM_QMMM: dict()</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Q-Chem<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<ul class="simple">
+<li><p>QCHEM_MOLECULE: list(str) - $molecule section</p></li>
+<li><p>QCHEM_REM: dict(str:str) - $rem section</p></li>
+<li><p>QCHEM_COMMENT: list(str) - comments</p></li>
+<li><p>QCHEM_SETTINGS: dict(str:str) - all other sections</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">xTB<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<ul class="simple">
+<li><p>XTB_CONTROL_BLOCKS: dict - stuff in xcontrol file</p></li>
+<li><dl class="simple">
+<dt>XTB_COMMAND_LINE: dict(str:list) - command line stuff, values should be </dt><dd><p>emtpy lists if the command line flag (key) has no arguments</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">CREST<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<ul class="simple">
+<li><p>CREST_COMMAND_LINE: crest command line - see XTB_COMMAND_LINE</p></li>
+</ul>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="theory_class.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">AaronTools’s Theory class</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="geometry.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">AaronTools’s Geometry class</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, V. M. Ingman, A. J. Schaefer, L. R. Andreola, and S. E. Wheeler
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    </body>
+</html>
