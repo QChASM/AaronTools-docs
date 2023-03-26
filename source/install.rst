@@ -118,7 +118,7 @@ Command Prompt
 GitHub Desktop
 """"""""""""""""""""
 
-#. File &rarr; Clone repository...
+#. File → Clone repository...
 #. on the URL tab, enter https://github.com/QChASM/AaronTools.py.git
 #. remove the '.py' from the end of the local path, or otherwise select a folder named AaronTools
 #. click 'Clone'

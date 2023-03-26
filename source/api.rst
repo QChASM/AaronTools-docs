@@ -5,7 +5,18 @@ Python API Documentation
     :maxdepth: 2
     :caption: Pages:
     
-    atoms
     geometry
+    fileIO
+    finders
     theory
+    atoms
+    component
+    substituent
+    rings
+    spectra
+    comp_output
+    job_control
+    json_extension
+    symmetry
+    
     

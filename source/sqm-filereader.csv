@@ -1,0 +1,4 @@
+energy;energy of the system (E\ :sub:`h`\)
+finished;whether the job finished without error
+error;AaronTools error code if the job errored out (currently only UNKNOWN)
+error_msg;error message if the job errored out 

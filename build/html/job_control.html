@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Installation Guide" href="install.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="JSON Caching" href="json_extension.html" /><link rel="prev" title="CompOutput class" href="comp_output.html" />
 
     <!-- Generated with Sphinx 6.1.3 and Furo 2023.03.23 -->
-        <title>AaronTools 1.0b19 documentation</title>
+        <title>SubmitProcess class - AaronTools 1.0b19 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="#"><div class="brand">AaronTools 1.0b19 documentation</div></a>
+      <a href="index.html"><div class="brand">AaronTools 1.0b19 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -135,7 +135,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -144,7 +144,7 @@
   <aside class="sidebar-drawer">
     <div class="sidebar-container">
       
-      <div class="sidebar-sticky"><a class="sidebar-brand" href="#">
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
   <span class="sidebar-brand-text">AaronTools 1.0b19 documentation</span>
@@ -156,11 +156,11 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Pages:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tut_list.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cls.html">Command Line Scripts</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="api.html">Python API Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="api.html">Python API Documentation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="geometry.html"><code class="docutils literal notranslate"><span class="pre">Geometry</span></code> class</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="fileIO.html">Reading and Writing Files</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="filereader.html"><code class="docutils literal notranslate"><span class="pre">FileReader</span></code> class</a></li>
@@ -185,7 +185,7 @@
 <li class="toctree-l2"><a class="reference internal" href="rings.html"><code class="docutils literal notranslate"><span class="pre">Ring</span></code> class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spectra.html">Spectra</a></li>
 <li class="toctree-l2"><a class="reference internal" href="comp_output.html"><code class="docutils literal notranslate"><span class="pre">CompOutput</span></code> class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="job_control.html"><code class="docutils literal notranslate"><span class="pre">SubmitProcess</span></code> class</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">SubmitProcess</span></code> class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="json_extension.html">JSON Caching</a></li>
 <li class="toctree-l2"><a class="reference internal" href="symmetry.html"><code class="docutils literal notranslate"><span class="pre">PointGroup</span></code> class</a></li>
 </ul>
@@ -218,55 +218,90 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <section id="welcome-to-aarontools-s-documentation">
-<h1>Welcome to AaronTools’s documentation!<a class="headerlink" href="#welcome-to-aarontools-s-documentation" title="Permalink to this heading">#</a></h1>
-<p>AaronTools is a Python module for facilitating many tasks in computational quantum chemistry workflows</p>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Pages:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="install.html">Installation Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="install.html#requirements">Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#recommended">Recommended</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#any-os-using-pip">Any OS, using pip</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#linux-mac">Linux/Mac</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#windows-10">Windows 10</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#testing-installation">Testing installation</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="tut_list.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cls.html">Command Line Scripts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">Python API Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="geometry.html"><code class="docutils literal notranslate"><span class="pre">Geometry</span></code> class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fileIO.html">Reading and Writing Files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="finders.html">Finders</a></li>
-<li class="toctree-l2"><a class="reference internal" href="theory.html"><code class="docutils literal notranslate"><span class="pre">theory</span></code> module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="atoms.html"><code class="docutils literal notranslate"><span class="pre">Atom</span></code> class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="component.html"><code class="docutils literal notranslate"><span class="pre">Component</span></code> class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="substituent.html"><code class="docutils literal notranslate"><span class="pre">Substituent</span></code> class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rings.html"><code class="docutils literal notranslate"><span class="pre">Ring</span></code> class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="spectra.html">Spectra</a></li>
-<li class="toctree-l2"><a class="reference internal" href="comp_output.html"><code class="docutils literal notranslate"><span class="pre">CompOutput</span></code> class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="job_control.html"><code class="docutils literal notranslate"><span class="pre">SubmitProcess</span></code> class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="json_extension.html">JSON Caching</a></li>
-<li class="toctree-l2"><a class="reference internal" href="symmetry.html"><code class="docutils literal notranslate"><span class="pre">PointGroup</span></code> class</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</section>
-<section id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading">#</a></h1>
+          <section id="submitprocess-class">
+<h1><code class="docutils literal notranslate"><span class="pre">SubmitProcess</span></code> class<a class="headerlink" href="#submitprocess-class" title="Permalink to this heading">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="AaronTools.job_control.SubmitProcess">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.job_control.</span></span><span class="sig-name descname"><span class="pre">SubmitProcess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">walltime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">template</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.job_control.SubmitProcess" title="Permalink to this definition">#</a></dt>
+<dd><p>class for submitting jobs to the queue
+attributes:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
-<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+<li><p>name:      name of job and input file minus the extension</p></li>
+<li><p>exe        type of input file (com, in, inp)</p></li>
+<li><p>directory  directory the input file is in</p></li>
+<li><p>walltime   allocated walltime in hours</p></li>
+<li><p>processors allocated processors</p></li>
+<li><p>memory     allocated memory in GB</p></li>
+<li><p>template   template job file</p></li>
 </ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.job_control.SubmitProcess.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">walltime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">template</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.job_control.SubmitProcess.__init__" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fname</strong> (<em>str</em>) – path to input file (e.g. /home/CoolUser/CoolStuff/neat.com</p></li>
+<li><p><strong>walltime</strong> (<em>int</em><em>|</em><em>str</em>) – walltime in hours</p></li>
+<li><p><strong>processors</strong> (<em>int</em><em>|</em><em>str</em>) – allocated processors</p></li>
+<li><p><strong>memory</strong> (<em>int</em><em>|</em><em>str</em>) – allocated memory in GB</p></li>
+<li><p><strong>template</strong> (<em>str</em>) – path to template file; if template is None, will look for
+Psi4_template.job, ORCA_template.job, Gaussian_template.job, etc. (depending on
+extension on fname)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.job_control.SubmitProcess.set_template">
+<span class="sig-name descname"><span class="pre">set_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.job_control.SubmitProcess.set_template" title="Permalink to this definition">#</a></dt>
+<dd><p>sets job template to filename</p>
+<p>AARONLIB directories are searched</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.job_control.SubmitProcess.submit">
+<span class="sig-name descname"><span class="pre">submit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">opts</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.job_control.SubmitProcess.submit" title="Permalink to this definition">#</a></dt>
+<dd><p>submit job to the queue</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wait</strong> (<em>bool</em><em>|</em><em>int</em>) – do not leave the function until any job in the directory
+finishes (polled every 5 minutes or ‘wait’ seconds)</p></li>
+<li><p><strong>opts</strong> (<em>dict</em>) – used to render template; keys are template variables (e.g. exec_memory)
+and values are the corresponding values</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.job_control.SubmitProcess.unfinished_jobs_in_dir">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unfinished_jobs_in_dir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.job_control.SubmitProcess.unfinished_jobs_in_dir" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>directory</strong> (<em>str</em>) – directory path</p></li>
+<li><p><strong>retry</strong> (<em>bool</em>) – if there’s an error while checking the queue, sleep 300s and try again</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>jobids for jobs in directory</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list(str) of jobids in directory</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
         </article>
@@ -274,16 +309,26 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="install.html">
+          <a class="next-page" href="json_extension.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Installation Guide</div>
+                <div class="title">JSON Caching</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          
+          <a class="prev-page" href="comp_output.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title"><code class="docutils literal notranslate"><span class="pre">CompOutput</span></code> class</div>
+                
+              </div>
+            </a>
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -302,8 +347,33 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">SubmitProcess</span></code> class</a><ul>
+<li><a class="reference internal" href="#AaronTools.job_control.SubmitProcess"><code class="docutils literal notranslate"><span class="pre">SubmitProcess</span></code></a><ul>
+<li><a class="reference internal" href="#AaronTools.job_control.SubmitProcess.__init__"><code class="docutils literal notranslate"><span class="pre">SubmitProcess.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.job_control.SubmitProcess.set_template"><code class="docutils literal notranslate"><span class="pre">SubmitProcess.set_template()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.job_control.SubmitProcess.submit"><code class="docutils literal notranslate"><span class="pre">SubmitProcess.submit()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.job_control.SubmitProcess.unfinished_jobs_in_dir"><code class="docutils literal notranslate"><span class="pre">SubmitProcess.unfinished_jobs_in_dir()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

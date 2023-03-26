@@ -1,0 +1,19 @@
+ao_types;type of each orbital
+ao_atom_ndx;index of the atom for each atomic orbital
+nao_type;description for the natural orbitals
+ao_occ;orbital occupancies
+ao_nrg;orbital energies
+Natural Charges;partial atomic charges based on natural population analysis
+core_occ;core occupancies
+valence_occ;valence occupancies
+rydberg_occ;Rydberg occupancies
+wiberg_nao;Wiberg bond orders
+wiberg_nao;Wiberg bond orders
+shell_to_atom;maps each shell to an atom
+momentum_label;angular momentum label for each atomic orbital
+orbit_kinds;description for the orbitals (e.g., C 1-O 2 bond)
+alpha_coefficients;orbital coefficients
+funcs_per_shell;number of primitive functions in each shell
+orbitals;Orbitals object
+n_prim_per_shell;number of primitive functions in each shell
+n_prim_per_shell;number of primitive functions in each shell 

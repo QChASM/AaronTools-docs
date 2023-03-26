@@ -1,0 +1,43 @@
+energy;energy of the system (E\ :sub:`h`\)
+scf_energy;energy from SCF (E\ :sub:`h`\) - might not include dispersion corrections
+SOC CIS/TD root energy;TD energy for the specified root from a TD-DFT computation with SOC
+CIS/TD root energy;TD energy for the specified root from a TD-DFT computation
+X correlation energy;correlation energy from X method (e.g., MP2)
+forces;force vectors for each atom in E\ :sub:`h`\/Bohr
+frequency;Frequency object for the vibrational modes
+temperature;temperature for thermochemistry
+mass;mass of the system in kg
+charge;charge of the system
+multiplicity;spin multiplicity of the system
+rotational_symmetry_number;rotational symmetry number
+ZPVE;zero-point energy correction in E\ :sub:`h`\
+enthalpy;enthalpy in E\ :sub:`h`\
+free_energy;free energy in E\ :sub:`h`\ (ORCA prints Quasi-RRHO)
+rotational_temperature;rotational constants in K
+full_point_group;point group
+gradient;optimization convergence status
+Löwdin Charges;partial atomic charges based on Löwdin population analysis
+Mulliken Charges;partial atomic charges based on Mulliken population analysis
+basis_set_by_ele;basis set parameters for each element
+n_basis;number of basis functions
+SOC GS stabilization energy;ground state stabilization due to SOC (E\ :sub:`h`\)
+soc x;X component of the SOC (cm\ :sup:`-1`\)
+soc y;Y component of the SOC (cm\ :sup:`-1`\)
+soc z;Z component of the SOC (cm\ :sup:`-1`\)
+soc (cm^-1);magnitude of the SOC for each pair of roots from TD-DFT (cm\ :sup:`-1`\)
+uv_vis;ValenceExciations object for excitation data
+alpha_coefficients;alpha molecular orbital coefficients
+beta_coefficients;beta molecular orbital coefficients
+alpha_nrgs;alpha molecular orbital energies
+beta_nrgs;beta molecular orbital energies
+alpha_occupancies;molecular orbital occupancies
+beta_occupancies;molecular orbital occupancies
+shell_to_atom;maps each basis set function to an atom index
+n_alpha;number of alpha electrons
+n_beta;number of beta electrons
+opt_steps;number of optimization steps
+ao_overlap;atomic orbital overlap matrix
+finished;whether the job finished without error
+error;AaronTools error code if the job errored out
+error_msg;error message if the job errored out
+orbitals;Orbitals instace 

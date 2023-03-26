@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Atom class" href="atoms.html" /><link rel="prev" title="Command Line Scripts" href="cls.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Geometry class" href="geometry.html" /><link rel="prev" title="Command Line Scripts" href="cls.html" />
 
     <!-- Generated with Sphinx 6.1.3 and Furo 2023.03.23 -->
         <title>Python API Documentation - AaronTools 1.0b19 documentation</title>
@@ -161,9 +161,14 @@
 <li class="toctree-l1"><a class="reference internal" href="tut_list.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cls.html">Command Line Scripts</a></li>
 <li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Python API Documentation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="atoms.html"><code class="docutils literal notranslate"><span class="pre">Atom</span></code> class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geometry.html"><code class="docutils literal notranslate"><span class="pre">Geometry</span></code> class</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="theory.html"><code class="docutils literal notranslate"><span class="pre">theory</span></code> module</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="fileIO.html">Reading and Writing Files</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="filereader.html"><code class="docutils literal notranslate"><span class="pre">FileReader</span></code> class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="filewriter.html"><code class="docutils literal notranslate"><span class="pre">FileWriter</span></code> class</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="finders.html">Finders</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="theory.html"><code class="docutils literal notranslate"><span class="pre">theory</span></code> module</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="theory_class.html"><code class="docutils literal notranslate"><span class="pre">Theory</span></code> class</a></li>
 <li class="toctree-l3"><a class="reference internal" href="theory_parameters.html">Theory parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="job_types.html"><code class="docutils literal notranslate"><span class="pre">JobType</span></code> classes</a></li>
@@ -174,6 +179,15 @@
 <li class="toctree-l3"><a class="reference internal" href="integration_grid.html"><code class="docutils literal notranslate"><span class="pre">IntegrationGrid</span></code> class</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="atoms.html"><code class="docutils literal notranslate"><span class="pre">Atom</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="component.html"><code class="docutils literal notranslate"><span class="pre">Component</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="substituent.html"><code class="docutils literal notranslate"><span class="pre">Substituent</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rings.html"><code class="docutils literal notranslate"><span class="pre">Ring</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spectra.html">Spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="comp_output.html"><code class="docutils literal notranslate"><span class="pre">CompOutput</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_control.html"><code class="docutils literal notranslate"><span class="pre">SubmitProcess</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json_extension.html">JSON Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="symmetry.html"><code class="docutils literal notranslate"><span class="pre">PointGroup</span></code> class</a></li>
 </ul>
 </li>
 </ul>
@@ -215,12 +229,41 @@
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Pages:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="atoms.html"><code class="docutils literal notranslate"><span class="pre">Atom</span></code> class</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="atoms.html#AaronTools.atoms.Atom"><code class="docutils literal notranslate"><span class="pre">Atom</span></code></a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="geometry.html"><code class="docutils literal notranslate"><span class="pre">Geometry</span></code> class</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry"><code class="docutils literal notranslate"><span class="pre">Geometry</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fileIO.html">Reading and Writing Files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="filereader.html"><code class="docutils literal notranslate"><span class="pre">FileReader</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filewriter.html"><code class="docutils literal notranslate"><span class="pre">FileWriter</span></code> class</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="finders.html">Finders</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="finders.html#AaronTools.finders.AmideCarbon"><code class="docutils literal notranslate"><span class="pre">AmideCarbon</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="finders.html#AaronTools.finders.AnyNonTransitionMetal"><code class="docutils literal notranslate"><span class="pre">AnyNonTransitionMetal</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="finders.html#AaronTools.finders.AnyTransitionMetal"><code class="docutils literal notranslate"><span class="pre">AnyTransitionMetal</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="finders.html#AaronTools.finders.Aromatics"><code class="docutils literal notranslate"><span class="pre">Aromatics</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="finders.html#AaronTools.finders.BondedElements"><code class="docutils literal notranslate"><span class="pre">BondedElements</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="finders.html#AaronTools.finders.BondedTo"><code class="docutils literal notranslate"><span class="pre">BondedTo</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="finders.html#AaronTools.finders.BondsFrom"><code class="docutils literal notranslate"><span class="pre">BondsFrom</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="finders.html#AaronTools.finders.Bridgehead"><code class="docutils literal notranslate"><span class="pre">Bridgehead</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="finders.html#AaronTools.finders.ChiralCenters"><code class="docutils literal notranslate"><span class="pre">ChiralCenters</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="finders.html#AaronTools.finders.ChiralCentres"><code class="docutils literal notranslate"><span class="pre">ChiralCentres</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="finders.html#AaronTools.finders.CloserTo"><code class="docutils literal notranslate"><span class="pre">CloserTo</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="finders.html#AaronTools.finders.FlaggedAtoms"><code class="docutils literal notranslate"><span class="pre">FlaggedAtoms</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="finders.html#AaronTools.finders.HasAttribute"><code class="docutils literal notranslate"><span class="pre">HasAttribute</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="finders.html#AaronTools.finders.IsElement"><code class="docutils literal notranslate"><span class="pre">IsElement</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="finders.html#AaronTools.finders.NotAny"><code class="docutils literal notranslate"><span class="pre">NotAny</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="finders.html#AaronTools.finders.NumberOfBonds"><code class="docutils literal notranslate"><span class="pre">NumberOfBonds</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="finders.html#AaronTools.finders.ONIOMLayer"><code class="docutils literal notranslate"><span class="pre">ONIOMLayer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="finders.html#AaronTools.finders.OfType"><code class="docutils literal notranslate"><span class="pre">OfType</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="finders.html#AaronTools.finders.Resiude"><code class="docutils literal notranslate"><span class="pre">Resiude</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="finders.html#AaronTools.finders.SpiroCenters"><code class="docutils literal notranslate"><span class="pre">SpiroCenters</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="finders.html#AaronTools.finders.VSEPR"><code class="docutils literal notranslate"><span class="pre">VSEPR</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="finders.html#AaronTools.finders.WithinBondsOf"><code class="docutils literal notranslate"><span class="pre">WithinBondsOf</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="finders.html#AaronTools.finders.WithinRadiusFromAtom"><code class="docutils literal notranslate"><span class="pre">WithinRadiusFromAtom</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="finders.html#AaronTools.finders.WithinRadiusFromPoint"><code class="docutils literal notranslate"><span class="pre">WithinRadiusFromPoint</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="finders.html#AaronTools.finders.get_class"><code class="docutils literal notranslate"><span class="pre">get_class()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="theory.html"><code class="docutils literal notranslate"><span class="pre">theory</span></code> module</a><ul>
@@ -234,6 +277,51 @@
 <li class="toctree-l2"><a class="reference internal" href="integration_grid.html"><code class="docutils literal notranslate"><span class="pre">IntegrationGrid</span></code> class</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="atoms.html"><code class="docutils literal notranslate"><span class="pre">Atom</span></code> class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="atoms.html#AaronTools.atoms.Atom"><code class="docutils literal notranslate"><span class="pre">Atom</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="component.html"><code class="docutils literal notranslate"><span class="pre">Component</span></code> class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="component.html#AaronTools.component.Component"><code class="docutils literal notranslate"><span class="pre">Component</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="substituent.html"><code class="docutils literal notranslate"><span class="pre">Substituent</span></code> class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="substituent.html#AaronTools.substituent.Substituent"><code class="docutils literal notranslate"><span class="pre">Substituent</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rings.html"><code class="docutils literal notranslate"><span class="pre">Ring</span></code> class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rings.html#AaronTools.ring.Ring"><code class="docutils literal notranslate"><span class="pre">Ring</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spectra.html">Spectra</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spectra.html#AaronTools.spectra.AnharmonicVibration"><code class="docutils literal notranslate"><span class="pre">AnharmonicVibration</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="spectra.html#AaronTools.spectra.Frequency"><code class="docutils literal notranslate"><span class="pre">Frequency</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="spectra.html#AaronTools.spectra.HarmonicVibration"><code class="docutils literal notranslate"><span class="pre">HarmonicVibration</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="spectra.html#AaronTools.spectra.SOCExcitation"><code class="docutils literal notranslate"><span class="pre">SOCExcitation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="spectra.html#AaronTools.spectra.Signal"><code class="docutils literal notranslate"><span class="pre">Signal</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="spectra.html#AaronTools.spectra.Signals"><code class="docutils literal notranslate"><span class="pre">Signals</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="spectra.html#AaronTools.spectra.TransientExcitation"><code class="docutils literal notranslate"><span class="pre">TransientExcitation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="spectra.html#AaronTools.spectra.ValenceExcitation"><code class="docutils literal notranslate"><span class="pre">ValenceExcitation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="spectra.html#AaronTools.spectra.ValenceExcitations"><code class="docutils literal notranslate"><span class="pre">ValenceExcitations</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="comp_output.html"><code class="docutils literal notranslate"><span class="pre">CompOutput</span></code> class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="comp_output.html#AaronTools.comp_output.CompOutput"><code class="docutils literal notranslate"><span class="pre">CompOutput</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="job_control.html"><code class="docutils literal notranslate"><span class="pre">SubmitProcess</span></code> class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="job_control.html#AaronTools.job_control.SubmitProcess"><code class="docutils literal notranslate"><span class="pre">SubmitProcess</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="json_extension.html">JSON Caching</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="json_extension.html#AaronTools.json_extension.ATDecoder"><code class="docutils literal notranslate"><span class="pre">ATDecoder</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="json_extension.html#AaronTools.json_extension.ATEncoder"><code class="docutils literal notranslate"><span class="pre">ATEncoder</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="symmetry.html"><code class="docutils literal notranslate"><span class="pre">PointGroup</span></code> class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="symmetry.html#AaronTools.symmetry.PointGroup"><code class="docutils literal notranslate"><span class="pre">PointGroup</span></code></a></li>
+</ul>
+</li>
 </ul>
 </div>
 </section>
@@ -243,12 +331,12 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="atoms.html">
+          <a class="next-page" href="geometry.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title"><code class="docutils literal notranslate"><span class="pre">Atom</span></code> class</div>
+                <div class="title"><code class="docutils literal notranslate"><span class="pre">Geometry</span></code> class</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>

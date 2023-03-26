@@ -1,0 +1,13 @@
+finished;boolean for whether the job finished without error
+best_pop;population of the lowest energy structure
+free_energy;free energy of the ensemble in E\ :sub:`h`\
+entropy;entropy of the ensemble
+avg_energy;average energy of the ensemble in E\ :sub:`h`\
+energy;energy of the lowest structure (E\ :sub:`h`\)
+temperature;temperature in K
+error;AaronTools error code if the job errored out
+error_msg;error message if the job errored out
+charge;charge of the system
+multiplicity;spin multiplicity of the system
+finished;boolean for whether the job finished without error
+conformers;structures for all of the conformers CREST found 

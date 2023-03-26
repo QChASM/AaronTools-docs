@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Installation Guide" href="install.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="FileReader class" href="filereader.html" /><link rel="prev" title="Geometry class" href="geometry.html" />
 
     <!-- Generated with Sphinx 6.1.3 and Furo 2023.03.23 -->
-        <title>AaronTools 1.0b19 documentation</title>
+        <title>Reading and Writing Files - AaronTools 1.0b19 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="#"><div class="brand">AaronTools 1.0b19 documentation</div></a>
+      <a href="index.html"><div class="brand">AaronTools 1.0b19 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -144,7 +144,7 @@
   <aside class="sidebar-drawer">
     <div class="sidebar-container">
       
-      <div class="sidebar-sticky"><a class="sidebar-brand" href="#">
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
   <span class="sidebar-brand-text">AaronTools 1.0b19 documentation</span>
@@ -156,13 +156,13 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Pages:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tut_list.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cls.html">Command Line Scripts</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="api.html">Python API Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="api.html">Python API Documentation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="geometry.html"><code class="docutils literal notranslate"><span class="pre">Geometry</span></code> class</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="fileIO.html">Reading and Writing Files</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">Reading and Writing Files</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="filereader.html"><code class="docutils literal notranslate"><span class="pre">FileReader</span></code> class</a></li>
 <li class="toctree-l3"><a class="reference internal" href="filewriter.html"><code class="docutils literal notranslate"><span class="pre">FileWriter</span></code> class</a></li>
 </ul>
@@ -224,49 +224,22 @@
           </label>
         </div>
         <article role="main">
-          <section id="welcome-to-aarontools-s-documentation">
-<h1>Welcome to AaronTools’s documentation!<a class="headerlink" href="#welcome-to-aarontools-s-documentation" title="Permalink to this heading">#</a></h1>
-<p>AaronTools is a Python module for facilitating many tasks in computational quantum chemistry workflows</p>
+          <section id="reading-and-writing-files">
+<h1>Reading and Writing Files<a class="headerlink" href="#reading-and-writing-files" title="Permalink to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Pages:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="install.html">Installation Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="install.html#requirements">Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#recommended">Recommended</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#any-os-using-pip">Any OS, using pip</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#linux-mac">Linux/Mac</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#windows-10">Windows 10</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#testing-installation">Testing installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filereader.html"><code class="docutils literal notranslate"><span class="pre">FileReader</span></code> class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="filereader.html#AaronTools.fileIO.FileReader"><code class="docutils literal notranslate"><span class="pre">FileReader</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="filereader.html#filereader-keys-for-various-output-files"><code class="docutils literal notranslate"><span class="pre">FileReader</span></code> keys for various output files</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="tut_list.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cls.html">Command Line Scripts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">Python API Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="geometry.html"><code class="docutils literal notranslate"><span class="pre">Geometry</span></code> class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fileIO.html">Reading and Writing Files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="finders.html">Finders</a></li>
-<li class="toctree-l2"><a class="reference internal" href="theory.html"><code class="docutils literal notranslate"><span class="pre">theory</span></code> module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="atoms.html"><code class="docutils literal notranslate"><span class="pre">Atom</span></code> class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="component.html"><code class="docutils literal notranslate"><span class="pre">Component</span></code> class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="substituent.html"><code class="docutils literal notranslate"><span class="pre">Substituent</span></code> class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rings.html"><code class="docutils literal notranslate"><span class="pre">Ring</span></code> class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="spectra.html">Spectra</a></li>
-<li class="toctree-l2"><a class="reference internal" href="comp_output.html"><code class="docutils literal notranslate"><span class="pre">CompOutput</span></code> class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="job_control.html"><code class="docutils literal notranslate"><span class="pre">SubmitProcess</span></code> class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="json_extension.html">JSON Caching</a></li>
-<li class="toctree-l2"><a class="reference internal" href="symmetry.html"><code class="docutils literal notranslate"><span class="pre">PointGroup</span></code> class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filewriter.html"><code class="docutils literal notranslate"><span class="pre">FileWriter</span></code> class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="filewriter.html#AaronTools.fileIO.FileWriter"><code class="docutils literal notranslate"><span class="pre">FileWriter</span></code></a></li>
 </ul>
 </li>
 </ul>
 </div>
-</section>
-<section id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading">#</a></h1>
-<ul class="simple">
-<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
-<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
-</ul>
 </section>
 
         </article>
@@ -274,16 +247,26 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="install.html">
+          <a class="next-page" href="filereader.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Installation Guide</div>
+                <div class="title"><code class="docutils literal notranslate"><span class="pre">FileReader</span></code> class</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          
+          <a class="prev-page" href="geometry.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title"><code class="docutils literal notranslate"><span class="pre">Geometry</span></code> class</div>
+                
+              </div>
+            </a>
         </div>
         <div class="bottom-of-page">
           <div class="left-details">

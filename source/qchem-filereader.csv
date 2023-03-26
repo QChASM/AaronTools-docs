@@ -1,0 +1,17 @@
+energy;energy of the system (E\ :sub:`h`\)
+scf_energy;SCF energy of the system (E\ :sub:`h`\)
+E(corr);correlation energy (E\ :sub:`h`\)
+full_point_group;point group
+abelian_subgroup;Abelian point group subgroup
+Mulliken Charges;partial atomic charges based on Mulliken population analysis
+gradient;geometry optimization convergence status
+frequency;Frequency object for vibrational data
+temperature;temperature for thermochemistry
+rotational_symmetry_number;rotational symmetry number
+mass;mass of the system in kg
+charge;net charge of the system
+multiplicity;spin multiplicity of the system
+uv_vis;ValenceExciations object for excitation data
+forces;force on each atom in E\ :sub:`h`\/Bohr (only parsed from analytic force computations)
+finished;whether the job finished without error
+error;AaronTools error code if the job errored out 

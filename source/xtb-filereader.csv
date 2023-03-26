@@ -1,0 +1,10 @@
+energy;energy of the system (E\ :sub:`h`\)
+error;AaronTools error code if the job errored out
+error_msg;error message if the job errored out
+finished;whether the job finished without error
+charge;net charge of the system
+multiplicity;spin multiplicity of the system
+ZPVE;zero-point energy correction (E\ :sub:`h`\)
+free_energy;free energy (E\ :sub:`h`\)
+temperature;temperature for thermochemistry
+frequency;Frequency object for vibrational modes

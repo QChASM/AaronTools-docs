@@ -1,0 +1,46 @@
+energy;energy of the system (E\ :sub:`h`\), might be TD-DFT energy for TD-DFT jobs
+charge;total charge of the system
+multiplicity;spin multiplicity of the system
+archive;archive entry of the computation
+opt_steps;number of steps for geometry optimizations
+ECP;elements that are using an effective core potential
+gradient;optimization convergence status
+params;coordinates that are used for geometry optimization
+scf_energy;energy from SCF
+E(TD-DF/TD-DFT);energy from TD
+E(method);energy from the specified method after SCF
+mass;mass of the system in kg
+n_basis;number of basis functions
+n_frozen;number of basis functions that are frozen
+n_occupied_alpha;number of basis functions that occupied by alpha electrons
+n_virtual_beta;number of basis functions that unoccupied by alpha electrons
+n_virtual_beta;number of basis functions that unoccupied by beta electrons
+hpmodes;boolean for whether `freq=HPModes` or equivalent was requested
+frequency;Frequency object for the vibrational data
+X_matrix;anharmonic vibrations X matrix
+X0;anharmonic vibrations X0
+uv_vis;ValenceExciations object for the excitation data
+S^2 before;spin before annihilation
+S^2 annihilated;spin after annihilation
+temperature;temperature for thermochemistry in K
+rotational_temperature;rotational constants in K
+equilibrium_rotational_temperature;rotational constants in K from anharmonic frequency jobs
+ground_rotational_temperature;rotational constants in K from anharmonic frequency jobs
+centr_rotational_temperature;rotational constants in K from anharmonic frequency jobs
+E_ZPVE;zero-point vibrational energy in E\ :sub:`h`\
+enthalpy;enthalpy in E\ :sub:`h`\
+free_energy;RRHO free energy in E\ :sub:`h`\
+ZPVE;zero-point vibrational energy correction to the electronic energy in E\ :sub:`h`\
+rotational_symmetry_number;rotational symmetry number
+electric_potential;electric potential for each
+electric_field;electric field vector
+optical_rotation_(number);optical rotation at the given wavelength
+full_point_group;point group
+abelian_subgroup;Abelian subgroup of point group
+concise_abelian_subgroup;concise Abelian subgroup of point group
+forces;force vectors for each nucleus in E\ :sub:`h`\/Bohr
+X Charges;partial atomic charges calculated using X scheme (e.g., NBO)
+error;AaronTools error code if the job errored out
+error_msg;error message if the job errored out
+theory;Theory object for this job type (might not be perfect)
+finished;boolean for whether the job finished without error 

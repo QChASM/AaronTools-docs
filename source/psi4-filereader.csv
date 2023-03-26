@@ -1,0 +1,22 @@
+key;description
+energy;energy of the system (E\ :sub:`h`\)
+charge;charge of the system
+multiplicity;spin multiplicity of the system
+mass;mass of the system (kg)
+ZPVE;zero-point energy correction (E\ :sub:`h`\)
+E_ZPVE;zero-point energy (E\ :sub:`h`\)
+enthalpy;enthalpy (E\ :sub:`h`\)
+free_energy;RRHO free energy (E\ :sub:`h`\)
+rotational_symmetry_number;rotational symmetry number
+rotational_temperature;rotational constants in K
+frequency;Frequency object for the vibrational modes
+finished;whether the job finished without error
+gradient;geometry optimization convergence status
+forces;force vector for each atom (E\ :sub:`h`\/Bohr)
+scf_energy;energy from SCF (E\ :sub:`h`\/Bohr)
+X correlation energy;correlation energy from method X (e.g., MP2)
+full_point_group;point group
+molecular_point_group;point group that Psi4 could take advantage of
+uv_vis;ValenceExciations object for excitation data
+error;AaronTools error job if the job errored out
+error_msg;error message 
