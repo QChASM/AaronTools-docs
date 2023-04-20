@@ -71,7 +71,7 @@ Finding Atoms
 Atoms can be specified by index (1-indexed) or by element.
 For example, to turn a benzene molecule into perfluorobenzene, we can substitute all hydrogens with fluorines: 
 
-.. code-block:: bash
+::
     
     substitute.py benzene.xyz -s H=F
     
@@ -112,7 +112,7 @@ For reference, here is how the atoms are ordered:
 We can get to by running AaronTools' :code:`substitute.py` script twice.
 First, let's turn our benzene into toluene by changing atom 7 into a methyl group: 
 
-.. code-block:: bash
+::
 
     substitute.py benzene.xyz -s 7=Me -o toluene.xyz
 
@@ -124,7 +124,7 @@ Now, we can change some hydrogens into nitro groups.
 Because of the nature of our first substitution, all of the remaining hydrogens on the ring still have the same numbering. Therefore, our ortho and para positions are 8, 9, and 12.
 We can run the substitute.py script again to turn these into nitro groups: 
 
-.. code-block:: bash
+::
     
     substitute.py toluene.xyz -s 8,9,12=NO2 -o tnt.xyz
 
@@ -135,7 +135,7 @@ We are writing this to a file named tnt.xyz.
 
 We could combine these two steps into one by simply specifying both substitution instructions: 
 
-.. code-block:: bash
+::
     
     substitute.py benzene.xyz -s 7=Me -s 8,9,12=NO2 -o tnt.xyz
     
@@ -250,7 +250,7 @@ A different default template, along with default processors, memory, and wall ti
 
 To submit this job to the queue, we can run: 
 
-.. code-block:: bash
+::
 
     jobSubmit.py tnt.in -p 6 -m 12
     
@@ -305,6 +305,12 @@ AaronTools can calculate several thermochemical corrections from the output of a
 AaronTools will recalculate each of these, even if they are printed in the output file, to maintain consistency with the constants that AaronTools uses.
 The :code:`grabThermo.py` command line script can be used to print thermochemistry:
 
-.. code-block:: bash
+::
 
     grabThermo.py tnt.dat
+
+At the time of writing, Psi4 does not compute IR intensities for DFT methods. 
+However, if we used Gaussian, ORCA, or Q-Chem to perform this computations, we could generate an IR spectra from the output using the :code:`plotIR.py` script::
+
+    plotIR.py tnt.log
+

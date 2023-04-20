@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Python API Documentation" href="api.html" /><link rel="prev" title="Tutorials" href="tut_list.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Customization" href="configuration.html" /><link rel="prev" title="Tutorials" href="tut_list.html" />
 
     <!-- Generated with Sphinx 6.1.3 and Furo 2023.03.23 -->
         <title>Command Line Script Tutorials - AaronTools 1.0b19 documentation</title>
@@ -162,15 +162,20 @@
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Command Line Script Tutorials</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="api.html">Python API Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="configuration.html">Customization</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="job_templates.html">Job Submission Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libraries.html">AaronTools Libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api.html">Python API Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="geometry.html"><code class="docutils literal notranslate"><span class="pre">Geometry</span></code> class</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="fileIO.html">Reading and Writing Files</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="fileIO.html">Reading and Writing Files</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="filereader.html"><code class="docutils literal notranslate"><span class="pre">FileReader</span></code> class</a></li>
 <li class="toctree-l3"><a class="reference internal" href="filewriter.html"><code class="docutils literal notranslate"><span class="pre">FileWriter</span></code> class</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="finders.html">Finders</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="theory.html"><code class="docutils literal notranslate"><span class="pre">theory</span></code> module</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="theory.html"><code class="docutils literal notranslate"><span class="pre">theory</span></code> module</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="theory_class.html"><code class="docutils literal notranslate"><span class="pre">Theory</span></code> class</a></li>
 <li class="toctree-l3"><a class="reference internal" href="theory_parameters.html">Theory parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="job_types.html"><code class="docutils literal notranslate"><span class="pre">JobType</span></code> classes</a></li>
@@ -283,7 +288,7 @@ If no <code class="code docutils literal notranslate"><span class="pre">-o</span
 <h2>Finding Atoms<a class="headerlink" href="#finding-atoms" title="Permalink to this heading">#</a></h2>
 <p>Atoms can be specified by index (1-indexed) or by element.
 For example, to turn a benzene molecule into perfluorobenzene, we can substitute all hydrogens with fluorines:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>substitute.py<span class="w"> </span>benzene.xyz<span class="w"> </span>-s<span class="w"> </span><span class="nv">H</span><span class="o">=</span>F
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">substitute</span><span class="o">.</span><span class="n">py</span> <span class="n">benzene</span><span class="o">.</span><span class="n">xyz</span> <span class="o">-</span><span class="n">s</span> <span class="n">H</span><span class="o">=</span><span class="n">F</span>
 </pre></div>
 </div>
 <p>The <code class="code docutils literal notranslate"><span class="pre">findAtoms.py</span></code> script can be helpful for locating atoms using a variety of descriptions.
@@ -314,7 +319,7 @@ Here is the benzene structure we are starting with:</p>
 <p>For reference, here is how the atoms are ordered:</p>
 <p>We can get to by running AaronTools’ <code class="code docutils literal notranslate"><span class="pre">substitute.py</span></code> script twice.
 First, let’s turn our benzene into toluene by changing atom 7 into a methyl group:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>substitute.py<span class="w"> </span>benzene.xyz<span class="w"> </span>-s<span class="w"> </span><span class="nv">7</span><span class="o">=</span>Me<span class="w"> </span>-o<span class="w"> </span>toluene.xyz
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">substitute</span><span class="o">.</span><span class="n">py</span> <span class="n">benzene</span><span class="o">.</span><span class="n">xyz</span> <span class="o">-</span><span class="n">s</span> <span class="mi">7</span><span class="o">=</span><span class="n">Me</span> <span class="o">-</span><span class="n">o</span> <span class="n">toluene</span><span class="o">.</span><span class="n">xyz</span>
 </pre></div>
 </div>
 <p>Our benzene structure is in benzene.xyz.
@@ -323,14 +328,14 @@ The resulting structure will be saved to toluene.xyz.</p>
 <p>Now, we can change some hydrogens into nitro groups.
 Because of the nature of our first substitution, all of the remaining hydrogens on the ring still have the same numbering. Therefore, our ortho and para positions are 8, 9, and 12.
 We can run the substitute.py script again to turn these into nitro groups:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>substitute.py<span class="w"> </span>toluene.xyz<span class="w"> </span>-s<span class="w"> </span><span class="m">8</span>,9,12<span class="o">=</span>NO2<span class="w"> </span>-o<span class="w"> </span>tnt.xyz
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">substitute</span><span class="o">.</span><span class="n">py</span> <span class="n">toluene</span><span class="o">.</span><span class="n">xyz</span> <span class="o">-</span><span class="n">s</span> <span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">12</span><span class="o">=</span><span class="n">NO2</span> <span class="o">-</span><span class="n">o</span> <span class="n">tnt</span><span class="o">.</span><span class="n">xyz</span>
 </pre></div>
 </div>
 <p>We’re using the toluene.xyz that we created in the previous step.
 “NO2” is the name of the nitro substituent in the AaronTools library.
 We are writing this to a file named tnt.xyz.</p>
 <p>We could combine these two steps into one by simply specifying both substitution instructions:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>substitute.py<span class="w"> </span>benzene.xyz<span class="w"> </span>-s<span class="w"> </span><span class="nv">7</span><span class="o">=</span>Me<span class="w"> </span>-s<span class="w"> </span><span class="m">8</span>,9,12<span class="o">=</span>NO2<span class="w"> </span>-o<span class="w"> </span>tnt.xyz
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">substitute</span><span class="o">.</span><span class="n">py</span> <span class="n">benzene</span><span class="o">.</span><span class="n">xyz</span> <span class="o">-</span><span class="n">s</span> <span class="mi">7</span><span class="o">=</span><span class="n">Me</span> <span class="o">-</span><span class="n">s</span> <span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">12</span><span class="o">=</span><span class="n">NO2</span> <span class="o">-</span><span class="n">o</span> <span class="n">tnt</span><span class="o">.</span><span class="n">xyz</span>
 </pre></div>
 </div>
 </section>
@@ -433,7 +438,7 @@ rm<span class="w"> </span>-rf<span class="w"> </span><span class="nv">$SCRATCH</
 <p>If this file is placed in the Aaron_libs directory (defaults to “Aaron_libs” in your home area, but can be overwritten by setting the AARONLIB environment variable), in a file named Psi4_template.txt, it will automatically be used by jobSubmit.py. Similarly, Gaussian and ORCA default job templates can be put at Aaron_libs/Gaussian_template.txt and Aaron_libs/ORCA_template.txt, respectively.</p>
 <p>A different default template, along with default processors, memory, and wall time may be specified in your configuration file.</p>
 <p>To submit this job to the queue, we can run:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jobSubmit.py<span class="w"> </span>tnt.in<span class="w"> </span>-p<span class="w"> </span><span class="m">6</span><span class="w"> </span>-m<span class="w"> </span><span class="m">12</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jobSubmit</span><span class="o">.</span><span class="n">py</span> <span class="n">tnt</span><span class="o">.</span><span class="ow">in</span> <span class="o">-</span><span class="n">p</span> <span class="mi">6</span> <span class="o">-</span><span class="n">m</span> <span class="mi">12</span>
 </pre></div>
 </div>
 <p>where <code class="code docutils literal notranslate"><span class="pre">-p</span></code> and <code class="code docutils literal notranslate"><span class="pre">-m</span></code> are the allocated CPU cores and memory, respectively.
@@ -482,7 +487,12 @@ Job ID                  Username    Queue    Jobname          SessID  NDS   TSK 
 <p>AaronTools can calculate several thermochemical corrections from the output of a frequency job: zero-point energy (or H 0K), rigid-rotor/harmonic oscillator (RRHO) enthalpy, RRHO free energy, quasi-RRHO free energy, and quasi-harmonic free energy.
 AaronTools will recalculate each of these, even if they are printed in the output file, to maintain consistency with the constants that AaronTools uses.
 The <code class="code docutils literal notranslate"><span class="pre">grabThermo.py</span></code> command line script can be used to print thermochemistry:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grabThermo.py<span class="w"> </span>tnt.dat
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grabThermo</span><span class="o">.</span><span class="n">py</span> <span class="n">tnt</span><span class="o">.</span><span class="n">dat</span>
+</pre></div>
+</div>
+<p>At the time of writing, Psi4 does not compute IR intensities for DFT methods.
+However, if we used Gaussian, ORCA, or Q-Chem to perform this computations, we could generate an IR spectra from the output using the <code class="code docutils literal notranslate"><span class="pre">plotIR.py</span></code> script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plotIR</span><span class="o">.</span><span class="n">py</span> <span class="n">tnt</span><span class="o">.</span><span class="n">log</span>
 </pre></div>
 </div>
 </section>
@@ -494,12 +504,12 @@ The <code class="code docutils literal notranslate"><span class="pre">grabThermo
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="api.html">
+          <a class="next-page" href="configuration.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Python API Documentation</div>
+                <div class="title">Customization</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
