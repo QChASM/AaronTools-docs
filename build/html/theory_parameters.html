@@ -158,17 +158,19 @@
   <p class="caption" role="heading"><span class="caption-text">Pages:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tut_list.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cls.html">Command Line Scripts</a></li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="api.html">Python API Documentation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="tut_list.html">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="cls_tutorials.html">Command Line Script Tutorials</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="api.html">Python API Documentation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="geometry.html"><code class="docutils literal notranslate"><span class="pre">Geometry</span></code> class</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="fileIO.html">Reading and Writing Files</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="fileIO.html">Reading and Writing Files</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="filereader.html"><code class="docutils literal notranslate"><span class="pre">FileReader</span></code> class</a></li>
 <li class="toctree-l3"><a class="reference internal" href="filewriter.html"><code class="docutils literal notranslate"><span class="pre">FileWriter</span></code> class</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="finders.html">Finders</a></li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="theory.html"><code class="docutils literal notranslate"><span class="pre">theory</span></code> module</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current has-children"><a class="reference internal" href="theory.html"><code class="docutils literal notranslate"><span class="pre">theory</span></code> module</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="theory_class.html"><code class="docutils literal notranslate"><span class="pre">Theory</span></code> class</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Theory parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="job_types.html"><code class="docutils literal notranslate"><span class="pre">JobType</span></code> classes</a></li>
@@ -235,68 +237,68 @@ The value should be as specified.</p>
 <dd class="field-odd"><p></p></dd>
 </dl>
 <ul class="simple">
-<li><p>ORCA_ROUTE: list(str)</p></li>
-<li><p>ORCA_BLOCKS: dict(list(str)) - keys are block names minus %</p></li>
+<li><p>ORCA_ROUTE (simple): list(str)</p></li>
+<li><p>ORCA_BLOCKS (blocks): dict(list(str)) - keys are block names minus %</p></li>
 <li><p>ORCA_COORDINATES: ignored</p></li>
-<li><p>ORCA_COMMENT: list(str)</p></li>
+<li><p>ORCA_COMMENT (comment): list(str)</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Psi4<span class="colon">:</span></dt>
 <dd class="field-odd"><p></p></dd>
 </dl>
 <ul class="simple">
-<li><p>PSI4_SETTINGS: dict(setting_name: [value])</p></li>
-<li><p>PSI4_BEFORE_GEOM: list(str)</p></li>
-<li><p>PSI4_AFTER_JOB: list(str) $METHOD will be replaced with method name</p></li>
-<li><p>PSI4_COMMENT: list(str)</p></li>
-<li><p>PSI4_MOLECULE: dict(str:list(str)) e.g. {‘symmetry’: [‘c1’]}</p></li>
-<li><p>PSI4_COORDINATES: dict() with keys:
+<li><p>PSI4_SETTINGS (settings): dict(setting_name: [value])</p></li>
+<li><p>PSI4_BEFORE_GEOM (before_molecule): list(str)</p></li>
+<li><p>PSI4_AFTER_JOB (after_job): list(str) $METHOD will be replaced with method name</p></li>
+<li><p>PSI4_COMMENT (comment): list(str)</p></li>
+<li><p>PSI4_MOLECULE (molecule): dict(str:list(str)) e.g. {‘symmetry’: [‘c1’]}</p></li>
+<li><p>PSI4_COORDINATES (coordinates): dict() with keys:
 ‘coords’ - array of coordinates with one item for each atom
 ‘variables’ - list of name (str), value (float), is_angstrom (bool) tuples
 this is ignored if using a SAPTMethod with a low-spin combination
 of monomers</p></li>
-<li><p>PSI4_JOB: dict(optimize/frequencies/etc: list(str $METHOD replaced w/ method))</p></li>
-<li><p>PSI4_OPTKING: dict(setting_name: [value])</p></li>
+<li><p>PSI4_JOB (job): dict(optimize/frequencies/etc: list(str $METHOD replaced w/ method))</p></li>
+<li><p>PSI4_OPTKING (optking): dict(setting_name: [value])</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Gaussian<span class="colon">:</span></dt>
 <dd class="field-odd"><p></p></dd>
 </dl>
 <ul class="simple">
-<li><p>GAUSSIAN_PRE_ROUTE: dict(list(str)) - keys are link0 minus %</p></li>
-<li><p>GAUSSIAN_ROUTE: dict(list(str)) - e.g. {‘opt’: [‘NoEigenTest’, ‘Tight’]}</p></li>
-<li><p>GAUSSIAN_COORDINATES: list of coordinates and variables/constants</p></li>
-<li><p>GAUSSIAN_CONSTRAINTS: list(str)</p></li>
-<li><p>GAUSSIAN_GEN_BASIS: list(str) - only filled by BasisSet automatically when writing footer</p></li>
-<li><p>GAUSSIAN_GEN_ECP: list(str) - only filled by BasisSet automatically when writing footer</p></li>
-<li><p>GAUSSIAN_POST: list(str)</p></li>
-<li><p>GAUSSIAN_COMMENT: list(str)</p></li>
+<li><p>GAUSSIAN_PRE_ROUTE (link0): dict(list(str)) - keys are link0 minus %</p></li>
+<li><p>GAUSSIAN_ROUTE (route): dict(list(str)) - e.g. {‘opt’: [‘NoEigenTest’, ‘Tight’]}</p></li>
+<li><p>GAUSSIAN_COORDINATES (coordinates): list of coordinates and variables/constants</p></li>
+<li><p>GAUSSIAN_CONSTRAINTS (constraints): list(str)</p></li>
+<li><p>GAUSSIAN_GEN_BASIS (gen_basis): list(str) - only filled by BasisSet automatically when writing footer</p></li>
+<li><p>GAUSSIAN_GEN_ECP (gen_ecp): list(str) - only filled by BasisSet automatically when writing footer</p></li>
+<li><p>GAUSSIAN_POST (end_of_file): list(str)</p></li>
+<li><p>GAUSSIAN_COMMENT (comment): list(str)</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">SQM<span class="colon">:</span></dt>
 <dd class="field-odd"><p></p></dd>
 </dl>
 <ul class="simple">
-<li><p>SQM_COMMENT: list(str)</p></li>
-<li><p>SQM_QMMM: dict()</p></li>
+<li><p>SQM_COMMENT (comment): list(str)</p></li>
+<li><p>SQM_QMMM (qmmm): dict()</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Q-Chem<span class="colon">:</span></dt>
 <dd class="field-odd"><p></p></dd>
 </dl>
 <ul class="simple">
-<li><p>QCHEM_MOLECULE: list(str) - $molecule section</p></li>
-<li><p>QCHEM_REM: dict(str:str) - $rem section</p></li>
-<li><p>QCHEM_COMMENT: list(str) - comments</p></li>
-<li><p>QCHEM_SETTINGS: dict(str:str) - all other sections</p></li>
+<li><p>QCHEM_MOLECULE (molecule): list(str) - $molecule section</p></li>
+<li><p>QCHEM_REM (rem): dict(str:str) - $rem section</p></li>
+<li><p>QCHEM_COMMENT (comment): list(str) - comments</p></li>
+<li><p>QCHEM_SETTINGS (section): dict(str:str) - all other sections</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">xTB<span class="colon">:</span></dt>
 <dd class="field-odd"><p></p></dd>
 </dl>
 <ul class="simple">
-<li><p>XTB_CONTROL_BLOCKS: dict - stuff in xcontrol file</p></li>
-<li><p>XTB_COMMAND_LINE: dict(str:list) - command line stuff, values should be 
+<li><p>XTB_CONTROL_BLOCKS (xcontrol): dict - stuff in xcontrol file</p></li>
+<li><p>XTB_COMMAND_LINE (command_line): dict(str:list) - command line stuff, values should be 
 emtpy lists if the command line flag (key) has no arguments</p></li>
 </ul>
 <dl class="field-list simple">
@@ -304,7 +306,7 @@ emtpy lists if the command line flag (key) has no arguments</p></li>
 <dd class="field-odd"><p></p></dd>
 </dl>
 <ul class="simple">
-<li><p>CREST_COMMAND_LINE: crest command line - see XTB_COMMAND_LINE</p></li>
+<li><p>CREST_COMMAND_LINE (command_line): crest command line - see XTB_COMMAND_LINE</p></li>
 </ul>
 </section>
 
