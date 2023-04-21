@@ -30,11 +30,11 @@ Swapping ligands can be done with the :code:`mapLigand.py` command line script, 
 
 For example, we can take a relatively simple catalyst structure: 
 
-.. image:: images/cat_simple.png
+.. image:: ../images/cat_simple.png
 
 and swap the ligand for one of the 30-some other diphosphine ligands in the AaronTools library, (R)-BINAP: 
 
-.. image:: images/cat_binap.png
+.. image:: ../images/cat_binap.png
 
 Ligands can be added to the library using the :code:`libaddLigand.py` command line script or SEQCROW's "Add to Personal Library" tool.
 
@@ -52,13 +52,13 @@ Rings can be added to the library using the :code:`libaddRing.py` command line s
 To better understand how rings are attached to molecules, consider this example.
 Say you want to make tetralin from your benzene structure using the library's cyclohexane ring below (note - a cyclohexene ring might produce a better structure): 
 
-.. image:: images/ring_path.png
+.. image:: ../images/ring_path.png
 
 The arrow indicates where to start and which direction to go when traversing the ring. 
 
 You would select two target hydrogen atoms that are ortho to each other: 
 
-.. image:: images/benzene_highlighted.png
+.. image:: ../images/benzene_highlighted.png
 
 Between these two hydrogen atoms, there are two carbon atoms.
 Therefore, the total path from one target atom to the other is four atoms long.
@@ -68,12 +68,12 @@ The first and last atoms in this path will replace the targeted hydrogen atoms o
 The middle atoms on the cyclohexane ring (2 and 3) and any hydrogens on them will be deleted.
 In the image below, atoms highlighted in red will be deleted, and atoms highlighted in blue will replace atoms on the original benzene structure:
 
-.. image:: images/ring_deleted.png
+.. image:: ../images/ring_deleted.png
 
 The fusion carbons on the resulting tetralin structure will come from the original benzene structure.
 In the tetralin structure shown below, atoms highlighted in purple come from the original benzene structure, whereas non-highlighted atoms come from the cyclohexane ring: 
 
-.. image:: images/tetralin.png
+.. image:: ../images/tetralin.png
 
 Rings in the library with names that end with a dot and a number are one of several conformers.
 Each conformer of a ring will be tested to try to find the best fit.

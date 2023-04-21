@@ -1,0 +1,489 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Tutorials" href="tut_list.html" /><link rel="prev" title="Welcome to AaronTools’s documentation!" href="../index.html" />
+
+    <!-- Generated with Sphinx 6.1.3 and Furo 2023.03.23 -->
+        <title>Installation Guide - AaronTools 1.0b19 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">AaronTools 1.0b19 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  
+  <span class="sidebar-brand-text">AaronTools 1.0b19 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Pages:</span></p>
+<ul class="current">
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Installation Guide</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tut_list.html">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="cls_tutorials.html">Command Line Script Tutorials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adding_to_libraries.html">Adding Structures to your AaronTools Library</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../other_docs/configuration.html">Customization</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../other_docs/job_templates.html">Job Submission Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../other_docs/libraries.html">AaronTools Libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api/api.html">Python API Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/geometry.html"><code class="docutils literal notranslate"><span class="pre">Geometry</span></code> class</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api/fileIO.html">Reading and Writing Files</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/filereader.html"><code class="docutils literal notranslate"><span class="pre">FileReader</span></code> class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/filewriter.html"><code class="docutils literal notranslate"><span class="pre">FileWriter</span></code> class</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/finders.html">Finders</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api/theory.html"><code class="docutils literal notranslate"><span class="pre">theory</span></code> module</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/theory_class.html"><code class="docutils literal notranslate"><span class="pre">Theory</span></code> class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/theory_parameters.html">Theory parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/job_types.html"><code class="docutils literal notranslate"><span class="pre">JobType</span></code> classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/basis.html">Basis Set classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/method.html"><code class="docutils literal notranslate"><span class="pre">Method</span></code> classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/dispersion.html"><code class="docutils literal notranslate"><span class="pre">EmpiricalDispersion</span></code> class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/solvent.html"><code class="docutils literal notranslate"><span class="pre">ImplicitSolvent</span></code> class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/integration_grid.html"><code class="docutils literal notranslate"><span class="pre">IntegrationGrid</span></code> class</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/atoms.html"><code class="docutils literal notranslate"><span class="pre">Atom</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/component.html"><code class="docutils literal notranslate"><span class="pre">Component</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/substituent.html"><code class="docutils literal notranslate"><span class="pre">Substituent</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/rings.html"><code class="docutils literal notranslate"><span class="pre">Ring</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/spectra.html">Spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/comp_output.html"><code class="docutils literal notranslate"><span class="pre">CompOutput</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/job_control.html"><code class="docutils literal notranslate"><span class="pre">SubmitProcess</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/json_extension.html">JSON Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/symmetry.html"><code class="docutils literal notranslate"><span class="pre">PointGroup</span></code> class</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="installation-guide">
+<h1>Installation Guide<a class="headerlink" href="#installation-guide" title="Permalink to this heading">#</a></h1>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Python 3.x</p></li>
+<li><p>SciPy ≥ 0.13.x</p></li>
+</ul>
+</section>
+<section id="recommended">
+<h2>Recommended<a class="headerlink" href="#recommended" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>RDKit - AaronTools can utilize RDKit (if installed) to generate molecular structures (<em>i.e.</em> with the fetchMolecule command line script or the <code class="code docutils literal notranslate"><span class="pre">from_string</span></code> methods of the <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code>, <code class="code docutils literal notranslate"><span class="pre">Substituent</span></code>, or <code class="code docutils literal notranslate"><span class="pre">Ring</span></code> classes). Without RDKit, it falls back to the CATCVS database.</p></li>
+<li><p>jinja2 - For parsing template files used in job submission routines</p></li>
+<li><p>pdfminer and pdfminer.six - The PDFparse command line script uses these to grab structures from PDF files.</p></li>
+<li><p>matplotlib - Plotting simulated spectra (IR, Raman, UV/Vis, etc.)</p></li>
+</ul>
+</section>
+<section id="any-os-using-pip">
+<h2>Any OS, using pip<a class="headerlink" href="#any-os-using-pip" title="Permalink to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>AaronTools
+</pre></div>
+</div>
+<p>You may need to add your Python scripts directory to your <code class="code docutils literal notranslate"><span class="pre">PATH</span></code> environment
+variable to use AaronTools command line scripts. Examples of setting environment variables
+can be found in the OS-dependent installation instructions.
+The scripts directory is typically in the same location as your python installation.
+One way to find this is by running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import sys; import os; print(os.path.dirname(sys.executable))&quot;</span>
+</pre></div>
+</div>
+<section id="install-with-optional-dependencies">
+<h3>Install with optional dependencies<a class="headerlink" href="#install-with-optional-dependencies" title="Permalink to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;AaronTools[extras]&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="security-external-connections">
+<h3>Security/External Connections<a class="headerlink" href="#security-external-connections" title="Permalink to this heading">#</a></h3>
+<p>Unless RDKit is installed and accessible, AaronTools will try to connect to external servers for
+the generation of structures from IUPAC names and SMILES.
+To <strong>disable all remote connections</strong> set</p>
+<blockquote>
+<div><p>local_only = True</p>
+</div></blockquote>
+<p>in $QCHASM/AaronTools/config.ini</p>
+</section>
+</section>
+<section id="linux-mac">
+<h2>Linux/Mac<a class="headerlink" href="#linux-mac" title="Permalink to this heading">#</a></h2>
+<section id="download-from-github">
+<h3>Download from GitHub<a class="headerlink" href="#download-from-github" title="Permalink to this heading">#</a></h3>
+<p>Clone AaronTools.py from GitHub into a directory named “AaronTools”.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/QChASM
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/QChASM/AaronTools.py.git<span class="w"> </span>AaronTools
+</pre></div>
+</div>
+</section>
+<section id="set-up-environment">
+<h3>Set up environment<a class="headerlink" href="#set-up-environment" title="Permalink to this heading">#</a></h3>
+<p>In your <code class="code docutils literal notranslate"><span class="pre">.bashrc</span></code> or similar:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span>/home/<span class="nv">$USER</span>/QChASM/:<span class="nv">$PYTHONPATH</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">AARONLIB</span><span class="o">=</span>/home/<span class="nv">$USER</span>/Aaron_libs
+</pre></div>
+</div>
+<p>The AARONLIB environmental variable can be set to any location.
+If you have not already done so (for example to use the <a class="reference external" href="http://github.com/QChASM/AaronTools/wiki">Perl version of AaronTools</a>, the following should be run at the command line:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>~/.bashrc
+mkdir<span class="w"> </span><span class="nv">$AARONLIB</span>/Ligands
+mkdir<span class="w"> </span><span class="nv">$AARONLIB</span>/Subs
+mkdir<span class="w"> </span><span class="nv">$AARONLIB</span>/TS_geoms
+</pre></div>
+</div>
+<p>To access the AaronTools command line scripts more easily, you can add AaronTools/bin to your <code class="code docutils literal notranslate"><span class="pre">PATH</span></code>
+environment variable. In your shell’s startup file (<em>e.g.</em> <code class="code docutils literal notranslate"><span class="pre">.bashrc</span></code>):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/home/<span class="nv">$USER</span>/QChASM/AaronTools/bin
+</pre></div>
+</div>
+</section>
+</section>
+<section id="windows-10">
+<h2>Windows 10<a class="headerlink" href="#windows-10" title="Permalink to this heading">#</a></h2>
+<section id="id1">
+<h3>Download from GitHub<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<section id="command-prompt">
+<h4>Command Prompt<a class="headerlink" href="#command-prompt" title="Permalink to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>Open the Command Prompt.</p></li>
+<li><p>Clone AaronTools.py from GitHub into a directory named “AaronTools”:</p></li>
+</ol>
+<div class="highlight-batch notranslate"><div class="highlight"><pre><span></span>C<span class="p">:</span><span class="c1">&gt;cd %HOMEPATH%</span>
+C<span class="p">:</span><span class="nl">\Users\CoolUser</span><span class="c1">&gt;mkdir QChASM</span>
+C<span class="p">:</span><span class="nl">\Users\CoolUser</span><span class="c1">&gt;cd QChASM</span>
+C<span class="p">:</span><span class="nl">\Users\CoolUser\QChASM</span><span class="c1">&gt;git clone https://github.com/QChASM/AaronTools.py.git AaronTools</span>
+</pre></div>
+</div>
+</section>
+<section id="github-desktop">
+<h4>GitHub Desktop<a class="headerlink" href="#github-desktop" title="Permalink to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>File → Clone repository…</p></li>
+<li><p>on the URL tab, enter <a class="reference external" href="https://github.com/QChASM/AaronTools.py.git">https://github.com/QChASM/AaronTools.py.git</a></p></li>
+<li><p>remove the ‘.py’ from the end of the local path, or otherwise select a folder named AaronTools</p></li>
+<li><p>click ‘Clone’</p></li>
+</ol>
+<img alt="../_images/github_desktop_install.png" src="../_images/github_desktop_install.png" />
+</section>
+</section>
+<section id="environment-setup">
+<h3>Environment setup<a class="headerlink" href="#environment-setup" title="Permalink to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>On the taskbar, search “Edit environment variables for your account”. This should bring up the environment variable settings.</p></li>
+<li><p>If the PYTHONPATH environment variable is not set:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>click ‘New…’</p></li>
+<li><p>in the ‘Variable name’ line, type PYTHONPATH</p></li>
+<li><p>for the ‘Variable value’, click ‘Browse Directory…’ can locate the directory containing Aarontools (C:\Users\CoolUser\QChASM in the command prompt example above).</p></li>
+<li><p>click ‘OK’</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>If the PYTHONPATH environment variable is set:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>select PYTHONPATH on the variable list and click ‘Edit…’</p></li>
+<li><p>add a semicolon (;) to the end of the current variable value</p></li>
+<li><p>type out the path to the directory containing AaronTools (C:\Users\CoolUser\QChASM in the command prompt example above).</p></li>
+<li><p>click ‘OK’</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>Setup your AaronTools libraries</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p>set the AARONLIB environment variable to your AaronTools libraries folder</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>If the variable is not set, it will default to a folder named ‘Aaron_libs’ in your user folder</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Create folders named ‘Ligands’, ‘Subs’, and ‘Rings’ in your AaronTools libraries folder</p></li>
+</ol>
+</div></blockquote>
+</li>
+</ol>
+<p>You may need to associate the .py extension with Python in order to use the AaronTools command line scripts. This can be done by right-clicking on a file with a .py extension, selecting “open with”, choose another app, checking “always use this app to open .py files”, and locating your Python.</p>
+</section>
+</section>
+<section id="testing-installation">
+<h2>Testing installation<a class="headerlink" href="#testing-installation" title="Permalink to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>discover<span class="w"> </span>AaronTools
+</pre></div>
+</div>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="tut_list.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Tutorials</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../index.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Home</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, V. M. Ingman, A. J. Schaefer, L. R. Andreola, and S. E. Wheeler
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Installation Guide</a><ul>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#recommended">Recommended</a></li>
+<li><a class="reference internal" href="#any-os-using-pip">Any OS, using pip</a><ul>
+<li><a class="reference internal" href="#install-with-optional-dependencies">Install with optional dependencies</a></li>
+<li><a class="reference internal" href="#security-external-connections">Security/External Connections</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#linux-mac">Linux/Mac</a><ul>
+<li><a class="reference internal" href="#download-from-github">Download from GitHub</a></li>
+<li><a class="reference internal" href="#set-up-environment">Set up environment</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#windows-10">Windows 10</a><ul>
+<li><a class="reference internal" href="#id1">Download from GitHub</a><ul>
+<li><a class="reference internal" href="#command-prompt">Command Prompt</a></li>
+<li><a class="reference internal" href="#github-desktop">GitHub Desktop</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#environment-setup">Environment setup</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#testing-installation">Testing installation</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/furo.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    </body>
+</html>

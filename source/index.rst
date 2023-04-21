@@ -13,10 +13,11 @@ AaronTools is a Python module for facilitating many tasks in computational quant
     :maxdepth: 1
     :caption: Pages:
     
-    install
-    tut_list
-    configuration
-    api
+    tutorials/install
+    tutorials/tut_list
+    other_docs/configuration
+    api/api
+    advanced/advanced
 
 
 

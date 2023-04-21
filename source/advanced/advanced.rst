@@ -1,10 +1,8 @@
-Tutorials
+Advanced Topics
 ====================
 
 .. toctree::
     :maxdepth: 2
     :caption: Pages:
     
-    cls_tutorials
-    
-    
+    algorithm_implementation

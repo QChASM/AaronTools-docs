@@ -123,7 +123,7 @@ GitHub Desktop
 #. remove the '.py' from the end of the local path, or otherwise select a folder named AaronTools
 #. click 'Clone'
 
-.. image:: images/github_desktop_install.png
+.. image:: ../images/github_desktop_install.png
 
 Environment setup
 ^^^^^^^^^^^^^^^^^^^^^^

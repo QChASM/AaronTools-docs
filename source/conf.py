@@ -33,6 +33,7 @@ release = '1.0b19'
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx_copybutton',
+    'sphinx.ext.autosectionlabel',
 ]
 
 # Add any paths that contain templates here, relative to this directory.

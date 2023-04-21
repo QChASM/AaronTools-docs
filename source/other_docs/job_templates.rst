@@ -15,7 +15,7 @@ AaronTools can submit jobs to LSF, Slurm, PBS, and SGE queues.
 You should specify what queuing software you are using by setting the :code:`QUEUE_TYPE` environment variable to :code:`LSF`, :code:`Slurm`, :code:`PBS`, or :code:`SGE`.
 
 The default templates used for Gaussian, ORCA, Psi4, and Q-Chem jobs are $AARONLIB/Gaussian_template.txt, $AARONLIB/ORCA_template.txt, $AARONLIB/Psi4_template.txt, and $AARONLIB/QChem_template.txt respectively.
-There is currently no default template for other programs.
+There is currently no default template location for other programs.
 
 Examples
 --------
