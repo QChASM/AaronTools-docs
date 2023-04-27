@@ -151,6 +151,22 @@ Environment setup
         
     #. Create folders named 'Ligands', 'Subs', and 'Rings' in your AaronTools libraries folder
 
+#. Associate .py files with Python (this is done by the Python installer unless you modify settings)
+
+    #. Right click a .py file and select "Open with"
+    #. select "Choose another app"
+    #. check the "Always use this app to open .py files" box
+    #. select Python
+
+#. Ensure command line scripts can take flags and arguments (this may not be necessary). 
+
+    #. open the Registry Editor app
+    #. Navigate to HKEY_CLASSES_ROOT → Applications → python.exe → shell → open → command
+    #. modify the value to ensure it ends with %\*
+    
+        * for example, :code:`"C:\\path\\to\\my\\python.exe" "%1" %\*`
+        * without the %\*, no command line arguments will be passed to the script
+
 You may need to associate the .py extension with Python in order to use the AaronTools command line scripts. This can be done by right-clicking on a file with a .py extension, selecting "open with", choose another app, checking "always use this app to open .py files", and locating your Python.
 
 

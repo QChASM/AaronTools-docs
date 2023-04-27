@@ -159,7 +159,7 @@
 <ul class="current">
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Installation Guide</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="tut_list.html">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="cls_tutorials.html">Command Line Script Tutorials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cls_tutorials.html">Intro to Command Line Scripts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adding_to_libraries.html">Adding Structures to your AaronTools Library</a></li>
 </ul>
 </li>
@@ -196,6 +196,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../api/job_control.html"><code class="docutils literal notranslate"><span class="pre">SubmitProcess</span></code> class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/json_extension.html">JSON Caching</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/symmetry.html"><code class="docutils literal notranslate"><span class="pre">PointGroup</span></code> class</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../advanced/advanced.html">Advanced Topics</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/algorithm_implementation.html">Structure Analysis and Descriptor Implementation</a></li>
 </ul>
 </li>
 </ul>
@@ -375,6 +379,32 @@ C<span class="p">:</span><span class="nl">\Users\CoolUser\QChASM</span><span cla
 </div></blockquote>
 </li>
 <li><p>Create folders named ‘Ligands’, ‘Subs’, and ‘Rings’ in your AaronTools libraries folder</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>Associate .py files with Python (this is done by the Python installer unless you modify settings)</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Right click a .py file and select “Open with”</p></li>
+<li><p>select “Choose another app”</p></li>
+<li><p>check the “Always use this app to open .py files” box</p></li>
+<li><p>select Python</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>Ensure command line scripts can take flags and arguments (this may not be necessary).</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p>open the Registry Editor app</p></li>
+<li><p>Navigate to HKEY_CLASSES_ROOT → Applications → python.exe → shell → open → command</p></li>
+<li><p>modify the value to ensure it ends with %*</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>for example, <code class="code docutils literal notranslate"><span class="pre">&quot;C:\path\to\my\python.exe&quot;</span> <span class="pre">&quot;%1&quot;</span> <span class="pre">%*</span></code></p></li>
+<li><p>without the %*, no command line arguments will be passed to the script</p></li>
+</ul>
+</div></blockquote>
+</li>
 </ol>
 </div></blockquote>
 </li>
