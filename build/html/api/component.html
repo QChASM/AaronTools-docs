@@ -266,27 +266,23 @@ Attributes:</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.component.Component.cone_angle">
-<span class="sig-name descname"><span class="pre">cone_angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'exact'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_cones</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radii</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'umn'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.component.Component.cone_angle" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">cone_angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'exact'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_cones</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_individual</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radii</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'umn'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.component.Component.cone_angle" title="Permalink to this definition">#</a></dt>
 <dd><p>returns cone angle in degrees</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>center</strong> (<a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a>) – that this component is coordinating
 used as the apex of the cone</p></li>
-<li><p><strong>method</strong> (<em>str</em>) – <p>can be:
-* ‘Tolman’ - Tolman cone angle for unsymmetric ligands</p>
-<blockquote>
-<div><p>See J. Am. Chem. Soc. 1974, 96, 1, 53–60 (DOI: 10.1021/ja00808a009)</p>
+<li><p><strong>method</strong> (<em>str</em>) – <p>can be:</p>
+<ul>
+<li><p>’Tolman’ - Tolman cone angle for unsymmetric ligands</p>
+<p>See J. Am. Chem. Soc. 1974, 96, 1, 53–60 (DOI: 10.1021/ja00808a009)</p>
 <dl class="field-list simple">
 <dt class="field-odd">NOTE<span class="colon">:</span></dt>
 <dd class="field-odd"><p>this does not make assumptions about the geometry</p>
 </dd>
-<dt class="field-even">NOTE<span class="colon">:</span></dt>
-<dd class="field-even"><p>only works with monodentate and bidentate ligands</p>
-</dd>
 </dl>
-</div></blockquote>
-<ul>
+</li>
 <li><p>’exact’ - cone angle from Allen et. al.</p>
 <p>See Bilbrey, J.A., Kazez, A.H., Locklin, J. and Allen, W.D.
 (2013), Exact ligand cone angles. J. Comput. Chem., 34:
@@ -299,6 +295,8 @@ the sides of the cones will be 5 angstroms long</p>
 <p>for Tolman cone angles, multiple cones will be returned, one for
 each substituent coming off the coordinating atom</p>
 </p></li>
+<li><p><strong>return_individual</strong> (<em>bool</em>) – return the angles for each individual
+Tolman cone</p></li>
 <li><p><strong>radii</strong> (<em>str</em><em>|</em><em>dict</em>) – <ul>
 <li><p>‘bondi’ - Bondi vdW radii</p></li>
 <li><p>’umn’   - vdW radii from Mantina, Chamberlin, Valero, Cramer, and Truhlar</p></li>

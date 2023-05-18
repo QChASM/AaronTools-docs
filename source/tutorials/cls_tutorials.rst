@@ -30,7 +30,7 @@ Many of our scripts also support reading the structure from standard input (e.g.
 The input is assumed to be in XYZ format, but :code:`-if` can be used to specify other formats.
 This can be used to avoid writing intermediate files. 
 
-.. code-block:: bash
+.. code-block:: 
 
     substitute.py benzene.xyz -s H=F | bond.py xyz -c 6 7 0.3
 
@@ -209,6 +209,7 @@ Submitting to the Queue
 
 If we're logged on to a computing cluster, we can submit this optimization job to the queue with jobSubmit.py.
 We'll need to have a template job file that's compatible with the queuing software (e.g. SGE, PBS, Slurm).
+All clusters are different, and may have different ways to load a module (e.g. :code:`module load gaussian` vs. :code:`module load g16`).
 Below is a template file for a Psi4 computation running on a PBS cluster: 
 
 .. code-block:: bash

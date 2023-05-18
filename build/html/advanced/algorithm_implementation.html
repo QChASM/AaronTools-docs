@@ -296,6 +296,19 @@ Of course, the user could provide structures with a 2.28 Å M-L bond length.
 AaronTools uses structures provided by the user as-is, so substituents on the coordinating atoms are not rotated to minimize the cone angle.
 Tolman’s formula also says to divide the sum of the cones for each substituent on the coordinating atom by 3.
 We assume this is because Tolman was working with phosphine ligands, so our method of averaging the cone angle for substituents on the coordinating atom(s) will give different results than the formula implies for ligands with more or less saturated coordinating atoms (e.g. N-heterocyclic carbenes).</p>
+<p>In short, the original Tolman cone angle formula is</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\theta_{Tolman} = \sum_{L}^{coord.\:atoms}\frac{2}{3}\sum_{j}^{N_{bonds}^{L}}\frac{\theta_j}{2}\]</div>
+</div>
+<p>And the formula we use is</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\theta_{Tolman}^{AaronTools} = \sum_{L}^{coord.\:atoms}\frac{2}{N_{bonds}^{L}}\sum_{j}^{N_{bonds}^{L}}\frac{\theta_j}{2}\]</div>
+</div>
+<p>Where <span class="math notranslate nohighlight">\(\theta_j\)</span> is the angle for the smallest cone that fits the group coming off atom L, with the cone’s axis fixed to the M-L bond.
+For polydentate ligands, the <span class="math notranslate nohighlight">\(\theta_j\)</span> for the group that bridges coordinating atoms is the L-M-L angle.
+<span class="math notranslate nohighlight">\(N_{bonds}^{L}\)</span> is the number of bonds on one of the coordinating atoms.</p>
 </section>
 </section>
 </section>
@@ -390,5 +403,6 @@ Below is a 2-D depiction of a Voronoi (top) and Laguerre-Voronoi (bottom) tessel
     <script src="../_static/scripts/furo.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>

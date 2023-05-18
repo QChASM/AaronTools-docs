@@ -1,0 +1,390 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="follow.py" href="follow.html" /><link rel="prev" title="closeRing.py" href="closeRing.html" />
+
+    <!-- Generated with Sphinx 6.1.3 and Furo 2023.03.23 -->
+        <title>dihedral.py - AaronTools 1.0b19 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">AaronTools 1.0b19 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  
+  <span class="sidebar-brand-text">AaronTools 1.0b19 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Pages:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/install.html">Installation Guide</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tutorials/tut_list.html">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/cls_tutorials.html">Intro to Command Line Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/adding_to_libraries.html">Adding Structures to your AaronTools Library</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="list.html">List of Command Line Scripts</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="angle.html">angle.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bond.html">bond.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changeChirality.html">changeChirality.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changeElement.html">changeElement.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="closeRing.html">closeRing.py</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">dihedral.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="follow.html">follow.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getMonomers.html">getMonomers.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interpolate.html">interpolate.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="makeConf.html">makeConf.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mapLigand.html">mapLigand.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mirror.html">mirror.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multiSubstitute.html">multiSubstitute.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="removeFragment.html">removeFragment.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rmsdAlign.html">rmsdAlign.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rotate.html">rotate.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="substitute.html">substitute.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="symmetrize.html">symmetrize.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="translate.html">translate.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="averageBuriedVolume.html">averageBuriedVolume.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="averageSterimol.html">averageSterimol.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bond.html">bond.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coneAngle.html">coneAngle.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="findAtoms.html">findAtoms.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ligandSterimol.html">ligandSterimol.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="percentVolumeBuried.html">percentVolumeBuried.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pointGroup.html">pointGroup.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rmsdAlign.html">rmsdAlign.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="solidAngle.html">solidAngle.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stericMap.html">stericMap.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stericMapDifference.html">stericMapDifference.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="substituentSterimol.html">substituentSterimol.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unique.html">unique.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fetchMolecule.html">fetchMolecule.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getCoordinationComplexes.html">getCoordinationComplexes.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobSubmit.html">jobSubmit.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="makeCrestInput.html">makeCrestInput.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="makeInput.html">makeInput.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="condensedFukui.html">condensedFukui.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grabStatus.html">grabStatus.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grabThermo.html">grabThermo.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotAverageIR.html">plotAverageIR.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotAverageUVVis.html">plotAverageUVVis.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotIR.html">plotIR.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotUVVis.html">plotUVVis.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="printAtomInfo.html">printAtomInfo.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="printAtomPairInfo.html">printAtomPairInfo.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="printCube.html">printCube.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="printFreq.html">printFreq.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="printFreqBild.html">printFreqBild.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="printInfo.html">printInfo.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="printXYZ.html">printXYZ.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getCitations.html">getCitations.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libaddLigand.html">libaddLigand.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libaddRing.html">libaddRing.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libaddSubstituent.html">libaddSubstituent.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="listChanges.html">listChanges.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parsePDF.html">parsePDF.py</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../other_docs/configuration.html">Customization</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../other_docs/job_templates.html">Job Submission Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../other_docs/libraries.html">AaronTools Libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api/api.html">Python API Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/geometry.html"><code class="docutils literal notranslate"><span class="pre">Geometry</span></code> class</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api/fileIO.html">Reading and Writing Files</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/filereader.html"><code class="docutils literal notranslate"><span class="pre">FileReader</span></code> class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/filewriter.html"><code class="docutils literal notranslate"><span class="pre">FileWriter</span></code> class</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/finders.html">Finders</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api/theory.html"><code class="docutils literal notranslate"><span class="pre">theory</span></code> module</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/theory_class.html"><code class="docutils literal notranslate"><span class="pre">Theory</span></code> class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/theory_parameters.html">Theory parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/job_types.html"><code class="docutils literal notranslate"><span class="pre">JobType</span></code> classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/basis.html">Basis Set classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/method.html"><code class="docutils literal notranslate"><span class="pre">Method</span></code> classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/dispersion.html"><code class="docutils literal notranslate"><span class="pre">EmpiricalDispersion</span></code> class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/solvent.html"><code class="docutils literal notranslate"><span class="pre">ImplicitSolvent</span></code> class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/integration_grid.html"><code class="docutils literal notranslate"><span class="pre">IntegrationGrid</span></code> class</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/atoms.html"><code class="docutils literal notranslate"><span class="pre">Atom</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/component.html"><code class="docutils literal notranslate"><span class="pre">Component</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/substituent.html"><code class="docutils literal notranslate"><span class="pre">Substituent</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/rings.html"><code class="docutils literal notranslate"><span class="pre">Ring</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/spectra.html">Spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/comp_output.html"><code class="docutils literal notranslate"><span class="pre">CompOutput</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/job_control.html"><code class="docutils literal notranslate"><span class="pre">SubmitProcess</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/json_extension.html">JSON Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/symmetry.html"><code class="docutils literal notranslate"><span class="pre">PointGroup</span></code> class</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../advanced/advanced.html">Advanced Topics</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/algorithm_implementation.html">Structure Analysis and Descriptor Implementation</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="dihedral-py">
+<h1>dihedral.py<a class="headerlink" href="#dihedral-py" title="Permalink to this heading">#</a></h1>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: dihedral.py [-h]
+                   [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}]
+                   [-m atom1 atom2 atom3 atom4]
+                   [-c atom1 atom2 atom3 atom4 increment]
+                   [-s atom1 atom2 atom3 atom4 angle] [-r]
+                   [-o output destination]
+                   [input file ...]
+
+measure or modify torsional angles
+
+positional arguments:
+  input file            a coordinate file
+
+options:
+  -h, --help            show this help message and exit
+  -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}
+                        file format of input - xyz is assumed if input is stdin
+  -m atom1 atom2 atom3 atom4, --measure atom1 atom2 atom3 atom4
+                        measure and print the torsional angle (1-indexed)
+  -c atom1 atom2 atom3 atom4 increment, --change atom1 atom2 atom3 atom4 increment
+                        change torsional angle by the amount specified
+  -s atom1 atom2 atom3 atom4 angle, --set atom1 atom2 atom3 atom4 angle
+                        set dihedral to the amount specified
+  -r, --radians         work with radians instead of degrees
+  -o output destination, --output output destination
+                        output destination
+                        $INFILE will be replaced with the name of the input file
+                        Default: stdout
+</pre></div>
+</div>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="follow.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">follow.py</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="closeRing.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">closeRing.py</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, V. M. Ingman, A. J. Schaefer, L. R. Andreola, and S. E. Wheeler
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/furo.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    </body>
+</html>

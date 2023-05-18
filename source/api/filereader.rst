@@ -17,7 +17,7 @@ CREST output
 --------------
 
 .. csv-table::
-    :file: crest-filereader.csv
+    :file: ../other_docs/crest-filereader.csv
     :delim: ;
     :header: "key", "description"
     
@@ -26,7 +26,7 @@ Gaussian Output
 ---------------
 
 .. csv-table::
-    :file: gaussian-filereader.csv
+    :file: ../other_docs/gaussian-filereader.csv
     :delim: ;
     :header: "key", "description"
     
@@ -42,7 +42,7 @@ NBO Output
 ----------
 
 .. csv-table::
-    :file: nbo-filereader.csv
+    :file: ../other_docs/nbo-filereader.csv
     :delim: ;
     :header: "key", "description"
     
@@ -51,7 +51,7 @@ ORCA Output
 ------------
 
 .. csv-table::
-    :file: orca-filereader.csv
+    :file: ../other_docs/orca-filereader.csv
     :delim: ;
     :header: "key", "description"
     
@@ -60,7 +60,7 @@ Psi4 Output
 ------------
 
 .. csv-table::
-    :file: psi4-filereader.csv
+    :file: ../other_docs/psi4-filereader.csv
     :delim: ;
     :header: "key", "description"
     
@@ -69,7 +69,7 @@ Q-Chem Output
 -------------
 
 .. csv-table::
-    :file: qchem-filereader.csv
+    :file: ../other_docs/qchem-filereader.csv
     :delim: ;
     :header: "key", "description"
     
@@ -78,7 +78,7 @@ SQM Output
 ----------
 
 .. csv-table::
-    :file: sqm-filereader.csv
+    :file: ../other_docs/sqm-filereader.csv
     :delim: ;
     :header: "key", "description"
     
@@ -87,7 +87,7 @@ xTB Output
 ----------
 
 .. csv-table::
-    :file: xtb-filereader.csv
+    :file: ../other_docs/xtb-filereader.csv
     :delim: ;
     :header: "key", "description"
     

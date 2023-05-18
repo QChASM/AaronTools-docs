@@ -76,6 +76,23 @@ AaronTools uses structures provided by the user as-is, so substituents on the co
 Tolman's formula also says to divide the sum of the cones for each substituent on the coordinating atom by 3.
 We assume this is because Tolman was working with phosphine ligands, so our method of averaging the cone angle for substituents on the coordinating atom(s) will give different results than the formula implies for ligands with more or less saturated coordinating atoms (e.g. N-heterocyclic carbenes).
 
+In short, the original Tolman cone angle formula is
+
+
+.. math::
+    
+    \theta_{Tolman} = \sum_{L}^{coord.\:atoms}\frac{2}{3}\sum_{j}^{N_{bonds}^{L}}\frac{\theta_j}{2}
+
+And the formula we use is
+
+.. math::
+    
+    \theta_{Tolman}^{AaronTools} = \sum_{L}^{coord.\:atoms}\frac{2}{N_{bonds}^{L}}\sum_{j}^{N_{bonds}^{L}}\frac{\theta_j}{2}
+
+Where :math:`\theta_j` is the angle for the smallest cone that fits the group coming off atom L, with the cone's axis fixed to the M-L bond.
+For polydentate ligands, the :math:`\theta_j` for the group that bridges coordinating atoms is the L-M-L angle.
+:math:`N_{bonds}^{L}` is the number of bonds on one of the coordinating atoms.
+
 
 Condensed Fukui
 ---------------

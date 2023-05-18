@@ -103,6 +103,10 @@ Substituents
 Adding Substituents to Your Personal Library
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Note: for simple structure modification features ('e.g.', substitute.py), it might be more convenient to fetch the substituent from RDKit or a web API, which allow you to utilize substituents without adding them to your library.
+Typically, this is done by prefixing a substituent name or SMILES with iupac: or smiles:. 
+See the :code:`--help` page for the relevant command line script for more details.
+
 New substituents can be added to your personal library with the :code:`libaddSubstituent.py` command line script:: 
 
     libaddSubstituent.py -n NAME -t TARGET -a AVOID -c CONFORMERS ANGLE input_file

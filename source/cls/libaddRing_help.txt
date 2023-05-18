@@ -1,0 +1,3 @@
+.. code-block:: text 
+
+    usage: libaddRing.py [-h] [-n NAME] -w WALK input file        add a ring fragment to your personal library        positional arguments:      input file            a coordinate file        options:      -h, --help            show this help message and exit      -n NAME, --name NAME  Name of ring being added to the library                            if no name is given, the ring will be printed to STDOUT      -w WALK, --walk WALK  comma-separated list of atoms to definethe direction the ring is traversed (1-indexed)    

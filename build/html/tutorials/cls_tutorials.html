@@ -259,7 +259,7 @@ To see the full list of options for a script, run it with just the –help flag 
 <p>Many of our scripts also support reading the structure from standard input (e.g. pipes (<code class="code docutils literal notranslate"><span class="pre">|</span></code>), here documents (<code class="code docutils literal notranslate"><span class="pre">&lt;&lt;</span></code>)).
 The input is assumed to be in XYZ format, but <code class="code docutils literal notranslate"><span class="pre">-if</span></code> can be used to specify other formats.
 This can be used to avoid writing intermediate files.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>substitute.py<span class="w"> </span>benzene.xyz<span class="w"> </span>-s<span class="w"> </span><span class="nv">H</span><span class="o">=</span>F<span class="w"> </span><span class="p">|</span><span class="w"> </span>bond.py<span class="w"> </span>xyz<span class="w"> </span>-c<span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="m">0</span>.3
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">substitute</span><span class="o">.</span><span class="n">py</span> <span class="n">benzene</span><span class="o">.</span><span class="n">xyz</span> <span class="o">-</span><span class="n">s</span> <span class="n">H</span><span class="o">=</span><span class="n">F</span> <span class="o">|</span> <span class="n">bond</span><span class="o">.</span><span class="n">py</span> <span class="n">xyz</span> <span class="o">-</span><span class="n">c</span> <span class="mi">6</span> <span class="mi">7</span> <span class="mf">0.3</span>
 </pre></div>
 </div>
 </section>
@@ -408,6 +408,7 @@ The contents of ‘tnt.in’ are:</p>
 <h3>Submitting to the Queue<a class="headerlink" href="#submitting-to-the-queue" title="Permalink to this heading">#</a></h3>
 <p>If we’re logged on to a computing cluster, we can submit this optimization job to the queue with jobSubmit.py.
 We’ll need to have a template job file that’s compatible with the queuing software (e.g. SGE, PBS, Slurm).
+All clusters are different, and may have different ways to load a module (e.g. <code class="code docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">gaussian</span></code> vs. <code class="code docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">g16</span></code>).
 Below is a template file for a Psi4 computation running on a PBS cluster:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#PBS -S /bin/bash</span>
 <span class="c1">#PBS -N {{ name }}</span>
