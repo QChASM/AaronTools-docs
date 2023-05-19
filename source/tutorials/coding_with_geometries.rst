@@ -83,7 +83,6 @@ See :doc:`coding_with_theories` for information on how to use these.
         basis="def2-SVP", 
         grid="(99, 590)", 
         empirical_dispersion="D2", 
-        job_type=jobs, 
     )
     
     geom.write(
@@ -126,7 +125,7 @@ The following can be passed to find, along with an example:
         
     this will return all carbon atoms on the "benzene.xyz" geometry: 
     
-    .. code-block:: python
+    .. code-block:: text
     
         [  C    -4.20339000   -0.06691000   -0.00131000   0  1,
            C    -4.19394000   -1.46592000   -0.00065000   0  2,
