@@ -15,6 +15,7 @@ Python API Documentation
     rings
     spectra
     comp_output
+    orbitals
     job_control
     json_extension
     symmetry

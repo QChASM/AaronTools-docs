@@ -60,5 +60,9 @@ html_static_path = ['_static']
 # prefix for shell things that are copyable
 copybutton_prompt_text = ">>> "
 
-# fore multiline things
+# for multiline things
 copybutton_line_continuation_character = "\\"
+
+autodoc_default_options = {
+    'exclude-members': 'get_matching_atoms'
+}

@@ -161,6 +161,9 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="tutorials/tut_list.html">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/cls_tutorials.html">Intro to Command Line Scripts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/adding_to_libraries.html">Adding Structures to your AaronTools Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/coding_with_geometries.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/coding_with_theories.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/coding_with_filereaders.html">Coding with <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> objects</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="cls/list.html">List of Command Line Scripts</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -254,6 +257,7 @@
 <li class="toctree-l2"><a class="reference internal" href="api/rings.html"><code class="docutils literal notranslate"><span class="pre">Ring</span></code> class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/spectra.html">Spectra</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/comp_output.html"><code class="docutils literal notranslate"><span class="pre">CompOutput</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/orbitals.html"><code class="docutils literal notranslate"><span class="pre">Orbital</span></code> class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/job_control.html"><code class="docutils literal notranslate"><span class="pre">SubmitProcess</span></code> class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/json_extension.html">JSON Caching</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/symmetry.html"><code class="docutils literal notranslate"><span class="pre">PointGroup</span></code> class</a></li>
@@ -311,6 +315,159 @@
 <li class="toctree-l1"><a class="reference internal" href="advanced/advanced.html">Advanced Topics</a></li>
 </ul>
 </div>
+</section>
+<section id="citation">
+<h1>Citation<a class="headerlink" href="#citation" title="Permalink to this heading">#</a></h1>
+<p>If you use the Python AaronTools, please cite:</p>
+<blockquote>
+<div><p>V. M. Ingman, A. J. Schaefer, L. R. Andreola, and S. E. Wheeler
+“QChASM: Quantum Chemistry Automation and Structure Manipulation”
+<a class="reference external" href="http://dx.doi.org/10.1002/wcms.1510"><em>WIREs Comp. Mol. Sci.</em> <strong>11</strong>, e1510 (2021)</a></p>
+</div></blockquote>
+</section>
+<section id="overview-of-features">
+<h1>Overview of Features<a class="headerlink" href="#overview-of-features" title="Permalink to this heading">#</a></h1>
+<p>These are some of the more popular features in AaronTools, with links to the
+relevant command line scripts or Python API.</p>
+<p>Data can be processed from several popular quantum chemsitry software packages including
+Gaussian, ORCA, Psi4, and xTB.</p>
+<section id="steric-parameters">
+<h2>Steric Parameters<a class="headerlink" href="#steric-parameters" title="Permalink to this heading">#</a></h2>
+<section id="sterimol-parameters">
+<h3>Sterimol parameters<a class="headerlink" href="#sterimol-parameters" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="cls/substituentSterimol.html"><span class="doc">substituentSterimol.py</span></a></p></li>
+<li><p><a class="reference internal" href="cls/ligandSterimol.html"><span class="doc">ligandSterimol.py</span></a></p></li>
+<li><p><a class="reference internal" href="api/substituent.html#AaronTools.substituent.Substituent.sterimol" title="AaronTools.substituent.Substituent.sterimol"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.substituent.Substituent.sterimol()</span></code></a></p></li>
+<li><p><a class="reference internal" href="api/component.html#AaronTools.component.Component.sterimol" title="AaronTools.component.Component.sterimol"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.component.Component.sterimol()</span></code></a></p></li>
+<li><p><a class="reference internal" href="api/geometry.html#AaronTools.geometry.Geometry.sterimol" title="AaronTools.geometry.Geometry.sterimol"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.sterimol()</span></code></a></p></li>
+</ul>
+</section>
+<section id="buried-volume">
+<h3>Buried Volume<a class="headerlink" href="#buried-volume" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="cls/percentVolumeBuried.html"><span class="doc">percentVolumeBuried.py</span></a></p></li>
+<li><p><a class="reference internal" href="api/geometry.html#AaronTools.geometry.Geometry.percent_buried_volume" title="AaronTools.geometry.Geometry.percent_buried_volume"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.percent_buried_volume()</span></code></a></p></li>
+</ul>
+</section>
+<section id="steric-maps">
+<h3>Steric Maps<a class="headerlink" href="#steric-maps" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="cls/stericMap.html"><span class="doc">stericMap.py</span></a></p></li>
+<li><p><a class="reference internal" href="api/geometry.html#AaronTools.geometry.Geometry.steric_map" title="AaronTools.geometry.Geometry.steric_map"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.steric_map()</span></code></a></p></li>
+</ul>
+</section>
+<section id="ligand-solid-angles">
+<h3>Ligand Solid Angles<a class="headerlink" href="#ligand-solid-angles" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="cls/solidAngle.html"><span class="doc">solidAngle.py</span></a></p></li>
+<li><p><a class="reference internal" href="api/component.html#AaronTools.component.Component.solid_angle" title="AaronTools.component.Component.solid_angle"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.component.Component.solid_angle()</span></code></a></p></li>
+</ul>
+</section>
+<section id="ligand-cone-angles">
+<h3>Ligand Cone Angles<a class="headerlink" href="#ligand-cone-angles" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="cls/coneAngle.html"><span class="doc">coneAngle.py</span></a></p></li>
+<li><p><a class="reference internal" href="api/component.html#AaronTools.component.Component.cone_angle" title="AaronTools.component.Component.cone_angle"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.component.Component.cone_angle()</span></code></a></p></li>
+</ul>
+</section>
+</section>
+<section id="structure-operations">
+<h2>Structure Operations<a class="headerlink" href="#structure-operations" title="Permalink to this heading">#</a></h2>
+<section id="add-modify-substituents">
+<h3>Add/Modify Substituents<a class="headerlink" href="#add-modify-substituents" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="cls/substitute.html"><span class="doc">substitute.py</span></a></p></li>
+<li><p><a class="reference internal" href="cls/multiSubstitute.html"><span class="doc">multiSubstitute.py</span></a></p></li>
+<li><p><a class="reference internal" href="api/geometry.html#AaronTools.geometry.Geometry.substitute" title="AaronTools.geometry.Geometry.substitute"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.substitute()</span></code></a></p></li>
+</ul>
+</section>
+<section id="swap-ligands">
+<h3>Swap Ligands<a class="headerlink" href="#swap-ligands" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="cls/mapLigand.html"><span class="doc">mapLigand.py</span></a></p></li>
+<li><p><a class="reference internal" href="api/geometry.html#AaronTools.geometry.Geometry.map_ligand" title="AaronTools.geometry.Geometry.map_ligand"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.map_ligand()</span></code></a></p></li>
+</ul>
+</section>
+<section id="fetch-by-name-smiles">
+<h3>Fetch by Name/SMILES<a class="headerlink" href="#fetch-by-name-smiles" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="cls/fetchMolecule.html"><span class="doc">fetchMolecule.py</span></a></p></li>
+<li><p><a class="reference internal" href="api/geometry.html#AaronTools.geometry.Geometry.from_string" title="AaronTools.geometry.Geometry.from_string"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.from_string()</span></code></a></p></li>
+</ul>
+</section>
+<section id="generate-coordination-complexes">
+<h3>Generate Coordination Complexes<a class="headerlink" href="#generate-coordination-complexes" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="cls/getCoordinationComplexes.html"><span class="doc">getCoordinationComplexes.py</span></a></p></li>
+<li><p><a class="reference internal" href="api/geometry.html#AaronTools.geometry.Geometry.get_coordination_complexes" title="AaronTools.geometry.Geometry.get_coordination_complexes"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.get_coordination_complexes()</span></code></a></p></li>
+</ul>
+</section>
+</section>
+<section id="quantum-chemistry-setup-and-processing">
+<h2>Quantum Chemistry Setup and Processing<a class="headerlink" href="#quantum-chemistry-setup-and-processing" title="Permalink to this heading">#</a></h2>
+<section id="making-input-files">
+<h3>Making Input Files<a class="headerlink" href="#making-input-files" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="cls/makeInput.html"><span class="doc">makeInput.py</span></a></p></li>
+<li><p><a class="reference internal" href="cls/makeCrestInput.html"><span class="doc">makeCrestInput.py</span></a></p></li>
+<li><p><a class="reference internal" href="api/geometry.html#AaronTools.geometry.Geometry.write" title="AaronTools.geometry.Geometry.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.write()</span></code></a></p></li>
+<li><p><a class="reference internal" href="api/theory_class.html#AaronTools.theory.Theory" title="AaronTools.theory.Theory"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.Theory()</span></code></a></p></li>
+</ul>
+</section>
+<section id="parsing-data">
+<h3>Parsing Data<a class="headerlink" href="#parsing-data" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="cls/printInfo.html"><span class="doc">printInfo.py</span></a></p></li>
+<li><p><a class="reference internal" href="api/filereader.html#AaronTools.fileIO.FileReader" title="AaronTools.fileIO.FileReader"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.fileIO.FileReader()</span></code></a></p></li>
+</ul>
+</section>
+<section id="free-energy-rrho-quasi-rrho-quasi-harmonic">
+<h3>Free Energy (RRHO, Quasi-RRHO, Quasi-Harmonic)<a class="headerlink" href="#free-energy-rrho-quasi-rrho-quasi-harmonic" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="cls/grabThermo.html"><span class="doc">grabThermo.py</span></a></p></li>
+<li><p><a class="reference internal" href="api/comp_output.html#AaronTools.comp_output.CompOutput" title="AaronTools.comp_output.CompOutput"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.comp_output.CompOutput()</span></code></a></p></li>
+</ul>
+</section>
+<section id="vibrational-frequency-analysis">
+<h3>Vibrational Frequency Analysis<a class="headerlink" href="#vibrational-frequency-analysis" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="cls/plotIR.html"><span class="doc">plotIR.py</span></a></p></li>
+<li><p><a class="reference internal" href="cls/plotAverageIR.html"><span class="doc">plotAverageIR.py</span></a></p></li>
+<li><p><a class="reference internal" href="cls/follow.html"><span class="doc">follow.py</span></a></p></li>
+<li><p><a class="reference internal" href="cls/printFreq.html"><span class="doc">printFreq.py</span></a></p></li>
+<li><p><a class="reference internal" href="api/spectra.html#AaronTools.spectra.Frequency" title="AaronTools.spectra.Frequency"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.spectra.Frequency()</span></code></a></p></li>
+</ul>
+</section>
+<section id="valence-excitations">
+<h3>Valence Excitations<a class="headerlink" href="#valence-excitations" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="cls/plotUVVis.html"><span class="doc">plotUVVis.py</span></a></p></li>
+<li><p><a class="reference internal" href="cls/plotAverageUVVis.html"><span class="doc">plotAverageUVVis.py</span></a></p></li>
+<li><p><a class="reference internal" href="api/spectra.html#AaronTools.spectra.ValenceExcitations" title="AaronTools.spectra.ValenceExcitations"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.spectra.ValenceExcitations()</span></code></a></p></li>
+</ul>
+</section>
+<section id="orbital-data">
+<h3>Orbital Data<a class="headerlink" href="#orbital-data" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="cls/printCube.html"><span class="doc">printCube.py</span></a></p></li>
+<li><p><a class="reference internal" href="api/orbitals.html#AaronTools.orbitals.Orbitals" title="AaronTools.orbitals.Orbitals"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.orbitals.Orbitals()</span></code></a></p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="chimerax-plugin">
+<h1>ChimeraX Plugin<a class="headerlink" href="#chimerax-plugin" title="Permalink to this heading">#</a></h1>
+<p>The majority of these features are also available with a graphical interface
+in the <a class="reference external" href="https://cxtoolshed.rbvi.ucsf.edu/apps/seqcrow">SEQCROW plugin</a> for
+<a class="reference external" href="https://www.cgl.ucsf.edu/chimerax/">ChimeraX</a>.</p>
+</section>
+<section id="perl">
+<h1>Perl<a class="headerlink" href="#perl" title="Permalink to this heading">#</a></h1>
+<p>A Perl implementation of AaronTools is also available <a class="reference external" href="https://github.com/QChASM/AaronTools">here</a>.
+However, users are strongly urged to use the Python version since it
+has far more powerful features and, unlike the Perl version, will continue
+to be developed and supported.</p>
 </section>
 <section id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading">#</a></h1>

@@ -159,6 +159,9 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="tutorials/tut_list.html">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/cls_tutorials.html">Intro to Command Line Scripts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/adding_to_libraries.html">Adding Structures to your AaronTools Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/coding_with_geometries.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/coding_with_theories.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/coding_with_filereaders.html">Coding with <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> objects</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="cls/list.html">List of Command Line Scripts</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -252,6 +255,7 @@
 <li class="toctree-l2"><a class="reference internal" href="api/rings.html"><code class="docutils literal notranslate"><span class="pre">Ring</span></code> class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/spectra.html">Spectra</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/comp_output.html"><code class="docutils literal notranslate"><span class="pre">CompOutput</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/orbitals.html"><code class="docutils literal notranslate"><span class="pre">Orbital</span></code> class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/job_control.html"><code class="docutils literal notranslate"><span class="pre">SubmitProcess</span></code> class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/json_extension.html">JSON Caching</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/symmetry.html"><code class="docutils literal notranslate"><span class="pre">PointGroup</span></code> class</a></li>
@@ -315,6 +319,8 @@
           <li><a href="api/geometry.html#AaronTools.geometry.Geometry.__init__">(AaronTools.geometry.Geometry method)</a>
 </li>
           <li><a href="api/job_control.html#AaronTools.job_control.SubmitProcess.__init__">(AaronTools.job_control.SubmitProcess method)</a>
+</li>
+          <li><a href="api/orbitals.html#AaronTools.orbitals.Orbitals.__init__">(AaronTools.orbitals.Orbitals method)</a>
 </li>
           <li><a href="api/rings.html#AaronTools.ring.Ring.__init__">(AaronTools.ring.Ring method)</a>
 </li>
@@ -500,10 +506,10 @@
 </li>
         <li><a href="api/finders.html#AaronTools.finders.CloserTo">CloserTo (class in AaronTools.finders)</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/geometry.html#AaronTools.geometry.Geometry.COM">COM() (AaronTools.geometry.Geometry method)</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/geometry.html#AaronTools.geometry.Geometry.compare_connectivity">compare_connectivity() (AaronTools.geometry.Geometry method)</a>
 </li>
         <li><a href="api/component.html#AaronTools.component.Component">Component (class in AaronTools.component)</a>
@@ -511,6 +517,12 @@
         <li><a href="api/comp_output.html#AaronTools.comp_output.CompOutput">CompOutput (class in AaronTools.comp_output)</a>
 </li>
         <li><a href="api/comp_output.html#AaronTools.comp_output.CompOutput.compute_rot_temps">compute_rot_temps() (AaronTools.comp_output.CompOutput method)</a>
+</li>
+        <li><a href="api/orbitals.html#AaronTools.orbitals.Orbitals.condensed_fukui_acceptor_values">condensed_fukui_acceptor_values() (AaronTools.orbitals.Orbitals method)</a>
+</li>
+        <li><a href="api/orbitals.html#AaronTools.orbitals.Orbitals.condensed_fukui_donor_values">condensed_fukui_donor_values() (AaronTools.orbitals.Orbitals method)</a>
+</li>
+        <li><a href="api/orbitals.html#AaronTools.orbitals.Orbitals.condensed_fukui_dual_values">condensed_fukui_dual_values() (AaronTools.orbitals.Orbitals method)</a>
 </li>
         <li><a href="api/component.html#AaronTools.component.Component.cone_angle">cone_angle() (AaronTools.component.Component method)</a>
 </li>
@@ -543,6 +555,8 @@
         <li><a href="api/json_extension.html#AaronTools.json_extension.ATEncoder.default">default() (AaronTools.json_extension.ATEncoder method)</a>
 </li>
         <li><a href="api/geometry.html#AaronTools.geometry.Geometry.define_layer">define_layer() (AaronTools.geometry.Geometry method)</a>
+</li>
+        <li><a href="api/orbitals.html#AaronTools.orbitals.Orbitals.density_value">density_value() (AaronTools.orbitals.Orbitals method)</a>
 </li>
         <li><a href="api/component.html#AaronTools.component.Component.detect_backbone">detect_backbone() (AaronTools.component.Component method)</a>
 </li>
@@ -618,10 +632,10 @@
 </li>
         <li><a href="api/geometry.html#AaronTools.geometry.Geometry.fix_comment">fix_comment() (AaronTools.geometry.Geometry method)</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/finders.html#AaronTools.finders.FlaggedAtoms">FlaggedAtoms (class in AaronTools.finders)</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/comp_output.html#AaronTools.comp_output.CompOutput.follow">follow() (AaronTools.comp_output.CompOutput method)</a>
 </li>
         <li><a href="api/job_types.html#AaronTools.theory.job_types.ForceJob">ForceJob (class in AaronTools.theory.job_types)</a>
@@ -640,6 +654,10 @@
           <li><a href="api/substituent.html#AaronTools.substituent.Substituent.from_string">(AaronTools.substituent.Substituent class method)</a>
 </li>
         </ul></li>
+        <li><a href="api/orbitals.html#AaronTools.orbitals.Orbitals.fukui_acceptor_value">fukui_acceptor_value() (AaronTools.orbitals.Orbitals method)</a>
+</li>
+        <li><a href="api/orbitals.html#AaronTools.orbitals.Orbitals.fukui_donor_value">fukui_donor_value() (AaronTools.orbitals.Orbitals method)</a>
+</li>
     </ul></td>
   </tr></table>
 </section>
@@ -661,6 +679,10 @@
         <li><a href="api/geometry.html#AaronTools.geometry.Geometry.get_constraints">get_constraints() (AaronTools.geometry.Geometry method)</a>
 </li>
         <li><a href="api/geometry.html#AaronTools.geometry.Geometry.get_coordination_complexes">get_coordination_complexes() (AaronTools.geometry.Geometry class method)</a>
+</li>
+        <li><a href="api/orbitals.html#AaronTools.orbitals.Orbitals.get_cube_array">get_cube_array() (AaronTools.orbitals.Orbitals static method)</a>
+</li>
+        <li><a href="api/orbitals.html#AaronTools.orbitals.Orbitals.get_cube_points">get_cube_points() (AaronTools.orbitals.Orbitals static method)</a>
 </li>
         <li><a href="api/geometry.html#AaronTools.geometry.Geometry.get_diastereomers">get_diastereomers() (AaronTools.geometry.Geometry class method)</a>
 </li>
@@ -710,52 +732,6 @@
 </li>
         <li><a href="api/geometry.html#AaronTools.geometry.Geometry.get_invariants">get_invariants() (AaronTools.geometry.Geometry method)</a>
 </li>
-        <li><a href="api/finders.html#AaronTools.finders.AmideCarbon.get_matching_atoms">get_matching_atoms() (AaronTools.finders.AmideCarbon method)</a>
-
-        <ul>
-          <li><a href="api/finders.html#AaronTools.finders.AnyTransitionMetal.get_matching_atoms">(AaronTools.finders.AnyTransitionMetal method)</a>
-</li>
-          <li><a href="api/finders.html#AaronTools.finders.Aromatics.get_matching_atoms">(AaronTools.finders.Aromatics method)</a>
-</li>
-          <li><a href="api/finders.html#AaronTools.finders.BondedElements.get_matching_atoms">(AaronTools.finders.BondedElements method)</a>
-</li>
-          <li><a href="api/finders.html#AaronTools.finders.BondedTo.get_matching_atoms">(AaronTools.finders.BondedTo method)</a>
-</li>
-          <li><a href="api/finders.html#AaronTools.finders.BondsFrom.get_matching_atoms">(AaronTools.finders.BondsFrom method)</a>
-</li>
-          <li><a href="api/finders.html#AaronTools.finders.Bridgehead.get_matching_atoms">(AaronTools.finders.Bridgehead method)</a>
-</li>
-          <li><a href="api/finders.html#AaronTools.finders.ChiralCentres.get_matching_atoms">(AaronTools.finders.ChiralCentres method)</a>
-</li>
-          <li><a href="api/finders.html#AaronTools.finders.CloserTo.get_matching_atoms">(AaronTools.finders.CloserTo method)</a>
-</li>
-          <li><a href="api/finders.html#AaronTools.finders.FlaggedAtoms.get_matching_atoms">(AaronTools.finders.FlaggedAtoms method)</a>
-</li>
-          <li><a href="api/finders.html#AaronTools.finders.HasAttribute.get_matching_atoms">(AaronTools.finders.HasAttribute method)</a>
-</li>
-          <li><a href="api/finders.html#AaronTools.finders.IsElement.get_matching_atoms">(AaronTools.finders.IsElement method)</a>
-</li>
-          <li><a href="api/finders.html#AaronTools.finders.NotAny.get_matching_atoms">(AaronTools.finders.NotAny method)</a>
-</li>
-          <li><a href="api/finders.html#AaronTools.finders.NumberOfBonds.get_matching_atoms">(AaronTools.finders.NumberOfBonds method)</a>
-</li>
-          <li><a href="api/finders.html#AaronTools.finders.OfType.get_matching_atoms">(AaronTools.finders.OfType method)</a>
-</li>
-          <li><a href="api/finders.html#AaronTools.finders.ONIOMLayer.get_matching_atoms">(AaronTools.finders.ONIOMLayer method)</a>
-</li>
-          <li><a href="api/finders.html#AaronTools.finders.Resiude.get_matching_atoms">(AaronTools.finders.Resiude method)</a>
-</li>
-          <li><a href="api/finders.html#AaronTools.finders.SpiroCenters.get_matching_atoms">(AaronTools.finders.SpiroCenters method)</a>
-</li>
-          <li><a href="api/finders.html#AaronTools.finders.VSEPR.get_matching_atoms">(AaronTools.finders.VSEPR method)</a>
-</li>
-          <li><a href="api/finders.html#AaronTools.finders.WithinBondsOf.get_matching_atoms">(AaronTools.finders.WithinBondsOf method)</a>
-</li>
-          <li><a href="api/finders.html#AaronTools.finders.WithinRadiusFromAtom.get_matching_atoms">(AaronTools.finders.WithinRadiusFromAtom method)</a>
-</li>
-          <li><a href="api/finders.html#AaronTools.finders.WithinRadiusFromPoint.get_matching_atoms">(AaronTools.finders.WithinRadiusFromPoint method)</a>
-</li>
-        </ul></li>
         <li><a href="api/spectra.html#AaronTools.spectra.Signals.get_mixed_signals">get_mixed_signals() (AaronTools.spectra.Signals class method)</a>
 </li>
         <li><a href="api/geometry.html#AaronTools.geometry.Geometry.get_monomers">get_monomers() (AaronTools.geometry.Geometry method)</a>
@@ -788,10 +764,10 @@
           <li><a href="api/method.html#AaronTools.theory.Method.get_orca">(AaronTools.theory.Method method)</a>
 </li>
         </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/basis.html#AaronTools.theory.BasisSet.get_orca_basis_info">get_orca_basis_info() (AaronTools.theory.BasisSet method)</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/theory_class.html#AaronTools.theory.Theory.get_orca_footer">get_orca_footer() (AaronTools.theory.Theory method)</a>
 </li>
         <li><a href="api/theory_class.html#AaronTools.theory.Theory.get_orca_header">get_orca_header() (AaronTools.theory.Theory method)</a>
@@ -992,6 +968,8 @@
 </li>
         <li><a href="api/atoms.html#AaronTools.atoms.Atom.mass">mass (AaronTools.atoms.Atom property)</a>
 </li>
+        <li><a href="api/orbitals.html#AaronTools.orbitals.Orbitals.memory_estimate">memory_estimate() (AaronTools.orbitals.Orbitals method)</a>
+</li>
         <li><a href="api/method.html#AaronTools.theory.Method">Method (class in AaronTools.theory)</a>
 </li>
         <li><a href="api/geometry.html#AaronTools.geometry.Geometry.minimize">minimize() (AaronTools.geometry.Geometry method)</a>
@@ -1007,6 +985,8 @@
         <li><a href="api/geometry.html#AaronTools.geometry.Geometry.minimize_torsion">minimize_torsion() (AaronTools.geometry.Geometry method)</a>
 </li>
         <li><a href="api/geometry.html#AaronTools.geometry.Geometry.mirror">mirror() (AaronTools.geometry.Geometry method)</a>
+</li>
+        <li><a href="api/orbitals.html#AaronTools.orbitals.Orbitals.mo_value">mo_value() (AaronTools.orbitals.Orbitals method)</a>
 </li>
         <li>
     module
@@ -1067,6 +1047,8 @@
 </li>
         <li><a href="api/job_types.html#AaronTools.theory.job_types.OptimizationJob">OptimizationJob (class in AaronTools.theory.job_types)</a>
 </li>
+        <li><a href="api/orbitals.html#AaronTools.orbitals.Orbitals">Orbitals (class in AaronTools.orbitals)</a>
+</li>
     </ul></td>
   </tr></table>
 </section>
@@ -1124,6 +1106,8 @@
         <li><a href="api/spectra.html#AaronTools.spectra.ValenceExcitations.plot_uv_vis">plot_uv_vis() (AaronTools.spectra.ValenceExcitations method)</a>
 </li>
         <li><a href="api/symmetry.html#AaronTools.symmetry.PointGroup">PointGroup (class in AaronTools.symmetry)</a>
+</li>
+        <li><a href="api/orbitals.html#AaronTools.orbitals.Orbitals.power_integral">power_integral() (AaronTools.orbitals.Orbitals method)</a>
 </li>
     </ul></td>
   </tr></table>
@@ -1327,9 +1311,11 @@
     <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/spectra.html#AaronTools.spectra.ValenceExcitation">ValenceExcitation (class in AaronTools.spectra)</a>
 </li>
+        <li><a href="api/spectra.html#AaronTools.spectra.ValenceExcitations">ValenceExcitations (class in AaronTools.spectra)</a>
+</li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="api/spectra.html#AaronTools.spectra.ValenceExcitations">ValenceExcitations (class in AaronTools.spectra)</a>
+        <li><a href="api/orbitals.html#AaronTools.orbitals.Orbitals.voronoi_integral">voronoi_integral() (AaronTools.orbitals.Orbitals method)</a>
 </li>
         <li><a href="api/finders.html#AaronTools.finders.VSEPR">VSEPR (class in AaronTools.finders)</a>
 </li>

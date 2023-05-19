@@ -138,7 +138,21 @@ We could combine these two steps into one by simply specifying both substitution
 ::
     
     substitute.py benzene.xyz -s 7=Me -s 8,9,12=NO2 -o tnt.xyz
-    
+
+It's worth noting that the :code:`substitute.py` script can accept IUPAC
+names of substituents.
+This makes it easy to use substituents that are not in the AaronTools library.
+Simply prefix the name with :code:`iupac:`:
+
+.. code-block:: text
+
+    substitute.py benzene.xyz --minimize -s 7=iupac:cinnamyl -s 8,9,12=iupac:butyl -o tnt.xyz
+
+This does require an internet connection to fetch structures from the
+`OPSIN web API <https://opsin.ch.cam.ac.uk/>`_.
+SMILES for a radical can also be used, if prefixed with :code:`smiles:`.
+
+
 Running Jobs
 ------------
 
