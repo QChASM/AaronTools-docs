@@ -1,11 +1,14 @@
 AaronTools Libraries
 ========================
 
-AaronTools libraries contain various molecular fragments that can be used for building and editing structures.
+AaronTools libraries contain various molecular fragments that can be used for building and editing
+structures.
 
-You can browse the AARON and AaronTools libraries at http://qchasm.wheelergroupresearch.com/ or with SEQCROW's Browse AaronTools Libraries tool. 
+You can browse the AARON and AaronTools libraries at http://qchasm.wheelergroupresearch.com/ or with
+SEQCROW's Browse AaronTools Libraries tool. 
 
-The default AaronTools library location is ~/Aaron_lib, though this can be changed with the AARONLIB environment variable.
+The default AaronTools library location is ~/Aaron_lib, though this can be changed with the AARONLIB
+environment variable.
 The library directory should contain several subdirectories, including Subs, Ligands, and Rings.
 
 Substituents
@@ -13,20 +16,24 @@ Substituents
 
 AaronTools includes a library of ~45 substituents, which are fragments with one bond to a molecule (`e.g.` phenyl).
 These can be added to a structure or used to replace an existing substituent.
-This can be done with the :code:`substitute.py` command line script, or with the :py:func:`Geometry.substitute` method.
+This can be done with the :doc:`../cls/substitute` command line script, or with the
+:py:meth:`AaronTools.geometry.Geometry.substitute` method.
 Substituents can also be used as monodentate ligands for various ligand-related features in AaronTools.
 
-Substituents can be added to the library using the :code:`libaddSubstituent.py` command line script or SEQCROW's "Add to Personal Library" tool.
+Substituents can be added to the library using the :doc:`../cls/libaddSubstituent`
+command line script or SEQCROW's "Add to Personal Library" tool.
 
 It is worth noting that substituents can be fetched from RDKit or the CACTUS web API.
 With this, substituents can be used without added them to the library.
-For more information, look at :code:`substitute.py --help` or :py:func:`Substituent.from_string`.
+For more information, look at :doc:`../cls/substitute` or
+:py:meth:`AaronTools.substituent.Substituent.from_string`.
 
 Ligands
 -------
 
 Ligands can be used to replace another ligand on a structure.
-Swapping ligands can be done with the :code:`mapLigand.py` command line script, or with :py:func:`Geometry.map_ligand`.
+Swapping ligands can be done with the :doc:`../cls/mapLigand` command line script,
+or with :py:meth:`AaronTools.geometry.Geometry.map_ligand`.
 
 For example, we can take a relatively simple catalyst structure: 
 
@@ -36,7 +43,7 @@ and swap the ligand for one of the 30-some other diphosphine ligands in the Aaro
 
 .. image:: ../images/cat_binap.png
 
-Ligands can be added to the library using the :code:`libaddLigand.py` command line script or SEQCROW's "Add to Personal Library" tool.
+Ligands can be added to the library using the :doc:`../cls/libaddLigand` command line script or SEQCROW's "Add to Personal Library" tool.
 
 
 
@@ -44,7 +51,8 @@ Rings
 -----
 
 Rings that can be used to close an incomplete ring.
-Closing rings can be done with the :code:`closeRing.py` command line script, or with :py:func:`Geometry.ring_substitute`.
+Closing rings can be done with the :doc:`../cls/closeRing` command line script,
+or with :py:meth:`AaronTools.geometry.Geometry.ring_substitute`.
 
 Rings can be added to the library using the :code:`libaddRing.py` command line script or SEQCROW's "Add to Personal Library" tool.
 

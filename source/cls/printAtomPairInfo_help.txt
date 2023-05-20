@@ -1,3 +1,30 @@
-.. code-block:: text 
+.. code-block:: text
 
-    usage: printAtomPairInfo.py [-h] [-o OUTFILE] [-t1 TARGETS_1] [-t2 TARGETS_2]                                [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}]                                [-ls] [-i INFO]                                [-csv [{comma,semicolon,tab,space}]]                                [input file ...]        print information about pairs of atoms in Gaussian, ORCA, or Psi4 output files        positional arguments:      input file            a coordinate file        options:      -h, --help            show this help message and exit      -o OUTFILE, --output OUTFILE                            output destination                             Default: stdout      -t1 TARGETS_1, --first-targets TARGETS_1                            print info from target atoms      -t2 TARGETS_2, --second-targets TARGETS_2                            print info from target atoms      -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}                            file format of input - xyz is assumed if input is stdin      -ls, --list           list info categories and exit      -i INFO, --info INFO  information to print                            Default is all info      -csv [{comma,semicolon,tab,space}], --csv-format [{comma,semicolon,tab,space}]                            print info in CSV format with the specified separator                            Default: do not print in CSV format    
+    usage: printAtomPairInfo.py [-h] [-o OUTFILE] [-t1 TARGETS_1] [-t2 TARGETS_2]
+                                [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}]
+                                [-ls] [-i INFO]
+                                [-csv [{comma,semicolon,tab,space}]]
+                                [input file [input file ...]]
+    
+    print information about pairs of atoms in Gaussian, ORCA, or Psi4 output files
+    
+    positional arguments:
+      input file            a coordinate file
+    
+    optional arguments:
+      -h, --help            show this help message and exit
+      -o OUTFILE, --output OUTFILE
+                            output destination 
+                            Default: stdout
+      -t1 TARGETS_1, --first-targets TARGETS_1
+                            print info from target atoms
+      -t2 TARGETS_2, --second-targets TARGETS_2
+                            print info from target atoms
+      -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}
+                            file format of input - xyz is assumed if input is stdin
+      -ls, --list           list info categories and exit
+      -i INFO, --info INFO  information to print
+                            Default is all info
+      -csv [{comma,semicolon,tab,space}], --csv-format [{comma,semicolon,tab,space}]
+                            print info in CSV format with the specified separator
+                            Default: do not print in CSV format

@@ -1,3 +1,52 @@
-.. code-block:: text 
+.. code-block:: text
 
-    usage: rotate.py [-h]                     [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}]                     [-t targets | -f target] [-c targets]                     (-v x y z | -b a1 a2 | -x {x,y,z} | -g targets | -p targets)                     [-a angle] [-r] [-n num] [-o OUTFILE]                     [input file ...]        rotate a fragment or molecule's coordinates        positional arguments:      input file            a coordinate file        options:      -h, --help            show this help message and exit      -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}                            file format of input - xyz is assumed if input is stdin      -c targets, --center targets                            translate the centroid of the specified atoms to the                            origin before rotating      -a angle, --angle angle                            angle of rotation (in degrees by default)      -r, --radians         use when angle is specified in radians instead of degrees      -n num, --number num  when angle is specified, rotate num times by angle                            when angle is not specified, rotate 360/num degrees num times      -o OUTFILE, --output OUTFILE                            output destination                            $INFILE, $AXIS, $ANGLE will be replaced with the name of the                            input file, rotation axis, and angle or rotation, respectively                            Default: stdout        rotated atoms (default is all atoms):      -t targets, --target targets                            atoms to rotate (1-indexed)                            comma- and/or hyphen-separated list                            hyphens denote a range of atoms; commas separate individual atoms or ranges      -f target, --fragment target                            rotate fragment containing target        define vector:      -v x y z, --vector x y z                            rotate about the vector from the origin to (x, y, z)      -b a1 a2, --bond a1 a2                            rotate about the vector from atom a1 to atom a2 (1-indexed)      -x {x,y,z}, --axis {x,y,z}                            rotate about specified axis      -g targets, --group targets                            rotate about axis from origin (or center specified with '--center')                            to the centroid of the specified atoms      -p targets, --perpendicular targets                            rotate about a vector orthogonal to the plane of best fit containing targets    
+    usage: rotate.py [-h]
+                     [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}]
+                     [-t targets | -f target] [-c targets]
+                     (-v x y z | -b a1 a2 | -x {x,y,z} | -g targets | -p targets)
+                     [-a angle] [-r] [-n num] [-o OUTFILE]
+                     [input file [input file ...]]
+    
+    rotate a fragment or molecule's coordinates
+    
+    positional arguments:
+      input file            a coordinate file
+    
+    optional arguments:
+      -h, --help            show this help message and exit
+      -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}
+                            file format of input - xyz is assumed if input is stdin
+      -c targets, --center targets
+                            translate the centroid of the specified atoms to the
+                            origin before rotating
+      -a angle, --angle angle
+                            angle of rotation (in degrees by default)
+      -r, --radians         use when angle is specified in radians instead of degrees
+      -n num, --number num  when angle is specified, rotate num times by angle
+                            when angle is not specified, rotate 360/num degrees num times
+      -o OUTFILE, --output OUTFILE
+                            output destination
+                            $INFILE, $AXIS, $ANGLE will be replaced with the name of the
+                            input file, rotation axis, and angle or rotation, respectively
+                            Default: stdout
+    
+    rotated atoms (default is all atoms):
+      -t targets, --target targets
+                            atoms to rotate (1-indexed)
+                            comma- and/or hyphen-separated list
+                            hyphens denote a range of atoms; commas separate individual atoms or ranges
+      -f target, --fragment target
+                            rotate fragment containing target
+    
+    define vector:
+      -v x y z, --vector x y z
+                            rotate about the vector from the origin to (x, y, z)
+      -b a1 a2, --bond a1 a2
+                            rotate about the vector from atom a1 to atom a2 (1-indexed)
+      -x {x,y,z}, --axis {x,y,z}
+                            rotate about specified axis
+      -g targets, --group targets
+                            rotate about axis from origin (or center specified with '--center')
+                            to the centroid of the specified atoms
+      -p targets, --perpendicular targets
+                            rotate about a vector orthogonal to the plane of best fit containing targets

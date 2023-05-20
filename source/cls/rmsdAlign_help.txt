@@ -1,3 +1,40 @@
-.. code-block:: text 
+.. code-block:: text
 
-    usage: rmsdAlign.py [-h]                        [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}]                        [-r REF] [-it targets] [-rt targets] [-v | -csv]                        [-d {comma,semicolon,tab,space}] [-s] [-n] [-o OUTFILE]                        [input file ...]        align structure to reference        positional arguments:      input file            a coordinate file        options:      -h, --help            show this help message and exit      -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}                            file format of input - xyz is assumed if input is stdin      -r REF, --reference REF                            reference structure      -it targets, --input-targets targets                            target atoms on input (1-indexed)                            comma (,) and/or hyphen (-) separated list                            hyphens denote a range of atoms                            commas separate individual atoms or ranges                            Default: whole structure      -rt targets, --ref-targets targets                            target atoms on reference (1-indexed)      -s, --sort            sort atoms      -n, --non-hydrogen    ignore hydrogen atoms        output options:      -v, --value           print RMSD only      -csv, --comma-seperated                            print output in CSV format      -d {comma,semicolon,tab,space}, --delimiter {comma,semicolon,tab,space}                            CSV delimiter      -o OUTFILE, --output OUTFILE                            output destination                            $INFILE will be replaced with the name of the input file                            Default: stdout    
+    usage: rmsdAlign.py [-h]
+                        [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}]
+                        [-r REF] [-it targets] [-rt targets] [-v | -csv]
+                        [-d {comma,semicolon,tab,space}] [-s] [-n] [-o OUTFILE]
+                        [input file [input file ...]]
+    
+    align structure to reference
+    
+    positional arguments:
+      input file            a coordinate file
+    
+    optional arguments:
+      -h, --help            show this help message and exit
+      -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}
+                            file format of input - xyz is assumed if input is stdin
+      -r REF, --reference REF
+                            reference structure
+      -it targets, --input-targets targets
+                            target atoms on input (1-indexed)
+                            comma (,) and/or hyphen (-) separated list
+                            hyphens denote a range of atoms
+                            commas separate individual atoms or ranges
+                            Default: whole structure
+      -rt targets, --ref-targets targets
+                            target atoms on reference (1-indexed)
+      -s, --sort            sort atoms
+      -n, --non-hydrogen    ignore hydrogen atoms
+    
+    output options:
+      -v, --value           print RMSD only
+      -csv, --comma-seperated
+                            print output in CSV format
+      -d {comma,semicolon,tab,space}, --delimiter {comma,semicolon,tab,space}
+                            CSV delimiter
+      -o OUTFILE, --output OUTFILE
+                            output destination
+                            $INFILE will be replaced with the name of the input file
+                            Default: stdout

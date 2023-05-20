@@ -304,25 +304,25 @@
           <section id="makecrestinput-py">
 <h1>makeCrestInput.py<a class="headerlink" href="#makecrestinput-py" title="Permalink to this heading">#</a></h1>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: makeCrestInput.py [-h] [-o OUTFILE]
-                         [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}]
+                         [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}]
                          [-q CHARGE] [-mult MULTIPLICITY] [-p PROCESSORS]
                          [-m METHOD] [-sv SOLVENT] [-sm SOLVENT_MODEL]
                          [-ca ATOMS] [-cb BONDS] [-cang ANGLES] [-ct TORSIONS]
                          [-xc KEYWORD [OPTION ...]] [-cmd COMMAND [VALUE ...]]
-                         [input file ...]
+                         [input file [input file ...]]
 
 print CREST input files
 
 positional arguments:
   input file            a coordinate file
 
-options:
+optional arguments:
   -h, --help            show this help message and exit
   -o OUTFILE, --output OUTFILE
                         output destination
                         $INFILE will be replaced with the name of the input file
                         Default: stdout
-  -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}
+  -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}
                         file format of input - xyz is assumed if input is stdin
   -q CHARGE, --charge CHARGE
                         net charge

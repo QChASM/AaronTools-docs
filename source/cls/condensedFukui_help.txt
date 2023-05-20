@@ -1,3 +1,68 @@
-.. code-block:: text 
+.. code-block:: text
 
-    usage: condensedFukui.py [-h] [-o OUTFILE] (-fd | -fa | -f2) [-d DELTA]                             [-nt N_JOBS] [-m MAX_LENGTH] [-v {umn,bondi}]                             [-rp {20,32,64,75,99,127}]                             [-ap {110,194,302,590,974,1454,2030,2702,5810}]                             [input file ...]        integrate weighted Fukui functions around atoms        positional arguments:      input file            an FCHK file or ORCA output with MO's        options:      -h, --help            show this help message and exit      -o OUTFILE, --output OUTFILE                            output destination                            $INFILE will be replaced with the name of the input file                            Default: stdout      -fd, --fukui-donor    print Fukui donor values                            see DOI 10.1002/jcc.24699 for weighting method                            for details on how the function is condensed, see the GitHub wiki:                            https://github.com/QChASM/AaronTools.py/wiki/Structure-Analysis-and-Descriptor-Implementation#condensed-fukui      -fa, --fukui-acceptor                            print Fukui acceptor values                            see DOI 10.1021/acs.jpca.9b07516 for weighting method                            for details on how the function is condensed, see the GitHub wiki:                            https://github.com/QChASM/AaronTools.py/wiki/Structure-Analysis-and-Descriptor-Implementation#condensed-fukui      -f2, --fukui-dual     print Fukui dual values                            see DOI 10.1021/acs.jpca.9b07516 for weighting method                            for details on how the function is condensed, see the GitHub wiki:                            https://github.com/QChASM/AaronTools.py/wiki/Structure-Analysis-and-Descriptor-Implementation#condensed-fukui      -d DELTA, --delta DELTA                            delta parameter for weighting orbitals in Fukui functions                            Default: 0.1 Hartree      -nt N_JOBS, --number-of-threads N_JOBS                            number of threads to use when evaluating basis functions                            this is on top of NumPy's multithreading,                            so if NumPy uses 8 threads and n_jobs=2, you can                            expect to see 16 threads in use                            Default: 1      -m MAX_LENGTH, --max-array MAX_LENGTH                            max. array size to read from FCHK files                            a reasonable size for setting parsing orbital data                            can improve performance when reading large FCHK files                            too small of a value will prevent orbital data from                            being parsed                            Default: 10000000      -v {umn,bondi}, --vdw-radii {umn,bondi}                            VDW radii to use in calculation                            umn: main group vdw radii from J. Phys. Chem. A 2009, 113, 19, 58065812                                (DOI: 10.1021/jp8111556)                                transition metals are crystal radii from Batsanov, S.S. Van der Waals                                Radii of Elements. Inorganic Materials 37, 871885 (2001).                                (DOI: 10.1023/A:1011625728803)                            bondi: radii from J. Phys. Chem. 1964, 68, 3, 441451 (DOI: 10.1021/j100785a001)                            Default: umn        Lebedev integration options:      -rp {20,32,64,75,99,127}, --radial-points {20,32,64,75,99,127}                            number of radial shells for Gauss-Legendre integration                            of the radial component                            lower values are faster, but at the cost of accuracy                            Default: 32      -ap {110,194,302,590,974,1454,2030,2702,5810}, --angular-points {110,194,302,590,974,1454,2030,2702,5810}                            number of angular points for Lebedev integration                            lower values are faster, but at the cost of accuracy                            Default: 1454    
+    usage: condensedFukui.py [-h] [-o OUTFILE] (-fd | -fa | -f2) [-d DELTA]
+                             [-nt N_JOBS] [-m MAX_LENGTH] [-v {umn,bondi}]
+                             [-rp {20,32,64,75,99,127}]
+                             [-ap {110,194,302,590,974,1454,2030,2702,5810}]
+                             [input file [input file ...]]
+    
+    integrate weighted Fukui functions around atoms
+    
+    positional arguments:
+      input file            an FCHK file or ORCA output with MO's
+    
+    optional arguments:
+      -h, --help            show this help message and exit
+      -o OUTFILE, --output OUTFILE
+                            output destination
+                            $INFILE will be replaced with the name of the input file
+                            Default: stdout
+      -fd, --fukui-donor    print Fukui donor values
+                            see DOI 10.1002/jcc.24699 for weighting method
+                            for details on how the function is condensed, see the GitHub wiki:
+                            https://github.com/QChASM/AaronTools.py/wiki/Structure-Analysis-and-Descriptor-Implementation#condensed-fukui
+      -fa, --fukui-acceptor
+                            print Fukui acceptor values
+                            see DOI 10.1021/acs.jpca.9b07516 for weighting method
+                            for details on how the function is condensed, see the GitHub wiki:
+                            https://github.com/QChASM/AaronTools.py/wiki/Structure-Analysis-and-Descriptor-Implementation#condensed-fukui
+      -f2, --fukui-dual     print Fukui dual values
+                            see DOI 10.1021/acs.jpca.9b07516 for weighting method
+                            for details on how the function is condensed, see the GitHub wiki:
+                            https://github.com/QChASM/AaronTools.py/wiki/Structure-Analysis-and-Descriptor-Implementation#condensed-fukui
+      -d DELTA, --delta DELTA
+                            delta parameter for weighting orbitals in Fukui functions
+                            Default: 0.1 Hartree
+      -nt N_JOBS, --number-of-threads N_JOBS
+                            number of threads to use when evaluating basis functions
+                            this is on top of NumPy's multithreading,
+                            so if NumPy uses 8 threads and n_jobs=2, you can
+                            expect to see 16 threads in use
+                            Default: 1
+      -m MAX_LENGTH, --max-array MAX_LENGTH
+                            max. array size to read from FCHK files
+                            a reasonable size for setting parsing orbital data
+                            can improve performance when reading large FCHK files
+                            too small of a value will prevent orbital data from
+                            being parsed
+                            Default: 10000000
+      -v {umn,bondi}, --vdw-radii {umn,bondi}
+                            VDW radii to use in calculation
+                            umn: main group vdw radii from J. Phys. Chem. A 2009, 113, 19, 5806–5812
+                                (DOI: 10.1021/jp8111556)
+                                transition metals are crystal radii from Batsanov, S.S. Van der Waals
+                                Radii of Elements. Inorganic Materials 37, 871–885 (2001).
+                                (DOI: 10.1023/A:1011625728803)
+                            bondi: radii from J. Phys. Chem. 1964, 68, 3, 441–451 (DOI: 10.1021/j100785a001)
+                            Default: umn
+    
+    Lebedev integration options:
+      -rp {20,32,64,75,99,127}, --radial-points {20,32,64,75,99,127}
+                            number of radial shells for Gauss-Legendre integration
+                            of the radial component
+                            lower values are faster, but at the cost of accuracy
+                            Default: 32
+      -ap {110,194,302,590,974,1454,2030,2702,5810}, --angular-points {110,194,302,590,974,1454,2030,2702,5810}
+                            number of angular points for Lebedev integration
+                            lower values are faster, but at the cost of accuracy
+                            Default: 1454

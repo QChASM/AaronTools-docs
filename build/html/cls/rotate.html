@@ -304,20 +304,20 @@
           <section id="rotate-py">
 <h1>rotate.py<a class="headerlink" href="#rotate-py" title="Permalink to this heading">#</a></h1>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: rotate.py [-h]
-                 [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}]
+                 [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}]
                  [-t targets | -f target] [-c targets]
                  (-v x y z | -b a1 a2 | -x {x,y,z} | -g targets | -p targets)
                  [-a angle] [-r] [-n num] [-o OUTFILE]
-                 [input file ...]
+                 [input file [input file ...]]
 
 rotate a fragment or molecule&#39;s coordinates
 
 positional arguments:
   input file            a coordinate file
 
-options:
+optional arguments:
   -h, --help            show this help message and exit
-  -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}
+  -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}
                         file format of input - xyz is assumed if input is stdin
   -c targets, --center targets
                         translate the centroid of the specified atoms to the

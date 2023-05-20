@@ -304,19 +304,19 @@
           <section id="translate-py">
 <h1>translate.py<a class="headerlink" href="#translate-py" title="Permalink to this heading">#</a></h1>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: translate.py [-h]
-                    [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}]
+                    [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}]
                     [-t atoms] [-f atoms] [-ct targets] [-v x y z]
                     [-d DISTANCE] [-dest x y z] [-com | -cent] [-o OUTFILE]
-                    [input file ...]
+                    [input file [input file ...]]
 
 move atoms along a vector
 
 positional arguments:
   input file            a coordinate file
 
-options:
+optional arguments:
   -h, --help            show this help message and exit
-  -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}
+  -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}
                         file format of input - xyz is assumed if input is stdin
   -ct targets, --center-targets targets
                         target atoms for -com or -cent arguments

@@ -1,3 +1,30 @@
-.. code-block:: text 
+.. code-block:: text
 
-    usage: getCoordinationComplexes.py [-h] -l [LIGANDS ...]                                       [-c2 [C2_SYMMETRIC ...]] -g                                       {tetrahedral,seesaw,square_planar,trigonal_pyramidal,trigonal_bipyramidal,square_pyramidal,pentagonal,hexagonal,trigonal_prismatic,pentagonal_pyramidal,octahedral,capped_octahedral,hexagonal_pyramidal,pentagonal_bipyramidal,capped_trigonal_prismatic,heptagonal}                                       -c element [-m] -o output destination        build coordination complexes using templates from Inorg. Chem. 2018, 57, 17, 1055710567        options:      -h, --help            show this help message and exit      -l [LIGANDS ...], --ligands [LIGANDS ...]                            list of ligands to attach to the coordination complex                            see `mapLigand.py --list` for a list of available ligands      -c2 [C2_SYMMETRIC ...], --c2-symmetric [C2_SYMMETRIC ...]                            list of true/false corresping to --ligands to denote which bidentate                            ligands are C2-symmetric                            Default: try to determine if bidentate ligands are C2-symmetric      -g {tetrahedral,seesaw,square_planar,trigonal_pyramidal,trigonal_bipyramidal,square_pyramidal,pentagonal,hexagonal,trigonal_prismatic,pentagonal_pyramidal,octahedral,capped_octahedral,hexagonal_pyramidal,pentagonal_bipyramidal,capped_trigonal_prismatic,heptagonal}, --coordination-geometry {tetrahedral,seesaw,square_planar,trigonal_pyramidal,trigonal_bipyramidal,square_pyramidal,pentagonal,hexagonal,trigonal_prismatic,pentagonal_pyramidal,octahedral,capped_octahedral,hexagonal_pyramidal,pentagonal_bipyramidal,capped_trigonal_prismatic,heptagonal}                            coordination geometry of central atom      -c element, --center-atom element                            central atom for coordination complexes      -m, --minimize        try to relax ligands to minimize steric clashing                            Default: False      -o output destination, --output output destination                            output directory                            Filenames will match the detected generic formula and                            include the point group and subset from the reference                            noted above                            Subsets with primes (e.g. A' and A'') are not distinguished    
+    usage: getCoordinationComplexes.py [-h] -l [LIGANDS [LIGANDS ...]]
+                                       [-c2 [C2_SYMMETRIC [C2_SYMMETRIC ...]]] -g
+                                       {tetrahedral,seesaw,square_planar,trigonal_pyramidal,trigonal_bipyramidal,square_pyramidal,pentagonal,hexagonal,trigonal_prismatic,pentagonal_pyramidal,octahedral,capped_octahedral,hexagonal_pyramidal,pentagonal_bipyramidal,capped_trigonal_prismatic,heptagonal}
+                                       -c element [-m] -o output destination
+    
+    build coordination complexes using templates from Inorg. Chem. 2018, 57, 17, 10557–10567
+    
+    optional arguments:
+      -h, --help            show this help message and exit
+      -l [LIGANDS [LIGANDS ...]], --ligands [LIGANDS [LIGANDS ...]]
+                            list of ligands to attach to the coordination complex
+                            see `mapLigand.py --list` for a list of available ligands
+      -c2 [C2_SYMMETRIC [C2_SYMMETRIC ...]], --c2-symmetric [C2_SYMMETRIC [C2_SYMMETRIC ...]]
+                            list of true/false corresping to --ligands to denote which bidentate
+                            ligands are C2-symmetric
+                            Default: try to determine if bidentate ligands are C2-symmetric
+      -g {tetrahedral,seesaw,square_planar,trigonal_pyramidal,trigonal_bipyramidal,square_pyramidal,pentagonal,hexagonal,trigonal_prismatic,pentagonal_pyramidal,octahedral,capped_octahedral,hexagonal_pyramidal,pentagonal_bipyramidal,capped_trigonal_prismatic,heptagonal}, --coordination-geometry {tetrahedral,seesaw,square_planar,trigonal_pyramidal,trigonal_bipyramidal,square_pyramidal,pentagonal,hexagonal,trigonal_prismatic,pentagonal_pyramidal,octahedral,capped_octahedral,hexagonal_pyramidal,pentagonal_bipyramidal,capped_trigonal_prismatic,heptagonal}
+                            coordination geometry of central atom
+      -c element, --center-atom element
+                            central atom for coordination complexes
+      -m, --minimize        try to relax ligands to minimize steric clashing
+                            Default: False
+      -o output destination, --output output destination
+                            output directory
+                            Filenames will match the detected generic formula and
+                            include the point group and subset from the reference
+                            noted above
+                            Subsets with primes (e.g. A' and A'') are not distinguished

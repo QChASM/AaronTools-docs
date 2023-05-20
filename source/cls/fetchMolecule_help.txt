@@ -1,3 +1,17 @@
-.. code-block:: text 
+.. code-block:: text
 
-    usage: fetchMolecule.py [-h] [-o OUTFILE] (-s SMILES | -i IUPAC)        print structure in xyz format        options:      -h, --help            show this help message and exit      -o OUTFILE, --output OUTFILE                            output destination                             Default: stdout        Identifier format:      -s SMILES, --smiles SMILES                            SMILES notation for molecule      -i IUPAC, --iupac IUPAC                            IUPAC name of molecule    
+    usage: fetchMolecule.py [-h] [-o OUTFILE] (-s SMILES | -i IUPAC)
+    
+    print structure in xyz format
+    
+    optional arguments:
+      -h, --help            show this help message and exit
+      -o OUTFILE, --output OUTFILE
+                            output destination 
+                            Default: stdout
+    
+    Identifier format:
+      -s SMILES, --smiles SMILES
+                            SMILES notation for molecule
+      -i IUPAC, --iupac IUPAC
+                            IUPAC name of molecule

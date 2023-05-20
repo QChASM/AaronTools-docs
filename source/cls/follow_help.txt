@@ -1,3 +1,27 @@
-.. code-block:: text 
+.. code-block:: text
 
-    usage: follow.py [-h] [-m mode 1 [mode 2 ...]] [-r] [-a frames] [-rt]                     [-s max displacement] [-o OUTFILE [OUTFILE ...]]                     input file        move the structure along a normal mode        positional arguments:      input file            input frequency file (i.e. Gaussian output where "freq" was specified)        options:      -h, --help            show this help message and exit      -m mode 1 [mode 2 ...], --mode mode 1 [mode 2 ...]                            comma-separated list of modes to follow (1-indexed)      -r, --reverse         follow the normal mode in the opposite direction      -a frames, --animate frames                            print specified number of structures to make an animation      -rt, --roundtrip      make animation roundtrip      -s max displacement, --scale max displacement                            scale the normal mode so that this is the maximum amount an                             atom is displaced      -o OUTFILE [OUTFILE ...], --output-destination OUTFILE [OUTFILE ...]                            output destination                            $i in file name will be replaced with zero-padded numbers if --animate is used                            $INFILE will be replaced with the name of the input file                            Default: stdout    
+    usage: follow.py [-h] [-m mode 1 [mode 2 ...]] [-r] [-a frames] [-rt]
+                     [-s max displacement] [-o OUTFILE [OUTFILE ...]]
+                     input file
+    
+    move the structure along a normal mode
+    
+    positional arguments:
+      input file            input frequency file (i.e. Gaussian output where "freq" was specified)
+    
+    optional arguments:
+      -h, --help            show this help message and exit
+      -m mode 1 [mode 2 ...], --mode mode 1 [mode 2 ...]
+                            comma-separated list of modes to follow (1-indexed)
+      -r, --reverse         follow the normal mode in the opposite direction
+      -a frames, --animate frames
+                            print specified number of structures to make an animation
+      -rt, --roundtrip      make animation roundtrip
+      -s max displacement, --scale max displacement
+                            scale the normal mode so that this is the maximum amount an 
+                            atom is displaced
+      -o OUTFILE [OUTFILE ...], --output-destination OUTFILE [OUTFILE ...]
+                            output destination
+                            $i in file name will be replaced with zero-padded numbers if --animate is used
+                            $INFILE will be replaced with the name of the input file
+                            Default: stdout

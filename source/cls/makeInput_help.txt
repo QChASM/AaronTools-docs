@@ -1,3 +1,181 @@
-.. code-block:: text 
+.. code-block:: text
 
-    usage: makeInput.py [-h] [-o OUTFILE]                        [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}]                        [-of {gaussian,orca,psi4,sqm,qchem}]                        [-c COMMENTS [COMMENTS ...]] [-q CHARGE]                        [-mult MULTIPLICITY] [-p PROCESSORS] [-mem MEMORY] [-up]                        [-m METHOD] [-b BASIS [BASIS ...]] [-ecp ECP [ECP ...]]                        [-ed EMPIRICAL_DISPERSION] [-sv SOLVENT]                        [-sm SOLVENT_MODEL] [-g GRID] [-opt] [-freq] [-e] [-ts]                        [-ca ATOMS] [-cb BONDS] [-cang ANGLES] [-ct TORSIONS]                        [-cx X] [-cy Y] [-cz Z] [-gx atoms value]                        [-gy atoms value] [-gz atoms value] [-n] [-t TEMPERATURE]                        [--rem KEYWORD [OPTION ...]]                        [--section SECTION_NAME [TEXT ...]] [--simple SIMPLE]                        [--block BLOCK OPTION VALUE]                        [--before-molecule BEFORE MOL]                        [--before-job BEFORE JOB [BEFORE JOB ...]]                        [--after-job AFTER JOB [AFTER JOB ...]]                        [--job JOB [JOB ...]] [--setting SETTING VALUE]                        [--pcm-solver SETTING [VALUE ...]]                        [--optking SETTING VALUE] [--molecule SETTING [VALUE ...]]                        [--route KEYWORD [OPTION ...]]                        [--link0 COMMAND [VALUE ...]] [--end-of-file input]                        [input file ...]        print Gaussian, ORCA, Psi4, SQM, or QChem input file        positional arguments:      input file            a coordinate file        options:      -h, --help            show this help message and exit      -o OUTFILE, --output OUTFILE                            output destination                            $INFILE will be replaced with the name of the input file                            Default: stdout      -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}                            file format of input - xyz is assumed if input is stdin      -of {gaussian,orca,psi4,sqm,qchem}, --output-format {gaussian,orca,psi4,sqm,qchem}                            file format of output      -c COMMENTS [COMMENTS ...], --comment COMMENTS [COMMENTS ...]                            comment to put in the output file                            input file(s) should not be right after comments      -q CHARGE, --charge CHARGE                            net charge                            Default: 0 or what is found in the input file      -mult MULTIPLICITY, --multiplicity MULTIPLICITY                            electronic multiplicity                            Default: 1 or what is found in the input file      -p PROCESSORS, --cores PROCESSORS                            number of cpu cores to use      -mem MEMORY, --memory MEMORY                            total memory in GB                            Note: ORCA and Gaussian only use this to limit the storage-intensive                                  portions of the calculation (e.g. integrals, wavefunction info)      -up, --use-previous   use settings that can be parsed from the input file        Theory options:      -m METHOD, --method METHOD                            method (e.g. B3LYP or MP2)      -b BASIS [BASIS ...], --basis BASIS [BASIS ...]                            basis set or list of elements and basis set (e.g. C O N aug-cc-pvtz)                            elements can be prefixed with ! to exclude them from the basis                            tm is a synonym for d-block elements                            auxilliary basis sets can be specified by putting aux X before the basis                            set name, where X is the auxilliary type (e.g. aux JK cc-pVDZ for cc-pVDZ/JK)                            a path to a file containing a basis set definition (like one                            downloaded from basissetexchange.org) can be placed after the                            basis set name                            the file's contents should be appropriate for the software package you are using      -ecp ECP [ECP ...], --pseudopotential ECP [ECP ...]                            ECP or list of elements and ECP (e.g. Pt LANL2DZ)                            elements can be prefixed with ! to exclude them from the ECP                            tm is a synonym for d-block elements                            a path to a file containing a basis set definition (like one                            downloaded from basissetexchange.org) can be placed after the                            basis set name                            the file's contents should be appropriate for the software package you are using      -ed EMPIRICAL_DISPERSION, --empirical-dispersion EMPIRICAL_DISPERSION                            empirical dispersion keyword      -sv SOLVENT, --solvent SOLVENT                            solvent      -sm SOLVENT_MODEL, --solvent-model SOLVENT_MODEL                            implicit solvent model      -g GRID, --grid GRID  integration grid        Job options:      -opt, --optimize      request geometry optimization job      -freq, --frequencies  request vibrational frequencies job      -e, --energy          request single point energy job        Optimization options:      -ts, --transition-state                            request transition state optimization      -ca ATOMS, --constrained-atoms ATOMS                            comma- or hyphen-separated list of atoms (1-indexed) to constrain during optimization      -cb BONDS, --constrain-bond BONDS                            list of comma-separated atom pairs                            the distance between the atoms in each pair will be constrained during optimization      -cang ANGLES, --constrain-angle ANGLES                            list of comma-separated atom trios                            the angle defined by each trio will be constrained during optimization      -ct TORSIONS, --constrain-torsion TORSIONS                            list of comma-separated atom quartets                            the torsional angle defined by each quartet will be constrained during optimization      -cx X, --constrained-x X                            comma- or hyphen-separated list of atoms (1-indexed) to constrain the x coordinate of                            available for Gaussian, Psi4, and Q-Chem      -cy Y, --constrained-y Y                            comma- or hyphen-separated list of atoms (1-indexed) to constrain the y coordinate of                            available for Gaussian, Psi4, and Q-Chem      -cz Z, --constrained-z Z                            comma- or hyphen-separated list of atoms (1-indexed) to constrain the z coordinate of                            available for Gaussian, Psi4, and Q-Chem      -gx atoms value, --grouped-x atoms value                            comma- or hyphen-separated list of atoms (1-indexed) to keep in the same yz plane                            available for Gaussian and Psi4      -gy atoms value, --grouped-y atoms value                            comma- or hyphen-separated list of atoms (1-indexed) to keep in the same xz plane                            available for Gaussian, Psi4      -gz atoms value, --grouped-z atoms value                            comma- or hyphen-separated list of atoms (1-indexed) to keep in the same xy plane                            available for Gaussian and Psi4        Frequency options:      -n, --numerical       request numerical frequencies      -t TEMPERATURE, --temperature TEMPERATURE                            temperature for calculated thermochemical corrections                            Default: 298.15        Q-Chem-specific options:      --rem KEYWORD [OPTION ...]                            REM options                            example: --rem MAX_SCF_CYCLES 300                            input file(s) should not be right after --rem      --section SECTION_NAME [TEXT ...]                            add text to a sectioninput file(s) should not be right after --section        ORCA-specific options:      --simple SIMPLE       keywords for simple input      --block BLOCK OPTION VALUE                            blocks and block options                            example: --block scf maxiter 500        Psi4-specific options:      --before-molecule BEFORE MOL                            line to add before the molecule specification      --before-job BEFORE JOB [BEFORE JOB ...]                            line to add before the job                            input file(s) should not be right after --before-job      --after-job AFTER JOB [AFTER JOB ...]                            line to add after the job                            input file(s) should not be right after --after-job      --job JOB [JOB ...]   other jobs to add                            example: --job hessian                            input file(s) should not be right after --job      --setting SETTING VALUE                            settings                            example: --setting reference uhf      --pcm-solver SETTING [VALUE ...]                            settings                            example: --pcm-solver Cavity 'RadiiSet = UFF' 'Area = 0.3'                            input file(s) should not be right after --pcm-solver      --optking SETTING VALUE                            optking settings      --molecule SETTING [VALUE ...]                            options to add to the molecule section                            example: --molecule units bohr                            input file(s) should not be right after --molecule        Gaussian-specific options:      --route KEYWORD [OPTION ...]                            route options                            example: --route freq hpmodes                            input file(s) should not be right after --route      --link0 COMMAND [VALUE ...]                            Link 0 commands (without %)                            example: --link0 chk asdf.chk                            input file(s) should not be right after --link0      --end-of-file input   line to add to the end of the file (e.g. for NBORead)    
+    usage: makeInput.py [-h] [-o OUTFILE]
+                        [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}]
+                        [-of {gaussian,orca,psi4,sqm,qchem}]
+                        [-c COMMENTS [COMMENTS ...]] [-q CHARGE]
+                        [-mult MULTIPLICITY] [-p PROCESSORS] [-mem MEMORY] [-up]
+                        [-m METHOD] [-b BASIS [BASIS ...]] [-ecp ECP [ECP ...]]
+                        [-ed EMPIRICAL_DISPERSION] [-sv SOLVENT]
+                        [-sm SOLVENT_MODEL] [-g GRID] [-opt] [-freq] [-e] [-ts]
+                        [-ca ATOMS] [-cb BONDS] [-cang ANGLES] [-ct TORSIONS]
+                        [-cx X] [-cy Y] [-cz Z] [-gx atoms value]
+                        [-gy atoms value] [-gz atoms value] [-n] [-t TEMPERATURE]
+                        [--rem KEYWORD [OPTION ...]]
+                        [--section SECTION_NAME [TEXT ...]] [--simple SIMPLE]
+                        [--block BLOCK OPTION VALUE]
+                        [--before-molecule BEFORE MOL]
+                        [--before-job BEFORE JOB [BEFORE JOB ...]]
+                        [--after-job AFTER JOB [AFTER JOB ...]]
+                        [--job JOB [JOB ...]] [--setting SETTING VALUE]
+                        [--pcm-solver SETTING [VALUE ...]]
+                        [--optking SETTING VALUE] [--molecule SETTING [VALUE ...]]
+                        [--route KEYWORD [OPTION ...]]
+                        [--link0 COMMAND [VALUE ...]] [--end-of-file input]
+                        [input file [input file ...]]
+    
+    print Gaussian, ORCA, Psi4, SQM, or QChem input file
+    
+    positional arguments:
+      input file            a coordinate file
+    
+    optional arguments:
+      -h, --help            show this help message and exit
+      -o OUTFILE, --output OUTFILE
+                            output destination
+                            $INFILE will be replaced with the name of the input file
+                            Default: stdout
+      -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}
+                            file format of input - xyz is assumed if input is stdin
+      -of {gaussian,orca,psi4,sqm,qchem}, --output-format {gaussian,orca,psi4,sqm,qchem}
+                            file format of output
+      -c COMMENTS [COMMENTS ...], --comment COMMENTS [COMMENTS ...]
+                            comment to put in the output file
+                            input file(s) should not be right after comments
+      -q CHARGE, --charge CHARGE
+                            net charge
+                            Default: 0 or what is found in the input file
+      -mult MULTIPLICITY, --multiplicity MULTIPLICITY
+                            electronic multiplicity
+                            Default: 1 or what is found in the input file
+      -p PROCESSORS, --cores PROCESSORS
+                            number of cpu cores to use
+      -mem MEMORY, --memory MEMORY
+                            total memory in GB
+                            Note: ORCA and Gaussian only use this to limit the storage-intensive
+                                  portions of the calculation (e.g. integrals, wavefunction info)
+      -up, --use-previous   use settings that can be parsed from the input file
+    
+    Theory options:
+      -m METHOD, --method METHOD
+                            method (e.g. B3LYP or MP2)
+      -b BASIS [BASIS ...], --basis BASIS [BASIS ...]
+                            basis set or list of elements and basis set (e.g. C O N aug-cc-pvtz)
+                            elements can be prefixed with ! to exclude them from the basis
+                            tm is a synonym for d-block elements
+                            auxilliary basis sets can be specified by putting aux X before the basis
+                            set name, where X is the auxilliary type (e.g. aux JK cc-pVDZ for cc-pVDZ/JK)
+                            a path to a file containing a basis set definition (like one
+                            downloaded from basissetexchange.org) can be placed after the
+                            basis set name
+                            the file's contents should be appropriate for the software package you are using
+      -ecp ECP [ECP ...], --pseudopotential ECP [ECP ...]
+                            ECP or list of elements and ECP (e.g. Pt LANL2DZ)
+                            elements can be prefixed with ! to exclude them from the ECP
+                            tm is a synonym for d-block elements
+                            a path to a file containing a basis set definition (like one
+                            downloaded from basissetexchange.org) can be placed after the
+                            basis set name
+                            the file's contents should be appropriate for the software package you are using
+      -ed EMPIRICAL_DISPERSION, --empirical-dispersion EMPIRICAL_DISPERSION
+                            empirical dispersion keyword
+      -sv SOLVENT, --solvent SOLVENT
+                            solvent
+      -sm SOLVENT_MODEL, --solvent-model SOLVENT_MODEL
+                            implicit solvent model
+      -g GRID, --grid GRID  integration grid
+    
+    Job options:
+      -opt, --optimize      request geometry optimization job
+      -freq, --frequencies  request vibrational frequencies job
+      -e, --energy          request single point energy job
+    
+    Optimization options:
+      -ts, --transition-state
+                            request transition state optimization
+      -ca ATOMS, --constrained-atoms ATOMS
+                            comma- or hyphen-separated list of atoms (1-indexed) to constrain during optimization
+      -cb BONDS, --constrain-bond BONDS
+                            list of comma-separated atom pairs
+                            the distance between the atoms in each pair will be constrained during optimization
+      -cang ANGLES, --constrain-angle ANGLES
+                            list of comma-separated atom trios
+                            the angle defined by each trio will be constrained during optimization
+      -ct TORSIONS, --constrain-torsion TORSIONS
+                            list of comma-separated atom quartets
+                            the torsional angle defined by each quartet will be constrained during optimization
+      -cx X, --constrained-x X
+                            comma- or hyphen-separated list of atoms (1-indexed) to constrain the x coordinate of
+                            available for Gaussian, Psi4, and Q-Chem
+      -cy Y, --constrained-y Y
+                            comma- or hyphen-separated list of atoms (1-indexed) to constrain the y coordinate of
+                            available for Gaussian, Psi4, and Q-Chem
+      -cz Z, --constrained-z Z
+                            comma- or hyphen-separated list of atoms (1-indexed) to constrain the z coordinate of
+                            available for Gaussian, Psi4, and Q-Chem
+      -gx atoms value, --grouped-x atoms value
+                            comma- or hyphen-separated list of atoms (1-indexed) to keep in the same yz plane
+                            available for Gaussian and Psi4
+      -gy atoms value, --grouped-y atoms value
+                            comma- or hyphen-separated list of atoms (1-indexed) to keep in the same xz plane
+                            available for Gaussian, Psi4
+      -gz atoms value, --grouped-z atoms value
+                            comma- or hyphen-separated list of atoms (1-indexed) to keep in the same xy plane
+                            available for Gaussian and Psi4
+    
+    Frequency options:
+      -n, --numerical       request numerical frequencies
+      -t TEMPERATURE, --temperature TEMPERATURE
+                            temperature for calculated thermochemical corrections
+                            Default: 298.15
+    
+    Q-Chem-specific options:
+      --rem KEYWORD [OPTION ...]
+                            REM options
+                            example: --rem MAX_SCF_CYCLES 300
+                            input file(s) should not be right after --rem
+      --section SECTION_NAME [TEXT ...]
+                            add text to a sectioninput file(s) should not be right after --section
+    
+    ORCA-specific options:
+      --simple SIMPLE       keywords for simple input
+      --block BLOCK OPTION VALUE
+                            blocks and block options
+                            example: --block scf maxiter 500
+    
+    Psi4-specific options:
+      --before-molecule BEFORE MOL
+                            line to add before the molecule specification
+      --before-job BEFORE JOB [BEFORE JOB ...]
+                            line to add before the job
+                            input file(s) should not be right after --before-job
+      --after-job AFTER JOB [AFTER JOB ...]
+                            line to add after the job
+                            input file(s) should not be right after --after-job
+      --job JOB [JOB ...]   other jobs to add
+                            example: --job hessian
+                            input file(s) should not be right after --job
+      --setting SETTING VALUE
+                            settings
+                            example: --setting reference uhf
+      --pcm-solver SETTING [VALUE ...]
+                            settings
+                            example: --pcm-solver Cavity 'RadiiSet = UFF' 'Area = 0.3'
+                            input file(s) should not be right after --pcm-solver
+      --optking SETTING VALUE
+                            optking settings
+      --molecule SETTING [VALUE ...]
+                            options to add to the molecule section
+                            example: --molecule units bohr
+                            input file(s) should not be right after --molecule
+    
+    Gaussian-specific options:
+      --route KEYWORD [OPTION ...]
+                            route options
+                            example: --route freq hpmodes
+                            input file(s) should not be right after --route
+      --link0 COMMAND [VALUE ...]
+                            Link 0 commands (without %)
+                            example: --link0 chk asdf.chk
+                            input file(s) should not be right after --link0
+      --end-of-file input   line to add to the end of the file (e.g. for NBORead)

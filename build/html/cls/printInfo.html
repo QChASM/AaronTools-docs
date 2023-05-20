@@ -304,21 +304,21 @@
           <section id="printinfo-py">
 <h1>printInfo.py<a class="headerlink" href="#printinfo-py" title="Permalink to this heading">#</a></h1>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: printInfo.py [-h] [-o OUTFILE]
-                    [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}]
+                    [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}]
                     [-ls] [-i INFO] [-csv [{comma,semicolon,tab,space}]]
-                    [input file ...]
+                    [input file [input file ...]]
 
 print information in Gaussian, ORCA, or Psi4 output files
 
 positional arguments:
   input file            a coordinate file
 
-options:
+optional arguments:
   -h, --help            show this help message and exit
   -o OUTFILE, --output OUTFILE
                         output destination
                         Default: stdout
-  -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}
+  -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}
                         file format of input - xyz is assumed if input is stdin
   -ls, --list           list info categories and exit
   -i INFO, --info INFO  information to print

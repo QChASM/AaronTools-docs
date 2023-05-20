@@ -1,3 +1,32 @@
-.. code-block:: text 
+.. code-block:: text
 
-    usage: multiSubstitute.py [-h] [-ls]                              [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}]                              [-s i,j,k,...=substituent1,substituent2,...] [-m]                              [-o output destination]                              [input file ...]        add or modify substituents with permutations        positional arguments:      input file            a coordinate file        options:      -h, --help            show this help message and exit      -ls, --list           list available substituents      -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}                            file format of input - xyz is assumed if input is stdin      -s i,j,k,...=substituent1,substituent2,..., --substitute i,j,k,...=substituent1,substituent2,...                            substitution instructions                             i, j, k are the 1-indexed position of the starting position of the                            substituent(s) you are replacing                            a substituent name prefixed by iupac: or smiles: (e.g. iupac:acetyl                            or smiles:O=[N.]=O) will create the substituent from the                            corresponding identifier                            substituents can be separated by commas to use all combinations      -m, --minimize        rotate substituents to try to minimize LJ energy      -o output destination, --output output destination                            output destination                            $INFILE will be replaced with the name of the input file                            $SUBSTITUTIONS will be replaced with the substitution info                            Default: stdout    
+    usage: multiSubstitute.py [-h] [-ls]
+                              [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}]
+                              [-s i,j,k,...=substituent1,substituent2,...] [-m]
+                              [-o output destination]
+                              [input file [input file ...]]
+    
+    add or modify substituents with permutations
+    
+    positional arguments:
+      input file            a coordinate file
+    
+    optional arguments:
+      -h, --help            show this help message and exit
+      -ls, --list           list available substituents
+      -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}
+                            file format of input - xyz is assumed if input is stdin
+      -s i,j,k,...=substituent1,substituent2,..., --substitute i,j,k,...=substituent1,substituent2,...
+                            substitution instructions 
+                            i, j, k are the 1-indexed position of the starting position of the
+                            substituent(s) you are replacing
+                            a substituent name prefixed by iupac: or smiles: (e.g. iupac:acetyl
+                            or smiles:O=[N.]=O) will create the substituent from the
+                            corresponding identifier
+                            substituents can be separated by commas to use all combinations
+      -m, --minimize        rotate substituents to try to minimize LJ energy
+      -o output destination, --output output destination
+                            output destination
+                            $INFILE will be replaced with the name of the input file
+                            $SUBSTITUTIONS will be replaced with the substitution info
+                            Default: stdout

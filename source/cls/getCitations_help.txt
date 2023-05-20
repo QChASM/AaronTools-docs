@@ -1,3 +1,10 @@
-.. code-block:: text 
+.. code-block:: text
 
-    usage: getCitations.py [-h] [-p PACKAGE] name        positional arguments:      name        options:      -h, --help            show this help message and exit      -p PACKAGE, --package PACKAGE    
+    usage: getCitations.py [-h] [-p PACKAGE] name
+    
+    positional arguments:
+      name
+    
+    optional arguments:
+      -h, --help            show this help message and exit
+      -p PACKAGE, --package PACKAGE

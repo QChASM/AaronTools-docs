@@ -1,3 +1,72 @@
-.. code-block:: text 
+.. code-block:: text
 
-    usage: percentVolumeBuried.py [-h] [-o OUTFILE]                                  [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}]                                  [-t TARGETS] [-e EXCLUDE_ATOMS] [-c CENTER]                                  [-v {umn,bondi}] [-s SCALE] [-r RADIUS]                                  [-dr ['dR', 'NUMBER'] ['dR', 'NUMBER']]                                  [-m {MC,Lebedev}] [-rp {20,32,64,75,99,127}]                                  [-ap {110,194,302,590,974,1454,2030,2702,5810}]                                  [-i ITERATIONS]                                  [input file ...]        calculated % volume buried in a sphere around a center atom - see Organometallics 2008, 27, 12, 26792681        positional arguments:      input file            a coordinate file        options:      -h, --help            show this help message and exit      -o OUTFILE, --output OUTFILE                            output destination                             Default: stdout      -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}                            file format of input - xyz is assumed if input is stdin      -t TARGETS, --targets TARGETS                            atoms to consider in calculation                            Default: use all atoms except the center      -e EXCLUDE_ATOMS, --exclude-atoms EXCLUDE_ATOMS                            atoms to exclude from the calculation                            Default: exclude no ligand atoms      -c CENTER, --center CENTER                            atom the sphere is centered on                            Default: detect metal center (centroid of all metals if multiple are present)      -v {umn,bondi}, --vdw-radii {umn,bondi}                            VDW radii to use in calculation                            umn: main group vdw radii from J. Phys. Chem. A 2009, 113, 19, 58065812                                (DOI: 10.1021/jp8111556)                                transition metals are crystal radii from Batsanov, S.S. Van der Waals                                Radii of Elements. Inorganic Materials 37, 871885 (2001).                                (DOI: 10.1023/A:1011625728803)                            bondi: radii from J. Phys. Chem. 1964, 68, 3, 441451 (DOI: 10.1021/j100785a001)                            Default: bondi      -s SCALE, --scale SCALE                            scale VDW radii by this amount                            Default: 1.17      -r RADIUS, --radius RADIUS                            radius around center                            Default: 3.5 Ångström      -dr ['dR', 'NUMBER'] ['dR', 'NUMBER'], --scan ['dR', 'NUMBER'] ['dR', 'NUMBER']                            calculate %Vbur with NUMBER different radii, starting with                            the radius specified with -r/--radius and increasing                            in increments in dR      -m {MC,Lebedev}, --method {MC,Lebedev}                            integration method - Monte-Carlo (MC) or Lebedev quadrature (Lebedev)                            Default: Lebedev        Lebedev integration options:      -rp {20,32,64,75,99,127}, --radial-points {20,32,64,75,99,127}                            number of radial shells for Gauss-Legendre integration                            of the radial component                            lower values are faster, but at the cost of accuracy                            Default: 20      -ap {110,194,302,590,974,1454,2030,2702,5810}, --angular-points {110,194,302,590,974,1454,2030,2702,5810}                            number of angular points for Lebedev integration                            lower values are faster, but at the cost of accuracy                            Default: 1454        Monte-Carlo integration options:      -i ITERATIONS, --minimum-iterations ITERATIONS                            minimum iterations - each is a batch of 3000 points                            MC will continue after this until convergence criteria are met                            Default: 25    
+    usage: percentVolumeBuried.py [-h] [-o OUTFILE]
+                                  [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}]
+                                  [-t TARGETS] [-e EXCLUDE_ATOMS] [-c CENTER]
+                                  [-v {umn,bondi}] [-s SCALE] [-r RADIUS]
+                                  [-dr ['dR', 'NUMBER'] ['dR', 'NUMBER']]
+                                  [-m {MC,Lebedev}] [-rp {20,32,64,75,99,127}]
+                                  [-ap {110,194,302,590,974,1454,2030,2702,5810}]
+                                  [-i ITERATIONS]
+                                  [input file [input file ...]]
+    
+    calculated % volume buried in a sphere around a center atom - see Organometallics 2008, 27, 12, 2679–2681
+    
+    positional arguments:
+      input file            a coordinate file
+    
+    optional arguments:
+      -h, --help            show this help message and exit
+      -o OUTFILE, --output OUTFILE
+                            output destination 
+                            Default: stdout
+      -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}
+                            file format of input - xyz is assumed if input is stdin
+      -t TARGETS, --targets TARGETS
+                            atoms to consider in calculation
+                            Default: use all atoms except the center
+      -e EXCLUDE_ATOMS, --exclude-atoms EXCLUDE_ATOMS
+                            atoms to exclude from the calculation
+                            Default: exclude no ligand atoms
+      -c CENTER, --center CENTER
+                            atom the sphere is centered on
+                            Default: detect metal center (centroid of all metals if multiple are present)
+      -v {umn,bondi}, --vdw-radii {umn,bondi}
+                            VDW radii to use in calculation
+                            umn: main group vdw radii from J. Phys. Chem. A 2009, 113, 19, 5806–5812
+                                (DOI: 10.1021/jp8111556)
+                                transition metals are crystal radii from Batsanov, S.S. Van der Waals
+                                Radii of Elements. Inorganic Materials 37, 871–885 (2001).
+                                (DOI: 10.1023/A:1011625728803)
+                            bondi: radii from J. Phys. Chem. 1964, 68, 3, 441–451 (DOI: 10.1021/j100785a001)
+                            Default: bondi
+      -s SCALE, --scale SCALE
+                            scale VDW radii by this amount
+                            Default: 1.17
+      -r RADIUS, --radius RADIUS
+                            radius around center
+                            Default: 3.5 Ångström
+      -dr ['dR', 'NUMBER'] ['dR', 'NUMBER'], --scan ['dR', 'NUMBER'] ['dR', 'NUMBER']
+                            calculate %Vbur with NUMBER different radii, starting with
+                            the radius specified with -r/--radius and increasing
+                            in increments in dR
+      -m {MC,Lebedev}, --method {MC,Lebedev}
+                            integration method - Monte-Carlo (MC) or Lebedev quadrature (Lebedev)
+                            Default: Lebedev
+    
+    Lebedev integration options:
+      -rp {20,32,64,75,99,127}, --radial-points {20,32,64,75,99,127}
+                            number of radial shells for Gauss-Legendre integration
+                            of the radial component
+                            lower values are faster, but at the cost of accuracy
+                            Default: 20
+      -ap {110,194,302,590,974,1454,2030,2702,5810}, --angular-points {110,194,302,590,974,1454,2030,2702,5810}
+                            number of angular points for Lebedev integration
+                            lower values are faster, but at the cost of accuracy
+                            Default: 1454
+    
+    Monte-Carlo integration options:
+      -i ITERATIONS, --minimum-iterations ITERATIONS
+                            minimum iterations - each is a batch of 3000 points
+                            MC will continue after this until convergence criteria are met
+                            Default: 25

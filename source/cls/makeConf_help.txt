@@ -1,3 +1,37 @@
-.. code-block:: text 
+.. code-block:: text
 
-    usage: makeConf.py [-h] [-ls] [-i]                       [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}]                       [-s (n=substituent|substituent name)] [-rc] [-sc]                       [-o output destination]                       [input file ...]        generate rotamers for substituents using a hierarchical method        positional arguments:      input file            a coordinate file        options:      -h, --help            show this help message and exit      -ls, --list           list available substituents      -i, --info            list information on substituents to be generated      -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}                            file format of input - xyz is assumed if input is stdin      -s (n=substituent|substituent name), --substituent (n=substituent|substituent name)                            substituents to rotate                             n is the 1-indexed position of the starting position of the                            substituent you are rotating                            if only a substituent name is specified, all substituents with                            that name will be rotated                            Default: rotate any detected substituents      -rc, --remove-clash   if atoms are too close together, wiggle the                            substituents to remove the clash      -sc, --skip-clash     do not print structures with atoms that are                            too close together or for which substituent                            clashing could not be resolved with '--remove-clash'      -o output destination, --output-destination output destination                            output destination                            $i in the filename will be replaced with conformer number                            if a directory is given, default is "conformer-$i.xyz" in that directory                            $INFILE will be replaced with the name of the input file                            Default: stdout    
+    usage: makeConf.py [-h] [-ls] [-i]
+                       [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}]
+                       [-s (n=substituent|substituent name)] [-rc] [-sc]
+                       [-o output destination]
+                       [input file [input file ...]]
+    
+    generate rotamers for substituents using a hierarchical method
+    
+    positional arguments:
+      input file            a coordinate file
+    
+    optional arguments:
+      -h, --help            show this help message and exit
+      -ls, --list           list available substituents
+      -i, --info            list information on substituents to be generated
+      -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}
+                            file format of input - xyz is assumed if input is stdin
+      -s (n=substituent|substituent name), --substituent (n=substituent|substituent name)
+                            substituents to rotate 
+                            n is the 1-indexed position of the starting position of the
+                            substituent you are rotating
+                            if only a substituent name is specified, all substituents with
+                            that name will be rotated
+                            Default: rotate any detected substituents
+      -rc, --remove-clash   if atoms are too close together, wiggle the
+                            substituents to remove the clash
+      -sc, --skip-clash     do not print structures with atoms that are
+                            too close together or for which substituent
+                            clashing could not be resolved with '--remove-clash'
+      -o output destination, --output-destination output destination
+                            output destination
+                            $i in the filename will be replaced with conformer number
+                            if a directory is given, default is "conformer-$i.xyz" in that directory
+                            $INFILE will be replaced with the name of the input file
+                            Default: stdout

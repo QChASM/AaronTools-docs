@@ -1,3 +1,29 @@
-.. code-block:: text 
+.. code-block:: text
 
+    usage: jobSubmit.py [-h] [-d SECTION] [-j TEMPLATE] [-p PROCESSORS]
+                        [-m MEMORY] [-t TIME] [-wl] [-we]
+                        input file [input file ...]
     
+    submit a QM computation to the queue
+    
+    positional arguments:
+      input file            a Psi4, ORCA, or Gaussian input file
+    
+    optional arguments:
+      -h, --help            show this help message and exit
+      -d SECTION, --config-default SECTION
+                            use memory, processors, walltime, and template from
+                            the specified seciton of the AaronTools config
+      -j TEMPLATE, --job-template TEMPLATE
+                            template job template file (i.e. for `qsub`, `bsub`, or `sbatch`)
+      -p PROCESSORS, --processors PROCESSORS
+                            number of processors
+                            Default: 4
+      -m MEMORY, --memory MEMORY
+                            memory in GB
+                            Default: 8
+      -t TIME, --walltime TIME
+                            walltime in hours
+                            Default: 12
+      -wl, --wait-last      wait for the last job to finish before exiting
+      -we, --wait-each      wait for each job to finish before submitting the next

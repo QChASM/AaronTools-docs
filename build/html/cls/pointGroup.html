@@ -304,22 +304,22 @@
           <section id="pointgroup-py">
 <h1>pointGroup.py<a class="headerlink" href="#pointgroup-py" title="Permalink to this heading">#</a></h1>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: pointGroup.py [-h] [-o OUTFILE]
-                     [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}]
+                     [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}]
                      [-t TOLERANCE] [-a ROTATION_TOLERANCE] [-n MAX_N] [-v]
                      [-b]
-                     [input file ...]
+                     [input file [input file ...]]
 
 print point group
 
 positional arguments:
   input file            a coordinate file
 
-options:
+optional arguments:
   -h, --help            show this help message and exit
   -o OUTFILE, --output OUTFILE
                         output destination
                         Default: stdout
-  -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}
+  -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}
                         file format of input - xyz is assumed if input is stdin
   -t TOLERANCE, --tolerance TOLERANCE
                         tolerance for determining if a symmetry element is valid

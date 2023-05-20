@@ -1,3 +1,26 @@
-.. code-block:: text 
+.. code-block:: text
 
-    usage: removeFragment.py [-h]                             [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}]                             [-o output destination] -t TARGET [-k AVOID] [-a]                             [input file ...]        remove a fragment from a molecule        positional arguments:      input file            a coordinate file        options:      -h, --help            show this help message and exit      -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}                            file format of input - xyz is assumed if input is stdin      -o output destination, --output output destination                            output destination                            $INFILE will be replaced with the name of the input file                            Default: stdout      -t TARGET, --targets TARGET                            fragment atom connected to the rest of the molecule (1-indexed)      -k AVOID, --keep-group AVOID                            atom on the molecule that is connected to the fragment being removed                            Default: longest fragment      -a, --add-hydrogen    add hydrogen to cap where the fragment was removed    
+    usage: removeFragment.py [-h]
+                             [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}]
+                             [-o output destination] -t TARGET [-k AVOID] [-a]
+                             [input file [input file ...]]
+    
+    remove a fragment from a molecule
+    
+    positional arguments:
+      input file            a coordinate file
+    
+    optional arguments:
+      -h, --help            show this help message and exit
+      -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}
+                            file format of input - xyz is assumed if input is stdin
+      -o output destination, --output output destination
+                            output destination
+                            $INFILE will be replaced with the name of the input file
+                            Default: stdout
+      -t TARGET, --targets TARGET
+                            fragment atom connected to the rest of the molecule (1-indexed)
+      -k AVOID, --keep-group AVOID
+                            atom on the molecule that is connected to the fragment being removed
+                            Default: longest fragment
+      -a, --add-hydrogen    add hydrogen to cap where the fragment was removed

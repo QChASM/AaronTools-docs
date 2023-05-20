@@ -304,23 +304,23 @@
           <section id="changeelement-py">
 <h1>changeElement.py<a class="headerlink" href="#changeelement-py" title="Permalink to this heading">#</a></h1>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: changeElement.py [-h] [-o OUTFILE]
-                        [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}]
+                        [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}]
                         -e target=element [-b] [-c [N]]
                         [-g {point,linear_1,linear_2,bent_2_tetrahedral,bent_2_planar,trigonal_planar,bent_3_tetrahedral,t_shaped,tetrahedral,sawhorse,seesaw,square_planar,trigonal_pyramidal,trigonal_bipyramidal,square_pyramidal,pentagonal,hexagonal,trigonal_prismatic,pentagonal_pyramidal,octahedral,capped_octahedral,hexagonal_pyramidal,pentagonal_bipyramidal,capped_trigonal_prismatic,heptagonal,hexagonal_bipyramidal,heptagonal_pyramidal,octagonal,square_antiprismatic,trigonal_dodecahedral,capped_cube,biaugmented_trigonal_prismatic,cubic,elongated_trigonal_bipyramidal,capped_square_antiprismatic,enneagonal,heptagonal_bipyramidal,hula-hoop,triangular_cupola,tridiminished_icosahedral,muffin,octagonal_pyramidal,tricapped_trigonal_prismatic}]
-                        [input file ...]
+                        [input file [input file ...]]
 
 change an element and/or adjust the VSEPR geometry
 
 positional arguments:
   input file            a coordinate file
 
-options:
+optional arguments:
   -h, --help            show this help message and exit
   -o OUTFILE, --output OUTFILE
                         output destination
                         $INFILE will be replaced with the name of the input file
                         Default: stdout
-  -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}
+  -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}
                         file format of input - xyz is assumed if input is stdin
   -e target=element, --element target=element
                         element to change into

@@ -1,3 +1,13 @@
-.. code-block:: text 
+.. code-block:: text
 
-    usage: libaddLigand.py [-h] [-n NAME] input file        add a ligand to your personal library        positional arguments:      input file            a coordinate file        options:      -h, --help            show this help message and exit      -n NAME, --name NAME  Name of ligand being added to the library                            if no name is given, the ligand will be printed to STDOUT    
+    usage: libaddLigand.py [-h] [-n NAME] input file
+    
+    add a ligand to your personal library
+    
+    positional arguments:
+      input file            a coordinate file
+    
+    optional arguments:
+      -h, --help            show this help message and exit
+      -n NAME, --name NAME  Name of ligand being added to the library
+                            if no name is given, the ligand will be printed to STDOUT

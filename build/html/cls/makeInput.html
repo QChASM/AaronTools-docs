@@ -304,7 +304,7 @@
           <section id="makeinput-py">
 <h1>makeInput.py<a class="headerlink" href="#makeinput-py" title="Permalink to this heading">#</a></h1>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: makeInput.py [-h] [-o OUTFILE]
-                    [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}]
+                    [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}]
                     [-of {gaussian,orca,psi4,sqm,qchem}]
                     [-c COMMENTS [COMMENTS ...]] [-q CHARGE]
                     [-mult MULTIPLICITY] [-p PROCESSORS] [-mem MEMORY] [-up]
@@ -325,20 +325,20 @@
                     [--optking SETTING VALUE] [--molecule SETTING [VALUE ...]]
                     [--route KEYWORD [OPTION ...]]
                     [--link0 COMMAND [VALUE ...]] [--end-of-file input]
-                    [input file ...]
+                    [input file [input file ...]]
 
 print Gaussian, ORCA, Psi4, SQM, or QChem input file
 
 positional arguments:
   input file            a coordinate file
 
-options:
+optional arguments:
   -h, --help            show this help message and exit
   -o OUTFILE, --output OUTFILE
                         output destination
                         $INFILE will be replaced with the name of the input file
                         Default: stdout
-  -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}
+  -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}
                         file format of input - xyz is assumed if input is stdin
   -of {gaussian,orca,psi4,sqm,qchem}, --output-format {gaussian,orca,psi4,sqm,qchem}
                         file format of output

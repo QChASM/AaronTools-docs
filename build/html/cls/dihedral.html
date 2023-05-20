@@ -304,21 +304,21 @@
           <section id="dihedral-py">
 <h1>dihedral.py<a class="headerlink" href="#dihedral-py" title="Permalink to this heading">#</a></h1>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: dihedral.py [-h]
-                   [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}]
+                   [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}]
                    [-m atom1 atom2 atom3 atom4]
                    [-c atom1 atom2 atom3 atom4 increment]
                    [-s atom1 atom2 atom3 atom4 angle] [-r]
                    [-o output destination]
-                   [input file ...]
+                   [input file [input file ...]]
 
 measure or modify torsional angles
 
 positional arguments:
   input file            a coordinate file
 
-options:
+optional arguments:
   -h, --help            show this help message and exit
-  -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}
+  -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}
                         file format of input - xyz is assumed if input is stdin
   -m atom1 atom2 atom3 atom4, --measure atom1 atom2 atom3 atom4
                         measure and print the torsional angle (1-indexed)

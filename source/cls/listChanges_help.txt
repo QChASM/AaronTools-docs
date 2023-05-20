@@ -1,3 +1,11 @@
-.. code-block:: text 
+.. code-block:: text
 
-    usage: listChanges.py [-h] config        Lists the substitutions and mappings parsed from an AaronJr configuration file        positional arguments:      config      The AaronJr configuration file        options:      -h, --help  show this help message and exit    
+    usage: listChanges.py [-h] config
+    
+    Lists the substitutions and mappings parsed from an AaronJr configuration file
+    
+    positional arguments:
+      config      The AaronJr configuration file
+    
+    optional arguments:
+      -h, --help  show this help message and exit

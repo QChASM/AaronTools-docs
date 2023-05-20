@@ -304,19 +304,19 @@
           <section id="ligandsterimol-py">
 <h1>ligandSterimol.py<a class="headerlink" href="#ligandsterimol-py" title="Permalink to this heading">#</a></h1>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: ligandSterimol.py [-h]
-                         [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}]
+                         [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}]
                          -k KEY -c CENTER [-r {bondi,umn}] [-bl] [-al L_VALUE]
                          [-v] [-o output destination]
-                         [input file ...]
+                         [input file [input file ...]]
 
 calculate B1-B5, and L sterimol parameters for ligands - see Verloop, A. and Tipker, J. (1976), Use of linear free energy related and other parameters in the study of fungicidal selectivity. Pestic. Sci., 7: 379-390.
 
 positional arguments:
   input file            a coordinate file
 
-options:
+optional arguments:
   -h, --help            show this help message and exit
-  -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}
+  -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}
                         file format of input
                         xyz is assumed if input is stdin
   -k KEY, --key-atoms KEY
@@ -325,12 +325,12 @@ options:
                         atom the ligand is coordinated to
   -r {bondi,umn}, --radii {bondi,umn}
                         VDW radii to use in calculation
-                        umn: main group vdw radii from J. Phys. Chem. A 2009, 113, 19, 58065812
+                        umn: main group vdw radii from J. Phys. Chem. A 2009, 113, 19, 5806–5812
                             (DOI: 10.1021/jp8111556)
                             transition metals are crystal radii from Batsanov, S.S. Van der Waals
-                            Radii of Elements. Inorganic Materials 37, 871885 (2001).
+                            Radii of Elements. Inorganic Materials 37, 871–885 (2001).
                             (DOI: 10.1023/A:1011625728803)
-                        bondi: radii from J. Phys. Chem. 1964, 68, 3, 441451
+                        bondi: radii from J. Phys. Chem. 1964, 68, 3, 441–451
                         (DOI: 10.1021/j100785a001)
                         Default: bondi
   -bl, --bisect-L       L axis will bisect (or analogous for higher denticity

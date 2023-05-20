@@ -1,3 +1,17 @@
-.. code-block:: text 
+.. code-block:: text
 
-    usage: grabStatus.py [-h] [-if {log,out,dat}] [-o OUTFILE [OUTFILE ...]]                         [input file ...]        prints status of optimization job        positional arguments:      input file            input optimization file (i.e. Gaussian output where "opt" was specified)        options:      -h, --help            show this help message and exit      -if {log,out,dat}, --input-format {log,out,dat}                            file format of input - required if input is stdin      -o OUTFILE [OUTFILE ...], --output OUTFILE [OUTFILE ...]                            output destination                            Default: stdout    
+    usage: grabStatus.py [-h] [-if {log,out,dat}] [-o OUTFILE [OUTFILE ...]]
+                         [input file [input file ...]]
+    
+    prints status of optimization job
+    
+    positional arguments:
+      input file            input optimization file (i.e. Gaussian output where "opt" was specified)
+    
+    optional arguments:
+      -h, --help            show this help message and exit
+      -if {log,out,dat}, --input-format {log,out,dat}
+                            file format of input - required if input is stdin
+      -o OUTFILE [OUTFILE ...], --output OUTFILE [OUTFILE ...]
+                            output destination
+                            Default: stdout

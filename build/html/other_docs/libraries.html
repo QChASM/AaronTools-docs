@@ -303,35 +303,43 @@
         <article role="main">
           <section id="aarontools-libraries">
 <h1>AaronTools Libraries<a class="headerlink" href="#aarontools-libraries" title="Permalink to this heading">#</a></h1>
-<p>AaronTools libraries contain various molecular fragments that can be used for building and editing structures.</p>
-<p>You can browse the AARON and AaronTools libraries at <a class="reference external" href="http://qchasm.wheelergroupresearch.com/">http://qchasm.wheelergroupresearch.com/</a> or with SEQCROW’s Browse AaronTools Libraries tool.</p>
-<p>The default AaronTools library location is ~/Aaron_lib, though this can be changed with the AARONLIB environment variable.
+<p>AaronTools libraries contain various molecular fragments that can be used for building and editing
+structures.</p>
+<p>You can browse the AARON and AaronTools libraries at <a class="reference external" href="http://qchasm.wheelergroupresearch.com/">http://qchasm.wheelergroupresearch.com/</a> or with
+SEQCROW’s Browse AaronTools Libraries tool.</p>
+<p>The default AaronTools library location is ~/Aaron_lib, though this can be changed with the AARONLIB
+environment variable.
 The library directory should contain several subdirectories, including Subs, Ligands, and Rings.</p>
 <section id="substituents">
 <h2>Substituents<a class="headerlink" href="#substituents" title="Permalink to this heading">#</a></h2>
 <p>AaronTools includes a library of ~45 substituents, which are fragments with one bond to a molecule (<cite>e.g.</cite> phenyl).
 These can be added to a structure or used to replace an existing substituent.
-This can be done with the <code class="code docutils literal notranslate"><span class="pre">substitute.py</span></code> command line script, or with the <code class="xref py py-func docutils literal notranslate"><span class="pre">Geometry.substitute()</span></code> method.
+This can be done with the <a class="reference internal" href="../cls/substitute.html"><span class="doc">substitute.py</span></a> command line script, or with the
+<a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry.substitute" title="AaronTools.geometry.Geometry.substitute"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.substitute()</span></code></a> method.
 Substituents can also be used as monodentate ligands for various ligand-related features in AaronTools.</p>
-<p>Substituents can be added to the library using the <code class="code docutils literal notranslate"><span class="pre">libaddSubstituent.py</span></code> command line script or SEQCROW’s “Add to Personal Library” tool.</p>
+<p>Substituents can be added to the library using the <a class="reference internal" href="../cls/libaddSubstituent.html"><span class="doc">libaddSubstituent.py</span></a>
+command line script or SEQCROW’s “Add to Personal Library” tool.</p>
 <p>It is worth noting that substituents can be fetched from RDKit or the CACTUS web API.
 With this, substituents can be used without added them to the library.
-For more information, look at <code class="code docutils literal notranslate"><span class="pre">substitute.py</span> <span class="pre">--help</span></code> or <code class="xref py py-func docutils literal notranslate"><span class="pre">Substituent.from_string()</span></code>.</p>
+For more information, look at <a class="reference internal" href="../cls/substitute.html"><span class="doc">substitute.py</span></a> or
+<a class="reference internal" href="../api/substituent.html#AaronTools.substituent.Substituent.from_string" title="AaronTools.substituent.Substituent.from_string"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.substituent.Substituent.from_string()</span></code></a>.</p>
 </section>
 <section id="ligands">
 <h2>Ligands<a class="headerlink" href="#ligands" title="Permalink to this heading">#</a></h2>
 <p>Ligands can be used to replace another ligand on a structure.
-Swapping ligands can be done with the <code class="code docutils literal notranslate"><span class="pre">mapLigand.py</span></code> command line script, or with <code class="xref py py-func docutils literal notranslate"><span class="pre">Geometry.map_ligand()</span></code>.</p>
+Swapping ligands can be done with the <a class="reference internal" href="../cls/mapLigand.html"><span class="doc">mapLigand.py</span></a> command line script,
+or with <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry.map_ligand" title="AaronTools.geometry.Geometry.map_ligand"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.map_ligand()</span></code></a>.</p>
 <p>For example, we can take a relatively simple catalyst structure:</p>
 <img alt="../_images/cat_simple.png" src="../_images/cat_simple.png" />
 <p>and swap the ligand for one of the 30-some other diphosphine ligands in the AaronTools library, (R)-BINAP:</p>
 <img alt="../_images/cat_binap.png" src="../_images/cat_binap.png" />
-<p>Ligands can be added to the library using the <code class="code docutils literal notranslate"><span class="pre">libaddLigand.py</span></code> command line script or SEQCROW’s “Add to Personal Library” tool.</p>
+<p>Ligands can be added to the library using the <a class="reference internal" href="../cls/libaddLigand.html"><span class="doc">libaddLigand.py</span></a> command line script or SEQCROW’s “Add to Personal Library” tool.</p>
 </section>
 <section id="rings">
 <h2>Rings<a class="headerlink" href="#rings" title="Permalink to this heading">#</a></h2>
 <p>Rings that can be used to close an incomplete ring.
-Closing rings can be done with the <code class="code docutils literal notranslate"><span class="pre">closeRing.py</span></code> command line script, or with <code class="xref py py-func docutils literal notranslate"><span class="pre">Geometry.ring_substitute()</span></code>.</p>
+Closing rings can be done with the <a class="reference internal" href="../cls/closeRing.html"><span class="doc">closeRing.py</span></a> command line script,
+or with <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry.ring_substitute" title="AaronTools.geometry.Geometry.ring_substitute"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.ring_substitute()</span></code></a>.</p>
 <p>Rings can be added to the library using the <code class="code docutils literal notranslate"><span class="pre">libaddRing.py</span></code> command line script or SEQCROW’s “Add to Personal Library” tool.</p>
 <p>To better understand how rings are attached to molecules, consider this example.
 Say you want to make tetralin from your benzene structure using the library’s cyclohexane ring below (note - a cyclohexene ring might produce a better structure):</p>

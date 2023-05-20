@@ -1,3 +1,63 @@
-.. code-block:: text 
+.. code-block:: text
 
-    usage: makeCrestInput.py [-h] [-o OUTFILE]                             [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}]                             [-q CHARGE] [-mult MULTIPLICITY] [-p PROCESSORS]                             [-m METHOD] [-sv SOLVENT] [-sm SOLVENT_MODEL]                             [-ca ATOMS] [-cb BONDS] [-cang ANGLES] [-ct TORSIONS]                             [-xc KEYWORD [OPTION ...]] [-cmd COMMAND [VALUE ...]]                             [input file ...]        print CREST input files        positional arguments:      input file            a coordinate file        options:      -h, --help            show this help message and exit      -o OUTFILE, --output OUTFILE                            output destination                            $INFILE will be replaced with the name of the input file                            Default: stdout      -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}                            file format of input - xyz is assumed if input is stdin      -q CHARGE, --charge CHARGE                            net charge                            Default: 0 or what is found in the input file      -mult MULTIPLICITY, --multiplicity MULTIPLICITY                            electronic multiplicity                            Default: 1 or what is found in the input file      -p PROCESSORS, --cores PROCESSORS                            number of cpu cores to use        Theory options:      -m METHOD, --method METHOD                            method (e.g. GFN-FF)                            Default: GFN2-xTB      -sv SOLVENT, --solvent SOLVENT                            solvent      -sm SOLVENT_MODEL, --solvent-model SOLVENT_MODEL                            implicit solvent model        Search options:      -ca ATOMS, --constrained-atoms ATOMS                            comma- or hyphen-separated list of atoms (1-indexed) to constrain during optimization      -cb BONDS, --constrain-bond BONDS                            list of comma-separated atom pairs                            the distance between the atoms in each pair will be constrained during optimization      -cang ANGLES, --constrain-angle ANGLES                            list of comma-separated atom trios                            the angle defined by each trio will be constrained during optimization      -ct TORSIONS, --constrain-torsion TORSIONS                            list of comma-separated atom quartets                            the torsional angle defined by each quartet will be constrained during optimization        CREST options:      -xc KEYWORD [OPTION ...], --xcontrol KEYWORD [OPTION ...]                            xcontrol options                            example: --metadyn coord original.xyz                            input file(s) should not be right after --xcontrol      -cmd COMMAND [VALUE ...], --command COMMAND [VALUE ...]                            command line options (without --)                            example: --command tautomerize                            input file(s) should not be right after --link0    
+    usage: makeCrestInput.py [-h] [-o OUTFILE]
+                             [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}]
+                             [-q CHARGE] [-mult MULTIPLICITY] [-p PROCESSORS]
+                             [-m METHOD] [-sv SOLVENT] [-sm SOLVENT_MODEL]
+                             [-ca ATOMS] [-cb BONDS] [-cang ANGLES] [-ct TORSIONS]
+                             [-xc KEYWORD [OPTION ...]] [-cmd COMMAND [VALUE ...]]
+                             [input file [input file ...]]
+    
+    print CREST input files
+    
+    positional arguments:
+      input file            a coordinate file
+    
+    optional arguments:
+      -h, --help            show this help message and exit
+      -o OUTFILE, --output OUTFILE
+                            output destination
+                            $INFILE will be replaced with the name of the input file
+                            Default: stdout
+      -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}
+                            file format of input - xyz is assumed if input is stdin
+      -q CHARGE, --charge CHARGE
+                            net charge
+                            Default: 0 or what is found in the input file
+      -mult MULTIPLICITY, --multiplicity MULTIPLICITY
+                            electronic multiplicity
+                            Default: 1 or what is found in the input file
+      -p PROCESSORS, --cores PROCESSORS
+                            number of cpu cores to use
+    
+    Theory options:
+      -m METHOD, --method METHOD
+                            method (e.g. GFN-FF)
+                            Default: GFN2-xTB
+      -sv SOLVENT, --solvent SOLVENT
+                            solvent
+      -sm SOLVENT_MODEL, --solvent-model SOLVENT_MODEL
+                            implicit solvent model
+    
+    Search options:
+      -ca ATOMS, --constrained-atoms ATOMS
+                            comma- or hyphen-separated list of atoms (1-indexed) to constrain during optimization
+      -cb BONDS, --constrain-bond BONDS
+                            list of comma-separated atom pairs
+                            the distance between the atoms in each pair will be constrained during optimization
+      -cang ANGLES, --constrain-angle ANGLES
+                            list of comma-separated atom trios
+                            the angle defined by each trio will be constrained during optimization
+      -ct TORSIONS, --constrain-torsion TORSIONS
+                            list of comma-separated atom quartets
+                            the torsional angle defined by each quartet will be constrained during optimization
+    
+    CREST options:
+      -xc KEYWORD [OPTION ...], --xcontrol KEYWORD [OPTION ...]
+                            xcontrol options
+                            example: --metadyn coord original.xyz
+                            input file(s) should not be right after --xcontrol
+      -cmd COMMAND [VALUE ...], --command COMMAND [VALUE ...]
+                            command line options (without --)
+                            example: --command tautomerize
+                            input file(s) should not be right after --link0

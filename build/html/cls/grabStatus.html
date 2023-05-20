@@ -304,14 +304,14 @@
           <section id="grabstatus-py">
 <h1>grabStatus.py<a class="headerlink" href="#grabstatus-py" title="Permalink to this heading">#</a></h1>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: grabStatus.py [-h] [-if {log,out,dat}] [-o OUTFILE [OUTFILE ...]]
-                     [input file ...]
+                     [input file [input file ...]]
 
 prints status of optimization job
 
 positional arguments:
   input file            input optimization file (i.e. Gaussian output where &quot;opt&quot; was specified)
 
-options:
+optional arguments:
   -h, --help            show this help message and exit
   -if {log,out,dat}, --input-format {log,out,dat}
                         file format of input - required if input is stdin

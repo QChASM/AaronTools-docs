@@ -1,3 +1,95 @@
-.. code-block:: text 
+.. code-block:: text
 
-    usage: plotAverageUVVis.py [-h] [-o OUTFILE]                               [-t {transmittance,transmittance-velocity,uv-vis,uv-vis-velocity,ecd,ecd-velocity}]                               [-u] [-ev]                               [-p {pseudo-voigt,gaussian,lorentzian,delta}]                               [-m VOIGT_MIXING] [-fwhm FWHM] [-s POINT_SPACING]                               [-ss SCALAR_SCALE] [-l LINEAR_SCALE]                               [-q QUADRATIC_SCALE] [-sc CENTERS] [-sw WIDTHS]                               [-r RANGES] [-fw FIG_WIDTH] [-fh FIG_HEIGHT]                               [-csv EXP_DATA [EXP_DATA ...]]                               [-w {electronic,zero-point,enthalpy,free,quasi-rrho,quasi-harmonic}]                               [-freq FREQ_FILES [FREQ_FILES ...]]                               [-sp SP_FILES [SP_FILES ...]] [-temp TEMPERATURE]                               [-w0 W0] [-rx]                               files [files ...]        plot Boltzmann-averaged UV/vis spectrum        positional arguments:      files                 TD-DFT or EOM job output files        options:      -h, --help            show this help message and exit      -o OUTFILE, --output OUTFILE                            output destination                            if the file extension is .csv, a CSV file will be written                            Default: show plot      -t {transmittance,transmittance-velocity,uv-vis,uv-vis-velocity,ecd,ecd-velocity}, --plot-type {transmittance,transmittance-velocity,uv-vis,uv-vis-velocity,ecd,ecd-velocity}                            type of plot                            Default: uv-vis-velocity      -u, --transient       use transient excitation data      -ev, --electron-volt  use eV on x axis instead of nm      -s POINT_SPACING, --point-spacing POINT_SPACING                            spacing between each x value                            Default: a non-uniform spacing that is more dense near peaks      -fw FIG_WIDTH, --figure-width FIG_WIDTH                            width of figure in inches      -fh FIG_HEIGHT, --figure-height FIG_HEIGHT                            height of figure in inches      -csv EXP_DATA [EXP_DATA ...], --experimental-csv EXP_DATA [EXP_DATA ...]                            CSV file containing observed spectrum data, which will be plotted on top                            frequency job files should not come directly after this flag      -rx, --rotate-x-ticks                            rotate x-axis tick labels by 45 degrees        peak options:      -p {pseudo-voigt,gaussian,lorentzian,delta}, --peak-type {pseudo-voigt,gaussian,lorentzian,delta}                            function for peaks                            Default: gaussian      -m VOIGT_MIXING, --voigt-mixing VOIGT_MIXING                            fraction of pseudo-Voigt that is Gaussian                            Default: 0.5      -fwhm FWHM, --full-width-half-max FWHM                            full width at half max. of peaks                            Default: 0.5 eV        scale energies (in eV):      -ss SCALAR_SCALE, --scalar-shift SCALAR_SCALE                            subtract scalar shift from each excitation                            Default: 0 (no shift)      -l LINEAR_SCALE, --linear-scale LINEAR_SCALE                            subtract linear_scale * energy from each excitation                            Default: 0 (no scaling)      -q QUADRATIC_SCALE, --quadratic-scale QUADRATIC_SCALE                            subtract quadratic_scale * energy^2 from each excitation                            Default: 0 (no scaling)        x-centered interruptions:      -sc CENTERS, --section-centers CENTERS                            split plot into sections with a section centered on each of the specified values                            values should be separated by commas      -sw WIDTHS, --section-widths WIDTHS                            width of each section specified by -sc/--section-centers                            should be separated by commas, with one for each section        x-range interruptions:      -r RANGES, --ranges RANGES                            split plot into sections (e.g. 200-350,400-650)        energy weighting:      -w {electronic,zero-point,enthalpy,free,quasi-rrho,quasi-harmonic}, --weighting-energy {electronic,zero-point,enthalpy,free,quasi-rrho,quasi-harmonic}                            type of energy to use for Boltzmann weighting                            Default: quasi-rrho      -freq FREQ_FILES [FREQ_FILES ...], --frequency-files FREQ_FILES [FREQ_FILES ...]                            frequency jobs to use for thermochem      -sp SP_FILES [SP_FILES ...], --single-point-files SP_FILES [SP_FILES ...]                            single point energies to use for thermochem                            Default: TD-DFT energies from INFILES      -temp TEMPERATURE, --temperature TEMPERATURE                            temperature (K) to use for weighting                            Default: 298.15      -w0 W0, --frequency-cutoff W0                            cutoff frequency for quasi free energy corrections (1/cm)                            Default: 100 cm^-1    
+    usage: plotAverageUVVis.py [-h] [-o OUTFILE]
+                               [-t {transmittance,transmittance-velocity,uv-vis,uv-vis-velocity,ecd,ecd-velocity}]
+                               [-u] [-ev]
+                               [-p {pseudo-voigt,gaussian,lorentzian,delta}]
+                               [-m VOIGT_MIXING] [-fwhm FWHM] [-s POINT_SPACING]
+                               [-ss SCALAR_SCALE] [-l LINEAR_SCALE]
+                               [-q QUADRATIC_SCALE] [-sc CENTERS] [-sw WIDTHS]
+                               [-r RANGES] [-fw FIG_WIDTH] [-fh FIG_HEIGHT]
+                               [-csv EXP_DATA [EXP_DATA ...]]
+                               [-w {electronic,zero-point,enthalpy,free,quasi-rrho,quasi-harmonic}]
+                               [-freq FREQ_FILES [FREQ_FILES ...]]
+                               [-sp SP_FILES [SP_FILES ...]] [-temp TEMPERATURE]
+                               [-w0 W0] [-rx]
+                               files [files ...]
+    
+    plot Boltzmann-averaged UV/vis spectrum
+    
+    positional arguments:
+      files                 TD-DFT or EOM job output files
+    
+    optional arguments:
+      -h, --help            show this help message and exit
+      -o OUTFILE, --output OUTFILE
+                            output destination
+                            if the file extension is .csv, a CSV file will be written
+                            Default: show plot
+      -t {transmittance,transmittance-velocity,uv-vis,uv-vis-velocity,ecd,ecd-velocity}, --plot-type {transmittance,transmittance-velocity,uv-vis,uv-vis-velocity,ecd,ecd-velocity}
+                            type of plot
+                            Default: uv-vis-velocity
+      -u, --transient       use transient excitation data
+      -ev, --electron-volt  use eV on x axis instead of nm
+      -s POINT_SPACING, --point-spacing POINT_SPACING
+                            spacing between each x value
+                            Default: a non-uniform spacing that is more dense near peaks
+      -fw FIG_WIDTH, --figure-width FIG_WIDTH
+                            width of figure in inches
+      -fh FIG_HEIGHT, --figure-height FIG_HEIGHT
+                            height of figure in inches
+      -csv EXP_DATA [EXP_DATA ...], --experimental-csv EXP_DATA [EXP_DATA ...]
+                            CSV file containing observed spectrum data, which will be plotted on top
+                            frequency job files should not come directly after this flag
+      -rx, --rotate-x-ticks
+                            rotate x-axis tick labels by 45 degrees
+    
+    peak options:
+      -p {pseudo-voigt,gaussian,lorentzian,delta}, --peak-type {pseudo-voigt,gaussian,lorentzian,delta}
+                            function for peaks
+                            Default: gaussian
+      -m VOIGT_MIXING, --voigt-mixing VOIGT_MIXING
+                            fraction of pseudo-Voigt that is Gaussian
+                            Default: 0.5
+      -fwhm FWHM, --full-width-half-max FWHM
+                            full width at half max. of peaks
+                            Default: 0.5 eV
+    
+    scale energies (in eV):
+      -ss SCALAR_SCALE, --scalar-shift SCALAR_SCALE
+                            subtract scalar shift from each excitation
+                            Default: 0 (no shift)
+      -l LINEAR_SCALE, --linear-scale LINEAR_SCALE
+                            subtract linear_scale * energy from each excitation
+                            Default: 0 (no scaling)
+      -q QUADRATIC_SCALE, --quadratic-scale QUADRATIC_SCALE
+                            subtract quadratic_scale * energy^2 from each excitation
+                            Default: 0 (no scaling)
+    
+    x-centered interruptions:
+      -sc CENTERS, --section-centers CENTERS
+                            split plot into sections with a section centered on each of the specified values
+                            values should be separated by commas
+      -sw WIDTHS, --section-widths WIDTHS
+                            width of each section specified by -sc/--section-centers
+                            should be separated by commas, with one for each section
+    
+    x-range interruptions:
+      -r RANGES, --ranges RANGES
+                            split plot into sections (e.g. 200-350,400-650)
+    
+    energy weighting:
+      -w {electronic,zero-point,enthalpy,free,quasi-rrho,quasi-harmonic}, --weighting-energy {electronic,zero-point,enthalpy,free,quasi-rrho,quasi-harmonic}
+                            type of energy to use for Boltzmann weighting
+                            Default: quasi-rrho
+      -freq FREQ_FILES [FREQ_FILES ...], --frequency-files FREQ_FILES [FREQ_FILES ...]
+                            frequency jobs to use for thermochem
+      -sp SP_FILES [SP_FILES ...], --single-point-files SP_FILES [SP_FILES ...]
+                            single point energies to use for thermochem
+                            Default: TD-DFT energies from INFILES
+      -temp TEMPERATURE, --temperature TEMPERATURE
+                            temperature (K) to use for weighting
+                            Default: 298.15
+      -w0 W0, --frequency-cutoff W0
+                            cutoff frequency for quasi free energy corrections (1/cm)
+                            Default: 100 cm^-1

@@ -38,9 +38,9 @@ for AaronTools:
 
 Here, we've replaced the filename with a tuple containing
 
-# the path to the file
-# the format AaronTools should read the file as
-# the file content
+#. the path to the file
+#. the format AaronTools should read the file as
+#. the file content
 
 Because we haven't read anything from the file yet,
 we specify None in our tuple.
@@ -118,6 +118,3 @@ of :code:`fr.other["energy"]`).
 A list of dictionary keys, what they are, and which of our
 file parsers can grab them can be found on the
 `this page <../api/filereader.html#filereader-keys-for-various-output-files>`_.
-For QM output files, some information only usually gets
-printed for certain job types (e.g. most thermochemistry-related
-items can only come from frequency jobs). 

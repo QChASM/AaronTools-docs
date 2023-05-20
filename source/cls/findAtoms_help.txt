@@ -1,3 +1,62 @@
-.. code-block:: text 
+.. code-block:: text
 
-    usage: findAtoms.py [-h]                        [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}]                        [-o OUTFILE] [-d {comma,semicolon,tab,space}]                        [-e ELEMENTS] [-n NDX] [-bf BONDS NUM] [-wb BONDS NDX]                        [-bt NDX] [-pd X Y Z R] [-ad NDX R] [-tm] [-mg] [-v SHAPE]                        [-nb NUM_NEIGHBORS] [-ct THIS_NDX THAN_NDX] [-c]                        [-f FRAGMENTS] [-or] [-i]                        [input file ...]        find atoms matching a description and return the list of indices        positional arguments:      input file            a coordinate file        options:      -h, --help            show this help message and exit      -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}                            file format of input - xyz is assumed if input is stdin      -o OUTFILE, --output OUTFILE                            output destination                            Default: stdout      -d {comma,semicolon,tab,space}, --delimiter {comma,semicolon,tab,space}                            delimiter for output atom indices      -e ELEMENTS, --element ELEMENTS                            element symbol      -n NDX, --index NDX   1-index position of atoms in the input file                            may hyphen separated to denote a range                            ranges and individual indices may be comma-separated      -bf BONDS NUM, --bonds-from BONDS NUM                            find atoms BONDS (integer) bonds away from atom NDX      -wb BONDS NDX, --within-bonds BONDS NDX                            find atoms within BONDS (integer) bonds from atom NDX      -bt NDX, --bonded-to NDX                            find atoms bonded to atom NDX      -pd X Y Z R, --point-distance X Y Z R                            find atoms within R Angstroms of (X, Y, Z)      -ad NDX R, --atom-distance NDX R                            find atoms within R Angstroms of atom NDX      -tm, --transition-metal                            find any elements in the d-block, up to the Actinides      -mg, --main-group     find any main group element (including H)      -v SHAPE, --vsepr SHAPE                            find atoms with the specified VSEPR shape                            shape can be:                            linear_1, linear_2, bent_2_planar, bent_2_tetrahedral,                            trigonal_planar, bent_3_tetrahedral,                            t_shaped, tetrahedral, sawhorse, square_planar,                            trigonal_bipyriamidal, square_pyramidal,                            octahedral      -nb NUM_NEIGHBORS, --number-of-bonds NUM_NEIGHBORS                            find atoms with the specified number of bonds      -ct THIS_NDX THAN_NDX, --closer-to THIS_NDX THAN_NDX                            atoms that are fewer bonds from THIS_NDX than THAN_NDX      -c, --chiral-center   find chiral centers      -f FRAGMENTS, --fragment FRAGMENTS                            fragments containing the specified atoms        match method (Default is atoms matching all):      -or, --match-any      find atoms matching any of the given descriptions      -i, --invert          invert match results    
+    usage: findAtoms.py [-h]
+                        [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}]
+                        [-o OUTFILE] [-d {comma,semicolon,tab,space}]
+                        [-e ELEMENTS] [-n NDX] [-bf BONDS NUM] [-wb BONDS NDX]
+                        [-bt NDX] [-pd X Y Z R] [-ad NDX R] [-tm] [-mg] [-v SHAPE]
+                        [-nb NUM_NEIGHBORS] [-ct THIS_NDX THAN_NDX] [-c]
+                        [-f FRAGMENTS] [-or] [-i]
+                        [input file [input file ...]]
+    
+    find atoms matching a description and return the list of indices
+    
+    positional arguments:
+      input file            a coordinate file
+    
+    optional arguments:
+      -h, --help            show this help message and exit
+      -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}
+                            file format of input - xyz is assumed if input is stdin
+      -o OUTFILE, --output OUTFILE
+                            output destination
+                            Default: stdout
+      -d {comma,semicolon,tab,space}, --delimiter {comma,semicolon,tab,space}
+                            delimiter for output atom indices
+      -e ELEMENTS, --element ELEMENTS
+                            element symbol
+      -n NDX, --index NDX   1-index position of atoms in the input file
+                            may hyphen separated to denote a range
+                            ranges and individual indices may be comma-separated
+      -bf BONDS NUM, --bonds-from BONDS NUM
+                            find atoms BONDS (integer) bonds away from atom NDX
+      -wb BONDS NDX, --within-bonds BONDS NDX
+                            find atoms within BONDS (integer) bonds from atom NDX
+      -bt NDX, --bonded-to NDX
+                            find atoms bonded to atom NDX
+      -pd X Y Z R, --point-distance X Y Z R
+                            find atoms within R Angstroms of (X, Y, Z)
+      -ad NDX R, --atom-distance NDX R
+                            find atoms within R Angstroms of atom NDX
+      -tm, --transition-metal
+                            find any elements in the d-block, up to the Actinides
+      -mg, --main-group     find any main group element (including H)
+      -v SHAPE, --vsepr SHAPE
+                            find atoms with the specified VSEPR shape
+                            shape can be:
+                            linear_1, linear_2, bent_2_planar, bent_2_tetrahedral,
+                            trigonal_planar, bent_3_tetrahedral,
+                            t_shaped, tetrahedral, sawhorse, square_planar,
+                            trigonal_bipyriamidal, square_pyramidal,
+                            octahedral
+      -nb NUM_NEIGHBORS, --number-of-bonds NUM_NEIGHBORS
+                            find atoms with the specified number of bonds
+      -ct THIS_NDX THAN_NDX, --closer-to THIS_NDX THAN_NDX
+                            atoms that are fewer bonds from THIS_NDX than THAN_NDX
+      -c, --chiral-center   find chiral centers
+      -f FRAGMENTS, --fragment FRAGMENTS
+                            fragments containing the specified atoms
+    
+    match method (Default is atoms matching all):
+      -or, --match-any      find atoms matching any of the given descriptions
+      -i, --invert          invert match results

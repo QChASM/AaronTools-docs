@@ -317,7 +317,7 @@ calculate Boltzmann-weighted percent buried volume parameters
 positional arguments:
   input files           file containing coordinates and energy
 
-options:
+optional arguments:
   -h, --help            show this help message and exit
   -if {log,out,dat}, --input-format {log,out,dat}
                         file format of input
@@ -338,12 +338,12 @@ options:
                         Default: 3.5 Ångström
   -vdw {bondi,umn}, --vdw-radii {bondi,umn}
                         VDW radii to use in calculation
-                        umn: main group vdw radii from J. Phys. Chem. A 2009, 113, 19, 58065812
+                        umn: main group vdw radii from J. Phys. Chem. A 2009, 113, 19, 5806–5812
                             (DOI: 10.1021/jp8111556)
                             transition metals are crystal radii from Batsanov, S.S. Van der Waals
-                            Radii of Elements. Inorganic Materials 37, 871885 (2001).
+                            Radii of Elements. Inorganic Materials 37, 871–885 (2001).
                             (DOI: 10.1023/A:1011625728803)
-                        bondi: radii from J. Phys. Chem. 1964, 68, 3, 441451 (DOI: 10.1021/j100785a001)
+                        bondi: radii from J. Phys. Chem. 1964, 68, 3, 441–451 (DOI: 10.1021/j100785a001)
                         Default: bondi
   -s SCALE, --scale SCALE
                         scale VDW radii by this amount
