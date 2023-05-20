@@ -161,6 +161,9 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../tutorials/tut_list.html">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/cls_tutorials.html">Intro to Command Line Scripts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/adding_to_libraries.html">Adding Structures to your AaronTools Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/coding_with_geometries.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/coding_with_theories.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/coding_with_filereaders.html">Coding with <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> objects</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../cls/list.html">List of Command Line Scripts</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -343,27 +346,18 @@ set might be misspelled</p></li>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – structure</p></li>
 <li><p><strong>orbitals</strong> (<a class="reference internal" href="orbitals.html#AaronTools.orbitals.Orbitals" title="AaronTools.orbitals.Orbitals"><em>Orbitals</em></a>) – orbital data</p></li>
-</ul>
-</dd>
-</dl>
-<p>:param str outfile:output destination
-:param str|int mo: index of molecular orbital or “homo” for ground state</p>
-<blockquote>
-<div><p>highest occupied molecular orbital or “lumo” for first
+<li><p><strong>outfile</strong> (<em>str</em>) – output destination</p></li>
+<li><p><strong>mo</strong> (<em>str</em><em>|</em><em>int</em>) – index of molecular orbital or “homo” for ground state
+highest occupied molecular orbital or “lumo” for first
 ground state unoccupied MO
-can also be an array of MO coefficients</p>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
+can also be an array of MO coefficients</p></li>
 <li><p><strong>ao</strong> (<em>str</em><em>|</em><em>int</em>) – index of atomic orbital to print</p></li>
 <li><p><strong>padding</strong> (<em>float</em>) – padding around geom’s coordinates</p></li>
 <li><p><strong>spacing</strong> (<em>float</em>) – targeted spacing between points</p></li>
-<li><p><strong>n_jobs</strong> (<em>int</em>) – <p>number of parallel threads to use</p>
-<p>this is on top of NumPy’s multithreading, so
+<li><p><strong>n_jobs</strong> (<em>int</em>) – number of parallel threads to use
+this is on top of NumPy’s multithreading, so
 if NumPy uses 8 threads and n_jobs=2, you can
-expect to see 16 threads in use</p>
-</p></li>
+expect to see 16 threads in use</p></li>
 <li><p><strong>delta</strong> (<em>float</em>) – see Orbitals.fukui_donor_value or fukui_acceptor_value</p></li>
 </ul>
 </dd>
@@ -401,7 +395,8 @@ will write run.sh and test.txt to dirname</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – the Geometry to use</p></li>
 <li><p><strong>style</strong> (<em>str</em>) – <p>the file type style to generate
-Currently supported options: xyz (default), com, inp, in</p>
+Currently supported options: “xyz” (default), “com”,
+“inp”, “inq”, “in”, “sqmin”, “cube”, “xtb”, “crest”, “mol”</p>
 <p>if outfile has one of these extensions, default is that style</p>
 </p></li>
 <li><p><strong>append</strong> (<em>bool</em>) – for <a href="#id1"><span class="problematic" id="id2">*</span></a>.xyz, append geometry to the same file</p></li>

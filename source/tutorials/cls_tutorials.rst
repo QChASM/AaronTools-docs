@@ -164,7 +164,7 @@ Now that we've modified benzene to get TNT, we ought to minimize our TNT structu
 We'll be optimizing the structure and compute frequencies at the B3LYP/def2-SVP level of theory with Psi4.
 To make the input file for the optimization job, run: 
 
-.. code-block:: bash
+.. code-block:: text
     
     makeInput.py tnt.xyz -o tnt.in -opt -freq -m b3lyp -b def2-svp
 
@@ -265,7 +265,7 @@ A different default template, along with default processors, memory, and wall ti
 
 To submit this job to the queue, we can run: 
 
-::
+.. code-block:: text
 
     jobSubmit.py tnt.in -p 6 -m 12
     

@@ -11,7 +11,7 @@ The library directory should contain several subdirectories, including Subs, Lig
 Substituents
 ------------
 
-AaronTools includes a library of ~45 substituents, which are fragments with one bond to a molecule (e.g. phenyl).
+AaronTools includes a library of ~45 substituents, which are fragments with one bond to a molecule (`e.g.` phenyl).
 These can be added to a structure or used to replace an existing substituent.
 This can be done with the :code:`substitute.py` command line script, or with the :py:func:`Geometry.substitute` method.
 Substituents can also be used as monodentate ligands for various ligand-related features in AaronTools.

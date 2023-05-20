@@ -135,7 +135,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -295,7 +295,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -303,6 +303,120 @@
         <article role="main">
           <section id="coding-with-filereader-objects">
 <h1>Coding with <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> objects<a class="headerlink" href="#coding-with-filereader-objects" title="Permalink to this heading">#</a></h1>
+<p>Here, you will find tutorials and explanations for using AaronTools’
+functions, classes, and subroutines pertaining to our object for reading
+files: <a class="reference internal" href="../api/filereader.html#AaronTools.fileIO.FileReader" title="AaronTools.fileIO.FileReader"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.fileIO.FileReader()</span></code></a>.</p>
+<section id="creation">
+<h2>Creation<a class="headerlink" href="#creation" title="Permalink to this heading">#</a></h2>
+<p>A <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> object can be created by passing the path
+to a file. To begin, let’s import <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.fileIO</span> <span class="kn">import</span> <span class="n">FileReader</span>
+
+<span class="n">fr</span> <span class="o">=</span> <span class="n">FileReader</span><span class="p">(</span><span class="s2">&quot;benzene.log&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The file “benzene.log” will be read as a Gaussian output file
+because of the .log extension.
+Creating a <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> from this <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> is as
+simple as passing it to Geometry:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+
+<span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="n">fr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If the file has an unexpected extension, we should specify the format
+for AaronTools:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fr</span> <span class="o">=</span> <span class="n">FileReader</span><span class="p">((</span><span class="s2">&quot;benzene.gout&quot;</span><span class="p">,</span> <span class="s2">&quot;log&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Here, we’ve replaced the filename with a tuple containing</p>
+<p># the path to the file
+# the format AaronTools should read the file as
+# the file content</p>
+<p>Because we haven’t read anything from the file yet,
+we specify None in our tuple.
+The content can also be a string containing the contents of a
+file of the specified format or a file-like object (e.g. <code class="code docutils literal notranslate"><span class="pre">sys.stdin</span></code>).</p>
+<p>Below is a table containing AaronTools’ expectations for file extensions:</p>
+<div class="table-wrapper docutils container" id="id1">
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Expected File Extensions</span><a class="headerlink" href="#id1" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>file type</p></th>
+<th class="head"><p>extension</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Gaussian input</p></td>
+<td><p>com or gjf</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gaussian output</p></td>
+<td><p>log</p></td>
+</tr>
+<tr class="row-even"><td><p>ORCA output</p></td>
+<td><p>out</p></td>
+</tr>
+<tr class="row-odd"><td><p>XYZ</p></td>
+<td><p>xyz</p></td>
+</tr>
+<tr class="row-even"><td><p>structure data file</p></td>
+<td><p>sd or mol</p></td>
+</tr>
+<tr class="row-odd"><td><p>Psi4 output</p></td>
+<td><p>dat or out</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="getting-more-information">
+<h2>Getting More Information<a class="headerlink" href="#getting-more-information" title="Permalink to this heading">#</a></h2>
+<p><code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> initialization accepts two keywords:
+<code class="code docutils literal notranslate"><span class="pre">get_all</span></code> and <code class="code docutils literal notranslate"><span class="pre">just_geom</span></code>.
+Let’s look at what those do.</p>
+<section id="multiple-structures">
+<h3>Multiple Structures<a class="headerlink" href="#multiple-structures" title="Permalink to this heading">#</a></h3>
+<p>The <code class="code docutils literal notranslate"><span class="pre">get_all</span></code> keyword tells <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> to
+store all the structures it finds while reading the
+file (e.g. all steps in an optimization or an XYZ trajectory).
+These structures are stored in the FileReader’s all_geom attribute.
+This will be a list of dictionaries, with one of the keys being atoms
+and the other being either comment or data, depending on the file format.
+The data key is used for QM output files, and stores whatever data has
+been parsed at the time the corresponding structure was read.
+The comment key is used for files that do not have computed data
+to parse (e.g., XYZ or Mol files). With <code class="code docutils literal notranslate"><span class="pre">get_all=False</span></code>,
+the <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code>’s only structure will be the last one in the file.</p>
+<p>Below is sample code for turning each structure in a
+<code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> into a <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.atoms</span> <span class="kn">import</span> <span class="n">Atom</span>
+<span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">from</span> <span class="nn">AaronTools.fileIO</span> <span class="kn">import</span> <span class="n">FileReader</span>
+
+<span class="n">fr</span> <span class="o">=</span> <span class="n">FileReader</span><span class="p">(</span><span class="s1">&#39;benzene.log&#39;</span><span class="p">,</span> <span class="n">get_all</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">geom_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">struc</span> <span class="ow">in</span> <span class="n">fr</span><span class="o">.</span><span class="n">all_geom</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">item</span> <span class="ow">in</span> <span class="n">struc</span><span class="p">:</span>
+        <span class="n">geom_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Geometry</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s2">&quot;atoms&quot;</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p>Calculation Information</p>
+<p>The <code class="code docutils literal notranslate"><span class="pre">just_geom</span></code> keyword controls whether the
+<code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> grabs more than the file’s structure.
+Additional information will be stored as a dictionary in the
+<code class="code docutils literal notranslate"><span class="pre">FileReader</span></code>’s other attribute.
+This data can also be accessed by using the <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code>
+as if it was a dictionary (<cite>i.e.</cite> <code class="code docutils literal notranslate"><span class="pre">fr[&quot;energy&quot;]</span></code> instead
+of <code class="code docutils literal notranslate"><span class="pre">fr.other[&quot;energy&quot;]</span></code>).
+A list of dictionary keys, what they are, and which of our
+file parsers can grab them can be found on the
+<a class="reference external" href="../api/filereader.html#filereader-keys-for-various-output-files">this page</a>.
+For QM output files, some information only usually gets
+printed for certain job types (e.g. most thermochemistry-related
+items can only come from frequency jobs).</p>
+</section>
+</section>
 </section>
 
         </article>
@@ -348,8 +462,31 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Coding with <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> objects</a><ul>
+<li><a class="reference internal" href="#creation">Creation</a></li>
+<li><a class="reference internal" href="#getting-more-information">Getting More Information</a><ul>
+<li><a class="reference internal" href="#multiple-structures">Multiple Structures</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

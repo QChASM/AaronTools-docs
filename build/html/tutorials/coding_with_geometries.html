@@ -352,7 +352,7 @@ to the <code class="code docutils literal notranslate"><span class="pre">outfile
 </div>
 </section>
 <section id="other-write-keywords">
-<h3>Other <cite>write</cite> Keywords<a class="headerlink" href="#other-write-keywords" title="Permalink to this heading">#</a></h3>
+<h3>Other <code class="code docutils literal notranslate"><span class="pre">write</span></code> Keywords<a class="headerlink" href="#other-write-keywords" title="Permalink to this heading">#</a></h3>
 <p>The <code class="code docutils literal notranslate"><span class="pre">style</span></code> keyword determines the file format.
 Changing this to, for example, <code class="code docutils literal notranslate"><span class="pre">com</span></code>, <code class="code docutils literal notranslate"><span class="pre">inp</span></code>, or <code class="code docutils literal notranslate"><span class="pre">in</span></code> allows for writing input files
 for quantum chemistry computations.
@@ -385,7 +385,7 @@ See <a class="reference internal" href="coding_with_theories.html"><span class="
 easier: <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry.find" title="AaronTools.geometry.Geometry.find"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.find()</span></code></a>
 and <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry.find_exact" title="AaronTools.geometry.Geometry.find_exact"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.find_exact()</span></code></a>.
 Most of our command line scripts that require atom targets
-(e.g. substitute.py, translate.py, rotate.py) use one of these methods.
+(e.g. <a class="reference internal" href="../cls/substitute.html"><span class="doc">substitute.py</span></a>, <a class="reference internal" href="../cls/translate.html"><span class="doc">translate.py</span></a>, <a class="reference internal" href="../cls/rotate.html"><span class="doc">rotate.py</span></a>) use one of these methods.
 For example, to turn a benzene molecule into perfluorobenzene, we can substitute all hydrogens with fluorines:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>substitute.py benzene.xyz -s H=F
 </pre></div>
@@ -423,7 +423,7 @@ For example, to find the first atom in the “benzene.xyz” file,</p>
 <span class="n">geom</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Atoms added to a :code:Geometry by :code:Geometry.substitute` or
+<p>Atoms added to a <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> by <code class="code docutils literal notranslate"><span class="pre">Geometry.substitute</span></code> or
 some other structure-editing routine may have decimals in their name.</p>
 </div></blockquote>
 </li>
@@ -800,7 +800,7 @@ easily access the hydrogen atoms on the ring we just added:</p>
 <li><a class="reference internal" href="#file-input-output">File Input/Output</a><ul>
 <li><a class="reference internal" href="#reading-a-file">Reading a File</a></li>
 <li><a class="reference internal" href="#writing-to-a-file">Writing to a File</a></li>
-<li><a class="reference internal" href="#other-write-keywords">Other <cite>write</cite> Keywords</a></li>
+<li><a class="reference internal" href="#other-write-keywords">Other <code class="code docutils literal notranslate"><span class="pre">write</span></code> Keywords</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#finding-atoms">Finding Atoms</a><ul>

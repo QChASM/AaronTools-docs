@@ -62,8 +62,8 @@ If you'd like to write to a file instead, you can pass the path to the file to :
     ...
     geom.write(outfile='tnt.xyz')
 
-Other `write` Keywords
-**********************    
+Other :code:`write` Keywords
+****************************
 
 The :code:`style` keyword determines the file format.
 Changing this to, for example, :code:`com`, :code:`inp`, or :code:`in` allows for writing input files
@@ -99,7 +99,7 @@ The :code:`Geometry` class has two methods that make finding atoms
 easier: :py:meth:`AaronTools.geometry.Geometry.find`
 and :py:meth:`AaronTools.geometry.Geometry.find_exact`.
 Most of our command line scripts that require atom targets
-(e.g. substitute.py, translate.py, rotate.py) use one of these methods.
+(e.g. :doc:`../cls/substitute`, :doc:`../cls/translate`, :doc:`../cls/rotate`) use one of these methods.
 For example, to turn a benzene molecule into perfluorobenzene, we can substitute all hydrogens with fluorines:
 
 .. code-block:: text
@@ -145,7 +145,7 @@ The following can be passed to find, along with an example:
         geom = Geometry('benzene.xyz')
         geom.find('1')
         
-    Atoms added to a :code:Geometry by :code:Geometry.substitute` or
+    Atoms added to a :code:`Geometry` by :code:`Geometry.substitute` or
     some other structure-editing routine may have decimals in their name. 
     
 * atom tags

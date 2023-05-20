@@ -103,7 +103,7 @@ Substituents
 Adding Substituents to Your Personal Library
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Note: for simple structure modification features ('e.g.', substitute.py), it might be more convenient to fetch the substituent from RDKit or a web API, which allow you to utilize substituents without adding them to your library.
+Note: for simple structure modification features (`e.g.`, substitute.py), it might be more convenient to fetch the substituent from RDKit or a web API, which allow you to utilize substituents without adding them to your library.
 Typically, this is done by prefixing a substituent name or SMILES with iupac: or smiles:. 
 See the :code:`--help` page for the relevant command line script for more details.
 
@@ -186,7 +186,7 @@ New rings can be added to your personal library with the libaddRing command line
 
     libaddRing.py ring.xyz -n NAME -w WALK input_file
 
-When adding a new ring, you should use a structure for a completed ring (e.g. for cyclohexane, your file should contain 18 atoms).
+When adding a new ring, you should use a structure for a completed ring (`e.g.` for cyclohexane, your file should contain 18 atoms).
 You also need to decide which direction the ring should be traversed.
 
 As an example, we'll use :code:`libaddRing.py` to add cyclohexane

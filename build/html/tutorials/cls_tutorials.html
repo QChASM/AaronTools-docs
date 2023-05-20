@@ -428,7 +428,7 @@ SMILES for a radical can also be used, if prefixed with <code class="code docuti
 <code class="code docutils literal notranslate"><span class="pre">makeInput.py</span></code> can help us set up the input file.
 We’ll be optimizing the structure and compute frequencies at the B3LYP/def2-SVP level of theory with Psi4.
 To make the input file for the optimization job, run:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>makeInput.py<span class="w"> </span>tnt.xyz<span class="w"> </span>-o<span class="w"> </span>tnt.in<span class="w"> </span>-opt<span class="w"> </span>-freq<span class="w"> </span>-m<span class="w"> </span>b3lyp<span class="w"> </span>-b<span class="w"> </span>def2-svp
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>makeInput.py tnt.xyz -o tnt.in -opt -freq -m b3lyp -b def2-svp
 </pre></div>
 </div>
 <ul class="simple">
@@ -519,7 +519,7 @@ rm<span class="w"> </span>-rf<span class="w"> </span><span class="nv">$SCRATCH</
 <p>If this file is placed in the Aaron_libs directory (defaults to “Aaron_libs” in your home area, but can be overwritten by setting the AARONLIB environment variable), in a file named Psi4_template.txt, it will automatically be used by jobSubmit.py. Similarly, Gaussian and ORCA default job templates can be put at Aaron_libs/Gaussian_template.txt and Aaron_libs/ORCA_template.txt, respectively.</p>
 <p>A different default template, along with default processors, memory, and wall time may be specified in your configuration file.</p>
 <p>To submit this job to the queue, we can run:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jobSubmit</span><span class="o">.</span><span class="n">py</span> <span class="n">tnt</span><span class="o">.</span><span class="ow">in</span> <span class="o">-</span><span class="n">p</span> <span class="mi">6</span> <span class="o">-</span><span class="n">m</span> <span class="mi">12</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>jobSubmit.py tnt.in -p 6 -m 12
 </pre></div>
 </div>
 <p>where <code class="code docutils literal notranslate"><span class="pre">-p</span></code> and <code class="code docutils literal notranslate"><span class="pre">-m</span></code> are the allocated CPU cores and memory, respectively.
