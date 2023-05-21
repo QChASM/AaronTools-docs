@@ -135,7 +135,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -295,7 +295,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -335,6 +335,22 @@ optional arguments:
                         Default: stdout
 </pre></div>
 </div>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h2>
+<p>Let’s say we want to generate a library of substituted pyridines.
+Here’s the numbering for our starting pyridine structure:</p>
+<img alt="../_images/pyridine_numbered.png" src="../_images/pyridine_numbered.png" />
+<p>For this example, we’ll be keeping positions numberd 7 and 11 the same as each other,
+and independently modifying position 9.</p>
+<p>Here’s a command we can use to do this:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>multiSubstitute.py pyridine.xyz -s 7,11=iupac:butyl,iupac:propyl,Et,Me,H -s 9=F,Cl,Br,CH2F,CHF2,CF3,NO2,iupac:acetyl,OMe,SMe,Me -o pyridines\$INFILE_$SUBSTITUTIONS.xyz
+</pre></div>
+</div>
+<p>This command generates 55 structures.
+If 7 and 11 are modified independently but still use the same list of substituents
+(<cite>i.e.</cite> <code class="code docutils literal notranslate"><span class="pre">-s</span> <span class="pre">7=...</span> <span class="pre">-s</span> <span class="pre">11=...</span></code>), it will generate 275 structures.
+Keep combinatorial explosions in mind when generating your libraries!</p>
+</section>
 </section>
 
         </article>
@@ -380,8 +396,27 @@ optional arguments:
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">multiSubstitute.py</a><ul>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
