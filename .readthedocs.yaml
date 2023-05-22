@@ -8,6 +8,3 @@ build:
 
 sphinx:
    configuration: source/conf.py
-python:
-   install:
-   - requirements: sphinx_copybutton
