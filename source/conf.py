@@ -32,7 +32,7 @@ release = '1.0b19'
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
-    'sphinx_copybutton',
+#    'sphinx_copybutton',
     'sphinx.ext.autosectionlabel',
 ]
 
