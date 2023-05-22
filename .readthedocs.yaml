@@ -8,8 +8,3 @@ build:
 
 sphinx:
    configuration: source/conf.py
-
-python:
-  install:
-    - method: pip
-      package: furo
