@@ -9,6 +9,7 @@
         <title>Orbital class - AaronTools 1.0b19 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -354,50 +355,22 @@ in each shell</p></li>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.orbitals.Orbitals.condensed_fukui_acceptor_values">
-<span class="sig-name descname"><span class="pre">condensed_fukui_acceptor_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.orbitals.Orbitals.condensed_fukui_acceptor_values" title="Permalink to this definition">#</a></dt>
-<dd><p>uses power_integral to integrate the fukui_acceptor_value
-for all atoms in geom</p>
-<p>values are normalized so they sum to 1</p>
+<dt class="sig sig-object py" id="AaronTools.orbitals.Orbitals.mo_value">
+<span class="sig-name descname"><span class="pre">mo_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.orbitals.Orbitals.mo_value" title="Permalink to this definition">#</a></dt>
+<dd><p>get the MO evaluated at the specified coords</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – structure</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mo</strong> (<em>int</em><em>|</em><em>np.ndarray</em>) – index of molecular orbital or an array of MO coefficients</p></li>
+<li><p><strong>coords</strong> (<em>np.ndarray</em>) – array of points (N,3) or (3,)</p></li>
+<li><p><strong>alpha</strong> (<em>bool</em>) – use alpha coefficients (default)</p></li>
+<li><p><strong>n_jobs</strong> (<em>int</em>) – number of parallel threads to use
+this is on top of NumPy’s multithreading, so
+if NumPy uses 8 threads and n_jobs=2, you can
+expect to see 16 threads in use</p></li>
+</ul>
 </dd>
 </dl>
-<p>:param args:passed to power_integral
-:param kwargs: passed to power_integral</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>array for each atom’s condensed Fukui acceptor values</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.orbitals.Orbitals.condensed_fukui_donor_values">
-<span class="sig-name descname"><span class="pre">condensed_fukui_donor_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.orbitals.Orbitals.condensed_fukui_donor_values" title="Permalink to this definition">#</a></dt>
-<dd><p>uses power_integral to integrate the fukui_donor_value
-for all atoms in geom</p>
-<p>values are normalized so they sum to 1</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – structure</p>
-</dd>
-</dl>
-<p>:param args:passed to power_integral
-:param kwargs: passed to power_integral</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>array for each atom’s condensed Fukui donor values</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.orbitals.Orbitals.condensed_fukui_dual_values">
-<span class="sig-name descname"><span class="pre">condensed_fukui_dual_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.orbitals.Orbitals.condensed_fukui_dual_values" title="Permalink to this definition">#</a></dt>
-<dd><p>returns the difference between condensed_fukui_acceptor_values
-and condensed_fukui_donor_values</p>
 </dd></dl>
 
 <dl class="py method">
@@ -421,11 +394,11 @@ orbitals</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.orbitals.Orbitals.fukui_acceptor_value">
-<span class="sig-name descname"><span class="pre">fukui_acceptor_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.orbitals.Orbitals.fukui_acceptor_value" title="Permalink to this definition">#</a></dt>
-<dd><p>orbital-weighted fukui acceptor function</p>
+<dt class="sig sig-object py" id="AaronTools.orbitals.Orbitals.fukui_donor_value">
+<span class="sig-name descname"><span class="pre">fukui_donor_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.orbitals.Orbitals.fukui_donor_value" title="Permalink to this definition">#</a></dt>
+<dd><p>orbital-weighted fukui donor function</p>
 <p>electron density change for removing an electron</p>
-<p>orbital weighting from DOI 10.1021/acs.jpca.9b07516 accounts
+<p>orbital weighting from DOI 10.1002/jcc.24699 accounts
 for nearly degenerate orbitals</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -439,11 +412,11 @@ for nearly degenerate orbitals</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.orbitals.Orbitals.fukui_donor_value">
-<span class="sig-name descname"><span class="pre">fukui_donor_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.orbitals.Orbitals.fukui_donor_value" title="Permalink to this definition">#</a></dt>
-<dd><p>orbital-weighted fukui donor function</p>
+<dt class="sig sig-object py" id="AaronTools.orbitals.Orbitals.fukui_acceptor_value">
+<span class="sig-name descname"><span class="pre">fukui_acceptor_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.orbitals.Orbitals.fukui_acceptor_value" title="Permalink to this definition">#</a></dt>
+<dd><p>orbital-weighted fukui acceptor function</p>
 <p>electron density change for removing an electron</p>
-<p>orbital weighting from DOI 10.1002/jcc.24699 accounts
+<p>orbital weighting from DOI 10.1021/acs.jpca.9b07516 accounts
 for nearly degenerate orbitals</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -518,19 +491,18 @@ and rpoints must be given</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.orbitals.Orbitals.mo_value">
-<span class="sig-name descname"><span class="pre">mo_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.orbitals.Orbitals.mo_value" title="Permalink to this definition">#</a></dt>
-<dd><p>get the MO evaluated at the specified coords</p>
+<dt class="sig sig-object py" id="AaronTools.orbitals.Orbitals.voronoi_integral">
+<span class="sig-name descname"><span class="pre">voronoi_integral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geom</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rpoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1454</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.orbitals.Orbitals.voronoi_integral" title="Permalink to this definition">#</a></dt>
+<dd><p>integrates func in the Voronoi cell of the specified target</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>mo</strong> (<em>int</em><em>|</em><em>np.ndarray</em>) – index of molecular orbital or an array of MO coefficients</p></li>
-<li><p><strong>coords</strong> (<em>np.ndarray</em>) – array of points (N,3) or (3,)</p></li>
-<li><p><strong>alpha</strong> (<em>bool</em>) – use alpha coefficients (default)</p></li>
-<li><p><strong>n_jobs</strong> (<em>int</em>) – number of parallel threads to use
-this is on top of NumPy’s multithreading, so
-if NumPy uses 8 threads and n_jobs=2, you can
-expect to see 16 threads in use</p></li>
+<li><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – structure target belongs to</p></li>
+<li><p><strong>args</strong> – passed to func</p></li>
+<li><p><strong>rpoints</strong> (<em>int</em>) – radial points used for Gauss-Legendre integral</p></li>
+<li><p><strong>apoints</strong> (<em>int</em>) – angular points for Lebedev integral</p></li>
+<li><p><strong>func</strong> (<em>function</em>) – function to evaluate</p></li>
+<li><p><strong>kwargs</strong> – passed to func</p></li>
 </ul>
 </dd>
 </dl>
@@ -563,21 +535,50 @@ that form cells based on the smallest d^2 - r^2</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.orbitals.Orbitals.voronoi_integral">
-<span class="sig-name descname"><span class="pre">voronoi_integral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geom</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rpoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1454</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.orbitals.Orbitals.voronoi_integral" title="Permalink to this definition">#</a></dt>
-<dd><p>integrates func in the Voronoi cell of the specified target</p>
+<dt class="sig sig-object py" id="AaronTools.orbitals.Orbitals.condensed_fukui_donor_values">
+<span class="sig-name descname"><span class="pre">condensed_fukui_donor_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.orbitals.Orbitals.condensed_fukui_donor_values" title="Permalink to this definition">#</a></dt>
+<dd><p>uses power_integral to integrate the fukui_donor_value
+for all atoms in geom</p>
+<p>values are normalized so they sum to 1</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – structure target belongs to</p></li>
-<li><p><strong>args</strong> – passed to func</p></li>
-<li><p><strong>rpoints</strong> (<em>int</em>) – radial points used for Gauss-Legendre integral</p></li>
-<li><p><strong>apoints</strong> (<em>int</em>) – angular points for Lebedev integral</p></li>
-<li><p><strong>func</strong> (<em>function</em>) – function to evaluate</p></li>
-<li><p><strong>kwargs</strong> – passed to func</p></li>
-</ul>
+<dd class="field-odd"><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – structure</p>
 </dd>
 </dl>
+<p>:param args:passed to power_integral
+:param kwargs: passed to power_integral</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array for each atom’s condensed Fukui donor values</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.orbitals.Orbitals.condensed_fukui_acceptor_values">
+<span class="sig-name descname"><span class="pre">condensed_fukui_acceptor_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.orbitals.Orbitals.condensed_fukui_acceptor_values" title="Permalink to this definition">#</a></dt>
+<dd><p>uses power_integral to integrate the fukui_acceptor_value
+for all atoms in geom</p>
+<p>values are normalized so they sum to 1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – structure</p>
+</dd>
+</dl>
+<p>:param args:passed to power_integral
+:param kwargs: passed to power_integral</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array for each atom’s condensed Fukui acceptor values</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.orbitals.Orbitals.condensed_fukui_dual_values">
+<span class="sig-name descname"><span class="pre">condensed_fukui_dual_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.orbitals.Orbitals.condensed_fukui_dual_values" title="Permalink to this definition">#</a></dt>
+<dd><p>returns the difference between condensed_fukui_acceptor_values
+and condensed_fukui_donor_values</p>
 </dd></dl>
 
 </dd></dl>
@@ -642,18 +643,18 @@ that form cells based on the smallest d^2 - r^2</p>
 <li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">Orbital</span></code> class</a><ul>
 <li><a class="reference internal" href="#AaronTools.orbitals.Orbitals"><code class="docutils literal notranslate"><span class="pre">Orbitals</span></code></a><ul>
 <li><a class="reference internal" href="#AaronTools.orbitals.Orbitals.__init__"><code class="docutils literal notranslate"><span class="pre">Orbitals.__init__()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.orbitals.Orbitals.condensed_fukui_acceptor_values"><code class="docutils literal notranslate"><span class="pre">Orbitals.condensed_fukui_acceptor_values()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.orbitals.Orbitals.condensed_fukui_donor_values"><code class="docutils literal notranslate"><span class="pre">Orbitals.condensed_fukui_donor_values()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.orbitals.Orbitals.condensed_fukui_dual_values"><code class="docutils literal notranslate"><span class="pre">Orbitals.condensed_fukui_dual_values()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.orbitals.Orbitals.mo_value"><code class="docutils literal notranslate"><span class="pre">Orbitals.mo_value()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.orbitals.Orbitals.density_value"><code class="docutils literal notranslate"><span class="pre">Orbitals.density_value()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.orbitals.Orbitals.fukui_acceptor_value"><code class="docutils literal notranslate"><span class="pre">Orbitals.fukui_acceptor_value()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.orbitals.Orbitals.fukui_donor_value"><code class="docutils literal notranslate"><span class="pre">Orbitals.fukui_donor_value()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.orbitals.Orbitals.fukui_acceptor_value"><code class="docutils literal notranslate"><span class="pre">Orbitals.fukui_acceptor_value()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.orbitals.Orbitals.get_cube_array"><code class="docutils literal notranslate"><span class="pre">Orbitals.get_cube_array()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.orbitals.Orbitals.get_cube_points"><code class="docutils literal notranslate"><span class="pre">Orbitals.get_cube_points()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.orbitals.Orbitals.memory_estimate"><code class="docutils literal notranslate"><span class="pre">Orbitals.memory_estimate()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.orbitals.Orbitals.mo_value"><code class="docutils literal notranslate"><span class="pre">Orbitals.mo_value()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.orbitals.Orbitals.power_integral"><code class="docutils literal notranslate"><span class="pre">Orbitals.power_integral()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.orbitals.Orbitals.voronoi_integral"><code class="docutils literal notranslate"><span class="pre">Orbitals.voronoi_integral()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.orbitals.Orbitals.power_integral"><code class="docutils literal notranslate"><span class="pre">Orbitals.power_integral()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.orbitals.Orbitals.condensed_fukui_donor_values"><code class="docutils literal notranslate"><span class="pre">Orbitals.condensed_fukui_donor_values()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.orbitals.Orbitals.condensed_fukui_acceptor_values"><code class="docutils literal notranslate"><span class="pre">Orbitals.condensed_fukui_acceptor_values()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.orbitals.Orbitals.condensed_fukui_dual_values"><code class="docutils literal notranslate"><span class="pre">Orbitals.condensed_fukui_dual_values()</span></code></a></li>
 </ul>
 </li>
 </ul>

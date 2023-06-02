@@ -32,6 +32,7 @@ release = '1.0b19'
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
+    'sphinx.ext.inheritance_diagram',
     'sphinx_copybutton',
     'sphinx.ext.autosectionlabel',
 ]
@@ -64,5 +65,19 @@ copybutton_prompt_text = ">>> "
 copybutton_line_continuation_character = "\\"
 
 autodoc_default_options = {
-    'exclude-members': 'get_matching_atoms'
+    'exclude-members': 'get_matching_atoms',
+    'member-order': 'bysource',
+}
+
+inheritance_node_attrs = {
+    "fontsize": 12,
+    "color": 'purple4',
+    "fillcolor": "lightslateblue",
+    "style": 'filled',
+}
+
+inheritance_edge_attrs = {
+    "arrowsize": 1.5,
+    "color": "royalblue",
+    "penwidth": 1.5,
 }

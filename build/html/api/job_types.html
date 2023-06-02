@@ -9,6 +9,7 @@
         <title>JobType classes - AaronTools 1.0b19 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -304,130 +305,46 @@
           <section id="module-AaronTools.theory.job_types">
 <span id="jobtype-classes"></span><h1><code class="docutils literal notranslate"><span class="pre">JobType</span></code> classes<a class="headerlink" href="#module-AaronTools.theory.job_types" title="Permalink to this heading">#</a></h1>
 <p>various job types for Theory() instances</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.theory.job_types.ConformerSearchJob">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">ConformerSearchJob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ConformerSearchJob" title="Permalink to this definition">#</a></dt>
-<dd><p>conformer search (basically only for crest)</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.job_types.ConformerSearchJob.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ConformerSearchJob.__init__" title="Permalink to this definition">#</a></dt>
-<dd><dl class="field-list simple">
+<dl class="py function">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.job_from_string">
+<span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">job_from_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.job_from_string" title="Permalink to this definition">#</a></dt>
+<dd><p>get a job name given a simple name</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>constraints</strong> (<em>dict</em>) – <p>valid keys are:</p>
-<ul>
-<li><p>’atoms’ - atom identifiers/finders - atoms to constrain</p></li>
-<li><p>’bonds’ - list(atom idenifiers/finders) - distances to constrain each atom identifier in the list should result in exactly 2 atoms</p></li>
-<li><p>’angles’ - list(atom idenifiers/finders) - 1-3 angles to constrain each atom identifier should result in exactly 3 atoms</p></li>
-<li><dl class="simple">
-<dt>’torsions’ - list(atom identifiers/finders) - constrained dihedral angles</dt><dd><p>each atom identifier should result in exactly 4 atoms</p>
-</dd>
-</dl>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – <ul>
+<li><p>“opt” or “conf” with “.ts”, “.transition_state”, “.change”, and “.con” extensions</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>.ts and .transition_state indicate a transition state optimization</p></li>
+<li><p>.con indicates a constrained optimization - “constraints” should
+be in kwargs and the value should be a dictionary conformable with 
+the keyword of OptimizationJob</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>”freq” with “.num” extensions</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>.num indicates a numerical frequnecy, as does kwargs[“numerical”] = True
+kwargs can also have a “temperature” key</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>”sp” or “energy” or “single-point”</p></li>
+<li><p>”force” or “gradient” with a “.num” extension</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>.num indicates a numerical frequnecy, as does kwargs[“numerical”] = True</p></li>
+</ul>
+</div></blockquote>
 </li>
 </ul>
-</p></li>
-<li><p><strong>geometry</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – will be set when using an AaronTools FileWriter</p></li>
-</ul>
+</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>job types for the given string</p>
 </dd>
 </dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.theory.job_types.ForceJob">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">ForceJob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numerical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ForceJob" title="Permalink to this definition">#</a></dt>
-<dd><p>force/gradient job</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.job_types.ForceJob.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numerical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ForceJob.__init__" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.job_types.ForceJob.get_gaussian">
-<span class="sig-name descname"><span class="pre">get_gaussian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ForceJob.get_gaussian" title="Permalink to this definition">#</a></dt>
-<dd><p>returns a dict with keys: GAUSSIAN_ROUTE</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.job_types.ForceJob.get_orca">
-<span class="sig-name descname"><span class="pre">get_orca</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ForceJob.get_orca" title="Permalink to this definition">#</a></dt>
-<dd><p>returns a dict with keys: ORCA_ROUTE</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.job_types.ForceJob.get_psi4">
-<span class="sig-name descname"><span class="pre">get_psi4</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ForceJob.get_psi4" title="Permalink to this definition">#</a></dt>
-<dd><p>returns a dict with keys: PSI4_JOB</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.job_types.ForceJob.get_qchem">
-<span class="sig-name descname"><span class="pre">get_qchem</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ForceJob.get_qchem" title="Permalink to this definition">#</a></dt>
-<dd><p>overwrite to return a dict with QCHEM_* keys</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.job_types.ForceJob.get_xtb">
-<span class="sig-name descname"><span class="pre">get_xtb</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ForceJob.get_xtb" title="Permalink to this definition">#</a></dt>
-<dd><p>overwrite to return a dict with XTB_* keys</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.theory.job_types.FrequencyJob">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">FrequencyJob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numerical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.FrequencyJob" title="Permalink to this definition">#</a></dt>
-<dd><p>frequnecy job</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.job_types.FrequencyJob.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numerical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.FrequencyJob.__init__" title="Permalink to this definition">#</a></dt>
-<dd><p>temperature in K for thermochem info, defaults to 298.15 K</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.job_types.FrequencyJob.get_gaussian">
-<span class="sig-name descname"><span class="pre">get_gaussian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.FrequencyJob.get_gaussian" title="Permalink to this definition">#</a></dt>
-<dd><p>returns a dict with keys: GAUSSIAN_ROUTE</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.job_types.FrequencyJob.get_orca">
-<span class="sig-name descname"><span class="pre">get_orca</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.FrequencyJob.get_orca" title="Permalink to this definition">#</a></dt>
-<dd><p>returns a dict with keys: ORCA_ROUTE</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.job_types.FrequencyJob.get_psi4">
-<span class="sig-name descname"><span class="pre">get_psi4</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.FrequencyJob.get_psi4" title="Permalink to this definition">#</a></dt>
-<dd><p>returns a dict with keys: PSI4_JOB</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.job_types.FrequencyJob.get_qchem">
-<span class="sig-name descname"><span class="pre">get_qchem</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.FrequencyJob.get_qchem" title="Permalink to this definition">#</a></dt>
-<dd><p>overwrite to return a dict with QCHEM_* keys</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.job_types.FrequencyJob.get_sqm">
-<span class="sig-name descname"><span class="pre">get_sqm</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.FrequencyJob.get_sqm" title="Permalink to this definition">#</a></dt>
-<dd><p>overwrite to return a dict with SQM_* keys</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.job_types.FrequencyJob.get_xtb">
-<span class="sig-name descname"><span class="pre">get_xtb</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.FrequencyJob.get_xtb" title="Permalink to this definition">#</a></dt>
-<dd><p>overwrite to return a dict with XTB_* keys</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.job_types.FrequencyJob.resolve_error">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">resolve_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exec_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.FrequencyJob.resolve_error" title="Permalink to this definition">#</a></dt>
-<dd><p>resolves frequnecy-specific errors
-errors resolved by JobType take priority</p>
-</dd></dl>
-
 </dd></dl>
 
 <dl class="py class">
@@ -459,15 +376,15 @@ initialization keywords should be the same as attribute names</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.job_types.JobType.get_qchem">
-<span class="sig-name descname"><span class="pre">get_qchem</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.JobType.get_qchem" title="Permalink to this definition">#</a></dt>
-<dd><p>overwrite to return a dict with QCHEM_* keys</p>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.job_types.JobType.get_sqm">
 <span class="sig-name descname"><span class="pre">get_sqm</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.JobType.get_sqm" title="Permalink to this definition">#</a></dt>
 <dd><p>overwrite to return a dict with SQM_* keys</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.JobType.get_qchem">
+<span class="sig-name descname"><span class="pre">get_qchem</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.JobType.get_qchem" title="Permalink to this definition">#</a></dt>
+<dd><p>overwrite to return a dict with QCHEM_* keys</p>
 </dd></dl>
 
 <dl class="py method">
@@ -572,9 +489,10 @@ with ‘x’, ‘y’, ‘z’, ‘xgroup’, ‘ygroup’, or ‘zgroup’ cons
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.job_types.OptimizationJob.get_qchem">
-<span class="sig-name descname"><span class="pre">get_qchem</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.OptimizationJob.get_qchem" title="Permalink to this definition">#</a></dt>
-<dd><p>overwrite to return a dict with QCHEM_* keys</p>
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.OptimizationJob.get_xtb">
+<span class="sig-name descname"><span class="pre">get_xtb</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.OptimizationJob.get_xtb" title="Permalink to this definition">#</a></dt>
+<dd><p>Generates xcontrol file constraints</p>
+<p>Returns: dict(fix, constrain, metadyn, cli)</p>
 </dd></dl>
 
 <dl class="py method">
@@ -584,16 +502,70 @@ with ‘x’, ‘y’, ‘z’, ‘xgroup’, ‘ygroup’, or ‘zgroup’ cons
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.job_types.OptimizationJob.get_xtb">
-<span class="sig-name descname"><span class="pre">get_xtb</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.OptimizationJob.get_xtb" title="Permalink to this definition">#</a></dt>
-<dd><p>Generates xcontrol file constraints</p>
-<p>Returns: dict(fix, constrain, metadyn, cli)</p>
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.OptimizationJob.get_qchem">
+<span class="sig-name descname"><span class="pre">get_qchem</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.OptimizationJob.get_qchem" title="Permalink to this definition">#</a></dt>
+<dd><p>overwrite to return a dict with QCHEM_* keys</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.job_types.OptimizationJob.resolve_error">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">resolve_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exec_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.OptimizationJob.resolve_error" title="Permalink to this definition">#</a></dt>
 <dd><p>resolves optimization-specific errors
+errors resolved by JobType take priority</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.FrequencyJob">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">FrequencyJob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numerical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.FrequencyJob" title="Permalink to this definition">#</a></dt>
+<dd><p>frequnecy job</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.FrequencyJob.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numerical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.FrequencyJob.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>temperature in K for thermochem info, defaults to 298.15 K</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.FrequencyJob.get_gaussian">
+<span class="sig-name descname"><span class="pre">get_gaussian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.FrequencyJob.get_gaussian" title="Permalink to this definition">#</a></dt>
+<dd><p>returns a dict with keys: GAUSSIAN_ROUTE</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.FrequencyJob.get_orca">
+<span class="sig-name descname"><span class="pre">get_orca</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.FrequencyJob.get_orca" title="Permalink to this definition">#</a></dt>
+<dd><p>returns a dict with keys: ORCA_ROUTE</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.FrequencyJob.get_psi4">
+<span class="sig-name descname"><span class="pre">get_psi4</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.FrequencyJob.get_psi4" title="Permalink to this definition">#</a></dt>
+<dd><p>returns a dict with keys: PSI4_JOB</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.FrequencyJob.get_sqm">
+<span class="sig-name descname"><span class="pre">get_sqm</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.FrequencyJob.get_sqm" title="Permalink to this definition">#</a></dt>
+<dd><p>overwrite to return a dict with SQM_* keys</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.FrequencyJob.get_qchem">
+<span class="sig-name descname"><span class="pre">get_qchem</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.FrequencyJob.get_qchem" title="Permalink to this definition">#</a></dt>
+<dd><p>overwrite to return a dict with QCHEM_* keys</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.FrequencyJob.get_xtb">
+<span class="sig-name descname"><span class="pre">get_xtb</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.FrequencyJob.get_xtb" title="Permalink to this definition">#</a></dt>
+<dd><p>overwrite to return a dict with XTB_* keys</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.FrequencyJob.resolve_error">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">resolve_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exec_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.FrequencyJob.resolve_error" title="Permalink to this definition">#</a></dt>
+<dd><p>resolves frequnecy-specific errors
 errors resolved by JobType take priority</p>
 </dd></dl>
 
@@ -622,15 +594,86 @@ errors resolved by JobType take priority</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.SinglePointJob.get_sqm">
+<span class="sig-name descname"><span class="pre">get_sqm</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.SinglePointJob.get_sqm" title="Permalink to this definition">#</a></dt>
+<dd><p>returns a dict with keys: SQM_QMMM</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.job_types.SinglePointJob.get_qchem">
 <span class="sig-name descname"><span class="pre">get_qchem</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.SinglePointJob.get_qchem" title="Permalink to this definition">#</a></dt>
 <dd><p>overwrite to return a dict with QCHEM_* keys</p>
 </dd></dl>
 
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.ForceJob">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">ForceJob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numerical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ForceJob" title="Permalink to this definition">#</a></dt>
+<dd><p>force/gradient job</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.job_types.SinglePointJob.get_sqm">
-<span class="sig-name descname"><span class="pre">get_sqm</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.SinglePointJob.get_sqm" title="Permalink to this definition">#</a></dt>
-<dd><p>returns a dict with keys: SQM_QMMM</p>
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.ForceJob.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numerical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ForceJob.__init__" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.ForceJob.get_gaussian">
+<span class="sig-name descname"><span class="pre">get_gaussian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ForceJob.get_gaussian" title="Permalink to this definition">#</a></dt>
+<dd><p>returns a dict with keys: GAUSSIAN_ROUTE</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.ForceJob.get_orca">
+<span class="sig-name descname"><span class="pre">get_orca</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ForceJob.get_orca" title="Permalink to this definition">#</a></dt>
+<dd><p>returns a dict with keys: ORCA_ROUTE</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.ForceJob.get_psi4">
+<span class="sig-name descname"><span class="pre">get_psi4</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ForceJob.get_psi4" title="Permalink to this definition">#</a></dt>
+<dd><p>returns a dict with keys: PSI4_JOB</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.ForceJob.get_qchem">
+<span class="sig-name descname"><span class="pre">get_qchem</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ForceJob.get_qchem" title="Permalink to this definition">#</a></dt>
+<dd><p>overwrite to return a dict with QCHEM_* keys</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.ForceJob.get_xtb">
+<span class="sig-name descname"><span class="pre">get_xtb</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ForceJob.get_xtb" title="Permalink to this definition">#</a></dt>
+<dd><p>overwrite to return a dict with XTB_* keys</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.ConformerSearchJob">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">ConformerSearchJob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ConformerSearchJob" title="Permalink to this definition">#</a></dt>
+<dd><p>conformer search (basically only for crest)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.ConformerSearchJob.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ConformerSearchJob.__init__" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>constraints</strong> (<em>dict</em>) – <p>valid keys are:</p>
+<ul>
+<li><p>’atoms’ - atom identifiers/finders - atoms to constrain</p></li>
+<li><p>’bonds’ - list(atom idenifiers/finders) - distances to constrain each atom identifier in the list should result in exactly 2 atoms</p></li>
+<li><p>’angles’ - list(atom idenifiers/finders) - 1-3 angles to constrain each atom identifier should result in exactly 3 atoms</p></li>
+<li><dl class="simple">
+<dt>’torsions’ - list(atom identifiers/finders) - constrained dihedral angles</dt><dd><p>each atom identifier should result in exactly 4 atoms</p>
+</dd>
+</dl>
+</li>
+</ul>
+</p></li>
+<li><p><strong>geometry</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – will be set when using an AaronTools FileWriter</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -677,48 +720,6 @@ errors resolved by JobType take priority</p>
 <dd><p>overwrite to return a dict with QCHEM_* keys</p>
 </dd></dl>
 
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AaronTools.theory.job_types.job_from_string">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">job_from_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.job_from_string" title="Permalink to this definition">#</a></dt>
-<dd><p>get a job name given a simple name</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – <ul>
-<li><p>“opt” or “conf” with “.ts”, “.transition_state”, “.change”, and “.con” extensions</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>.ts and .transition_state indicate a transition state optimization</p></li>
-<li><p>.con indicates a constrained optimization - “constraints” should
-be in kwargs and the value should be a dictionary conformable with 
-the keyword of OptimizationJob</p></li>
-</ul>
-</div></blockquote>
-</li>
-<li><p>”freq” with “.num” extensions</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>.num indicates a numerical frequnecy, as does kwargs[“numerical”] = True
-kwargs can also have a “temperature” key</p></li>
-</ul>
-</div></blockquote>
-</li>
-<li><p>”sp” or “energy” or “single-point”</p></li>
-<li><p>”force” or “gradient” with a “.num” extension</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>.num indicates a numerical frequnecy, as does kwargs[“numerical”] = True</p></li>
-</ul>
-</div></blockquote>
-</li>
-</ul>
-</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>job types for the given string</p>
-</dd>
-</dl>
 </dd></dl>
 
 </section>
@@ -779,8 +780,46 @@ kwargs can also have a “temperature” key</p></li>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">JobType</span></code> classes</a><ul>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.ConformerSearchJob"><code class="docutils literal notranslate"><span class="pre">ConformerSearchJob</span></code></a><ul>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.ConformerSearchJob.__init__"><code class="docutils literal notranslate"><span class="pre">ConformerSearchJob.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.job_from_string"><code class="docutils literal notranslate"><span class="pre">job_from_string()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.JobType"><code class="docutils literal notranslate"><span class="pre">JobType</span></code></a><ul>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.JobType.__init__"><code class="docutils literal notranslate"><span class="pre">JobType.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.JobType.get_gaussian"><code class="docutils literal notranslate"><span class="pre">JobType.get_gaussian()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.JobType.get_orca"><code class="docutils literal notranslate"><span class="pre">JobType.get_orca()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.JobType.get_psi4"><code class="docutils literal notranslate"><span class="pre">JobType.get_psi4()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.JobType.get_sqm"><code class="docutils literal notranslate"><span class="pre">JobType.get_sqm()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.JobType.get_qchem"><code class="docutils literal notranslate"><span class="pre">JobType.get_qchem()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.JobType.get_xtb"><code class="docutils literal notranslate"><span class="pre">JobType.get_xtb()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.JobType.resolve_error"><code class="docutils literal notranslate"><span class="pre">JobType.resolve_error()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.OptimizationJob"><code class="docutils literal notranslate"><span class="pre">OptimizationJob</span></code></a><ul>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.OptimizationJob.__init__"><code class="docutils literal notranslate"><span class="pre">OptimizationJob.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.OptimizationJob.get_gaussian"><code class="docutils literal notranslate"><span class="pre">OptimizationJob.get_gaussian()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.OptimizationJob.get_orca"><code class="docutils literal notranslate"><span class="pre">OptimizationJob.get_orca()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.OptimizationJob.get_psi4"><code class="docutils literal notranslate"><span class="pre">OptimizationJob.get_psi4()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.OptimizationJob.get_xtb"><code class="docutils literal notranslate"><span class="pre">OptimizationJob.get_xtb()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.OptimizationJob.get_sqm"><code class="docutils literal notranslate"><span class="pre">OptimizationJob.get_sqm()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.OptimizationJob.get_qchem"><code class="docutils literal notranslate"><span class="pre">OptimizationJob.get_qchem()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.OptimizationJob.resolve_error"><code class="docutils literal notranslate"><span class="pre">OptimizationJob.resolve_error()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.FrequencyJob"><code class="docutils literal notranslate"><span class="pre">FrequencyJob</span></code></a><ul>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.FrequencyJob.__init__"><code class="docutils literal notranslate"><span class="pre">FrequencyJob.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.FrequencyJob.get_gaussian"><code class="docutils literal notranslate"><span class="pre">FrequencyJob.get_gaussian()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.FrequencyJob.get_orca"><code class="docutils literal notranslate"><span class="pre">FrequencyJob.get_orca()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.FrequencyJob.get_psi4"><code class="docutils literal notranslate"><span class="pre">FrequencyJob.get_psi4()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.FrequencyJob.get_sqm"><code class="docutils literal notranslate"><span class="pre">FrequencyJob.get_sqm()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.FrequencyJob.get_qchem"><code class="docutils literal notranslate"><span class="pre">FrequencyJob.get_qchem()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.FrequencyJob.get_xtb"><code class="docutils literal notranslate"><span class="pre">FrequencyJob.get_xtb()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.FrequencyJob.resolve_error"><code class="docutils literal notranslate"><span class="pre">FrequencyJob.resolve_error()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.SinglePointJob"><code class="docutils literal notranslate"><span class="pre">SinglePointJob</span></code></a><ul>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.SinglePointJob.get_gaussian"><code class="docutils literal notranslate"><span class="pre">SinglePointJob.get_gaussian()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.SinglePointJob.get_orca"><code class="docutils literal notranslate"><span class="pre">SinglePointJob.get_orca()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.SinglePointJob.get_psi4"><code class="docutils literal notranslate"><span class="pre">SinglePointJob.get_psi4()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.SinglePointJob.get_sqm"><code class="docutils literal notranslate"><span class="pre">SinglePointJob.get_sqm()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.SinglePointJob.get_qchem"><code class="docutils literal notranslate"><span class="pre">SinglePointJob.get_qchem()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#AaronTools.theory.job_types.ForceJob"><code class="docutils literal notranslate"><span class="pre">ForceJob</span></code></a><ul>
@@ -792,45 +831,8 @@ kwargs can also have a “temperature” key</p></li>
 <li><a class="reference internal" href="#AaronTools.theory.job_types.ForceJob.get_xtb"><code class="docutils literal notranslate"><span class="pre">ForceJob.get_xtb()</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.FrequencyJob"><code class="docutils literal notranslate"><span class="pre">FrequencyJob</span></code></a><ul>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.FrequencyJob.__init__"><code class="docutils literal notranslate"><span class="pre">FrequencyJob.__init__()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.FrequencyJob.get_gaussian"><code class="docutils literal notranslate"><span class="pre">FrequencyJob.get_gaussian()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.FrequencyJob.get_orca"><code class="docutils literal notranslate"><span class="pre">FrequencyJob.get_orca()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.FrequencyJob.get_psi4"><code class="docutils literal notranslate"><span class="pre">FrequencyJob.get_psi4()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.FrequencyJob.get_qchem"><code class="docutils literal notranslate"><span class="pre">FrequencyJob.get_qchem()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.FrequencyJob.get_sqm"><code class="docutils literal notranslate"><span class="pre">FrequencyJob.get_sqm()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.FrequencyJob.get_xtb"><code class="docutils literal notranslate"><span class="pre">FrequencyJob.get_xtb()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.FrequencyJob.resolve_error"><code class="docutils literal notranslate"><span class="pre">FrequencyJob.resolve_error()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.JobType"><code class="docutils literal notranslate"><span class="pre">JobType</span></code></a><ul>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.JobType.__init__"><code class="docutils literal notranslate"><span class="pre">JobType.__init__()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.JobType.get_gaussian"><code class="docutils literal notranslate"><span class="pre">JobType.get_gaussian()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.JobType.get_orca"><code class="docutils literal notranslate"><span class="pre">JobType.get_orca()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.JobType.get_psi4"><code class="docutils literal notranslate"><span class="pre">JobType.get_psi4()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.JobType.get_qchem"><code class="docutils literal notranslate"><span class="pre">JobType.get_qchem()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.JobType.get_sqm"><code class="docutils literal notranslate"><span class="pre">JobType.get_sqm()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.JobType.get_xtb"><code class="docutils literal notranslate"><span class="pre">JobType.get_xtb()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.JobType.resolve_error"><code class="docutils literal notranslate"><span class="pre">JobType.resolve_error()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.OptimizationJob"><code class="docutils literal notranslate"><span class="pre">OptimizationJob</span></code></a><ul>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.OptimizationJob.__init__"><code class="docutils literal notranslate"><span class="pre">OptimizationJob.__init__()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.OptimizationJob.get_gaussian"><code class="docutils literal notranslate"><span class="pre">OptimizationJob.get_gaussian()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.OptimizationJob.get_orca"><code class="docutils literal notranslate"><span class="pre">OptimizationJob.get_orca()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.OptimizationJob.get_psi4"><code class="docutils literal notranslate"><span class="pre">OptimizationJob.get_psi4()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.OptimizationJob.get_qchem"><code class="docutils literal notranslate"><span class="pre">OptimizationJob.get_qchem()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.OptimizationJob.get_sqm"><code class="docutils literal notranslate"><span class="pre">OptimizationJob.get_sqm()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.OptimizationJob.get_xtb"><code class="docutils literal notranslate"><span class="pre">OptimizationJob.get_xtb()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.OptimizationJob.resolve_error"><code class="docutils literal notranslate"><span class="pre">OptimizationJob.resolve_error()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.SinglePointJob"><code class="docutils literal notranslate"><span class="pre">SinglePointJob</span></code></a><ul>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.SinglePointJob.get_gaussian"><code class="docutils literal notranslate"><span class="pre">SinglePointJob.get_gaussian()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.SinglePointJob.get_orca"><code class="docutils literal notranslate"><span class="pre">SinglePointJob.get_orca()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.SinglePointJob.get_psi4"><code class="docutils literal notranslate"><span class="pre">SinglePointJob.get_psi4()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.SinglePointJob.get_qchem"><code class="docutils literal notranslate"><span class="pre">SinglePointJob.get_qchem()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.SinglePointJob.get_sqm"><code class="docutils literal notranslate"><span class="pre">SinglePointJob.get_sqm()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.ConformerSearchJob"><code class="docutils literal notranslate"><span class="pre">ConformerSearchJob</span></code></a><ul>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.ConformerSearchJob.__init__"><code class="docutils literal notranslate"><span class="pre">ConformerSearchJob.__init__()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#AaronTools.theory.job_types.TDDFTJob"><code class="docutils literal notranslate"><span class="pre">TDDFTJob</span></code></a><ul>
@@ -841,7 +843,6 @@ kwargs can also have a “temperature” key</p></li>
 <li><a class="reference internal" href="#AaronTools.theory.job_types.TDDFTJob.get_qchem"><code class="docutils literal notranslate"><span class="pre">TDDFTJob.get_qchem()</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#AaronTools.theory.job_types.job_from_string"><code class="docutils literal notranslate"><span class="pre">job_from_string()</span></code></a></li>
 </ul>
 </li>
 </ul>

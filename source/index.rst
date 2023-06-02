@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Welcome to the AaronTools Documentation!
-======================================
+========================================
 
 AaronTools is a Python module for facilitating many tasks in computational quantum chemistry workflows
 

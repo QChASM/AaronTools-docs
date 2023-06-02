@@ -9,6 +9,7 @@
         <title>Method classes - AaronTools 1.0b19 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -327,6 +328,20 @@ using Functional(‘PBE0’) will use PBE1PBE in a gaussian input file</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.Method.sanity_check_method">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sanity_check_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">program</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Method.sanity_check_method" title="Permalink to this definition">#</a></dt>
+<dd><p>check to see if method is available in the specified program</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – name of method</p></li>
+<li><p><strong>program</strong> (<em>str</em>) – program name (gaussian, orca, psi4, or qchem)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.Method.get_gaussian">
 <span class="sig-name descname"><span class="pre">get_gaussian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Method.get_gaussian" title="Permalink to this definition">#</a></dt>
 <dd><p>maps proper functional name to one Gaussian accepts</p>
@@ -345,29 +360,15 @@ using Functional(‘PBE0’) will use PBE1PBE in a gaussian input file</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.Method.get_qchem">
-<span class="sig-name descname"><span class="pre">get_qchem</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Method.get_qchem" title="Permalink to this definition">#</a></dt>
-<dd><p>maps proper functional name to one Psi4 accepts</p>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.Method.get_sqm">
 <span class="sig-name descname"><span class="pre">get_sqm</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Method.get_sqm" title="Permalink to this definition">#</a></dt>
 <dd><p>get method name that is appropriate for sqm</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.Method.sanity_check_method">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sanity_check_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">program</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Method.sanity_check_method" title="Permalink to this definition">#</a></dt>
-<dd><p>check to see if method is available in the specified program</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<em>str</em>) – name of method</p></li>
-<li><p><strong>program</strong> (<em>str</em>) – program name (gaussian, orca, psi4, or qchem)</p></li>
-</ul>
-</dd>
-</dl>
+<dt class="sig sig-object py" id="AaronTools.theory.Method.get_qchem">
+<span class="sig-name descname"><span class="pre">get_qchem</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Method.get_qchem" title="Permalink to this definition">#</a></dt>
+<dd><p>maps proper functional name to one Psi4 accepts</p>
 </dd></dl>
 
 </dd></dl>
@@ -460,12 +461,12 @@ being the charge/multiplicity of the monomers (components)</p>
 <li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">Method</span></code> classes</a><ul>
 <li><a class="reference internal" href="#AaronTools.theory.Method"><code class="docutils literal notranslate"><span class="pre">Method</span></code></a><ul>
 <li><a class="reference internal" href="#AaronTools.theory.Method.__init__"><code class="docutils literal notranslate"><span class="pre">Method.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.Method.sanity_check_method"><code class="docutils literal notranslate"><span class="pre">Method.sanity_check_method()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.theory.Method.get_gaussian"><code class="docutils literal notranslate"><span class="pre">Method.get_gaussian()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.theory.Method.get_orca"><code class="docutils literal notranslate"><span class="pre">Method.get_orca()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.theory.Method.get_psi4"><code class="docutils literal notranslate"><span class="pre">Method.get_psi4()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.Method.get_qchem"><code class="docutils literal notranslate"><span class="pre">Method.get_qchem()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.theory.Method.get_sqm"><code class="docutils literal notranslate"><span class="pre">Method.get_sqm()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.Method.sanity_check_method"><code class="docutils literal notranslate"><span class="pre">Method.sanity_check_method()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.Method.get_qchem"><code class="docutils literal notranslate"><span class="pre">Method.get_qchem()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#AaronTools.theory.SAPTMethod"><code class="docutils literal notranslate"><span class="pre">SAPTMethod</span></code></a><ul>

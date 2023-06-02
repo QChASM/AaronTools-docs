@@ -5,6 +5,8 @@ Basis Set classes
     :members:
     :special-members: __init__
     
+.. inheritance-diagram:: AaronTools.theory.ECP
+
 .. autoclass:: AaronTools.theory.ECP
     :members:
     :special-members: __init__   

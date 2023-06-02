@@ -9,6 +9,7 @@
         <title>SubmitProcess class - AaronTools 1.0b19 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -336,10 +337,22 @@ extension on fname)</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.job_control.SubmitProcess.set_template">
-<span class="sig-name descname"><span class="pre">set_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.job_control.SubmitProcess.set_template" title="Permalink to this definition">#</a></dt>
-<dd><p>sets job template to filename</p>
-<p>AARONLIB directories are searched</p>
+<dt class="sig sig-object py" id="AaronTools.job_control.SubmitProcess.unfinished_jobs_in_dir">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unfinished_jobs_in_dir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.job_control.SubmitProcess.unfinished_jobs_in_dir" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>directory</strong> (<em>str</em>) – directory path</p></li>
+<li><p><strong>retry</strong> (<em>bool</em>) – if there’s an error while checking the queue, sleep 300s and try again</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>jobids for jobs in directory</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list(str) of jobids in directory</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -359,22 +372,10 @@ and values are the corresponding values</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.job_control.SubmitProcess.unfinished_jobs_in_dir">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unfinished_jobs_in_dir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.job_control.SubmitProcess.unfinished_jobs_in_dir" title="Permalink to this definition">#</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>directory</strong> (<em>str</em>) – directory path</p></li>
-<li><p><strong>retry</strong> (<em>bool</em>) – if there’s an error while checking the queue, sleep 300s and try again</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>jobids for jobs in directory</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list(str) of jobids in directory</p>
-</dd>
-</dl>
+<dt class="sig sig-object py" id="AaronTools.job_control.SubmitProcess.set_template">
+<span class="sig-name descname"><span class="pre">set_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.job_control.SubmitProcess.set_template" title="Permalink to this definition">#</a></dt>
+<dd><p>sets job template to filename</p>
+<p>AARONLIB directories are searched</p>
 </dd></dl>
 
 </dd></dl>
@@ -439,9 +440,9 @@ and values are the corresponding values</p></li>
 <li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">SubmitProcess</span></code> class</a><ul>
 <li><a class="reference internal" href="#AaronTools.job_control.SubmitProcess"><code class="docutils literal notranslate"><span class="pre">SubmitProcess</span></code></a><ul>
 <li><a class="reference internal" href="#AaronTools.job_control.SubmitProcess.__init__"><code class="docutils literal notranslate"><span class="pre">SubmitProcess.__init__()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.job_control.SubmitProcess.set_template"><code class="docutils literal notranslate"><span class="pre">SubmitProcess.set_template()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.job_control.SubmitProcess.submit"><code class="docutils literal notranslate"><span class="pre">SubmitProcess.submit()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.job_control.SubmitProcess.unfinished_jobs_in_dir"><code class="docutils literal notranslate"><span class="pre">SubmitProcess.unfinished_jobs_in_dir()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.job_control.SubmitProcess.submit"><code class="docutils literal notranslate"><span class="pre">SubmitProcess.submit()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.job_control.SubmitProcess.set_template"><code class="docutils literal notranslate"><span class="pre">SubmitProcess.set_template()</span></code></a></li>
 </ul>
 </li>
 </ul>

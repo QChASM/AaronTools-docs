@@ -9,6 +9,7 @@
         <title>Ring class - AaronTools 1.0b19 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -321,21 +322,6 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.ring.Ring.copy">
-<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.ring.Ring.copy" title="Permalink to this definition">#</a></dt>
-<dd><p>creates a new copy of the geometry</p>
-<p>parameters:
-:param atoms list(Atom): atoms to copy defaults to all atoms
-:param name str: defaults to NAME_copy</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.ring.Ring.find_end">
-<span class="sig-name descname"><span class="pre">find_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.ring.Ring.find_end" title="Permalink to this definition">#</a></dt>
-<dd><p>finds a path around self that is path_length long and starts with start</p>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.ring.Ring.from_string">
 <em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_atom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">form</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'smiles'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.ring.Ring.from_string" title="Permalink to this definition">#</a></dt>
 <dd><p>create ring fragment from string
@@ -349,6 +335,21 @@
 <dt class="sig sig-object py" id="AaronTools.ring.Ring.list">
 <em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">include_ext</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.ring.Ring.list" title="Permalink to this definition">#</a></dt>
 <dd><p>list rings in the ring library</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.ring.Ring.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.ring.Ring.copy" title="Permalink to this definition">#</a></dt>
+<dd><p>creates a new copy of the geometry</p>
+<p>parameters:
+:param atoms list(Atom): atoms to copy defaults to all atoms
+:param name str: defaults to NAME_copy</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.ring.Ring.find_end">
+<span class="sig-name descname"><span class="pre">find_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.ring.Ring.find_end" title="Permalink to this definition">#</a></dt>
+<dd><p>finds a path around self that is path_length long and starts with start</p>
 </dd></dl>
 
 </dd></dl>
@@ -413,10 +414,10 @@
 <li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">Ring</span></code> class</a><ul>
 <li><a class="reference internal" href="#AaronTools.ring.Ring"><code class="docutils literal notranslate"><span class="pre">Ring</span></code></a><ul>
 <li><a class="reference internal" href="#AaronTools.ring.Ring.__init__"><code class="docutils literal notranslate"><span class="pre">Ring.__init__()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.ring.Ring.copy"><code class="docutils literal notranslate"><span class="pre">Ring.copy()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.ring.Ring.find_end"><code class="docutils literal notranslate"><span class="pre">Ring.find_end()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.ring.Ring.from_string"><code class="docutils literal notranslate"><span class="pre">Ring.from_string()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.ring.Ring.list"><code class="docutils literal notranslate"><span class="pre">Ring.list()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.ring.Ring.copy"><code class="docutils literal notranslate"><span class="pre">Ring.copy()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.ring.Ring.find_end"><code class="docutils literal notranslate"><span class="pre">Ring.find_end()</span></code></a></li>
 </ul>
 </li>
 </ul>
