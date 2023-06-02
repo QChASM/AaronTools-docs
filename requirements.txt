@@ -1,3 +1,4 @@
 furo
 sphinx-copybutton
 AaronTools
+graphviz
