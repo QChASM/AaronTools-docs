@@ -1,0 +1,5 @@
+<map id="inheritanced497bef846" name="inheritanced497bef846">
+<area shape="rect" id="node1" href="#AaronTools.spectra.SOCExcitation" target="_top" title="AaronTools.spectra.SOCExcitation" alt="" coords="524,3,765,24"/>
+<area shape="rect" id="node2" href="#AaronTools.spectra.ValenceExcitation" target="_top" title="AaronTools.spectra.ValenceExcitation" alt="" coords="225,3,493,24"/>
+<area shape="rect" id="node3" href="#AaronTools.spectra.Signal" target="_top" title="parent class for each signal in a spectrum" alt="" coords="3,3,194,24"/>
+</map>

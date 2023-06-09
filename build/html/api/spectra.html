@@ -302,9 +302,47 @@
           </label>
         </div>
         <article role="main">
-          <section id="module-AaronTools.spectra">
-<span id="spectra"></span><h1>Spectra<a class="headerlink" href="#module-AaronTools.spectra" title="Permalink to this heading">#</a></h1>
-<p>classes for storing signal data and plotting various spectra (IR, UV/vis, etc.)</p>
+          <section id="spectra">
+<h1>Spectra<a class="headerlink" href="#spectra" title="Permalink to this heading">#</a></h1>
+<section id="classes-on-this-page">
+<h2>Classes on this page<a class="headerlink" href="#classes-on-this-page" title="Permalink to this heading">#</a></h2>
+<div class="graphviz"><img src="../_images/inheritance-48d536a65f2a7ea810175ce85cc151be73333251.png" alt="Inheritance diagram of AaronTools.spectra.Signal" usemap="#inheritance9e42d7908e" class="inheritance graphviz" /></div>
+<map id="inheritance9e42d7908e" name="inheritance9e42d7908e">
+<area shape="rect" id="node1" href="#AaronTools.spectra.Signal" target="_top" title="parent class for each signal in a spectrum" alt="" coords="5,5,302,37"/>
+</map><div class="graphviz"><img src="../_images/inheritance-013531c9eadf84591118e0a55716eee911eaa33b.png" alt="Inheritance diagram of AaronTools.spectra.Signals" usemap="#inheritanced8caa40fb4" class="inheritance graphviz" /></div>
+<map id="inheritanced8caa40fb4" name="inheritanced8caa40fb4">
+<area shape="rect" id="node1" href="#AaronTools.spectra.Signals" target="_top" title="parent class for storing data for different signals in the" alt="" coords="5,5,313,37"/>
+</map><div class="graphviz"><img src="../_images/inheritance-0fc5266bc5e14d0949bf398456ec13c1b03e80a3.png" alt="Inheritance diagram of AaronTools.spectra.Frequency" usemap="#inheritance7d1edfa1c7" class="inheritance graphviz" /></div>
+<map id="inheritance7d1edfa1c7" name="inheritance7d1edfa1c7">
+<area shape="rect" id="node1" href="#AaronTools.spectra.Frequency" target="_top" title="for spectra in the IR/NIR region based on vibrational modes" alt="" coords="361,5,690,37"/>
+<area shape="rect" id="node2" href="#AaronTools.spectra.Signals" target="_top" title="parent class for storing data for different signals in the" alt="" coords="5,5,313,37"/>
+</map><div class="graphviz"><img src="../_images/inheritance-3c828e5f48aba4395aa86d66fc9a4224c4d565d8.png" alt="Inheritance diagram of AaronTools.spectra.HarmonicVibration" usemap="#inheritance12dab9568a" class="inheritance graphviz" /></div>
+<map id="inheritance12dab9568a" name="inheritance12dab9568a">
+<area shape="rect" id="node1" href="#AaronTools.spectra.HarmonicVibration" target="_top" title="AaronTools.spectra.HarmonicVibration" alt="" coords="348,5,763,37"/>
+<area shape="rect" id="node2" href="#AaronTools.spectra.Signal" target="_top" title="parent class for each signal in a spectrum" alt="" coords="5,5,300,37"/>
+</map><div class="graphviz"><img src="../_images/inheritance-4c55524687c71c8b7f1a1c5ef099389959874702.png" alt="Inheritance diagram of AaronTools.spectra.AnharmonicVibration" usemap="#inheritance7c50741439" class="inheritance graphviz" /></div>
+<map id="inheritance7c50741439" name="inheritance7c50741439">
+<area shape="rect" id="node1" href="#AaronTools.spectra.AnharmonicVibration" target="_top" title="AaronTools.spectra.AnharmonicVibration" alt="" coords="338,5,763,36"/>
+<area shape="rect" id="node2" href="#AaronTools.spectra.Signal" target="_top" title="parent class for each signal in a spectrum" alt="" coords="5,5,292,36"/>
+</map><div class="graphviz"><img src="../_images/inheritance-3fad7fc6deca612634e5bdffffe45de908924616.png" alt="Inheritance diagram of AaronTools.spectra.ValenceExcitations" usemap="#inheritance53dd7b1b8a" class="inheritance graphviz" /></div>
+<map id="inheritance53dd7b1b8a" name="inheritance53dd7b1b8a">
+<area shape="rect" id="node1" href="#AaronTools.spectra.Signals" target="_top" title="parent class for storing data for different signals in the" alt="" coords="5,5,302,36"/>
+<area shape="rect" id="node2" href="#AaronTools.spectra.ValenceExcitations" target="_top" title="for UV/vis data, primarily from TD&#45;DFT" alt="" coords="349,5,763,36"/>
+</map><div class="graphviz"><img src="../_images/inheritance-c12cdbd04fc0f540c2bdf7c00588f6a44969d927.png" alt="Inheritance diagram of AaronTools.spectra.ValenceExcitation" usemap="#inheritanced28bcac93c" class="inheritance graphviz" /></div>
+<map id="inheritanced28bcac93c" name="inheritanced28bcac93c">
+<area shape="rect" id="node1" href="#AaronTools.spectra.Signal" target="_top" title="parent class for each signal in a spectrum" alt="" coords="5,5,300,37"/>
+<area shape="rect" id="node2" href="#AaronTools.spectra.ValenceExcitation" target="_top" title="AaronTools.spectra.ValenceExcitation" alt="" coords="348,5,763,37"/>
+</map><div class="graphviz"><img src="../_images/inheritance-63487eb0dd377d9b8879b978d22dd13bc4ce00be.png" alt="Inheritance diagram of AaronTools.spectra.SOCExcitation" usemap="#inheritanced497bef846" class="inheritance graphviz" /></div>
+<map id="inheritanced497bef846" name="inheritanced497bef846">
+<area shape="rect" id="node1" href="#AaronTools.spectra.SOCExcitation" target="_top" title="AaronTools.spectra.SOCExcitation" alt="" coords="524,3,765,24"/>
+<area shape="rect" id="node2" href="#AaronTools.spectra.ValenceExcitation" target="_top" title="AaronTools.spectra.ValenceExcitation" alt="" coords="225,3,493,24"/>
+<area shape="rect" id="node3" href="#AaronTools.spectra.Signal" target="_top" title="parent class for each signal in a spectrum" alt="" coords="3,3,194,24"/>
+</map><div class="graphviz"><img src="../_images/inheritance-230359b96c1d2b227be09abef03dac29f8044645.png" alt="Inheritance diagram of AaronTools.spectra.TransientExcitation" usemap="#inheritancefeb9b0e58f" class="inheritance graphviz" /></div>
+<map id="inheritancefeb9b0e58f" name="inheritancefeb9b0e58f">
+<area shape="rect" id="node1" href="#AaronTools.spectra.Signal" target="_top" title="parent class for each signal in a spectrum" alt="" coords="3,3,184,23"/>
+<area shape="rect" id="node3" href="#AaronTools.spectra.ValenceExcitation" target="_top" title="AaronTools.spectra.ValenceExcitation" alt="" coords="213,3,468,23"/>
+<area shape="rect" id="node2" href="#AaronTools.spectra.TransientExcitation" target="_top" title="AaronTools.spectra.TransientExcitation" alt="" coords="497,3,765,23"/>
+</map><span class="target" id="module-AaronTools.spectra"></span><p>classes for storing signal data and plotting various spectra (IR, UV/vis, etc.)</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="AaronTools.spectra.Signal">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.spectra.</span></span><span class="sig-name descname"><span class="pre">Signal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_var</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.Signal" title="Permalink to this definition">#</a></dt>
@@ -598,6 +636,7 @@ on the frequency specified by centers</p>
 </dd></dl>
 
 </section>
+</section>
 
         </article>
       </div>
@@ -655,6 +694,7 @@ on the frequency specified by centers</p>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Spectra</a><ul>
+<li><a class="reference internal" href="#classes-on-this-page">Classes on this page</a><ul>
 <li><a class="reference internal" href="#AaronTools.spectra.Signal"><code class="docutils literal notranslate"><span class="pre">Signal</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.spectra.Signals"><code class="docutils literal notranslate"><span class="pre">Signals</span></code></a><ul>
 <li><a class="reference internal" href="#AaronTools.spectra.Signals.parse_gaussian_lines"><code class="docutils literal notranslate"><span class="pre">Signals.parse_gaussian_lines()</span></code></a></li>
@@ -690,6 +730,8 @@ on the frequency specified by centers</p>
 <li><a class="reference internal" href="#AaronTools.spectra.ValenceExcitations.nm_to_ev"><code class="docutils literal notranslate"><span class="pre">ValenceExcitations.nm_to_ev()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.spectra.ValenceExcitations.ev_to_nm"><code class="docutils literal notranslate"><span class="pre">ValenceExcitations.ev_to_nm()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.spectra.ValenceExcitations.plot_uv_vis"><code class="docutils literal notranslate"><span class="pre">ValenceExcitations.plot_uv_vis()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

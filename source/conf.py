@@ -70,14 +70,17 @@ autodoc_default_options = {
 }
 
 inheritance_node_attrs = {
-    "fontsize": 12,
-    "color": 'purple4',
-    "fillcolor": "lightslateblue",
+    "fontsize": 14,
+    "color": "\"#ffffff00\"",
+    "fontname": "courier",
+    "fontcolor": "deepskyblue2",
+    "fillcolor": "\"#ffffff00\"",
     "style": 'filled',
+    "penwidth": 1.5,
 }
 
 inheritance_edge_attrs = {
-    "arrowsize": 1.5,
-    "color": "royalblue",
+    # "color": "\"#EE5151\"",
+    "color": "deepskyblue2",
     "penwidth": 1.5,
 }

@@ -504,7 +504,7 @@ with ‘x’, ‘y’, ‘z’, ‘xgroup’, ‘ygroup’, or ‘zgroup’ cons
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.job_types.OptimizationJob.get_qchem">
 <span class="sig-name descname"><span class="pre">get_qchem</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.OptimizationJob.get_qchem" title="Permalink to this definition">#</a></dt>
-<dd><p>overwrite to return a dict with QCHEM_* keys</p>
+<dd><p>returns dict for Q-Chem</p>
 </dd></dl>
 
 <dl class="py method">
@@ -512,6 +512,22 @@ with ‘x’, ‘y’, ‘z’, ‘xgroup’, ‘ygroup’, or ‘zgroup’ cons
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">resolve_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exec_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.OptimizationJob.resolve_error" title="Permalink to this definition">#</a></dt>
 <dd><p>resolves optimization-specific errors
 errors resolved by JobType take priority</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>error</strong> (<em>str</em>) – error code from FileReader[“error”]</p></li>
+<li><p><strong>theory</strong> (<a class="reference internal" href="theory_class.html#AaronTools.theory.Theory" title="AaronTools.theory.Theory"><em>Theory</em></a>) – theory used</p></li>
+<li><p><strong>exec_type</strong> (<em>str</em>) – program name (gaussian, psi4, orca…)</p></li>
+<li><p><strong>geometry</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – structure used when the error occured</p></li>
+</ul>
+</dd>
+</dl>
+<p>Note that the geometry might be modified when resolving errors</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None|<a class="reference internal" href="theory_class.html#AaronTools.theory.Theory" title="AaronTools.theory.Theory">Theory</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
