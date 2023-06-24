@@ -61,6 +61,11 @@ html_static_path = ['_static']
 # prefix for shell things that are copyable
 copybutton_prompt_text = ">>> "
 
+# raw html files
+html_extra_path = [
+    "googleeb034417e9c5a468.html",
+]
+
 # for multiline things
 copybutton_line_continuation_character = "\\"
 
