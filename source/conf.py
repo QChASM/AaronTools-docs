@@ -35,6 +35,7 @@ extensions = [
     'sphinx.ext.inheritance_diagram',
     'sphinx_copybutton',
     'sphinx.ext.autosectionlabel',
+    "sphinx_sitemap",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -64,6 +65,7 @@ copybutton_prompt_text = ">>> "
 # raw html files
 html_extra_path = [
     "googleeb034417e9c5a468.html",
+    "robots.txt",
 ]
 
 # for multiline things
