@@ -39,6 +39,7 @@ extensions = [
 ]
 
 html_baseurl = "https://aarontools.readthedocs.io/en/latest/"
+sitemap_url_scheme = "{link}"
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
