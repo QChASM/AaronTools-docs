@@ -37,6 +37,16 @@ file extension, you can use the :py:meth:`AaronTools.fileIO.FileReader` class:
     
 See the :doc:`coding_with_filereaders` tutorial for more information.
 
+Alternatively, you can also create a Geometry from a SMILES or iupac name:
+.. code-block:: python
+
+    from AaronTools.geometry import Geometry
+    
+    # from smiles
+    smiles_geom = Geometry.from_string('c1ccccc1')
+    iupac_geom = Geometry.from_string('benzene', form='iupac')
+
+
 Writing to a File
 *****************
 

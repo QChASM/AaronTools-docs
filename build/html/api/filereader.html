@@ -307,7 +307,7 @@
 <li class="toctree-l2"><a class="reference internal" href="job_control.html"><code class="docutils literal notranslate"><span class="pre">SubmitProcess</span></code> class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="json_extension.html">JSON Caching</a></li>
 <li class="toctree-l2"><a class="reference internal" href="symmetry.html"><code class="docutils literal notranslate"><span class="pre">PointGroup</span></code> class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="utils.html"><code class="docutils literal notranslate"><span class="pre">PointGroup</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html"><code class="docutils literal notranslate"><span class="pre">Utils</span></code> class</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../advanced/advanced.html">Advanced Topics</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Advanced Topics</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -518,6 +518,18 @@ the array would not be stored</p></li>
 <dd><p>read nbo .31 file</p>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.fileIO.FileReader.write_mode">
+<span class="sig-name descname"><span class="pre">write_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vibmode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileReader.write_mode" title="Link to this definition">¶</a></dt>
+<dd><p>returns frequency and XYZ format including displacement vectors along selected vibrational mode (1-indexed)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.fileIO.FileReader.animate">
+<span class="sig-name descname"><span class="pre">animate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vibmode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileReader.animate" title="Link to this definition">¶</a></dt>
+<dd><p>Display py3Dmol animation of selected mode</p>
+</dd></dl>
+
 </dd></dl>
 
 <section id="filereader-keys-for-various-output-files">
@@ -631,6 +643,8 @@ There is also an <code class="docutils literal notranslate"><span class="pre">or
 <li><a class="reference internal" href="#AaronTools.fileIO.FileReader.read_sqm"><code class="docutils literal notranslate"><span class="pre">FileReader.read_sqm()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.fileIO.FileReader.read_nbo_47"><code class="docutils literal notranslate"><span class="pre">FileReader.read_nbo_47()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.fileIO.FileReader.read_nbo_31"><code class="docutils literal notranslate"><span class="pre">FileReader.read_nbo_31()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.fileIO.FileReader.write_mode"><code class="docutils literal notranslate"><span class="pre">FileReader.write_mode()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.fileIO.FileReader.animate"><code class="docutils literal notranslate"><span class="pre">FileReader.animate()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#filereader-keys-for-various-output-files"><code class="docutils literal notranslate"><span class="pre">FileReader</span></code> keys for various output files</a><ul>

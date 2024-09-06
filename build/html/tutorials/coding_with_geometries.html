@@ -307,7 +307,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../api/job_control.html"><code class="docutils literal notranslate"><span class="pre">SubmitProcess</span></code> class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/json_extension.html">JSON Caching</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/symmetry.html"><code class="docutils literal notranslate"><span class="pre">PointGroup</span></code> class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/utils.html"><code class="docutils literal notranslate"><span class="pre">PointGroup</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/utils.html"><code class="docutils literal notranslate"><span class="pre">Utils</span></code> class</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../advanced/advanced.html">Advanced Topics</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Advanced Topics</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -383,6 +383,14 @@ file extension, you can use the <a class="reference internal" href="../api/filer
 </pre></div>
 </div>
 <p>See the <a class="reference internal" href="coding_with_filereaders.html"><span class="doc">Coding with FileReader objects</span></a> tutorial for more information.</p>
+<p>Alternatively, you can also create a Geometry from a SMILES or iupac name:
+.. code-block:: python</p>
+<blockquote>
+<div><p>from AaronTools.geometry import Geometry</p>
+<p># from smiles
+smiles_geom = Geometry.from_string(‘c1ccccc1’)
+iupac_geom = Geometry.from_string(‘benzene’, form=’iupac’)</p>
+</div></blockquote>
 </section>
 <section id="writing-to-a-file">
 <h3>Writing to a File<a class="headerlink" href="#writing-to-a-file" title="Link to this heading">¶</a></h3>
