@@ -1,6 +1,5 @@
-``Utils`` class
+``Utilities`` 
 ======================================
 
-.. autoclass:: AaronTools.utils.utils
+.. automodule:: AaronTools.utils.utils
     :members:
-    :special-members: __init__
