@@ -19,5 +19,6 @@ Python API Documentation
     job_control
     json_extension
     symmetry
+    utils
     
     
