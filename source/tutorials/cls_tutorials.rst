@@ -107,7 +107,7 @@ Here is the benzene structure we are starting with:
 
 For reference, here is how the atoms are ordered: 
 
-.. image ../images/benzene_numbers.png
+.. image:: ../images/benzene_numbers.png
 
 We can get TNT by running the AaronTools script :code:`substitute.py` twice.
 First, let's turn our benzene into toluene by changing atom 7 into a methyl group: 
