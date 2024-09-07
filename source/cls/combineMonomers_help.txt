@@ -1,0 +1,19 @@
+.. code-block:: text
+
+    usage: combineMonomers.py [-h] [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}] [-a] [-o OUTFILE]
+                              [input file ...]
+    
+    combine monomers into a supermolecule (e.g. dimer, trimer, etc).  Conserves monomer atom positions and order. Intended to build non-bonded complexes so does not check for clashes, etc.
+    
+    positional arguments:
+      input file            a coordinate file
+    
+    options:
+      -h, --help            show this help message and exit
+      -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}
+                            file format of input - xyz is assumed if input is stdin
+      -a, --append          append structure to output file if it already exists
+                            Default: false
+      -o OUTFILE, --output OUTFILE
+                            output destination
+                            Default: stdout
