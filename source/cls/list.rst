@@ -22,6 +22,7 @@ The page for each command line script shows the usage info and possibly further 
     dihedral
     follow
     getMonomers
+    combineMonomers
     interpolate
     makeConf
     mapLigand
