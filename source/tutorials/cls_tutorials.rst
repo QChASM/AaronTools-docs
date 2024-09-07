@@ -20,13 +20,13 @@ To get a command line script to read a file, it can be as simple as passing the 
 
     printXYZ.py benzene.log
     
-If the file can an unconventional extension, you can pass the format to the :code:`-if` flag: 
+If the file has an unconventional extension, you can pass the format to the :code:`-if` flag: 
 
 .. code-block:: bash
 
     printXYZ.py benzene.gout -if log
 
-Many of our scripts also support reading the structure from standard input (e.g. pipes (:code:`|`), here documents (:code:`<<`)).
+Many of our scripts also support reading the structure from standard input (e.g. pipes (:code:`|`)).
 The input is assumed to be in XYZ format, but :code:`-if` can be used to specify other formats.
 This can be used to avoid writing intermediate files. 
 
@@ -68,7 +68,7 @@ The :code:`printXYZ.py` command can be used to convert any AaronTools-readable f
 Finding Atoms
 -------------
 
-Atoms can be specified by index (1-indexed) or by element.
+Atoms can be specified by atom number (1-indexed) or by element.
 For example, to turn a benzene molecule into perfluorobenzene, we can substitute all hydrogens with fluorines: 
 
 ::
@@ -109,7 +109,7 @@ For reference, here is how the atoms are ordered:
 
 .. image ../images/benzene_numbers.png
 
-We can get to by running AaronTools' :code:`substitute.py` script twice.
+We can get TNT by running the AaronTools script :code:`substitute.py` twice.
 First, let's turn our benzene into toluene by changing atom 7 into a methyl group: 
 
 ::

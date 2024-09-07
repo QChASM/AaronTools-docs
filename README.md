@@ -27,3 +27,4 @@ Once changes are pushed to GitHub, readthedocs should automatically build the ne
 
 ## Documenting Things
 Read a sphinx tutorial. Basically, the files people modify are all in the source directory. Autodoc automatically adds docstrings if you ask it to. 
+Note that the documentation built by ReadTheDocs will be based on the pip version of AaronTools, not the current GitHub version!

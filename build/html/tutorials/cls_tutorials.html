@@ -221,6 +221,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../cls/dihedral.html">dihedral.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/follow.html">follow.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/getMonomers.html">getMonomers.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/combineMonomers.html">combineMonomers.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/interpolate.html">interpolate.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/makeConf.html">makeConf.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/mapLigand.html">mapLigand.py</a></li>
@@ -307,7 +308,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../api/job_control.html"><code class="docutils literal notranslate"><span class="pre">SubmitProcess</span></code> class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/json_extension.html">JSON Caching</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/symmetry.html"><code class="docutils literal notranslate"><span class="pre">PointGroup</span></code> class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/utils.html"><code class="docutils literal notranslate"><span class="pre">PointGroup</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/utils.html"><code class="docutils literal notranslate"><span class="pre">Utilities</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../advanced/advanced.html">Advanced Topics</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Advanced Topics</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -370,11 +371,11 @@ To see the full list of options for a script, run it with just the –help flag 
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>printXYZ.py<span class="w"> </span>benzene.log
 </pre></div>
 </div>
-<p>If the file can an unconventional extension, you can pass the format to the <code class="code docutils literal notranslate"><span class="pre">-if</span></code> flag:</p>
+<p>If the file has an unconventional extension, you can pass the format to the <code class="code docutils literal notranslate"><span class="pre">-if</span></code> flag:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>printXYZ.py<span class="w"> </span>benzene.gout<span class="w"> </span>-if<span class="w"> </span>log
 </pre></div>
 </div>
-<p>Many of our scripts also support reading the structure from standard input (e.g. pipes (<code class="code docutils literal notranslate"><span class="pre">|</span></code>), here documents (<code class="code docutils literal notranslate"><span class="pre">&lt;&lt;</span></code>)).
+<p>Many of our scripts also support reading the structure from standard input (e.g. pipes (<code class="code docutils literal notranslate"><span class="pre">|</span></code>)).
 The input is assumed to be in XYZ format, but <code class="code docutils literal notranslate"><span class="pre">-if</span></code> can be used to specify other formats.
 This can be used to avoid writing intermediate files.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">substitute</span><span class="o">.</span><span class="n">py</span> <span class="n">benzene</span><span class="o">.</span><span class="n">xyz</span> <span class="o">-</span><span class="n">s</span> <span class="n">H</span><span class="o">=</span><span class="n">F</span> <span class="o">|</span> <span class="n">bond</span><span class="o">.</span><span class="n">py</span> <span class="n">xyz</span> <span class="o">-</span><span class="n">c</span> <span class="mi">6</span> <span class="mi">7</span> <span class="mf">0.3</span>
@@ -409,7 +410,7 @@ If no <code class="code docutils literal notranslate"><span class="pre">-o</span
 </section>
 <section id="finding-atoms">
 <h2>Finding Atoms<a class="headerlink" href="#finding-atoms" title="Link to this heading">¶</a></h2>
-<p>Atoms can be specified by index (1-indexed) or by element.
+<p>Atoms can be specified by atom number (1-indexed) or by element.
 For example, to turn a benzene molecule into perfluorobenzene, we can substitute all hydrogens with fluorines:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">substitute</span><span class="o">.</span><span class="n">py</span> <span class="n">benzene</span><span class="o">.</span><span class="n">xyz</span> <span class="o">-</span><span class="n">s</span> <span class="n">H</span><span class="o">=</span><span class="n">F</span>
 </pre></div>
@@ -440,7 +441,7 @@ Here is the benzene structure we are starting with:</p>
 </pre></div>
 </div>
 <p>For reference, here is how the atoms are ordered:</p>
-<p>We can get to by running AaronTools’ <code class="code docutils literal notranslate"><span class="pre">substitute.py</span></code> script twice.
+<p>We can get TNT by running the AaronTools script <code class="code docutils literal notranslate"><span class="pre">substitute.py</span></code> twice.
 First, let’s turn our benzene into toluene by changing atom 7 into a methyl group:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">substitute</span><span class="o">.</span><span class="n">py</span> <span class="n">benzene</span><span class="o">.</span><span class="n">xyz</span> <span class="o">-</span><span class="n">s</span> <span class="mi">7</span><span class="o">=</span><span class="n">Me</span> <span class="o">-</span><span class="n">o</span> <span class="n">toluene</span><span class="o">.</span><span class="n">xyz</span>
 </pre></div>
