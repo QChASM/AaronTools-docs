@@ -307,7 +307,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../api/job_control.html"><code class="docutils literal notranslate"><span class="pre">SubmitProcess</span></code> class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/json_extension.html">JSON Caching</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/symmetry.html"><code class="docutils literal notranslate"><span class="pre">PointGroup</span></code> class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/utils.html"><code class="docutils literal notranslate"><span class="pre">PointGroup</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/utils.html"><code class="docutils literal notranslate"><span class="pre">Utilities</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../advanced/advanced.html">Advanced Topics</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Advanced Topics</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -452,8 +452,7 @@ the <code class="code docutils literal notranslate"><span class="pre">FileReader
 
 <span class="n">geom_list</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">struc</span> <span class="ow">in</span> <span class="n">fr</span><span class="o">.</span><span class="n">all_geom</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">item</span> <span class="ow">in</span> <span class="n">struc</span><span class="p">:</span>
-        <span class="n">geom_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Geometry</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s2">&quot;atoms&quot;</span><span class="p">]))</span>
+    <span class="n">geom_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Geometry</span><span class="p">(</span><span class="n">struc</span><span class="p">[</span><span class="s2">&quot;atoms&quot;</span><span class="p">]))</span>
 </pre></div>
 </div>
 <p>Calculation Information</p>

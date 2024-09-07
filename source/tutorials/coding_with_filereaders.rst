@@ -103,8 +103,7 @@ Below is sample code for turning each structure in a
     
     geom_list = []
     for struc in fr.all_geom:
-        from item in struc:
-            geom_list.append(Geometry(item["atoms"]))
+        geom_list.append(Geometry(struc["atoms"]))
     
 Calculation Information
 
