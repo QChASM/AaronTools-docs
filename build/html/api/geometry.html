@@ -221,6 +221,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../cls/dihedral.html">dihedral.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/follow.html">follow.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/getMonomers.html">getMonomers.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/combineMonomers.html">combineMonomers.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/interpolate.html">interpolate.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/makeConf.html">makeConf.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/mapLigand.html">mapLigand.py</a></li>
@@ -543,9 +544,34 @@ general formula of the complexes</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.display">
 <span class="sig-name descname"><span class="pre">display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'stick'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorscheme</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Jmol'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.display" title="Link to this definition">¶</a></dt>
-<dd><p>Displays py3Dmol viewer from Geometry using “stick” (default), “sphere”, or “line” style
-param: string style one of ‘stick’, ‘sphere, ‘line’
-param: string colorscheme one of py3Dmol color schemes (see <a class="reference external" href="https://3dmol.org/doc/global.html#ColorschemeSpec">https://3dmol.org/doc/global.html#ColorschemeSpec</a>)</p>
+<dd><p>Display py3Dmol viewer from Geometry</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>style</strong> (<em>str</em>) – stick, sphere, or line (or other style supported by 3Dmol.js)</p></li>
+<li><p><strong>colorscheme</strong> (<em>str</em>) – 3Dmol.js color scheme (see <a class="reference external" href="https://3dmol.org/doc/global.html#builtinColorSchemes">https://3dmol.org/doc/global.html#builtinColorSchemes</a>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.geometry.Geometry.convert_to_Psi4">
+<span class="sig-name descname"><span class="pre">convert_to_Psi4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">charge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mult</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fix_com</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fix_orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.convert_to_Psi4" title="Link to this definition">¶</a></dt>
+<dd><p>converts Geometry into Psi4 Molecule object (requires Psi4)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>charge</strong> (<em>int</em>) – total molecular charge</p></li>
+<li><p><strong>mult</strong> (<em>int</em>) – multiplicity</p></li>
+<li><p><strong>fix_com</strong> (<em>bool</em>) – whether to fix center of mass in Psi4 Molecule</p></li>
+<li><p><strong>fix_coordinates</strong> (<em>bool</em>) – whether to fix coordinates in Psi4 Molecule</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>activated Psi4 Molecule (or None if Psi4 not available)</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -1709,6 +1735,7 @@ accepts Tuple or List(atom types), Dict{atom name: atom type}</p>
 <li><a class="reference internal" href="#AaronTools.geometry.Geometry.coordinates"><code class="docutils literal notranslate"><span class="pre">Geometry.coordinates()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.geometry.Geometry.write"><code class="docutils literal notranslate"><span class="pre">Geometry.write()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.geometry.Geometry.display"><code class="docutils literal notranslate"><span class="pre">Geometry.display()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.geometry.Geometry.convert_to_Psi4"><code class="docutils literal notranslate"><span class="pre">Geometry.convert_to_Psi4()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.geometry.Geometry.copy"><code class="docutils literal notranslate"><span class="pre">Geometry.copy()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.geometry.Geometry.parse_comment"><code class="docutils literal notranslate"><span class="pre">Geometry.parse_comment()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.geometry.Geometry.fix_comment"><code class="docutils literal notranslate"><span class="pre">Geometry.fix_comment()</span></code></a></li>
