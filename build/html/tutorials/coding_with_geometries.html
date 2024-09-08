@@ -221,6 +221,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../cls/dihedral.html">dihedral.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/follow.html">follow.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/getMonomers.html">getMonomers.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/combineMonomers.html">combineMonomers.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/interpolate.html">interpolate.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/makeConf.html">makeConf.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/mapLigand.html">mapLigand.py</a></li>
@@ -307,7 +308,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../api/job_control.html"><code class="docutils literal notranslate"><span class="pre">SubmitProcess</span></code> class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/json_extension.html">JSON Caching</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/symmetry.html"><code class="docutils literal notranslate"><span class="pre">PointGroup</span></code> class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/utils.html"><code class="docutils literal notranslate"><span class="pre">Utils</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/utils.html"><code class="docutils literal notranslate"><span class="pre">Utilities</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../advanced/advanced.html">Advanced Topics</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Advanced Topics</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -615,6 +616,7 @@ H         -3.00385        1.72310       -0.00143
 </pre></div>
 </div>
 <p>For reference, here is how the atoms are ordered:</p>
+<img alt="../_images/benzene_numbers.png" src="../_images/benzene_numbers.png" />
 <p>To start, we’ll need to import the <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> and <code class="code docutils literal notranslate"><span class="pre">Substituent</span></code> classes:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
 <span class="kn">from</span> <span class="nn">AaronTools.substituent</span> <span class="kn">import</span> <span class="n">Substituent</span>
@@ -622,7 +624,9 @@ H         -3.00385        1.72310       -0.00143
 </div>
 <p>To create a geometry for our benzene, we can simply pass
 the path to our benzene structure file to <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code>:</p>
-<p>geom = Geometry(‘benzene.xyz’)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="s1">&#39;benzene.xyz&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>Next, we’ll attach a methyl substituent.
 This is as simple as passing “Me” (the name of the methyl substituent
 in the AaronTools substituent library) to <code class="code docutils literal notranslate"><span class="pre">Geometry.substitute</span></code>,

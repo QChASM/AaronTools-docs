@@ -307,7 +307,7 @@ Here is the benzene structure we are starting with:
 
 For reference, here is how the atoms are ordered: 
 
-.. image ../images/benzene_numbers.png
+.. image:: ../images/benzene_numbers.png
 
 
 To start, we'll need to import the :code:`Geometry` and :code:`Substituent` classes:
@@ -320,7 +320,10 @@ To start, we'll need to import the :code:`Geometry` and :code:`Substituent` clas
 To create a geometry for our benzene, we can simply pass
 the path to our benzene structure file to :code:`Geometry`:
 
-geom = Geometry('benzene.xyz')
+
+.. code-block:: python
+
+    geom = Geometry('benzene.xyz')
 
 Next, we'll attach a methyl substituent.
 This is as simple as passing "Me" (the name of the methyl substituent
