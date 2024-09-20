@@ -20,9 +20,9 @@ Requirements (available via pip):
 * sphinx-copybutton
 
 To update docs:
--Modify/add files in the source directory
--Modify docstrings in your local copy of AaronTools
--rebuild HTML with
+* Modify/add files in the source directory
+* Modify docstrings in your local copy of AaronTools
+* rebuild HTML by running the following in the main AaronTools-docs directory
 ```sh
 make html
 ```

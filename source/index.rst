@@ -20,8 +20,8 @@ AaronTools is a Python module for facilitating many tasks in computational quant
     api/api
     advanced/advanced
 
-Note that this documentation corresponds to the version of AaronTools available via :code:`pip`.
-This is usually slightly behind the version available on GitHub.
+Note that this documentation corresponds to the version of AaronTools on GitHub.
+The version available via :code:`pip` is usually slightly behind.
 
 Citation
 ========
