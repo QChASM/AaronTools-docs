@@ -1,4 +1,3 @@
 furo
 sphinx-copybutton
-AaronTools
 sphinx_sitemap
