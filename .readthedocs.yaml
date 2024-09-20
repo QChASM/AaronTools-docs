@@ -7,12 +7,15 @@ build:
     python: "3.11"
   apt_packages:
     - graphviz
+  commands:
+    - mkdir --parents _readtehdocs/html/
+    - cp --recursive build/html/* _readthedocs/html/
 
-sphinx:
-   configuration: source/conf.py
-
-python:
-   install:
-   - requirements: requirements.txt
+      #sphinx:
+      #   configuration: source/conf.py
+      #
+      #python:
+      #   install:
+      #   - requirements: requirements.txt
 
 

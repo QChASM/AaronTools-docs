@@ -5,6 +5,51 @@ Coding with :code:`Theory` Objects
 writing quantum chemistry input files similar across different software packages.
 Here, we will cover the basics of creating and using a Theory.
 
+Building a Basic Input File
+---------------------------
+The following will build a Gaussian input file called `benzene.com` that
+does a B3LYP/def2-SVP optimization of the coordinates in `benzene.xyz`
+followed by the computation of vibrational frequencies
+
+.. code-block:: python
+
+    from AaronTools.geometry import Geometry
+    from AaronTools.theory import *
+    
+    geom = Geometry('benzene.xyz')
+    
+    method = Theory(
+        method="B3LYP", 
+        basis="def2-SVP", 
+        job_type=[OptimizationJob(), FrequencyJob()]
+    )
+    outfile = "benzene.com"
+    geom.write(outfile=outfile, theory=method)
+
+
+By changing the extension of the file being written, the corresponding format
+and keyword changes are automatically handled.
+
+For example, the example below will write (essentially) equivalent input files
+for Gaussian, ORCA, and Psi4.
+
+.. code-block:: python
+
+    from AaronTools.geometry import Geometry
+    from AaronTools.theory import *
+    
+    geom = Geometry('benzene.xyz')
+    
+    method = Theory(
+        method="B3LYP", 
+        basis="def2-SVP", 
+        job_type=[OptimizationJob(), FrequencyJob()]
+    )
+    for outfile in ["gaussian.com", "ORCA.inp", "psi4.in"]:
+        geom.write(outfile=outfile, theory=method)
+
+Below, we discuss more detail about working with Theory objects.
+
 Creation
 --------
 
@@ -84,7 +129,7 @@ be given to a :code:`Basis` or :code:`ECP`.
 Empirical Dispersion
 --------------------
 
-:py:meth`AaronTools.theory.emp_dispersion.EmpiricalDispersion` keeps specifying dispersion
+:py:meth:`AaronTools.theory.emp_dispersion.EmpiricalDispersion` keeps specifying dispersion
 corrections consistent across different formats.
 
 .. code-block:: python

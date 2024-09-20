@@ -404,6 +404,21 @@ to the <code class="code docutils literal notranslate"><span class="pre">outfile
 <span class="n">content</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outfile</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Alternatively, simply printing a Geometry will print the XYZ format to the screen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="s1">&#39;benzene.xyz&#39;</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">XYZ</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you are using AaronTools in a Jupyter Notebook, and have installed py3dmol, you can also display an interactive 3D model of a Geometry using <code class="code docutils literal notranslate"><span class="pre">geom.display()</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="s1">&#39;benzene.xyz&#39;</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="n">geom</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Note that in Jupyter, atom numbers are displayed by hovering over an atom with your mouse.</p>
 <p>If you’d like to write to a file instead, you can pass the path to the file to <code class="code docutils literal notranslate"><span class="pre">outfile</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
 <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="s1">&#39;benzene.xyz&#39;</span><span class="p">)</span>
@@ -417,7 +432,7 @@ to the <code class="code docutils literal notranslate"><span class="pre">outfile
 <p>The <code class="code docutils literal notranslate"><span class="pre">style</span></code> keyword determines the file format.
 Changing this to, for example, <code class="code docutils literal notranslate"><span class="pre">com</span></code>, <code class="code docutils literal notranslate"><span class="pre">inp</span></code>, or <code class="code docutils literal notranslate"><span class="pre">in</span></code> allows for writing input files
 for quantum chemistry computations.
-Note that writing input files does require a <a class="reference internal" href="../api/theory_class.html#AaronTools.theory.Theory" title="AaronTools.theory.Theory"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.Theory()</span></code></a>.
+Note that writing input files requires a <a class="reference internal" href="../api/theory_class.html#AaronTools.theory.Theory" title="AaronTools.theory.Theory"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.Theory()</span></code></a>.
 See <a class="reference internal" href="coding_with_theories.html"><span class="doc">Coding with Theory Objects</span></a> for information on how to use these.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
 <span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="o">*</span>
