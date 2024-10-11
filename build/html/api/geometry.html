@@ -394,10 +394,13 @@ can save time for methods that only don’t rely on ranks by using
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.iupac2smiles">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">iupac2smiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.iupac2smiles" title="Link to this definition">¶</a></dt>
-<dd><p>convert IUPAC name to smiles using the OPSIN web API</p>
+<dd><p>convert IUPAC name to SMILES using the OPSIN web API</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – IUPAC name of a molecule</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>SMILES name of a molecule</p>
 </dd>
 </dl>
 </dd></dl>
@@ -405,7 +408,7 @@ can save time for methods that only don’t rely on ranks by using
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.from_string">
 <em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">form</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'smiles'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strict_use_rdkit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.from_string" title="Link to this definition">¶</a></dt>
-<dd><p>get Geometry from string</p>
+<dd><p>Converts a string input into a Geometry object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -417,6 +420,12 @@ can save time for methods that only don’t rely on ranks by using
 </p></li>
 <li><p><strong>strict_use_rdkit</strong> (<em>bool</em>) – force use of RDKit and never use cactvs</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Geometry object that matches the input name</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry">Geometry</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -461,10 +470,13 @@ general formula of the complexes</p>
 <dd><p>Generate diastereomers of Geometry</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>geometry</strong> (<a class="reference internal" href="#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – chiral structure</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>geometry</strong> (<a class="reference internal" href="#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – chiral structure</p></li>
+<li><p><strong>minimize</strong> (<em>bool</em>) – performs minimize_sub_torsion on each diastereomer</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>list of all diastereomers for detected chiral centers</p>
+<dd class="field-even"><p>list of all diastereomer_countastereomers for detected chiral centers</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list(<a class="reference internal" href="#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry">Geometry</a>)</p>
@@ -492,6 +504,43 @@ general formula of the complexes</p>
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.geometry.Geometry.get_solvent">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_solvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">solvent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_solvent" title="Link to this definition">¶</a></dt>
+<dd><p>Converts the name of a solvent into a Geometry representation
+based on solvents within AaronTools libraries
+Note: list_solvents provides a str array of solvents within the libraries</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>solvent</strong> (<em>str</em>) – name of the solvent to be converted</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>converted solvent</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry">Geometry</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>LookupError</strong> – when input solvent is not present in libraries</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.geometry.Geometry.list_solvents">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">list_solvents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">include_ext</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.list_solvents" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieves a list of solvents stored in AaronTools</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>include_ext</strong> (<em>bool</em>) – Includes file extensions (.xyz) on
+each solvent when true.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>string array with the names of all solvents in the libraries</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py property">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.elements">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">elements</span></span><a class="headerlink" href="#AaronTools.geometry.Geometry.elements" title="Link to this definition">¶</a></dt>
@@ -515,7 +564,7 @@ general formula of the complexes</p>
 <span class="sig-name descname"><span class="pre">coordinates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.coordinates" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>atoms</strong> (<em>list</em><em>(</em><a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a><em>)</em>)</p>
+<dd class="field-odd"><p><strong>atoms</strong> (<em>list</em><em>(</em><a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a><em>)</em>) – atoms to be searched</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>N x 3 coordinate matrix for requested atoms
@@ -523,6 +572,20 @@ general formula of the complexes</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.geometry.Geometry.tag">
+<span class="sig-name descname"><span class="pre">tag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.tag" title="Link to this definition">¶</a></dt>
+<dd><p>Adds a tag to atoms within a Geometry object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>str</em>) – tag to be added to the targets</p></li>
+<li><p><strong>targets</strong> (<em>list</em><em>(</em><a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a><em>)</em>) – atoms to be given the tag, defaults to all atoms</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -579,9 +642,16 @@ general formula of the complexes</p>
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.copy">
 <span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy_atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.copy" title="Link to this definition">¶</a></dt>
 <dd><p>creates a new copy of the geometry</p>
-<p>parameters:
-:param atoms list(Atom): atoms to copy defaults to all atoms
-:param name str: defaults to NAME_copy</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>atoms</strong> (<em>list</em><em>(</em><a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a><em>)</em>) – atoms to copy defaults to all atoms</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – defaults to NAME_copy</p></li>
+<li><p><strong>comment</strong> (<em>str</em>) – comment to add to the copy, defaults to self’s comment</p></li>
+<li><p><strong>copy_atoms</strong> (<em>bool</em>) – passed to _fix_connectivity, defaults to True</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -638,7 +708,15 @@ general formula of the complexes</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.get_connectivity">
 <span class="sig-name descname"><span class="pre">get_connectivity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_connectivity" title="Link to this definition">¶</a></dt>
-<dd><p>list of connectivity for each atom</p>
+<dd><p>Iterates through each atom and finds its connected atoms</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of all atoms’ connectivities</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list(list(<a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom">Atom</a>))</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -655,15 +733,24 @@ defaults to all atoms</p></li>
 defining fragments</p></li>
 </ul>
 </dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of all fragments found</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list(list(<a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom">Atom</a>))</p>
+</dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.get_graph">
 <span class="sig-name descname"><span class="pre">get_graph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_graph" title="Link to this definition">¶</a></dt>
-<dd><dl class="simple">
-<dt>returns a graph based on connectivity</dt><dd><p>graph consists of a list for each atom consisting of a list of connected atoms
+<dd><p>returns a graph based on connectivity
+graph consists of a list for each atom consisting of a list of connected atoms
 For example, for H2O with O as atom 1, graph = [[1,2], [0], [0]]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>graph created by the method</p>
 </dd>
 </dl>
 </dd></dl>
@@ -684,17 +771,14 @@ For example, for H2O with O as atom 1, graph = [[1,2], [0], [0]]</p>
 args=([‘this’, ‘that’], ‘other’) will find atoms for which
 (‘this’ || ‘that’) &amp;&amp; ‘other’ == True</p>
 </dd>
-</dl>
-<p>Returns:</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list of matching atoms</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of matching atoms</p>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>list(<a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom">Atom</a>)|list()</p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list(<a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom">Atom</a>)|list()</p>
 </dd>
-<dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>LookupError</strong> – when the tags/names provided do not exist.
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>LookupError</strong> – when the tags/names provided do not exist.
 However, it will return empty list if valid tag/names were provided
 but were screened out using the &amp;&amp; argument form</p>
 </dd>
@@ -704,8 +788,22 @@ but were screened out using the &amp;&amp; argument form</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.find_exact">
 <span class="sig-name descname"><span class="pre">find_exact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.find_exact" title="Link to this definition">¶</a></dt>
-<dd><p>finds exactly the same number of atoms as arguments used.
-:raises LookupError: if wrong number of atoms found</p>
+<dd><p>finds exactly the same number of atoms as arguments used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>args</strong> (<em>list</em><em>|</em><em>tuple</em><em>|</em><em>str</em><em>|</em><em>Finder</em>) – tags, names, elements, or Finder subclass
+consisting of those you want to check self for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of atoms found</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple(<a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom">Atom</a>)</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>LookupError</strong> – if wrong number of atoms found</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -749,6 +847,11 @@ all atoms in attribute lists to OniomAtom objects</p>
 <span class="sig-name descname"><span class="pre">get_invariants</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">heavy_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_invariants" title="Link to this definition">¶</a></dt>
 <dd><p>returns a list of invariants for the specified targets
 see Atom.get_invariant for some more details</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>heavy_only</strong> (<em>bool</em>) – ignores hydrogens if true</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -757,10 +860,17 @@ see Atom.get_invariant for some more details</p>
 <dd><p>determine canonical ranking for atoms</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>invariant</strong> (<em>bool</em>) – if True, use invariant described in
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>heavy_only</strong> (<em>bool</em>) – ignores hydrogens if true</p></li>
+<li><p><strong>break_ties</strong> (<em>bool</em>) – breaks ties based on angle around COM</p></li>
+<li><p><strong>invariant</strong> (<em>bool</em>) – if True, use invariant described in
 J. Chem. Inf. Comput. Sci. 1989, 29, 2, 97–101
 (DOI: 10.1021/ci00062a008)
-if False, use neighbor IDs</p>
+if False, use neighbor IDs</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of rankings</p>
 </dd>
 </dl>
 <p>algorithm described in J. Chem. Inf. Model. 2015, 55, 10, 2111–2120
@@ -783,8 +893,15 @@ if False, use neighbor IDs</p>
 <span class="sig-name descname"><span class="pre">reorder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heavy_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.reorder" title="Link to this definition">¶</a></dt>
 <dd><p>Depth-first reorder of atoms based on canonical ranking</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>tuple(list(ordered_targets), list(non_targets))</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start</strong> (<a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a>) – atom to start the reorder from, defaults to first atom</p></li>
+<li><p><strong>targets</strong> (<em>list</em><em>(</em><a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a><em>)</em>) – atoms to be reordered, defaults to all atoms</p></li>
+<li><p><strong>heavy_only</strong> (<em>bool</em>) – ignores hydrogens if true</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple(list(ordered_targets), list(non_targets))</p>
 </dd>
 </dl>
 </dd></dl>
@@ -833,7 +950,7 @@ atoms in the larger geometry must go through the center atoms</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.bond">
 <span class="sig-name descname"><span class="pre">bond</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.bond" title="Link to this definition">¶</a></dt>
-<dd><p>takes two atoms and returns the bond vector</p>
+<dd><p>takes two atoms and returns the bond vector (need to fix formatting)</p>
 </dd></dl>
 
 <dl class="py method">
@@ -866,11 +983,13 @@ returns a vector from the origin to the center of mass</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.RMSD">
 <span class="sig-name descname"><span class="pre">RMSD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">align</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heavy_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.RMSD" title="Link to this definition">¶</a></dt>
-<dd><p>calculates the RMSD between two geometries
-Returns: rmsd (float)</p>
+<dd><p>calculates the RMSD between two geometries</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>rmsd in Angstroms (float)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
 <li><p><strong>ref</strong> (<a class="reference internal" href="#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – the geometry to compare to</p></li>
 <li><p><strong>align</strong> (<em>bool</em>) – if True (default), align self to other;
 if False, just calculate the RMSD</p></li>
@@ -948,8 +1067,11 @@ LJ_energy calls, like minimize_torsion</p></li>
 <span class="sig-name descname"><span class="pre">examine_constraints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">thresh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.examine_constraints" title="Link to this definition">¶</a></dt>
 <dd><p>Determines if constrained atoms are too close/ too far apart</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>(atom1, atom2, flag) where flag is 1 if atoms too close,
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>thresh</strong> (<em>float</em>) – threshold to define ‘too close’ or ‘too far’</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(atom1, atom2, flag) where flag is 1 if atoms too close,
 -1 if atoms to far apart (so one can multiply a distance to change
 by the flag and it will adjust in the correct direction)</p>
 </dd>
@@ -1730,10 +1852,13 @@ accepts Tuple or List(atom types), Dict{atom name: atom type}</p>
 <li><a class="reference internal" href="#AaronTools.geometry.Geometry.get_coordination_complexes"><code class="docutils literal notranslate"><span class="pre">Geometry.get_coordination_complexes()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.geometry.Geometry.get_diastereomers"><code class="docutils literal notranslate"><span class="pre">Geometry.get_diastereomers()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.geometry.Geometry.weighted_percent_buried_volume"><code class="docutils literal notranslate"><span class="pre">Geometry.weighted_percent_buried_volume()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.geometry.Geometry.get_solvent"><code class="docutils literal notranslate"><span class="pre">Geometry.get_solvent()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.geometry.Geometry.list_solvents"><code class="docutils literal notranslate"><span class="pre">Geometry.list_solvents()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.geometry.Geometry.elements"><code class="docutils literal notranslate"><span class="pre">Geometry.elements</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.geometry.Geometry.num_atoms"><code class="docutils literal notranslate"><span class="pre">Geometry.num_atoms</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.geometry.Geometry.coords"><code class="docutils literal notranslate"><span class="pre">Geometry.coords</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.geometry.Geometry.coordinates"><code class="docutils literal notranslate"><span class="pre">Geometry.coordinates()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.geometry.Geometry.tag"><code class="docutils literal notranslate"><span class="pre">Geometry.tag()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.geometry.Geometry.write"><code class="docutils literal notranslate"><span class="pre">Geometry.write()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.geometry.Geometry.display"><code class="docutils literal notranslate"><span class="pre">Geometry.display()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.geometry.Geometry.convert_to_Psi4"><code class="docutils literal notranslate"><span class="pre">Geometry.convert_to_Psi4()</span></code></a></li>

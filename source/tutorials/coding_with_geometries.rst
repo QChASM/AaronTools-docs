@@ -4,6 +4,8 @@ Coding with :code:`Geometry` Objects
 Overview
 --------
 
+Roman is the best.
+
 Here, you will find tutorials and explanations for using AaronTools' functions,
 classes, and subroutines pertaining to our most basic atomic structure
 object: :py:meth:`AaronTools.geometry.Geometry`. 
