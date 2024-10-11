@@ -65,6 +65,27 @@ to the :code:`outfile` keyword argument:
     content = geom.write(outfile=False)
 
 
+Alternatively, simply printing a Geometry will print the XYZ format to the screen:
+
+.. code-block:: python
+
+    from AaronTools.geometry import Geometry
+    geom = Geometry('benzene.xyz')
+    ...
+    print(XYZ)
+
+
+If you are using AaronTools in a Jupyter Notebook, and have installed py3dmol, you can also display an interactive 3D model of a Geometry using :code:`geom.display()`:
+
+.. code-block:: python
+
+    from AaronTools.geometry import Geometry
+    geom = Geometry('benzene.xyz')
+    ...
+    geom.display()
+
+Note that in Jupyter, atom numbers are displayed by hovering over an atom with your mouse.
+
 If you'd like to write to a file instead, you can pass the path to the file to :code:`outfile`:
 
 .. code-block:: python
@@ -80,7 +101,7 @@ Other :code:`write` Keywords
 The :code:`style` keyword determines the file format.
 Changing this to, for example, :code:`com`, :code:`inp`, or :code:`in` allows for writing input files
 for quantum chemistry computations.
-Note that writing input files does require a :py:meth:`AaronTools.theory.Theory`.
+Note that writing input files requires a :py:meth:`AaronTools.theory.Theory`.
 See :doc:`coding_with_theories` for information on how to use these.
 
 .. code-block:: python
