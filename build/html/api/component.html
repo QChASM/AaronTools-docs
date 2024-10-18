@@ -411,6 +411,15 @@ ligands) the L-M-L angle</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.component.Component.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.component.Component.copy" title="Link to this definition">¶</a></dt>
+<dd><p>creates a new copy of the geometry</p>
+<p>parameters:
+:param atoms list(Atom): atoms to copy defaults to all atoms
+:param name str: defaults to NAME_copy</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.component.Component.get_frag_list">
 <span class="sig-name descname"><span class="pre">get_frag_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.component.Component.get_frag_list" title="Link to this definition">¶</a></dt>
 <dd><p>find fragments connected by only one bond
@@ -568,6 +577,7 @@ instead of solid angle (steradians)</p></li>
 <li><a class="reference internal" href="#AaronTools.component.Component.list"><code class="docutils literal notranslate"><span class="pre">Component.list()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.component.Component.c2_symmetric"><code class="docutils literal notranslate"><span class="pre">Component.c2_symmetric()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.component.Component.sterimol"><code class="docutils literal notranslate"><span class="pre">Component.sterimol()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.component.Component.copy"><code class="docutils literal notranslate"><span class="pre">Component.copy()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.component.Component.get_frag_list"><code class="docutils literal notranslate"><span class="pre">Component.get_frag_list()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.component.Component.detect_backbone"><code class="docutils literal notranslate"><span class="pre">Component.detect_backbone()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.component.Component.minimize_sub_torsion"><code class="docutils literal notranslate"><span class="pre">Component.minimize_sub_torsion()</span></code></a></li>
