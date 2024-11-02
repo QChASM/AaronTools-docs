@@ -394,9 +394,16 @@
 <dt class="sig sig-object py" id="AaronTools.ring.Ring.copy">
 <span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.ring.Ring.copy" title="Link to this definition">¶</a></dt>
 <dd><p>creates a new copy of the geometry</p>
-<p>parameters:
-:param atoms list(Atom): atoms to copy defaults to all atoms
-:param name str: defaults to NAME_copy</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>atoms</strong> (<em>list</em><em>(</em><a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a><em>)</em>) – atoms to copy defaults to all atoms</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – defaults to NAME_copy</p></li>
+<li><p><strong>comment</strong> (<em>str</em>) – comment to add to the copy, defaults to self’s comment</p></li>
+<li><p><strong>copy_atoms</strong> (<em>bool</em>) – passed to _fix_connectivity, defaults to True</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
