@@ -10,6 +10,7 @@ A nearly complete list of keys for various file types is at the bottom of this p
 
 
 .. _fr_keys::
+
 ``FileReader`` keys for various output files
 *********************************************
 
@@ -19,7 +20,7 @@ CREST output
 .. csv-table::
     :file: ../other_docs/crest-filereader.csv
     :delim: ;
-    :header: "key", "description"
+    :header: "key"; "description"
     
 
 Gaussian Output
@@ -28,7 +29,7 @@ Gaussian Output
 .. csv-table::
     :file: ../other_docs/gaussian-filereader.csv
     :delim: ;
-    :header: "key", "description"
+    :header: "key"; "description"
     
 
 Gaussian Formatted Checkpoint File
@@ -44,7 +45,7 @@ NBO Output
 .. csv-table::
     :file: ../other_docs/nbo-filereader.csv
     :delim: ;
-    :header: "key", "description"
+    :header: "key"; "description"
     
     
 ORCA Output
@@ -53,7 +54,7 @@ ORCA Output
 .. csv-table::
     :file: ../other_docs/orca-filereader.csv
     :delim: ;
-    :header: "key", "description"
+    :header: "key"; "description"
     
     
 Psi4 Output
@@ -62,7 +63,7 @@ Psi4 Output
 .. csv-table::
     :file: ../other_docs/psi4-filereader.csv
     :delim: ;
-    :header: "key", "description"
+    :header: "key"; "description"
     
     
 Q-Chem Output
@@ -71,7 +72,7 @@ Q-Chem Output
 .. csv-table::
     :file: ../other_docs/qchem-filereader.csv
     :delim: ;
-    :header: "key", "description"
+    :header: "key"; "description"
     
     
 SQM Output
@@ -80,7 +81,7 @@ SQM Output
 .. csv-table::
     :file: ../other_docs/sqm-filereader.csv
     :delim: ;
-    :header: "key", "description"
+    :header: "key"; "description"
     
     
 xTB Output
@@ -89,6 +90,6 @@ xTB Output
 .. csv-table::
     :file: ../other_docs/xtb-filereader.csv
     :delim: ;
-    :header: "key", "description"
+    :header: "key"; "description"
     
     
