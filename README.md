@@ -18,6 +18,7 @@ Requirements (available via pip):
 * autodoc
 * furo (the theme)
 * sphinx-copybutton
+* myst-nb (to build pages for Jupyter notebooks)
 
 To update docs:
 * Modify/add files in the source directory
