@@ -1,0 +1,550 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="List of Command Line Scripts" href="../cls/list.html" /><link rel="prev" title="Coding with FileReader objects" href="coding_with_filereaders.html" />
+        <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/tutorials/Jupyter_basics.html" />
+
+    <!-- Generated with Sphinx 8.0.2 and Furo 2024.08.06 -->
+        <title>Working with AaronTools in Jupyter Notebooks - AaronTools 1.0b19 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">AaronTools 1.0b19 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  
+  <span class="sidebar-brand-text">AaronTools 1.0b19 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Pages:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation Guide</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="tut_list.html">Tutorials</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Tutorials</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cls_tutorials.html">Intro to Command Line Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adding_to_libraries.html">Adding Structures to your AaronTools Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding_with_geometries.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding_with_theories.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding_with_filereaders.html">Coding with <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> objects</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Working with AaronTools in Jupyter Notebooks</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cls/list.html">List of Command Line Scripts</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of List of Command Line Scripts</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cls/angle.html">angle.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/bond.html">bond.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/changeChirality.html">changeChirality.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/changeElement.html">changeElement.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/closeRing.html">closeRing.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/dihedral.html">dihedral.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/follow.html">follow.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/getMonomers.html">getMonomers.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/combineMonomers.html">combineMonomers.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/interpolate.html">interpolate.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/makeConf.html">makeConf.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/mapLigand.html">mapLigand.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/mirror.html">mirror.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/multiSubstitute.html">multiSubstitute.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/removeFragment.html">removeFragment.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/rmsdAlign.html">rmsdAlign.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/rotate.html">rotate.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/substitute.html">substitute.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/symmetrize.html">symmetrize.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/translate.html">translate.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/averageBuriedVolume.html">averageBuriedVolume.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/averageSterimol.html">averageSterimol.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/bond.html">bond.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/coneAngle.html">coneAngle.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/findAtoms.html">findAtoms.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/ligandSterimol.html">ligandSterimol.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/percentVolumeBuried.html">percentVolumeBuried.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/pointGroup.html">pointGroup.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/rmsdAlign.html">rmsdAlign.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/solidAngle.html">solidAngle.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/stericMap.html">stericMap.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/stericMapDifference.html">stericMapDifference.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/substituentSterimol.html">substituentSterimol.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/unique.html">unique.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/fetchMolecule.html">fetchMolecule.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/getCoordinationComplexes.html">getCoordinationComplexes.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/jobSubmit.html">jobSubmit.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/makeCrestInput.html">makeCrestInput.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/makeInput.html">makeInput.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/condensedFukui.html">condensedFukui.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/grabStatus.html">grabStatus.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/grabThermo.html">grabThermo.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageIR.html">plotAverageIR.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageUVVis.html">plotAverageUVVis.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotIR.html">plotIR.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotUVVis.html">plotUVVis.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/printAtomInfo.html">printAtomInfo.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/printAtomPairInfo.html">printAtomPairInfo.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/printCube.html">printCube.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/printFreq.html">printFreq.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/printFreqBild.html">printFreqBild.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/printInfo.html">printInfo.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/printXYZ.html">printXYZ.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/getCitations.html">getCitations.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/libaddLigand.html">libaddLigand.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/libaddRing.html">libaddRing.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/libaddSubstituent.html">libaddSubstituent.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/listChanges.html">listChanges.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/parsePDF.html">parsePDF.py</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../other_docs/configuration.html">Customization</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Customization</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../other_docs/job_templates.html">Job Submission Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../other_docs/libraries.html">AaronTools Libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api/api.html">Python API Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Python API Documentation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/geometry.html"><code class="docutils literal notranslate"><span class="pre">Geometry</span></code> class</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api/fileIO.html">Reading and Writing Files</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Reading and Writing Files</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/filereader.html"><code class="docutils literal notranslate"><span class="pre">FileReader</span></code> class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/filewriter.html"><code class="docutils literal notranslate"><span class="pre">FileWriter</span></code> class</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/finders.html">Finders</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api/theory.html"><code class="docutils literal notranslate"><span class="pre">theory</span></code> module</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of theory module</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/theory_class.html"><code class="docutils literal notranslate"><span class="pre">Theory</span></code> class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/theory_parameters.html">Theory parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/job_types.html"><code class="docutils literal notranslate"><span class="pre">JobType</span></code> classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/basis.html">Basis Set classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/method.html"><code class="docutils literal notranslate"><span class="pre">Method</span></code> classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/dispersion.html"><code class="docutils literal notranslate"><span class="pre">EmpiricalDispersion</span></code> class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/solvent.html"><code class="docutils literal notranslate"><span class="pre">ImplicitSolvent</span></code> class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/integration_grid.html"><code class="docutils literal notranslate"><span class="pre">IntegrationGrid</span></code> class</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/atoms.html"><code class="docutils literal notranslate"><span class="pre">Atom</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/component.html"><code class="docutils literal notranslate"><span class="pre">Component</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/substituent.html"><code class="docutils literal notranslate"><span class="pre">Substituent</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/rings.html"><code class="docutils literal notranslate"><span class="pre">Ring</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/spectra.html">Spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/comp_output.html"><code class="docutils literal notranslate"><span class="pre">CompOutput</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/orbitals.html"><code class="docutils literal notranslate"><span class="pre">Orbital</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/job_control.html"><code class="docutils literal notranslate"><span class="pre">SubmitProcess</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/json_extension.html">JSON Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/symmetry.html"><code class="docutils literal notranslate"><span class="pre">PointGroup</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/utils.html"><code class="docutils literal notranslate"><span class="pre">Utilities</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../advanced/advanced.html">Advanced Topics</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Advanced Topics</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/algorithm_implementation.html">Structure Analysis and Descriptor Implementation</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../_sources/tutorials/Jupyter_basics.ipynb.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="working-with-aarontools-in-jupyter-notebooks">
+<h1>Working with AaronTools in Jupyter Notebooks<a class="headerlink" href="#working-with-aarontools-in-jupyter-notebooks" title="Link to this heading">¶</a></h1>
+<p>Jupyter Notebooks provide an intuitive way of working with AaronTools by allowing for the display of interactive 3D models of AaronTools Geometries.</p>
+<p>For example, below we build a <code class="docutils literal notranslate"><span class="pre">Geometry</span></code> object for toluene and then display the resulting structure by calling <code class="docutils literal notranslate"><span class="pre">geom.display()</span></code>.</p>
+<p>Note that if you hover over an atom it will display the element and atom number.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="s1">&#39;toluene&#39;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="s1">&#39;iupac&#39;</span><span class="p">)</span>
+<span class="n">geom</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="3dmolviewer_1732044448976414"  style="position: relative; width: 640px; height: 480px;">
+        <p id="3dmolwarning_1732044448976414" style="background-color:#ffcccc;color:black">3Dmol.js failed to load for some reason.  Please check your browser console for error messages.<br></p>
+        </div>
+<script>
+
+var loadScriptAsync = function(uri){
+  return new Promise((resolve, reject) => {
+    //this is to ignore the existence of requirejs amd
+    var savedexports, savedmodule;
+    if (typeof exports !== 'undefined') savedexports = exports;
+    else exports = {}
+    if (typeof module !== 'undefined') savedmodule = module;
+    else module = {}
+
+    var tag = document.createElement('script');
+    tag.src = uri;
+    tag.async = true;
+    tag.onload = () => {
+        exports = savedexports;
+        module = savedmodule;
+        resolve();
+    };
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+});
+};
+
+if(typeof $3Dmolpromise === 'undefined') {
+$3Dmolpromise = null;
+  $3Dmolpromise = loadScriptAsync('https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.4.0/3Dmol-min.js');
+}
+
+var viewer_1732044448976414 = null;
+var warn = document.getElementById("3dmolwarning_1732044448976414");
+if(warn) {
+    warn.parentNode.removeChild(warn);
+}
+$3Dmolpromise.then(function() {
+viewer_1732044448976414 = $3Dmol.createViewer(document.getElementById("3dmolviewer_1732044448976414"),{backgroundColor:"white"});
+viewer_1732044448976414.addModel("15\n\nC      2.13640   -0.06990   -0.26770\nC      0.67550   -0.03680   -0.09330\nC      0.11290    1.18590    0.26220\nC     -1.25840    1.21650    0.42580\nC     -2.05490    0.08030    0.24580\nC     -1.43020   -1.08430   -0.10300\nC     -0.04970   -1.19450   -0.28660\nH      2.48870    0.44210   -1.19590\nH      2.50510   -1.13320   -0.30170\nH      2.61070    0.35210    0.64080\nH      0.68650    2.08140    0.41030\nH     -1.76890    2.15020    0.70650\nH     -3.12950    0.11370    0.37620\nH     -1.98340   -2.01160   -0.26090\nH      0.45930   -2.09180   -0.55850");
+viewer_1732044448976414.setStyle({"stick": {"colorscheme": "Jmol"}});
+viewer_1732044448976414.zoomTo();
+	viewer_1732044448976414.setHoverable({},true,"function(atom,viewer,event,container) {\n                       if(!atom.label) {\n                        var ndx = atom.index + 1;\n                        atom.label = viewer.addLabel(\n                            atom.atom + \":\" + ndx,\n                            {position: atom, backgroundColor: 'white', fontColor:'black'}\n                        );\n                       }}","function(atom,viewer) {\n                       if(atom.label) {\n                        viewer.removeLabel(atom.label);\n                        delete atom.label;\n                       }\n                    }");
+viewer_1732044448976414.render();
+});
+</script></div></div>
+</div>
+<p>We can then use other AaronTools commands to build more complex structures.
+For example, we can replace <code class="docutils literal notranslate"><span class="pre">H12</span></code> with a CN group and then build and display a dimer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># copy geom to a new Geometry object</span>
+<span class="n">geom2</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># replace atom 12 with CN</span>
+<span class="n">geom</span><span class="o">.</span><span class="n">substitute</span><span class="p">(</span><span class="s2">&quot;CN&quot;</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span><span class="p">)</span>
+
+<span class="c1"># shift second geometry to (1, 1, 3.5) and rotate 30 degrees around z-axis</span>
+<span class="n">geom2</span><span class="o">.</span><span class="n">coord_shift</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">])</span>
+<span class="n">geom2</span><span class="o">.</span><span class="n">rotate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">angle</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span>
+
+<span class="c1"># combine monomers to make dimer and display </span>
+<span class="n">dimer</span> <span class="o">=</span> <span class="n">geom</span> <span class="o">+</span> <span class="n">geom2</span>
+<span class="n">dimer</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="3dmolviewer_1732044453210502"  style="position: relative; width: 640px; height: 480px;">
+        <p id="3dmolwarning_1732044453210502" style="background-color:#ffcccc;color:black">3Dmol.js failed to load for some reason.  Please check your browser console for error messages.<br></p>
+        </div>
+<script>
+
+var loadScriptAsync = function(uri){
+  return new Promise((resolve, reject) => {
+    //this is to ignore the existence of requirejs amd
+    var savedexports, savedmodule;
+    if (typeof exports !== 'undefined') savedexports = exports;
+    else exports = {}
+    if (typeof module !== 'undefined') savedmodule = module;
+    else module = {}
+
+    var tag = document.createElement('script');
+    tag.src = uri;
+    tag.async = true;
+    tag.onload = () => {
+        exports = savedexports;
+        module = savedmodule;
+        resolve();
+    };
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+});
+};
+
+if(typeof $3Dmolpromise === 'undefined') {
+$3Dmolpromise = null;
+  $3Dmolpromise = loadScriptAsync('https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.4.0/3Dmol-min.js');
+}
+
+var viewer_1732044453210502 = null;
+var warn = document.getElementById("3dmolwarning_1732044453210502");
+if(warn) {
+    warn.parentNode.removeChild(warn);
+}
+$3Dmolpromise.then(function() {
+viewer_1732044453210502 = $3Dmol.createViewer(document.getElementById("3dmolviewer_1732044453210502"),{backgroundColor:"white"});
+viewer_1732044453210502.addModel("31\n\nC      2.13640   -0.06990   -0.26770\nC      0.67550   -0.03680   -0.09330\nC      0.11290    1.18590    0.26220\nC     -1.25840    1.21650    0.42580\nC     -2.05490    0.08030    0.24580\nC     -1.43020   -1.08430   -0.10300\nC     -0.04970   -1.19450   -0.28660\nH      2.48870    0.44210   -1.19590\nH      2.50510   -1.13320   -0.30170\nH      2.61070    0.35210    0.64080\nH      0.68650    2.08140    0.41030\nC     -1.96347    2.50607    0.81348\nH     -3.12950    0.11370    0.37620\nH     -1.98340   -2.01160   -0.26090\nH      0.45930   -2.09180   -0.55850\nN     -2.50288    3.49265    1.11008\nC      2.25115    2.37369    3.23230\nC      0.96943    1.67191    3.40670\nC     -0.12915    2.44949    3.76220\nC     -1.33203    1.79035    3.92580\nC     -1.45372    0.40812    3.74580\nC     -0.33041   -0.28811    3.39700\nC      0.92023    0.30671    3.21340\nH      2.30025    2.99325    2.30410\nH      3.10211    1.63720    3.19830\nH      2.45091    2.97630    4.14080\nH     -0.08015    3.51182    3.91030\nH     -2.24099    2.34370    4.20650\nH     -2.40105   -0.10026    3.87620\nH     -0.34585   -1.36777    3.23910\nH      1.80969   -0.21588    2.94150");
+viewer_1732044453210502.setStyle({"stick": {"colorscheme": "Jmol"}});
+viewer_1732044453210502.zoomTo();
+	viewer_1732044453210502.setHoverable({},true,"function(atom,viewer,event,container) {\n                       if(!atom.label) {\n                        var ndx = atom.index + 1;\n                        atom.label = viewer.addLabel(\n                            atom.atom + \":\" + ndx,\n                            {position: atom, backgroundColor: 'white', fontColor:'black'}\n                        );\n                       }}","function(atom,viewer) {\n                       if(atom.label) {\n                        viewer.removeLabel(atom.label);\n                        delete atom.label;\n                       }\n                    }");
+viewer_1732044453210502.render();
+});
+</script></div></div>
+</div>
+<p>If we are satisfied with this structure we could then write it to an input file for our favorite quantum chemistry package or run calculations directly in Psi4 from this Jupyter Notebook (see Future Tutorial on running Psi4).</p>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../cls/list.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">List of Command Line Scripts</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="coding_with_filereaders.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Coding with <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> objects</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, V. M. Ingman, A. J. Schaefer, L. R. Andreola, and S. E. Wheeler
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/documentation_options.js?v=8dca44d8"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=a4d4be8e"></script>
+    </body>
+</html>
