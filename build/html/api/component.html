@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
     
     
@@ -210,6 +211,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/coding_with_geometries.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/coding_with_theories.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/coding_with_filereaders.html">Coding with <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/Jupyter_basics.html">Working with AaronTools in Jupyter Notebooks</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../cls/list.html">List of Command Line Scripts</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of List of Command Line Scripts</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -411,6 +413,22 @@ ligands) the L-M-L angle</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.component.Component.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.component.Component.copy" title="Link to this definition">¶</a></dt>
+<dd><p>creates a new copy of the geometry</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>atoms</strong> (<em>list</em><em>(</em><a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a><em>)</em>) – atoms to copy defaults to all atoms</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – defaults to NAME_copy</p></li>
+<li><p><strong>comment</strong> (<em>str</em>) – comment to add to the copy, defaults to self’s comment</p></li>
+<li><p><strong>copy_atoms</strong> (<em>bool</em>) – passed to _fix_connectivity, defaults to True</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.component.Component.get_frag_list">
 <span class="sig-name descname"><span class="pre">get_frag_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.component.Component.get_frag_list" title="Link to this definition">¶</a></dt>
 <dd><p>find fragments connected by only one bond
@@ -568,6 +586,7 @@ instead of solid angle (steradians)</p></li>
 <li><a class="reference internal" href="#AaronTools.component.Component.list"><code class="docutils literal notranslate"><span class="pre">Component.list()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.component.Component.c2_symmetric"><code class="docutils literal notranslate"><span class="pre">Component.c2_symmetric()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.component.Component.sterimol"><code class="docutils literal notranslate"><span class="pre">Component.sterimol()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.component.Component.copy"><code class="docutils literal notranslate"><span class="pre">Component.copy()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.component.Component.get_frag_list"><code class="docutils literal notranslate"><span class="pre">Component.get_frag_list()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.component.Component.detect_backbone"><code class="docutils literal notranslate"><span class="pre">Component.detect_backbone()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.component.Component.minimize_sub_torsion"><code class="docutils literal notranslate"><span class="pre">Component.minimize_sub_torsion()</span></code></a></li>

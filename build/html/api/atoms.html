@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
     
     
@@ -210,6 +211,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/coding_with_geometries.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/coding_with_theories.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/coding_with_filereaders.html">Coding with <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/Jupyter_basics.html">Working with AaronTools in Jupyter Notebooks</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../cls/list.html">List of Command Line Scripts</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of List of Command Line Scripts</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -378,6 +380,24 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.__init__" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>element</strong> (<em>str</em>) – element symbol</p></li>
+<li><p><strong>coords</strong> (<em>np.ndarray</em>) – position</p></li>
+<li><p><strong>flag</strong> (<em>bool</em>) – whether atom is frozen</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – atom name</p></li>
+<li><p><strong>tags</strong> (<em>list</em>) – misc. data</p></li>
+<li><p><strong>charge</strong> (<em>float</em>) – partial charge of atom</p></li>
+<li><p><strong>mass</strong> (<em>float</em>) – mass of atom</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.atoms.Atom.b__init__">
+<span class="sig-name descname"><span class="pre">b__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.b__init__" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -584,6 +604,22 @@ changes by +/- 1</p>
 <p>see atom.get_shape for a list of shapes</p>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.atoms.Atom.draw_atom">
+<span class="sig-name descname"><span class="pre">draw_atom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ascale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linewidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.draw_atom" title="Link to this definition">¶</a></dt>
+<dd><p>Draw HoukMol style atom and add to Matplotlib axis ax</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ax</strong> (<em>matplotlib.pyplot.Axis</em>) – Matplotlib axis object</p></li>
+<li><p><strong>fp</strong> (<em>float</em>) – z-value for focal point to add simple perspective (Default: 40)</p></li>
+<li><p><strong>ascale</strong> (<em>float</em>) – scaling factor for covalent radii (Default: 0.5)</p></li>
+<li><p><strong>linewidth</strong> (<em>float</em>) – linewidth (in points) for atom details (default: 0.1)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </section>
@@ -646,6 +682,7 @@ changes by +/- 1</p>
 <li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">Atom</span></code> class</a><ul>
 <li><a class="reference internal" href="#AaronTools.atoms.Atom"><code class="docutils literal notranslate"><span class="pre">Atom</span></code></a><ul>
 <li><a class="reference internal" href="#AaronTools.atoms.Atom.__init__"><code class="docutils literal notranslate"><span class="pre">Atom.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.atoms.Atom.b__init__"><code class="docutils literal notranslate"><span class="pre">Atom.b__init__()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.atoms.Atom.get_invariant"><code class="docutils literal notranslate"><span class="pre">Atom.get_invariant()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.atoms.Atom.get_neighbor_id"><code class="docutils literal notranslate"><span class="pre">Atom.get_neighbor_id()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.atoms.Atom.is_connected"><code class="docutils literal notranslate"><span class="pre">Atom.is_connected()</span></code></a></li>
@@ -663,6 +700,7 @@ changes by +/- 1</p>
 <li><a class="reference internal" href="#AaronTools.atoms.Atom.octahedral_shape"><code class="docutils literal notranslate"><span class="pre">Atom.octahedral_shape()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.atoms.Atom.new_shape"><code class="docutils literal notranslate"><span class="pre">Atom.new_shape()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.atoms.Atom.get_vsepr"><code class="docutils literal notranslate"><span class="pre">Atom.get_vsepr()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.atoms.Atom.draw_atom"><code class="docutils literal notranslate"><span class="pre">Atom.draw_atom()</span></code></a></li>
 </ul>
 </li>
 </ul>

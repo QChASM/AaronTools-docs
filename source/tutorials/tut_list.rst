@@ -17,3 +17,9 @@ Tutorials
     coding_with_theories
     coding_with_filereaders
     
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Jupyter Notebooks:
+    
+    Jupyter_basics

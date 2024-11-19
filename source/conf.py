@@ -36,7 +36,11 @@ extensions = [
     'sphinx_copybutton',
     'sphinx.ext.autosectionlabel',
     "sphinx_sitemap",
+    "myst_nb",
 ]
+
+# myst-NB stuff
+jupyter_execute_notebooks = "off"
 
 html_baseurl = "https://aarontools.readthedocs.io/en/latest/"
 sitemap_url_scheme = "{link}"
