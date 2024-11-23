@@ -435,18 +435,53 @@ the atoms connected to self</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.atoms.Atom.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.copy" title="Link to this definition">¶</a></dt>
+<dd><p>creates and returns a copy of self</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.is_connected">
 <span class="sig-name descname"><span class="pre">is_connected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.is_connected" title="Link to this definition">¶</a></dt>
-<dd><p>determines if distance between atoms is small enough to be bonded</p>
+<dd><p>determines if distance between atoms is small enough to be bonded
+same as dist_is_connected but automatically calculates the distance between the atoms</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tolerance</strong> (<em>float</em>) – buffer for consideration of what is “small enough”; default is 0.3. Cutoff for what constitutes small enough is the sum of the atoms’ radii and the tolerance value</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if distance is small enough to be bonded, False otherwise</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.dist_is_connected">
 <span class="sig-name descname"><span class="pre">dist_is_connected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist_to_other</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.dist_is_connected" title="Link to this definition">¶</a></dt>
-<dd><p>determines if distance between atoms is small enough to be bonded</p>
+<dd><blockquote>
+<div><p>determines if distance between atoms is small enough to be bonded</p>
 <p>used to optimize connected checks when distances can be quickly precalculated,
 like with scipy.spatial.distance_matrix
-:param Atom other: atom to measure the distance between</p>
+:param Atom other: atom to measure the distance between
+:param float tolerance: buffer for consideration of what is “small enough”; d</p>
+</div></blockquote>
+<dl class="simple">
+<dt>efault is 0.3. Cutoff for what constitutes small enough is the sum of the atoms’ radii and the tolerance value</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param float dist_to_other<span class="colon">:</span></dt>
+<dd class="field-odd"><p>distance between the atoms in Angstroms</p>
+</dd>
+<dt class="field-even">returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if distance is small enough to be bonded, False otherwise</p>
+</dd>
+<dt class="field-odd">rtype<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -458,25 +493,57 @@ like with scipy.spatial.distance_matrix
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.bond">
 <span class="sig-name descname"><span class="pre">bond</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.bond" title="Link to this definition">¶</a></dt>
-<dd><p>returns the vector self–&gt;other</p>
+<dd><p>retrieves bond vectors</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the vector self–&gt;other</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>np.array</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.dist">
 <span class="sig-name descname"><span class="pre">dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.dist" title="Link to this definition">¶</a></dt>
-<dd><p>returns the distance between self and other</p>
+<dd><p>retrieves distance between Atoms</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the distance between self and other</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.angle">
 <span class="sig-name descname"><span class="pre">angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.angle" title="Link to this definition">¶</a></dt>
-<dd><p>returns the a1-self-a3 angle</p>
+<dd><p>determines angle between three Atoms</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the a1-self-a3 angle</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.mass">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mass</span></span><a class="headerlink" href="#AaronTools.atoms.Atom.mass" title="Link to this definition">¶</a></dt>
-<dd><p>returns atomic mass</p>
+<dd><p>retrieves mass of an Atom</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>atomic mass</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -559,6 +626,126 @@ like with scipy.spatial.distance_matrix
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.octahedral_shape">
 <em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">octahedral_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.octahedral_shape" title="Link to this definition">¶</a></dt>
 <dd><p>returns a list of 7 dummy atoms in an octahedral shape</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.atoms.Atom.trigonal_prismatic_shape">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trigonal_prismatic_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.trigonal_prismatic_shape" title="Link to this definition">¶</a></dt>
+<dd><p>returns a list of 7 dummy atoms in a trigonal prismatic shape</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.atoms.Atom.capped_octahedral_shape">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">capped_octahedral_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.capped_octahedral_shape" title="Link to this definition">¶</a></dt>
+<dd><p>returns a list of 8 dummy atoms in a capped ocrahedral shape</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.atoms.Atom.capped_trigonal_prismatic_shape">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">capped_trigonal_prismatic_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.capped_trigonal_prismatic_shape" title="Link to this definition">¶</a></dt>
+<dd><p>returns a list of 8 dummy atoms in a capped trigonal prismatic shape</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.atoms.Atom.pentagonal_bipyramidal_shape">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pentagonal_bipyramidal_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.pentagonal_bipyramidal_shape" title="Link to this definition">¶</a></dt>
+<dd><p>returns a list of 8 dummy atoms in a pentagonal bipyramidal shape</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.atoms.Atom.biaugmented_trigonal_prismatic_shape">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">biaugmented_trigonal_prismatic_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.biaugmented_trigonal_prismatic_shape" title="Link to this definition">¶</a></dt>
+<dd><p>returns a list of 9 dummy atoms in a biaugmented trigonal prismatic shape</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.atoms.Atom.cubic_shape">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cubic_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.cubic_shape" title="Link to this definition">¶</a></dt>
+<dd><p>returns a list of 9 dummy atoms in a cubic shape</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.atoms.Atom.elongated_trigonal_bipyramidal_shape">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">elongated_trigonal_bipyramidal_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.elongated_trigonal_bipyramidal_shape" title="Link to this definition">¶</a></dt>
+<dd><p>returns a list of 9 dummy atoms in an elongated trigonal bipyramidal shape</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.atoms.Atom.hexagonal_bipyramidal_shape">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hexagonal_bipyramidal_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.hexagonal_bipyramidal_shape" title="Link to this definition">¶</a></dt>
+<dd><p>returns a list of 9 dummy atoms in a hexagonal bipyramidal shape</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.atoms.Atom.square_antiprismatic_shape">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">square_antiprismatic_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.square_antiprismatic_shape" title="Link to this definition">¶</a></dt>
+<dd><p>returns a list of 9 dummy atoms in a square antiprismatic shape</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.atoms.Atom.trigonal_dodecahedral_shape">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trigonal_dodecahedral_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.trigonal_dodecahedral_shape" title="Link to this definition">¶</a></dt>
+<dd><p>returns a list of 9 dummy atoms in a trigonal dodecahedral shape</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.atoms.Atom.heptagonal_bipyramidal_shape">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">heptagonal_bipyramidal_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.heptagonal_bipyramidal_shape" title="Link to this definition">¶</a></dt>
+<dd><p>returns a list of 10 dummy atoms in a heptagonal bipyramidal shape</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.atoms.Atom.capped_cube_shape">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">capped_cube_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.capped_cube_shape" title="Link to this definition">¶</a></dt>
+<dd><p>returns a list of 10 dummy atoms in a capped cube shape</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.atoms.Atom.capped_square_antiprismatic_shape">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">capped_square_antiprismatic_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.capped_square_antiprismatic_shape" title="Link to this definition">¶</a></dt>
+<dd><p>returns a list of 10 dummy atoms in a capped square antiprismatic shape</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.atoms.Atom.enneagonal_shape">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">enneagonal_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.enneagonal_shape" title="Link to this definition">¶</a></dt>
+<dd><p>returns a list of 10 dummy atoms in an enneagonal shape</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.atoms.Atom.hula_hoop_shape">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hula_hoop_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.hula_hoop_shape" title="Link to this definition">¶</a></dt>
+<dd><p>returns a list of 10 dummy atoms in a hula hoop shape</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.atoms.Atom.triangular_cupola_shape">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">triangular_cupola_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.triangular_cupola_shape" title="Link to this definition">¶</a></dt>
+<dd><p>returns a list of 10 dummy atoms in a triangular cupola shape</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.atoms.Atom.tridiminished_icosahedral_shape">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tridiminished_icosahedral_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.tridiminished_icosahedral_shape" title="Link to this definition">¶</a></dt>
+<dd><p>returns a list of 10 dummy atoms in a tridiminished icosahedral shape</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.atoms.Atom.muffin_shape">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">muffin_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.muffin_shape" title="Link to this definition">¶</a></dt>
+<dd><p>returns a list of 10 dummy atoms in a muffin shape</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.atoms.Atom.octagonal_pyramidal_shape">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">octagonal_pyramidal_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.octagonal_pyramidal_shape" title="Link to this definition">¶</a></dt>
+<dd><p>returns a list of 10 dummy atoms in an octagonal pyramidal shape</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.atoms.Atom.tricapped_trigonal_prismatic_shape">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tricapped_trigonal_prismatic_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.tricapped_trigonal_prismatic_shape" title="Link to this definition">¶</a></dt>
+<dd><p>returns a list of 10 dummy atoms in a tricapped trigonal prismatic shape</p>
 </dd></dl>
 
 <dl class="py method">
@@ -685,6 +872,7 @@ changes by +/- 1</p>
 <li><a class="reference internal" href="#AaronTools.atoms.Atom.b__init__"><code class="docutils literal notranslate"><span class="pre">Atom.b__init__()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.atoms.Atom.get_invariant"><code class="docutils literal notranslate"><span class="pre">Atom.get_invariant()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.atoms.Atom.get_neighbor_id"><code class="docutils literal notranslate"><span class="pre">Atom.get_neighbor_id()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.atoms.Atom.copy"><code class="docutils literal notranslate"><span class="pre">Atom.copy()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.atoms.Atom.is_connected"><code class="docutils literal notranslate"><span class="pre">Atom.is_connected()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.atoms.Atom.dist_is_connected"><code class="docutils literal notranslate"><span class="pre">Atom.dist_is_connected()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.atoms.Atom.add_bond_to"><code class="docutils literal notranslate"><span class="pre">Atom.add_bond_to()</span></code></a></li>
@@ -698,6 +886,26 @@ changes by +/- 1</p>
 <li><a class="reference internal" href="#AaronTools.atoms.Atom.tetrahedral_shape"><code class="docutils literal notranslate"><span class="pre">Atom.tetrahedral_shape()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.atoms.Atom.trigonal_bipyramidal_shape"><code class="docutils literal notranslate"><span class="pre">Atom.trigonal_bipyramidal_shape()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.atoms.Atom.octahedral_shape"><code class="docutils literal notranslate"><span class="pre">Atom.octahedral_shape()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.atoms.Atom.trigonal_prismatic_shape"><code class="docutils literal notranslate"><span class="pre">Atom.trigonal_prismatic_shape()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.atoms.Atom.capped_octahedral_shape"><code class="docutils literal notranslate"><span class="pre">Atom.capped_octahedral_shape()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.atoms.Atom.capped_trigonal_prismatic_shape"><code class="docutils literal notranslate"><span class="pre">Atom.capped_trigonal_prismatic_shape()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.atoms.Atom.pentagonal_bipyramidal_shape"><code class="docutils literal notranslate"><span class="pre">Atom.pentagonal_bipyramidal_shape()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.atoms.Atom.biaugmented_trigonal_prismatic_shape"><code class="docutils literal notranslate"><span class="pre">Atom.biaugmented_trigonal_prismatic_shape()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.atoms.Atom.cubic_shape"><code class="docutils literal notranslate"><span class="pre">Atom.cubic_shape()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.atoms.Atom.elongated_trigonal_bipyramidal_shape"><code class="docutils literal notranslate"><span class="pre">Atom.elongated_trigonal_bipyramidal_shape()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.atoms.Atom.hexagonal_bipyramidal_shape"><code class="docutils literal notranslate"><span class="pre">Atom.hexagonal_bipyramidal_shape()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.atoms.Atom.square_antiprismatic_shape"><code class="docutils literal notranslate"><span class="pre">Atom.square_antiprismatic_shape()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.atoms.Atom.trigonal_dodecahedral_shape"><code class="docutils literal notranslate"><span class="pre">Atom.trigonal_dodecahedral_shape()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.atoms.Atom.heptagonal_bipyramidal_shape"><code class="docutils literal notranslate"><span class="pre">Atom.heptagonal_bipyramidal_shape()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.atoms.Atom.capped_cube_shape"><code class="docutils literal notranslate"><span class="pre">Atom.capped_cube_shape()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.atoms.Atom.capped_square_antiprismatic_shape"><code class="docutils literal notranslate"><span class="pre">Atom.capped_square_antiprismatic_shape()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.atoms.Atom.enneagonal_shape"><code class="docutils literal notranslate"><span class="pre">Atom.enneagonal_shape()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.atoms.Atom.hula_hoop_shape"><code class="docutils literal notranslate"><span class="pre">Atom.hula_hoop_shape()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.atoms.Atom.triangular_cupola_shape"><code class="docutils literal notranslate"><span class="pre">Atom.triangular_cupola_shape()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.atoms.Atom.tridiminished_icosahedral_shape"><code class="docutils literal notranslate"><span class="pre">Atom.tridiminished_icosahedral_shape()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.atoms.Atom.muffin_shape"><code class="docutils literal notranslate"><span class="pre">Atom.muffin_shape()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.atoms.Atom.octagonal_pyramidal_shape"><code class="docutils literal notranslate"><span class="pre">Atom.octagonal_pyramidal_shape()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.atoms.Atom.tricapped_trigonal_prismatic_shape"><code class="docutils literal notranslate"><span class="pre">Atom.tricapped_trigonal_prismatic_shape()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.atoms.Atom.new_shape"><code class="docutils literal notranslate"><span class="pre">Atom.new_shape()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.atoms.Atom.get_vsepr"><code class="docutils literal notranslate"><span class="pre">Atom.get_vsepr()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.atoms.Atom.draw_atom"><code class="docutils literal notranslate"><span class="pre">Atom.draw_atom()</span></code></a></li>
