@@ -105,6 +105,22 @@ Below is sample code for turning each structure in a
     for struc in fr.all_geom:
         geom_list.append(Geometry(struc["atoms"]))
     
+Below is similar code for reading an XYZ file with multiple structures
+that will also copy over the comment information from the original XYZ entry
+
+.. code-block:: python
+
+    from AaronTools.atoms import Atom
+    from AaronTools.geometry import Geometry
+    from AaronTools.fileIO import FileReader
+    
+    fr = FileReader('molecules.xyz', get_all=True)
+    
+    geom_list = []
+    for struc in fr.all_geom:
+        geom_list.append(Geometry(struc["atoms"], comment=struc["comment"]))
+    
+
 Calculation Information
 
 The :code:`just_geom` keyword controls whether the

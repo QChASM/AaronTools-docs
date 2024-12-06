@@ -458,6 +458,19 @@ the <code class="code docutils literal notranslate"><span class="pre">FileReader
     <span class="n">geom_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Geometry</span><span class="p">(</span><span class="n">struc</span><span class="p">[</span><span class="s2">&quot;atoms&quot;</span><span class="p">]))</span>
 </pre></div>
 </div>
+<p>Below is similar code for reading an XYZ file with multiple structures
+that will also copy over the comment information from the original XYZ entry</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.atoms</span> <span class="kn">import</span> <span class="n">Atom</span>
+<span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">from</span> <span class="nn">AaronTools.fileIO</span> <span class="kn">import</span> <span class="n">FileReader</span>
+
+<span class="n">fr</span> <span class="o">=</span> <span class="n">FileReader</span><span class="p">(</span><span class="s1">&#39;molecules.xyz&#39;</span><span class="p">,</span> <span class="n">get_all</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">geom_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">struc</span> <span class="ow">in</span> <span class="n">fr</span><span class="o">.</span><span class="n">all_geom</span><span class="p">:</span>
+    <span class="n">geom_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Geometry</span><span class="p">(</span><span class="n">struc</span><span class="p">[</span><span class="s2">&quot;atoms&quot;</span><span class="p">],</span> <span class="n">comment</span><span class="o">=</span><span class="n">struc</span><span class="p">[</span><span class="s2">&quot;comment&quot;</span><span class="p">]))</span>
+</pre></div>
+</div>
 <p>Calculation Information</p>
 <p>The <code class="code docutils literal notranslate"><span class="pre">just_geom</span></code> keyword controls whether the
 <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> grabs more than the file’s structure.
