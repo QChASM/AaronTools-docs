@@ -721,11 +721,11 @@ errors resolved by JobType take priority</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="AaronTools.theory.job_types.ConformerSearchJob">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">ConformerSearchJob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ConformerSearchJob" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">ConformerSearchJob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_topology</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ConformerSearchJob" title="Link to this definition">¶</a></dt>
 <dd><p>conformer search (basically only for crest)</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.job_types.ConformerSearchJob.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ConformerSearchJob.__init__" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_topology</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ConformerSearchJob.__init__" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -745,6 +745,12 @@ errors resolved by JobType take priority</p>
 </ul>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.ConformerSearchJob.get_orca">
+<span class="sig-name descname"><span class="pre">get_orca</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ConformerSearchJob.get_orca" title="Link to this definition">¶</a></dt>
+<dd><p>returns a dict with keys: ORCA_ROUTE, ORCA_BLOCKS</p>
 </dd></dl>
 
 </dd></dl>
@@ -927,6 +933,7 @@ errors resolved by JobType take priority</p>
 </li>
 <li><a class="reference internal" href="#AaronTools.theory.job_types.ConformerSearchJob"><code class="docutils literal notranslate"><span class="pre">ConformerSearchJob</span></code></a><ul>
 <li><a class="reference internal" href="#AaronTools.theory.job_types.ConformerSearchJob.__init__"><code class="docutils literal notranslate"><span class="pre">ConformerSearchJob.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.ConformerSearchJob.get_orca"><code class="docutils literal notranslate"><span class="pre">ConformerSearchJob.get_orca()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#AaronTools.theory.job_types.TDDFTJob"><code class="docutils literal notranslate"><span class="pre">TDDFTJob</span></code></a><ul>

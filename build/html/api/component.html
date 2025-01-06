@@ -383,12 +383,36 @@ Attributes:</p>
 <dt class="sig sig-object py" id="AaronTools.component.Component.list">
 <em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name_regex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coordinating_elements</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">denticity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_ext</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.component.Component.list" title="Link to this definition">¶</a></dt>
 <dd><p>returns a list of ligand names in the library</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name_regex</strong> (<em>str</em>) – regex identifier/name for a library to search</p></li>
+<li><p><strong>coordinating_elements</strong> (<em>list</em><em>(</em><a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a><em>)</em>) – if specified, only lists ligands with included coordinated elements</p></li>
+<li><p><strong>denticity</strong> (<em>int</em>) – if specified, lists ligands with included denticity</p></li>
+<li><p><strong>include_ext</strong> (<em>bool</em>) – includes extensions on each item if True</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.component.Component.c2_symmetric">
 <span class="sig-name descname"><span class="pre">c2_symmetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to_center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.component.Component.c2_symmetric" title="Link to this definition">¶</a></dt>
 <dd><p>determine if center-key atom axis is a C2 axis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>to_center</strong> (<em>list</em><em>(</em><a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a><em>)</em>) – arg. for Geometry.COM(), atoms connected to center</p></li>
+<li><p><strong>tolerance</strong> (<em>float</em>) – buffer for consideration of axis symmetry</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if axis is C2, otherwise False</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -422,8 +446,13 @@ ligands) the L-M-L angle</p>
 <li><p><strong>atoms</strong> (<em>list</em><em>(</em><a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a><em>)</em>) – atoms to copy defaults to all atoms</p></li>
 <li><p><strong>name</strong> (<em>str</em>) – defaults to NAME_copy</p></li>
 <li><p><strong>comment</strong> (<em>str</em>) – comment to add to the copy, defaults to self’s comment</p></li>
-<li><p><strong>copy_atoms</strong> (<em>bool</em>) – passed to _fix_connectivity, defaults to True</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>copy of self</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry">Geometry</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -433,6 +462,20 @@ ligands) the L-M-L angle</p>
 <span class="sig-name descname"><span class="pre">get_frag_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.component.Component.get_frag_list" title="Link to this definition">¶</a></dt>
 <dd><p>find fragments connected by only one bond
 (both fragments contain no overlapping atoms)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>targets</strong> (<em>list</em><em>(</em><a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a><em>)</em>) – all fragments must include targets if specified</p></li>
+<li><p><strong>max_order</strong> (<em>int</em>) – maximum order/length for fragments</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>all fragments under specified conditions</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list(<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry">Geometry</a>)</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
