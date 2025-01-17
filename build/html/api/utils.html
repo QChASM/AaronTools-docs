@@ -366,11 +366,11 @@
 <dd><p>Takes a list of numbers and puts them into a string containing ranges, eg:
 [1, 2, 3, 5, 6, 7, 9, 10] -&gt; “1-3,5-7,9,10”</p>
 <dl class="field-list simple">
-<dt class="field-odd">Sep<span class="colon">:</span></dt>
-<dd class="field-odd"><p>the separator to use between consecutive ranges</p>
-</dd>
-<dt class="field-even">Sort<span class="colon">:</span></dt>
-<dd class="field-even"><p>sort the list before parsing</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sep</strong> (<em>str</em>) – the separator to use between consecutive ranges</p></li>
+<li><p><strong>sort</strong> (<em>bool</em>) – sort the list before parsing</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -379,8 +379,20 @@
 <dt class="sig sig-object py" id="AaronTools.utils.utils.proj">
 <span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">proj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v_vec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u_vec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.proj" title="Link to this definition">¶</a></dt>
 <dd><p>projection of u_vec into v_vec</p>
-<p>v_vec should be a np.array, and u_vec should have the
-same shape as v_vec</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v_vec</strong> (<em>nparray</em>)</p></li>
+<li><p><strong>u_vec</strong> (<em>nparray</em>) – should have the same shape as v_vec</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>projection</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>nparray</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -417,14 +429,39 @@ same shape as v_vec</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="AaronTools.utils.utils.float_vec">
 <span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">float_vec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">word</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.float_vec" title="Link to this definition">¶</a></dt>
-<dd><p>Turns strings into floating point vectors
-:param str word: a comma-delimited string of numbers</p>
-<dl class="simple">
-<dt>if no comma or only one element:</dt><dd><p>returns just the floating point number</p>
+<dd><p>Turns strings into floating point vectors</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>word</strong> (<em>str</em>) – a comma-delimited string of numbers</p>
 </dd>
-<dt>if elements in word are strings:</dt><dd><p>returns word unchanged</p>
+</dl>
+<p>if no comma or only one element:
+:returns: just the floating point number</p>
+<p>if elements in word are strings:
+:returns: word unchanged</p>
+<p>else
+:returns: a np.array() of floating point numbers</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="AaronTools.utils.utils.add_dict">
+<span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">add_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">this</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.add_dict" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>skip</strong> (<em>list</em>) – items to avoid adding</p>
 </dd>
-<dt>else:</dt><dd><p>returns a np.array() of floating point numbers</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>self</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="AaronTools.utils.utils.resolve_concatenation">
+<span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">resolve_concatenation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.resolve_concatenation" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
 </dd>
 </dl>
 </dd></dl>
@@ -443,7 +480,10 @@ of the d1 key and d2 key (only for combined items)</p>
 </dl>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>dict2_conditional</strong> (<em>bool</em>) – if True, don’t add d2 keys unless they are also in d1</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>case_sensitive</strong> (<em>bool</em>) – considers letter case when True</p></li>
+<li><p><strong>dict2_conditional</strong> (<em>bool</em>) – if True, don’t add d2 keys unless they are also in d1</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -452,6 +492,11 @@ of the d1 key and d2 key (only for combined items)</p>
 <dt class="sig sig-object py" id="AaronTools.utils.utils.subtract_dicts">
 <span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">subtract_dicts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_sensitive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.subtract_dicts" title="Link to this definition">¶</a></dt>
 <dd><p>removes items in d2 from d1 to return a new dictionary</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>case_sensitive</strong> (<em>bool</em>) – considers letter case when True</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -473,9 +518,14 @@ of the d1 key and d2 key (only for combined items)</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="AaronTools.utils.utils.same_cycle">
 <span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">same_cycle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.same_cycle" title="Link to this definition">¶</a></dt>
-<dd><p>Determines if Atom :a: and Atom :b: are in the same cycle in a undirected :graph:</p>
-<p>Returns: True if cycle found containing a and b, False otherwise</p>
+<dd><p>Determines if Atom a and Atom b are in the same cycle in an undirected graph</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if cycle found containing a and b, False otherwise</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>boolean</p>
+</dd>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>graph</strong> (<em>list</em><em>|</em><a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – connectivity matrix or Geometry</p></li>
@@ -489,7 +539,7 @@ of the d1 key and d2 key (only for combined items)</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="AaronTools.utils.utils.shortest_path">
 <span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">shortest_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.shortest_path" title="Link to this definition">¶</a></dt>
-<dd><p>Find shortest path from :start: to :end: in :graph: using Dijkstra’s algorithm</p>
+<dd><p>Find shortest path from start to end in graph using Dijkstra’s algorithm</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -715,6 +765,8 @@ used for command line scripts because Windows doesn’t support globbing…</p>
 <li><a class="reference internal" href="#AaronTools.utils.utils.quat_matrix"><code class="docutils literal notranslate"><span class="pre">quat_matrix()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.utils.utils.uptri2sym"><code class="docutils literal notranslate"><span class="pre">uptri2sym()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.utils.utils.float_vec"><code class="docutils literal notranslate"><span class="pre">float_vec()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.utils.utils.add_dict"><code class="docutils literal notranslate"><span class="pre">add_dict()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.utils.utils.resolve_concatenation"><code class="docutils literal notranslate"><span class="pre">resolve_concatenation()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.utils.utils.combine_dicts"><code class="docutils literal notranslate"><span class="pre">combine_dicts()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.utils.utils.subtract_dicts"><code class="docutils literal notranslate"><span class="pre">subtract_dicts()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.utils.utils.integrate"><code class="docutils literal notranslate"><span class="pre">integrate()</span></code></a></li>

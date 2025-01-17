@@ -443,25 +443,21 @@ same as dist_is_connected but automatically calculates the distance between the 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.dist_is_connected">
 <span class="sig-name descname"><span class="pre">dist_is_connected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist_to_other</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.dist_is_connected" title="Link to this definition">¶</a></dt>
-<dd><blockquote>
-<div><p>determines if distance between atoms is small enough to be bonded</p>
-<p>used to optimize connected checks when distances can be quickly precalculated,
-like with scipy.spatial.distance_matrix
-:param Atom other: atom to measure the distance between
-:param float tolerance: buffer for consideration of what is “small enough”; d</p>
-</div></blockquote>
-<dl class="simple">
-<dt>efault is 0.3. Cutoff for what constitutes small enough is the sum of the atoms’ radii and the tolerance value</dt><dd><dl class="field-list simple">
-<dt class="field-odd">param float dist_to_other<span class="colon">:</span></dt>
-<dd class="field-odd"><p>distance between the atoms in Angstroms</p>
+<dd><p>determines if distance between atoms is small enough to be bonded. Used to optimize connected checks when distances can be quickly precalculated,
+like with scipy.spatial.distance_matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>other</strong> (<a class="reference internal" href="#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a>) – atom to measure the distance between</p></li>
+<li><p><strong>tolerance</strong> (<em>float</em>) – buffer for consideration of what is “small enough”; default is 0.3. Cutoff for what constitutes small enough is the sum of the atoms’ radii and the tolerance value</p></li>
+<li><p><strong>dist_to_other</strong> (<em>float</em>) – distance between the atoms in Angstroms</p></li>
+</ul>
 </dd>
-<dt class="field-even">returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True if distance is small enough to be bonded, False otherwise</p>
 </dd>
-<dt class="field-odd">rtype<span class="colon">:</span></dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>boolean</p>
-</dd>
-</dl>
 </dd>
 </dl>
 </dd></dl>

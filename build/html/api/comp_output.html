@@ -364,10 +364,10 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.comp_output.</span></span><span class="sig-name descname"><span class="pre">CompOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_all</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conf_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">determine_pg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.comp_output.CompOutput" title="Link to this definition">¶</a></dt>
 <dd><p>Attributes:</p>
 <ul class="simple">
-<li><p>geometry    the last Geometry</p></li>
-<li><p>opts        list of Geometry for each optimization steps</p></li>
-<li><p>frequency   Frequency object</p></li>
-<li><p>archive     a string containing the archive entry</p></li>
+<li><p>geometry    - the last Geometry</p></li>
+<li><p>opts        - list of Geometry for each optimization steps</p></li>
+<li><p>frequency   - Frequency object</p></li>
+<li><p>archive     - a string containing the archive entry</p></li>
 <li><p>energy, enthalpy, free_energy, grimme_g,</p></li>
 <li><p>mass, temperature, rotational_temperature,</p></li>
 <li><p>multiplicity, charge, rotational_symmetry_number</p></li>
@@ -391,26 +391,19 @@ instances for thermochem corrections</p></li>
 take the electronic energy from order should correspond
 to thermo_cos if not given, the energies from thermo_cos
 are used</p></li>
-</ul>
-</dd>
-</dl>
-<dl>
-<dt>:param str weighting:type of energy to use for weighting</dt><dd><p>can be:</p>
+<li><p><strong>weighting</strong> (<em>str</em>) – <p>type of energy to use for weighting
+can be:</p>
 <blockquote>
-<div><ul class="simple">
-<li><p>“NRG”</p></li>
-<li><p>“ZPE”</p></li>
-<li><p>“ENTHALPY”</p></li>
-<li><p>“QHARM”</p></li>
-<li><p>“QRRHO”</p></li>
-<li><p>“RRHO”</p></li>
+<div><ul>
+<li><p>”NRG”</p></li>
+<li><p>”ZPE”</p></li>
+<li><p>”ENTHALPY”</p></li>
+<li><p>”QHARM”</p></li>
+<li><p>”QRRHO”</p></li>
+<li><p>”RRHO”</p></li>
 </ul>
 </div></blockquote>
-</dd>
-</dl>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
+</p></li>
 <li><p><strong>temperature</strong> (<em>float</em>) – temperature in K</p></li>
 <li><p><strong>v0</strong> (<em>float</em>) – parameter for quasi free energy corrections</p></li>
 </ul>
@@ -442,15 +435,13 @@ in that order (Hartrees for corrections, Eh/K for entropy)</p>
 <li><p><strong>temperature</strong> (<em>float</em>) – temperature in K- None will use self.temperature</p></li>
 <li><p><strong>pressure</strong> (<em>float</em>) – pressure in atm</p></li>
 <li><p><strong>v0</strong> (<em>float</em>) – float, cutoff/damping parameter for quasi G corrections</p></li>
-<li><p><strong>method</strong> (<em>str</em>) – <p>treatment of entropy:
-* RRHO  - no quasi treatment
-* QRRHO - Grimme’s quasi-RRHO</p>
-<blockquote>
-<div><p>see Grimme, S. (2012), Supramolecular Binding Thermodynamics by
-Dispersion‐Corrected Density Functional Theory. Chem. Eur. J.,
-18: 9955-9964. (DOI: 10.1002/chem.201200497) for details</p>
-</div></blockquote>
+<li><p><strong>method</strong> (<em>str</em>) – <p>treatment of entropy:</p>
 <ul>
+<li><p>RRHO  - no quasi treatment</p></li>
+<li><p>QRRHO - Grimme’s quasi-RRHO
+see Grimme, S. (2012), Supramolecular Binding Thermodynamics by
+Dispersion‐Corrected Density Functional Theory. Chem. Eur. J.,
+18: 9955-9964. (DOI: 10.1002/chem.201200497) for details</p></li>
 <li><p>QHARM - Truhlar’s quasi-harmonic
 see J. Phys. Chem. B 2011, 115, 49, 14556–14562
 (DOI: 10.1021/jp205508z) for details</p></li>
@@ -484,6 +475,35 @@ see CompOutput.therm_corr for references</p></li>
 <p>see Grimme, S. (2012), Supramolecular Binding Thermodynamics by
 Dispersion‐Corrected Density Functional Theory. Chem. Eur. J.,
 18: 9955-9964. (DOI: 10.1002/chem.201200497) for details</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>temperature</strong> (<em>float</em>) – temperature; default is self.temperature</p></li>
+<li><p><strong>v0</strong> (<em>float</em>) – parameter for quasi-RRHO or quasi-harmonic entropy</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.comp_output.CompOutput.bond_change">
+<span class="sig-name descname"><span class="pre">bond_change</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atom1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atom2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.25</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.comp_output.CompOutput.bond_change" title="Link to this definition">¶</a></dt>
+<dd><p>detects changes in bonds by comparing each structure along optimization (starting with opts[0])</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>atom1</strong> (<a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a>) – first atom</p></li>
+<li><p><strong>atom2</strong> (<a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a>) – second atom - bond being inspected is between atom1 and atom2</p></li>
+<li><p><strong>threshold</strong> (<em>float</em>) – threshold for a bond being considered “changed”; if the difference of the distances between the atoms is below the threshold then it is not considered changed.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>index of the LATEST geometry where the bond is changed</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -575,6 +595,7 @@ average atomic weights</p>
 <li><a class="reference internal" href="#AaronTools.comp_output.CompOutput.therm_corr"><code class="docutils literal notranslate"><span class="pre">CompOutput.therm_corr()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.comp_output.CompOutput.calc_G_corr"><code class="docutils literal notranslate"><span class="pre">CompOutput.calc_G_corr()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.comp_output.CompOutput.calc_Grimme_G"><code class="docutils literal notranslate"><span class="pre">CompOutput.calc_Grimme_G()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.comp_output.CompOutput.bond_change"><code class="docutils literal notranslate"><span class="pre">CompOutput.bond_change()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.comp_output.CompOutput.parse_archive"><code class="docutils literal notranslate"><span class="pre">CompOutput.parse_archive()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.comp_output.CompOutput.follow"><code class="docutils literal notranslate"><span class="pre">CompOutput.follow()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.comp_output.CompOutput.compute_rot_temps"><code class="docutils literal notranslate"><span class="pre">CompOutput.compute_rot_temps()</span></code></a></li>

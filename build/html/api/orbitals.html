@@ -431,7 +431,7 @@ expect to see 16 threads in use</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.orbitals.Orbitals.density_value">
 <span class="sig-name descname"><span class="pre">density_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_occ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta_occ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low_mem</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.orbitals.Orbitals.density_value" title="Link to this definition">¶</a></dt>
-<dd><p>returns the eletron density</p>
+<dd><p>returns the electron density</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -526,9 +526,13 @@ the geom and have the smallest volume possible</p></li>
 </dl>
 <ul class="simple">
 <li><p>coords is an array of points in the cube</p></li>
-<li><p>n_list specifies where each point is along the axes</p></li>
+<li><dl class="simple">
+<dt>n_list specifies where each point is along the axes </dt><dd><p>e.g. 5th point along v1, 4th point along v2, 0th point along v3</p>
+</dd>
+</dl>
+</li>
 </ul>
-<p>e.g. 5th point along v1, 4th point along v2, 0th point along v3</p>
+<p>for a list of parameters, see the returns field of get_cube_array</p>
 </dd></dl>
 
 <dl class="py method">
@@ -597,14 +601,14 @@ for all atoms in geom</p>
 <p>values are normalized so they sum to 1</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – structure</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – structure</p></li>
+<li><p><strong>args</strong> – passed to power_integral</p></li>
+<li><p><strong>kwargs</strong> – passed to power_integral</p></li>
+</ul>
 </dd>
-</dl>
-<p>:param args:passed to power_integral
-:param kwargs: passed to power_integral</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>array for each atom’s condensed Fukui donor values</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>array for each atom’s condensed Fukui donor values</p>
 </dd>
 </dl>
 </dd></dl>
@@ -617,14 +621,14 @@ for all atoms in geom</p>
 <p>values are normalized so they sum to 1</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – structure</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – structure</p></li>
+<li><p><strong>args</strong> – passed to power_integral</p></li>
+<li><p><strong>kwargs</strong> – passed to power_integral</p></li>
+</ul>
 </dd>
-</dl>
-<p>:param args:passed to power_integral
-:param kwargs: passed to power_integral</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>array for each atom’s condensed Fukui acceptor values</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>array for each atom’s condensed Fukui acceptor values</p>
 </dd>
 </dl>
 </dd></dl>

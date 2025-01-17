@@ -371,9 +371,15 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.ring.Ring.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.ring.Ring.__init__" title="Link to this definition">¶</a></dt>
-<dd><p>frag is either a file sub, a geometry, or an atom list</p>
-<p>name is a name</p>
-<p>end is a list of atoms that defines which part of the ring is not part of the fragment</p>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frag</strong> – can be either a file sub, a geometry, or an atom list</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – name of the object</p></li>
+<li><p><strong>end</strong> (<em>list</em><em>(</em><a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a><em>)</em>) – defines which part of the ring is not part of the fragment</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -411,7 +417,21 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.ring.Ring.find_end">
 <span class="sig-name descname"><span class="pre">find_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.ring.Ring.find_end" title="Link to this definition">¶</a></dt>
-<dd><p>finds a path around self that is path_length long and starts with start</p>
+<dd><p>finds a path around self</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path_length</strong> (<em>int</em>) – length of path in atoms to be traced</p></li>
+<li><p><strong>start</strong> (<em>list</em><em>(</em><a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a><em>)</em>) – atom(s) to start on when tracing</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>atoms in path as well as distance along path</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>appended as a comment on self</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
