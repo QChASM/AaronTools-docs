@@ -3,11 +3,11 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Coding with FileReader objects" href="coding_with_filereaders.html" /><link rel="prev" title="Coding with Geometry Objects" href="coding_with_geometries.html" />
-        <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/tutorials/coding_with_theories.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Working with AaronTools in Jupyter Notebooks" href="Jupyter_basics.html" /><link rel="prev" title="Coding with FileReader objects" href="coding_with_filereaders.html" />
+        <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/tutorials/zmat.html" />
 
     <!-- Generated with Sphinx 8.0.2 and Furo 2024.08.06 -->
-        <title>Coding with Theory Objects - AaronTools 1.0b19 documentation</title>
+        <title>Converting Z-Matrices to Cartesian Coordinates - AaronTools 1.0b19 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
@@ -210,8 +210,9 @@
 <li class="toctree-l2"><a class="reference internal" href="example_bash.html">Example BASH Scripts for Common Tasks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adding_to_libraries.html">Adding Structures to your AaronTools Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="coding_with_geometries.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> Objects</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Coding with <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding_with_theories.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="coding_with_filereaders.html">Coding with <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> objects</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Converting Z-Matrices to Cartesian Coordinates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Jupyter_basics.html">Working with AaronTools in Jupyter Notebooks</a></li>
 </ul>
 </li>
@@ -338,7 +339,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../_sources/tutorials/coding_with_theories.rst.txt" title="View this page">
+  <a class="muted-link" href="../_sources/tutorials/zmat.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -358,249 +359,120 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="coding-with-theory-objects">
-<h1>Coding with <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> Objects<a class="headerlink" href="#coding-with-theory-objects" title="Link to this heading">¶</a></h1>
-<p><a class="reference internal" href="../api/theory_class.html#AaronTools.theory.Theory" title="AaronTools.theory.Theory"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.Theory()</span></code></a> keeps much of the code for
-writing quantum chemistry input files similar across different software packages.
-Here, we will cover the basics of creating and using a Theory.</p>
-<section id="building-a-basic-input-file">
-<h2>Building a Basic Input File<a class="headerlink" href="#building-a-basic-input-file" title="Link to this heading">¶</a></h2>
-<p>The following will build a Gaussian input file called <cite>benzene.com</cite> that
-does a B3LYP/def2-SVP optimization of the coordinates in <cite>benzene.xyz</cite>
-followed by the computation of vibrational frequencies</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
-<span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="o">*</span>
+          <section id="converting-z-matrices-to-cartesian-coordinates">
+<h1>Converting Z-Matrices to Cartesian Coordinates<a class="headerlink" href="#converting-z-matrices-to-cartesian-coordinates" title="Link to this heading">¶</a></h1>
+<p>AaronTools works almost exclusively with Cartesian coordinates.
+However, some quantum chemistry codes (e.g. CFOUR) require molecular specification in terms of Z-matrices.
+While tools are available to automatically generate Z-matrices, constructing Z-matrices that honor molecular symmetry typically requires their construction by hand.
+This is a somewhat tedious process, and one often needs to check the final Z-matrix to ensure that the correct structure has been constructed.
+Strangely, there seem to be limited tools available that will convert a general Z-matrix (or a CFOUR-style ZMAT file) to Cartesian coordinates.</p>
+<p>To provide such a tool, and to demonstrate the utility of AaronTools, below we describe a simple ZMAT2XYZ converter</p>
+<section id="zmat-format">
+<h2>ZMAT Format<a class="headerlink" href="#zmat-format" title="Link to this heading">¶</a></h2>
+<p>First, below is an example ZMAT file for acetone suitable for running an optimization in CFOUR:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Geometry</span> <span class="n">optimization</span> <span class="n">of</span> <span class="n">acetone</span>
+<span class="n">C</span>
+<span class="n">O</span> <span class="mi">1</span> <span class="n">r1</span><span class="o">*</span>
+<span class="n">C</span> <span class="mi">1</span> <span class="n">r2</span><span class="o">*</span> <span class="mi">2</span> <span class="n">a2</span><span class="o">*</span>
+<span class="n">C</span> <span class="mi">1</span> <span class="n">r2</span><span class="o">*</span> <span class="mi">2</span> <span class="n">a2</span><span class="o">*</span> <span class="mi">3</span> <span class="n">D180</span>
+<span class="n">H</span> <span class="mi">3</span> <span class="n">r3</span><span class="o">*</span> <span class="mi">1</span> <span class="n">a3</span><span class="o">*</span> <span class="mi">2</span> <span class="n">D0</span>
+<span class="n">H</span> <span class="mi">3</span> <span class="n">r4</span><span class="o">*</span> <span class="mi">1</span> <span class="n">a4</span><span class="o">*</span> <span class="mi">2</span> <span class="n">d4</span><span class="o">*</span>
+<span class="n">H</span> <span class="mi">3</span> <span class="n">r4</span><span class="o">*</span> <span class="mi">1</span> <span class="n">a4</span><span class="o">*</span> <span class="mi">2</span> <span class="n">nd4</span><span class="o">*</span>
+<span class="n">H</span> <span class="mi">4</span> <span class="n">r3</span><span class="o">*</span> <span class="mi">1</span> <span class="n">a3</span><span class="o">*</span> <span class="mi">2</span> <span class="n">D0</span>
+<span class="n">H</span> <span class="mi">4</span> <span class="n">r4</span><span class="o">*</span> <span class="mi">1</span> <span class="n">a4</span><span class="o">*</span> <span class="mi">2</span> <span class="n">d4</span><span class="o">*</span>
+<span class="n">H</span> <span class="mi">4</span> <span class="n">r4</span><span class="o">*</span> <span class="mi">1</span> <span class="n">a4</span><span class="o">*</span> <span class="mi">2</span> <span class="n">nd4</span><span class="o">*</span>
 
-<span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="s1">&#39;benzene.xyz&#39;</span><span class="p">)</span>
+<span class="n">r1</span><span class="o">=</span><span class="mf">1.216</span>
+<span class="n">r2</span><span class="o">=</span><span class="mf">1.516</span>
+<span class="n">r3</span><span class="o">=</span><span class="mf">1.093</span>
+<span class="n">r4</span><span class="o">=</span><span class="mf">1.093</span>
+<span class="n">a2</span><span class="o">=</span><span class="mf">121.9</span>
+<span class="n">a3</span><span class="o">=</span><span class="mf">109.9</span>
+<span class="n">a4</span><span class="o">=</span><span class="mf">109.9</span>
+<span class="n">d4</span><span class="o">=</span><span class="mf">121.0</span>
+<span class="n">nd4</span><span class="o">=-</span><span class="mf">121.0</span>
+<span class="n">D0</span><span class="o">=</span><span class="mf">0.0</span>
+<span class="n">D180</span><span class="o">=</span><span class="mf">180.0</span>
 
-<span class="n">method</span> <span class="o">=</span> <span class="n">Theory</span><span class="p">(</span>
-    <span class="n">method</span><span class="o">=</span><span class="s2">&quot;B3LYP&quot;</span><span class="p">,</span>
-    <span class="n">basis</span><span class="o">=</span><span class="s2">&quot;def2-SVP&quot;</span><span class="p">,</span>
-    <span class="n">job_type</span><span class="o">=</span><span class="p">[</span><span class="n">OptimizationJob</span><span class="p">(),</span> <span class="n">FrequencyJob</span><span class="p">()]</span>
-<span class="p">)</span>
-<span class="n">outfile</span> <span class="o">=</span> <span class="s2">&quot;benzene.com&quot;</span>
-<span class="n">geom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outfile</span><span class="o">=</span><span class="n">outfile</span><span class="p">,</span> <span class="n">theory</span><span class="o">=</span><span class="n">method</span><span class="p">)</span>
+<span class="o">*</span><span class="n">ACES2</span><span class="p">(</span><span class="n">CALC</span><span class="o">=</span><span class="n">CCSD</span><span class="p">(</span><span class="n">T</span><span class="p">),</span><span class="n">BASIS</span><span class="o">=</span><span class="n">PVDZ</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>By changing the extension of the file being written, the corresponding format
-and keyword changes are automatically handled.</p>
-<p>For example, the example below will write (essentially) equivalent input files
-for Gaussian, ORCA, and Psi4.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
-<span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="s1">&#39;benzene.xyz&#39;</span><span class="p">)</span>
-
-<span class="n">method</span> <span class="o">=</span> <span class="n">Theory</span><span class="p">(</span>
-    <span class="n">method</span><span class="o">=</span><span class="s2">&quot;B3LYP&quot;</span><span class="p">,</span>
-    <span class="n">basis</span><span class="o">=</span><span class="s2">&quot;def2-SVP&quot;</span><span class="p">,</span>
-    <span class="n">job_type</span><span class="o">=</span><span class="p">[</span><span class="n">OptimizationJob</span><span class="p">(),</span> <span class="n">FrequencyJob</span><span class="p">()]</span>
-<span class="p">)</span>
-<span class="k">for</span> <span class="n">outfile</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;gaussian.com&quot;</span><span class="p">,</span> <span class="s2">&quot;ORCA.inp&quot;</span><span class="p">,</span> <span class="s2">&quot;psi4.in&quot;</span><span class="p">]:</span>
-    <span class="n">geom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outfile</span><span class="o">=</span><span class="n">outfile</span><span class="p">,</span> <span class="n">theory</span><span class="o">=</span><span class="n">method</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Below, we discuss more detail about working with Theory objects.</p>
+<p>We will read the Z-matrix and variables and then construct the corresponding molecule using AaronTools functions.</p>
 </section>
-<section id="creation">
-<h2>Creation<a class="headerlink" href="#creation" title="Link to this heading">¶</a></h2>
-<p>Several objects or variables must be passed to Theory to make it usable.
-Each of the necessary objects are found in the AaronTools.theory package.
-We’ll briefly cover each of these.</p>
+<section id="reading-zmat-file">
+<h2>Reading ZMAT file<a class="headerlink" href="#reading-zmat-file" title="Link to this heading">¶</a></h2>
+<p>The Python below will read the Z-matrix (removing the <a href="#id1"><span class="problematic" id="id2">*</span></a>’s) and variable definitions (stored as a dictionary)
+from a file called ZMAT as shown above</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;ZMAT&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">comment</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="n">geom</span><span class="o">.</span><span class="n">comment</span> <span class="o">=</span> <span class="n">comment</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="c1"># read z-matrix</span>
+<span class="n">zmat</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="k">while</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="c1"># remove stars from optimized vars</span>
+    <span class="n">zmat</span> <span class="o">+=</span> <span class="n">line</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+
+<span class="c1"># read variables and build dict</span>
+<span class="nb">vars</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="k">while</span> <span class="n">line</span><span class="p">:</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="c1"># strip white space</span>
+    <span class="n">line_items</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)</span>
+    <span class="nb">vars</span><span class="p">[</span><span class="n">line_items</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">line_items</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</pre></div>
+</div>
 </section>
-<section id="method-class">
-<h2>Method Class<a class="headerlink" href="#method-class" title="Link to this heading">¶</a></h2>
-<p><a class="reference internal" href="../api/method.html#AaronTools.theory.Method" title="AaronTools.theory.Method"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.Method()</span></code></a> is used to keep method keywords
-the same across different formats.
-As an example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="n">Method</span>
+<section id="converting-z-matrix-to-cartesian-coordinates">
+<h2>Converting Z-Matrix to Cartesian Coordinates<a class="headerlink" href="#converting-z-matrix-to-cartesian-coordinates" title="Link to this heading">¶</a></h2>
+<p>With the Z-matrix definition now saved as <cite>zmat</cite>, the following Python code will build a new <cite>Geometry</cite> object with the corresponding coordinates:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># loop over lines in zmat and build molecule</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">zmat</span><span class="o">.</span><span class="n">splitlines</span><span class="p">():</span>
+    <span class="n">line_items</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 
-<span class="n">pbe0</span> <span class="o">=</span> <span class="n">Method</span><span class="p">(</span><span class="s2">&quot;PBE0&quot;</span><span class="p">)</span>
+    <span class="c1"># place atom in random spot to avoid co-linear atoms</span>
+    <span class="n">geom</span> <span class="o">+=</span> <span class="p">[</span><span class="n">Atom</span><span class="p">(</span><span class="n">element</span><span class="o">=</span><span class="n">line_items</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">coords</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_sample</span><span class="p">(</span><span class="mi">3</span><span class="p">))]</span>
+    <span class="n">a0</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># new atom</span>
+
+    <span class="c1"># set distance</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line_items</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">a1</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">line_items</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">geom</span><span class="o">.</span><span class="n">change_distance</span><span class="p">(</span><span class="n">a0</span><span class="p">,</span> <span class="n">a1</span><span class="p">,</span> <span class="n">dist</span><span class="o">=</span><span class="nb">vars</span><span class="p">[</span><span class="n">line_items</span><span class="p">[</span><span class="mi">2</span><span class="p">]],</span> <span class="n">fix</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">as_group</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="c1"># set angle</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line_items</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">a2</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">line_items</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="nb">vars</span><span class="p">[</span><span class="n">line_items</span><span class="p">[</span><span class="mi">4</span><span class="p">]))</span>
+        <span class="n">geom</span><span class="o">.</span><span class="n">change_angle</span><span class="p">(</span><span class="n">a0</span><span class="p">,</span> <span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">fix</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">as_group</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="c1"># set dihedral</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line_items</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="n">a3</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">line_items</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">dihedral</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="nb">vars</span><span class="p">[</span><span class="n">line_items</span><span class="p">[</span><span class="mi">6</span><span class="p">]))</span>
+        <span class="n">geom</span><span class="o">.</span><span class="n">change_dihedral</span><span class="p">(</span><span class="n">a0</span><span class="p">,</span> <span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">a3</span><span class="p">,</span> <span class="n">dihedral</span><span class="p">,</span> <span class="n">fix</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">as_group</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>When used with a Gaussian input file, this <code class="code docutils literal notranslate"><span class="pre">Method</span></code> will use the
-Gaussian keyword for PBE0 (PBE1PBE).</p>
-<p>Method also takes a <code class="code docutils literal notranslate"><span class="pre">is_semiempirical</span></code> argument:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rm1</span> <span class="o">=</span> <span class="n">Method</span><span class="p">(</span><span class="s2">&quot;RM1&quot;</span><span class="p">,</span> <span class="n">is_semiempirical</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>For Gaussian and ORCA input files, using a semi-empirical method
-will cause basis set information to be omitted.</p>
-<section id="saptmethod">
-<h3>SAPTMethod<a class="headerlink" href="#saptmethod" title="Link to this heading">¶</a></h3>
-<p><a class="reference internal" href="../api/method.html#AaronTools.theory.SAPTMethod" title="AaronTools.theory.SAPTMethod"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.SAPTMethod()</span></code></a> is a subclass of <code class="code docutils literal notranslate"><span class="pre">Method</span></code>
-that is specific for SAPT jobs. When used to make a Psi4 input file,
-the molecule will be split into monomers, which are specified by the
-components attribute of the Geometry instance.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sapt0</span> <span class="o">=</span> <span class="n">SAPTMethod</span><span class="p">(</span><span class="s2">&quot;sapt0&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Basis Sets</p>
-<p>The <a class="reference internal" href="../api/basis.html#AaronTools.theory.BasisSet" title="AaronTools.theory.BasisSet"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.BasisSet()</span></code></a> object is a collection of
-<a class="reference internal" href="../api/basis.html#AaronTools.theory.Basis" title="AaronTools.theory.Basis"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.Basis()</span></code></a> and <a class="reference internal" href="../api/basis.html#AaronTools.theory.ECP" title="AaronTools.theory.ECP"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.ECP()</span></code></a> objects.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="n">Basis</span><span class="p">,</span> <span class="n">ECP</span><span class="p">,</span> <span class="n">BasisSet</span>
-<span class="kn">from</span> <span class="nn">AaronTools.finders</span> <span class="kn">import</span> <span class="n">AnyTransitionMetal</span><span class="p">,</span> <span class="n">AnyNonTransitionMetal</span>
+<p>For a given atom, we start by placing that atom in a random position (this avoids accidentally having co-linear atoms, which will trip up <cite>angle</cite> and <cite>dihedral</cite>)
+We then use the AaronTools functions <cite>change_distance</cite>, <cite>change_angle</cite>, and <cite>change_dihedral</cite> to set the distance, angle, and dihedral values as specified in the Z-matrix, taking care to move only the newly added atom.
+That’s it!</p>
+<p>For completeness, we can also remove any dummy atoms (X) and then center and place the molecule in a reasonable orientation, then print the resulting coordinates in XYZ format:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># remove any dummy atoms</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">geom</span> <span class="o">-=</span> <span class="n">geom</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">pass</span>
 
-<span class="n">basis</span> <span class="o">=</span> <span class="n">BasisSet</span><span class="p">(</span>
-    <span class="p">[</span>
-        <span class="n">Basis</span><span class="p">(</span><span class="s2">&quot;cc-pVTZ&quot;</span><span class="p">,</span> <span class="n">AnyNonTransitionMetal</span><span class="p">()),</span>
-        <span class="n">Basis</span><span class="p">(</span><span class="s2">&quot;cc-pVTZ&quot;</span><span class="p">,</span> <span class="n">AnyNonTransitionMetal</span><span class="p">(),</span> <span class="n">aux_type</span><span class="o">=</span><span class="s1">&#39;C&#39;</span><span class="p">),</span>
-        <span class="n">Basis</span><span class="p">(</span><span class="s2">&quot;cc-pVTZ-PP&quot;</span><span class="p">,</span> <span class="n">AnyTransitionMetal</span><span class="p">()),</span>
-        <span class="n">Basis</span><span class="p">(</span><span class="s2">&quot;cc-pVTZ-PP&quot;</span><span class="p">,</span> <span class="n">AnyTransitionMetal</span><span class="p">(),</span> <span class="n">aux_type</span><span class="o">=</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
-    <span class="p">],</span>
-    <span class="p">[</span><span class="n">ECP</span><span class="p">(</span><span class="s2">&quot;SK-MCDHF-RSC&quot;</span><span class="p">)]</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<p>The second argument given to each <code class="code docutils literal notranslate"><span class="pre">Basis</span></code> determines which
-elements that basis applies to. By default, a Basis applies to all elements.
-An <code class="code docutils literal notranslate"><span class="pre">ECP</span></code> applies to any transition metal.
-These elements will be overridden if another argument is supplied when
-creating an <code class="code docutils literal notranslate"><span class="pre">ECP</span></code> or <code class="code docutils literal notranslate"><span class="pre">Basis</span></code> (<cite>i.e.</cite> list of elements or
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.finders.Finders()</span></code>).</p>
-<p>The <code class="code docutils literal notranslate"><span class="pre">aux_type</span></code> keyword is used for ORCA and Psi4 input files to specify
-auxiliary basis sets.
-A list of elements or an appropriate <code class="code docutils literal notranslate"><span class="pre">Finder</span></code> that use that basis set can
-be given to a <code class="code docutils literal notranslate"><span class="pre">Basis</span></code> or <code class="code docutils literal notranslate"><span class="pre">ECP</span></code>.</p>
-</section>
-</section>
-<section id="empirical-dispersion">
-<h2>Empirical Dispersion<a class="headerlink" href="#empirical-dispersion" title="Link to this heading">¶</a></h2>
-<p><a class="reference internal" href="../api/dispersion.html#AaronTools.theory.EmpiricalDispersion" title="AaronTools.theory.emp_dispersion.EmpiricalDispersion"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.emp_dispersion.EmpiricalDispersion()</span></code></a> keeps specifying dispersion
-corrections consistent across different formats.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="n">EmpiricalDispersion</span>
+<span class="c1"># move to COM</span>
+<span class="n">geom</span><span class="o">.</span><span class="n">coord_shift</span><span class="p">(</span><span class="o">-</span><span class="n">geom</span><span class="o">.</span><span class="n">COM</span><span class="p">())</span>
 
-<span class="n">disp</span> <span class="o">=</span> <span class="n">EmpiricalDispersion</span><span class="p">(</span><span class="s2">&quot;Grimme D2&quot;</span><span class="p">)</span>
+<span class="c1"># orient (close) to principle axes</span>
+<span class="n">moments</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">get_principle_axes</span><span class="p">()</span>
+<span class="n">geom</span><span class="o">.</span><span class="n">coords</span> <span class="o">@=</span> <span class="n">axes</span>
 
-<span class="n">The</span> <span class="n">following</span> <span class="n">are</span> <span class="n">equivalent</span><span class="p">:</span>
-
-<span class="n">disp</span> <span class="o">=</span> <span class="n">EmpiricalDispersion</span><span class="p">(</span><span class="s2">&quot;Grimme D2&quot;</span><span class="p">)</span>
-<span class="n">disp</span> <span class="o">=</span> <span class="n">EmpiricalDispersion</span><span class="p">(</span><span class="s2">&quot;GD2&quot;</span><span class="p">)</span>
-<span class="n">disp</span> <span class="o">=</span> <span class="n">EmpiricalDispersion</span><span class="p">(</span><span class="s2">&quot;D2&quot;</span><span class="p">)</span>
-<span class="n">disp</span> <span class="o">=</span> <span class="n">EmpiricalDispersion</span><span class="p">(</span><span class="s2">&quot;-D2&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Some dispersion methods are not available in all QM software programs.
-Check the <code class="code docutils literal notranslate"><span class="pre">get_gaussian</span></code>, <code class="code docutils literal notranslate"><span class="pre">get_orca</span></code>, etc. methods of the
-<code class="code docutils literal notranslate"><span class="pre">EmpiricalDispersion</span></code> class (or the respective manuals) for
-acceptable dispersion methods.</p>
-</section>
-<section id="integration-grid">
-<h2>Integration Grid<a class="headerlink" href="#integration-grid" title="Link to this heading">¶</a></h2>
-<p>As with other objects in the <code class="code docutils literal notranslate"><span class="pre">AaronTools.theory</span></code> package, the
-<a class="reference internal" href="../api/integration_grid.html#AaronTools.theory.IntegrationGrid" title="AaronTools.theory.IntegrationGrid"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.IntegrationGrid()</span></code></a> object is a way to
-specify grids in a similar manner across different file formats.</p>
-<p>It’s important to note that different programs use different types of grids.
-This, combined with varied grid pruning algorithms, mean that grids will
-usually have to be approximated if you use a keyword from one program
-to make an input file for a different program.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="n">IntegrationGrid</span>
-
-<span class="n">grid</span> <span class="o">=</span> <span class="n">IntegrationGrid</span><span class="p">(</span><span class="s2">&quot;SuperFineGrid&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Gaussian, ORCA, and Psi4 all have different ways of specifying integration grids.
-Gaussian and ORCA have grid keywords.
-When using an ORCA grid keyword to write a Gaussian input file,
-<code class="code docutils literal notranslate"><span class="pre">IntegrationGrid</span></code> will try to approximate the ORCA grid’s density.
-Psi4 specifies grid density by supplying a number of radial and angular points.
-Gaussian allows a similar specification.
-These can be specified as a string of the format <code class="code docutils literal notranslate"><span class="pre">&quot;(radial,</span> <span class="pre">angular)&quot;</span></code>.
-As an example,</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="o">=</span> <span class="n">IntegrationGrid</span><span class="p">(</span><span class="s2">&quot;(99, 590)&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>This grid can be used with Gaussian and Psi4, and should give similar results
-(down to grid pruning and other algorithmic differences).
-If you’re going to write and ORCA input file with this grid,
-the number of radial points is set indirectly with the <code class="code docutils literal notranslate"><span class="pre">IntAcc</span></code> option.
-<code class="code docutils literal notranslate"><span class="pre">IntAcc</span></code> will be set for the number of radial points in the 2nd row
-of the periodic table.</p>
-</section>
-<section id="job-types">
-<h2>Job Types<a class="headerlink" href="#job-types" title="Link to this heading">¶</a></h2>
-<p>There are six job types in the theory package:</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="../api/job_types.html#AaronTools.theory.job_types.OptimizationJob" title="AaronTools.theory.job_types.OptimizationJob"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.job_types.OptimizationJob()</span></code></a></p></li>
-<li><p><a class="reference internal" href="../api/job_types.html#AaronTools.theory.job_types.FrequencyJob" title="AaronTools.theory.job_types.FrequencyJob"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.job_types.FrequencyJob()</span></code></a></p></li>
-<li><p><a class="reference internal" href="../api/job_types.html#AaronTools.theory.job_types.SinglePointJob" title="AaronTools.theory.job_types.SinglePointJob"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.job_types.SinglePointJob()</span></code></a></p></li>
-<li><p><a class="reference internal" href="../api/job_types.html#AaronTools.theory.job_types.ForceJob" title="AaronTools.theory.job_types.ForceJob"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.job_types.ForceJob()</span></code></a></p></li>
-<li><p><a class="reference internal" href="../api/job_types.html#AaronTools.theory.job_types.ConformerSearchJob" title="AaronTools.theory.job_types.ConformerSearchJob"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.job_types.ConformerSearchJob()</span></code></a></p></li>
-<li><p><a class="reference internal" href="../api/job_types.html#AaronTools.theory.job_types.TDDFTJob" title="AaronTools.theory.job_types.TDDFTJob"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.job_types.TDDFTJob()</span></code></a></p></li>
-</ul>
-<p>A single <code class="code docutils literal notranslate"><span class="pre">JobType</span></code> can be given to a Theory.
-If multiple <code class="code docutils literal notranslate"><span class="pre">JobType</span></code> instances are given as list,
-the job-related information will appear in the order it appears
-in the list. For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">jobs</span> <span class="o">=</span> <span class="p">[</span><span class="n">FrequencyJob</span><span class="p">(),</span> <span class="n">OptimizationJob</span><span class="p">()]</span>
-</pre></div>
-</div>
-<p>A Psi4 input file that uses this list will specify frequency before optimize,
-but many programs are not sensitive to the order these jobs
-will appear in the input file.</p>
-</section>
-<section id="other-options">
-<h2>Other Options<a class="headerlink" href="#other-options" title="Link to this heading">¶</a></h2>
-<ul class="simple">
-<li><p>charge - overall charge</p></li>
-<li><p>multiplicity - multiplicity</p></li>
-<li><p>processors - allocated cores</p></li>
-<li><p>memory - allocated RAM</p></li>
-</ul>
-<p>When writing an input file, additional keywords can be passed to
-<a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry.write" title="AaronTools.geometry.Geometry.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.write()</span></code></a> that specify any other options.
-The keywords for the dictionary are listed in <a class="reference internal" href="../api/theory_parameters.html"><span class="doc">Theory parameters</span></a>.</p>
-</section>
-<section id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading">¶</a></h2>
-<p>Below are examples of writing roughly equivalent input files for Gaussian, ORCA, and Psi4.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
-<span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="s1">&#39;tnt.xyz&#39;</span><span class="p">)</span>
-
-<span class="n">fun</span> <span class="o">=</span> <span class="n">Method</span><span class="p">(</span><span class="s2">&quot;B3LYP&quot;</span><span class="p">)</span>
-<span class="n">basis_set</span> <span class="o">=</span> <span class="n">BasisSet</span><span class="p">([</span><span class="n">Basis</span><span class="p">(</span><span class="s2">&quot;def2-SVP&quot;</span><span class="p">)])</span>
-<span class="n">int_grid</span> <span class="o">=</span> <span class="n">IntegrationGrid</span><span class="p">(</span><span class="s2">&quot;(99, 590)&quot;</span><span class="p">)</span>
-<span class="n">disp</span> <span class="o">=</span> <span class="n">EmpiricalDispersion</span><span class="p">(</span><span class="s2">&quot;D2&quot;</span><span class="p">)</span>
-
-<span class="n">jobs</span> <span class="o">=</span> <span class="p">[</span><span class="n">OptimizationJob</span><span class="p">(),</span> <span class="n">FrequencyJob</span><span class="p">()]</span>
-
-<span class="n">b3lyp_def2svp</span> <span class="o">=</span> <span class="n">Theory</span><span class="p">(</span>
-    <span class="n">method</span><span class="o">=</span><span class="n">fun</span><span class="p">,</span>
-    <span class="n">basis</span><span class="o">=</span><span class="n">basis_set</span><span class="p">,</span>
-    <span class="n">grid</span><span class="o">=</span><span class="n">int_grid</span><span class="p">,</span>
-    <span class="n">empirical_dispersion</span><span class="o">=</span><span class="n">disp</span><span class="p">,</span>
-    <span class="n">job_type</span><span class="o">=</span><span class="n">jobs</span><span class="p">,</span>
-<span class="p">)</span>
-
-<span class="n">geom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
-    <span class="n">outfile</span><span class="o">=</span><span class="s2">&quot;tnt_freq.com&quot;</span><span class="p">,</span>
-    <span class="n">theory</span><span class="o">=</span><span class="n">b3lyp_def2svp</span><span class="p">,</span>
-    <span class="n">GAUSSIAN_ROUTE</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;freq&#39;</span><span class="p">:[</span><span class="s1">&#39;HPModes&#39;</span><span class="p">,</span> <span class="s1">&#39;NoRaman&#39;</span><span class="p">]}</span>
-<span class="p">)</span>
-
-<span class="n">geom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
-    <span class="n">outfile</span><span class="o">=</span><span class="s2">&quot;tnt_freq.inp&quot;</span><span class="p">,</span>
-    <span class="n">theory</span><span class="o">=</span><span class="n">b3lyp_def2svp</span>
-<span class="p">)</span>
-
-<span class="n">geom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
-    <span class="n">outfile</span><span class="o">=</span><span class="s2">&quot;tnt_freq.in&quot;</span><span class="p">,</span>
-    <span class="n">theory</span><span class="o">=</span><span class="n">b3lyp_def2svp</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<p>Note that <code class="code docutils literal notranslate"><span class="pre">Method</span></code>, <code class="code docutils literal notranslate"><span class="pre">BasisSet</span></code>, <code class="code docutils literal notranslate"><span class="pre">IntegrationGrid</span></code>,
-and <code class="code docutils literal notranslate"><span class="pre">EmpiricalDispersion</span></code> objects can be created automatically
-when creating a <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> object just by passing strings:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b3lyp_def2svp</span> <span class="o">=</span> <span class="n">Theory</span><span class="p">(</span>
-    <span class="n">method</span><span class="o">=</span><span class="s2">&quot;B3LYP&quot;</span><span class="p">,</span>
-    <span class="n">basis</span><span class="o">=</span><span class="s2">&quot;def2-SVP&quot;</span><span class="p">,</span>
-    <span class="n">grid</span><span class="o">=</span><span class="s2">&quot;(99, 590)&quot;</span><span class="p">,</span>
-    <span class="n">empirical_dispersion</span><span class="o">=</span><span class="s2">&quot;D2&quot;</span><span class="p">,</span>
-    <span class="n">job_type</span><span class="o">=</span><span class="n">jobs</span><span class="p">,</span>
-<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -611,23 +483,23 @@ when creating a <code class="code docutils literal notranslate"><span class="pre
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="coding_with_filereaders.html">
+          <a class="next-page" href="Jupyter_basics.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Coding with <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> objects</div>
+                <div class="title">Working with AaronTools in Jupyter Notebooks</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="coding_with_geometries.html">
+          <a class="prev-page" href="coding_with_filereaders.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Coding with <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> Objects</div>
+                <div class="title">Coding with <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> objects</div>
                 
               </div>
             </a>
@@ -661,18 +533,10 @@ when creating a <code class="code docutils literal notranslate"><span class="pre
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Coding with <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> Objects</a><ul>
-<li><a class="reference internal" href="#building-a-basic-input-file">Building a Basic Input File</a></li>
-<li><a class="reference internal" href="#creation">Creation</a></li>
-<li><a class="reference internal" href="#method-class">Method Class</a><ul>
-<li><a class="reference internal" href="#saptmethod">SAPTMethod</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#empirical-dispersion">Empirical Dispersion</a></li>
-<li><a class="reference internal" href="#integration-grid">Integration Grid</a></li>
-<li><a class="reference internal" href="#job-types">Job Types</a></li>
-<li><a class="reference internal" href="#other-options">Other Options</a></li>
-<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#">Converting Z-Matrices to Cartesian Coordinates</a><ul>
+<li><a class="reference internal" href="#zmat-format">ZMAT Format</a></li>
+<li><a class="reference internal" href="#reading-zmat-file">Reading ZMAT file</a></li>
+<li><a class="reference internal" href="#converting-z-matrix-to-cartesian-coordinates">Converting Z-Matrix to Cartesian Coordinates</a></li>
 </ul>
 </li>
 </ul>

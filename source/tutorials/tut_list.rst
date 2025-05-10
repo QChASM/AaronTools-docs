@@ -6,6 +6,7 @@ Tutorials
     :caption: Command Line Scripts:
     
     cls_tutorials
+    example_bash
     adding_to_libraries
 
 
@@ -16,6 +17,7 @@ Tutorials
     coding_with_geometries
     coding_with_theories
     coding_with_filereaders
+    zmat
     
 
 .. toctree::

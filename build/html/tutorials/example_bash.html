@@ -3,11 +3,11 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="EmpiricalDispersion class" href="dispersion.html" /><link rel="prev" title="Basis Set classes" href="basis.html" />
-        <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/api/method.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Adding Structures to your AaronTools Library" href="adding_to_libraries.html" /><link rel="prev" title="Intro to Command Line Scripts" href="cls_tutorials.html" />
+        <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/tutorials/example_bash.html" />
 
     <!-- Generated with Sphinx 8.0.2 and Furo 2024.08.06 -->
-        <title>Method classes - AaronTools 1.0b19 documentation</title>
+        <title>Example BASH Scripts for Common Tasks - AaronTools 1.0b19 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
@@ -204,15 +204,16 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Pages:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/install.html">Installation Guide</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../tutorials/tut_list.html">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Tutorials</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/cls_tutorials.html">Intro to Command Line Scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/example_bash.html">Example BASH Scripts for Common Tasks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/adding_to_libraries.html">Adding Structures to your AaronTools Library</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/coding_with_geometries.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/coding_with_theories.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/coding_with_filereaders.html">Coding with <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/Jupyter_basics.html">Working with AaronTools in Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation Guide</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="tut_list.html">Tutorials</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Tutorials</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cls_tutorials.html">Intro to Command Line Scripts</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Example BASH Scripts for Common Tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adding_to_libraries.html">Adding Structures to your AaronTools Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding_with_geometries.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding_with_theories.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding_with_filereaders.html">Coding with <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zmat.html">Converting Z-Matrices to Cartesian Coordinates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jupyter_basics.html">Working with AaronTools in Jupyter Notebooks</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../cls/list.html">List of Command Line Scripts</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of List of Command Line Scripts</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -282,36 +283,36 @@
 <li class="toctree-l2"><a class="reference internal" href="../other_docs/libraries.html">AaronTools Libraries</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="api.html">Python API Documentation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Python API Documentation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="geometry.html"><code class="docutils literal notranslate"><span class="pre">Geometry</span></code> class</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="fileIO.html">Reading and Writing Files</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Reading and Writing Files</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="filereader.html"><code class="docutils literal notranslate"><span class="pre">FileReader</span></code> class</a></li>
-<li class="toctree-l3"><a class="reference internal" href="filewriter.html"><code class="docutils literal notranslate"><span class="pre">FileWriter</span></code> class</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api/api.html">Python API Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Python API Documentation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/geometry.html"><code class="docutils literal notranslate"><span class="pre">Geometry</span></code> class</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api/fileIO.html">Reading and Writing Files</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Reading and Writing Files</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/filereader.html"><code class="docutils literal notranslate"><span class="pre">FileReader</span></code> class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/filewriter.html"><code class="docutils literal notranslate"><span class="pre">FileWriter</span></code> class</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="finders.html">Finders</a></li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="theory.html"><code class="docutils literal notranslate"><span class="pre">theory</span></code> module</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of theory module</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="theory_class.html"><code class="docutils literal notranslate"><span class="pre">Theory</span></code> class</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory_parameters.html">Theory parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="job_types.html"><code class="docutils literal notranslate"><span class="pre">JobType</span></code> classes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="basis.html">Basis Set classes</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">Method</span></code> classes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dispersion.html"><code class="docutils literal notranslate"><span class="pre">EmpiricalDispersion</span></code> class</a></li>
-<li class="toctree-l3"><a class="reference internal" href="solvent.html"><code class="docutils literal notranslate"><span class="pre">ImplicitSolvent</span></code> class</a></li>
-<li class="toctree-l3"><a class="reference internal" href="integration_grid.html"><code class="docutils literal notranslate"><span class="pre">IntegrationGrid</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/finders.html">Finders</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api/theory.html"><code class="docutils literal notranslate"><span class="pre">theory</span></code> module</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of theory module</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/theory_class.html"><code class="docutils literal notranslate"><span class="pre">Theory</span></code> class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/theory_parameters.html">Theory parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/job_types.html"><code class="docutils literal notranslate"><span class="pre">JobType</span></code> classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/basis.html">Basis Set classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/method.html"><code class="docutils literal notranslate"><span class="pre">Method</span></code> classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/dispersion.html"><code class="docutils literal notranslate"><span class="pre">EmpiricalDispersion</span></code> class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/solvent.html"><code class="docutils literal notranslate"><span class="pre">ImplicitSolvent</span></code> class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/integration_grid.html"><code class="docutils literal notranslate"><span class="pre">IntegrationGrid</span></code> class</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="atoms.html"><code class="docutils literal notranslate"><span class="pre">Atom</span></code> class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="component.html"><code class="docutils literal notranslate"><span class="pre">Component</span></code> class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="substituent.html"><code class="docutils literal notranslate"><span class="pre">Substituent</span></code> class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rings.html"><code class="docutils literal notranslate"><span class="pre">Ring</span></code> class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="spectra.html">Spectra</a></li>
-<li class="toctree-l2"><a class="reference internal" href="comp_output.html"><code class="docutils literal notranslate"><span class="pre">CompOutput</span></code> class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="orbitals.html"><code class="docutils literal notranslate"><span class="pre">Orbital</span></code> class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="job_control.html"><code class="docutils literal notranslate"><span class="pre">SubmitProcess</span></code> class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="json_extension.html">JSON Caching</a></li>
-<li class="toctree-l2"><a class="reference internal" href="symmetry.html"><code class="docutils literal notranslate"><span class="pre">PointGroup</span></code> class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="utils.html"><code class="docutils literal notranslate"><span class="pre">Utilities</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/atoms.html"><code class="docutils literal notranslate"><span class="pre">Atom</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/component.html"><code class="docutils literal notranslate"><span class="pre">Component</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/substituent.html"><code class="docutils literal notranslate"><span class="pre">Substituent</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/rings.html"><code class="docutils literal notranslate"><span class="pre">Ring</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/spectra.html">Spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/comp_output.html"><code class="docutils literal notranslate"><span class="pre">CompOutput</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/orbitals.html"><code class="docutils literal notranslate"><span class="pre">Orbital</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/job_control.html"><code class="docutils literal notranslate"><span class="pre">SubmitProcess</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/json_extension.html">JSON Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/symmetry.html"><code class="docutils literal notranslate"><span class="pre">PointGroup</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/utils.html"><code class="docutils literal notranslate"><span class="pre">Utilities</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../advanced/advanced.html">Advanced Topics</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Advanced Topics</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -338,7 +339,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../_sources/api/method.rst.txt" title="View this page">
+  <a class="muted-link" href="../_sources/tutorials/example_bash.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -358,105 +359,89 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="method-classes">
-<h1><code class="docutils literal notranslate"><span class="pre">Method</span></code> classes<a class="headerlink" href="#method-classes" title="Link to this heading">¶</a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.theory.Method">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.</span></span><span class="sig-name descname"><span class="pre">Method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_semiempirical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_mm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Method" title="Link to this definition">¶</a></dt>
-<dd><p>functional object
-used to ensure the proper keyword is used</p>
-<p>e.g.
-using Functional(‘PBE0’) will use PBE1PBE in a gaussian input file</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.Method.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_semiempirical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_mm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Method.__init__" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<em>str</em>) – functional name</p></li>
-<li><p><strong>is_semiempirical</strong> (<em>bool</em>) – basis set is not required</p></li>
-<li><p><strong>is_oniom</strong> (<em>bool</em>) – oniom_layer must be in kwargs, is_mm must be in kwargs</p></li>
-<li><p><strong>oniom_layer</strong> (<em>str</em>) – oniom layer method describes, must be “H”, “M”, or “L”</p></li>
-<li><p><strong>is_mm</strong> (<em>bool</em>) – basis set is not required</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
+          <section id="example-bash-scripts-for-common-tasks">
+<h1>Example BASH Scripts for Common Tasks<a class="headerlink" href="#example-bash-scripts-for-common-tasks" title="Link to this heading">¶</a></h1>
+<p>AaronTools command line scripts (CLSs) make it simple to write BASH scripts to automate many routine tasks.
+A few examples are provided here to get you started!
+More examples will be added over time to make this a sort of ‘cookbook’ of AaronTools BASH scripts.</p>
+<section id="optimization-and-frequencies">
+<h2>Optimization and Frequencies<a class="headerlink" href="#optimization-and-frequencies" title="Link to this heading">¶</a></h2>
+<p>Perhaps the most common task in routine quantum chemistry applications is optimizing geometries for a set of molecules and computing vibrational frequencies.
+This can be done simply using AaronTools CLSs using any quantum chemistry software package.
+Here we use Gaussian as an example, but trivial changes to the scripts below would instead use Q-Chem, ORCA, or Psi4.</p>
+<p>For instance, suppose we have a set of XYZ files containing initial geomtries that we would like to optimize.
+The following script will run wB97XD/def2TZVP optimizations and frequencies on all XYZ files in the current directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># Perform wB97XD/def2TZVP optimizations/frequencies on all XYZ files</span>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.Method.sanity_check_method">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sanity_check_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">program</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Method.sanity_check_method" title="Link to this definition">¶</a></dt>
-<dd><p>check to see if method is available in the specified program</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<em>str</em>) – name of method</p></li>
-<li><p><strong>program</strong> (<em>str</em>) – program name (gaussian, orca, psi4, or qchem)</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
+<span class="k">for</span><span class="w"> </span>XYZ<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="sb">`</span>/bin/ls<span class="w"> </span>*.xyz<span class="sb">`</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="nv">name</span><span class="o">=</span><span class="sb">`</span>basename<span class="w"> </span><span class="nv">$XYZ</span><span class="w"> </span>.xyz<span class="sb">`</span>
+<span class="w">  </span>makeInput.py<span class="w"> </span><span class="nv">$XYZ</span><span class="w"> </span>-m<span class="w"> </span>wB97XD<span class="w"> </span>-b<span class="w"> </span><span class="s2">&quot;def2tzvp&quot;</span><span class="w"> </span>-opt<span class="w"> </span>-freq<span class="w"> </span>-o<span class="w"> </span><span class="nv">$name</span>.com
+<span class="w">  </span>jobSubmit.py<span class="w"> </span><span class="nv">$name</span>.com<span class="w"> </span>-p<span class="w"> </span><span class="m">8</span><span class="w"> </span>-m<span class="w"> </span><span class="m">12</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+<p>If initial XYZ files are not available, we can instead build all molecules from a list of IUPAC names and perform optimization + frequency computations.
+For instance, suppose we have a file <code class="code docutils literal notranslate"><span class="pre">molecules</span></code> that contains a list of IUPAC names:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># Perform wB97XD/def2TZVP optimizations/frequencies on all molecules listed in &#39;molecules&#39;</span>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.Method.get_gaussian">
-<span class="sig-name descname"><span class="pre">get_gaussian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Method.get_gaussian" title="Link to this definition">¶</a></dt>
-<dd><p>maps proper functional name to one Gaussian accepts</p>
-</dd></dl>
+<span class="k">for</span><span class="w"> </span>mol<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="sb">`</span>cat<span class="w"> </span>molecules<span class="sb">`</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span>fetchMolecule.py<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$mol</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>makeInput.py<span class="w"> </span>-m<span class="w"> </span>wB97XD<span class="w"> </span>-b<span class="w"> </span><span class="s2">&quot;def2tzvp&quot;</span><span class="w"> </span>-opt<span class="w"> </span>-freq<span class="w"> </span>-o<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$mol</span><span class="s2">.com&quot;</span>
+<span class="w">  </span>jobSubmit.py<span class="w"> </span><span class="nv">$mol</span>.com<span class="w"> </span>-p<span class="w"> </span><span class="m">8</span><span class="w"> </span>-m<span class="w"> </span><span class="m">12</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+<p>(Note that the above could be a little problematic if the IUPAC names include spaces, so it would be prudent to modify this to replace spaces in <code class="code docutils literal notranslate"><span class="pre">$mol</span></code> with “_”, for example.)</p>
+</section>
+<section id="checking-and-rerunning-jobs">
+<h2>Checking and Rerunning Jobs<a class="headerlink" href="#checking-and-rerunning-jobs" title="Link to this heading">¶</a></h2>
+<p>After running the above optimizaitons, it is necessary to check two things:</p>
+<ol class="arabic simple">
+<li><p>Did the computations all finish correctly?</p></li>
+<li><p>Are all optimized structures energy minima (no imaginary frequencies)</p></li>
+</ol>
+<p>The following script will check these.
+For jobs that did not generate an output file, the script just resubmits the original input file.
+For jobs that ran but did not finish, a new job is submitted using the last geometry from the previous attempt using the same level of theory used in the corresponding output file.
+For optimizations that ended with one or more imaginary vibrational frequencies, we displace along the vibrational mode using <code class="code docutils literal notranslate"><span class="pre">follow.py</span></code> and re-optimize.
+We’ll assume that we are working with a set of XYZ files, as in the first example above.
+The modifications to instead use a list of IUPAC names should be obvious.
+Changing the level of theory and/or quantum chemistry package should also be straightforward.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># check all jobs and resubmit if needed, following imaginary frequency if present</span>
+<span class="nv">method</span><span class="o">=</span><span class="s2">&quot;wb97xd&quot;</span>
+<span class="nv">basis</span><span class="o">=</span><span class="s2">&quot;def2tzvp&quot;</span>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.Method.get_orca">
-<span class="sig-name descname"><span class="pre">get_orca</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Method.get_orca" title="Link to this definition">¶</a></dt>
-<dd><p>maps proper functional name to one ORCA accepts</p>
-</dd></dl>
+<span class="k">for</span><span class="w"> </span>XYZ<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="sb">`</span>/bin/ls<span class="w"> </span>*.xyz<span class="sb">`</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="nv">name</span><span class="o">=</span><span class="sb">`</span>basename<span class="w"> </span><span class="nv">$XYZ</span><span class="w"> </span>.xyz<span class="sb">`</span>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.Method.get_psi4">
-<span class="sig-name descname"><span class="pre">get_psi4</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Method.get_psi4" title="Link to this definition">¶</a></dt>
-<dd><p>maps proper functional name to one Psi4 accepts</p>
-</dd></dl>
+<span class="w">  </span><span class="c1"># Check if output file exists</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-e<span class="w"> </span><span class="nv">$name</span>.log<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$name</span><span class="w"> </span>did<span class="w"> </span>not<span class="w"> </span>run!<span class="w"> </span>Trying<span class="w"> </span>again.
+<span class="w">    </span>jobSubmit.py<span class="w"> </span><span class="nv">$name</span>.com<span class="w"> </span>-p<span class="w"> </span><span class="m">8</span><span class="w"> </span>-m<span class="w"> </span><span class="m">12</span>
+<span class="w">  </span><span class="k">else</span>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.Method.get_sqm">
-<span class="sig-name descname"><span class="pre">get_sqm</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Method.get_sqm" title="Link to this definition">¶</a></dt>
-<dd><p>get method name that is appropriate for sqm</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.Method.get_qchem">
-<span class="sig-name descname"><span class="pre">get_qchem</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Method.get_qchem" title="Link to this definition">¶</a></dt>
-<dd><p>maps proper functional name to one Psi4 accepts</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.theory.SAPTMethod">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.</span></span><span class="sig-name descname"><span class="pre">SAPTMethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.SAPTMethod" title="Link to this definition">¶</a></dt>
-<dd><p>method used to differentiate between regular methods and sapt
-methods because the molecule will need to be split into monomers</p>
-<p>if using a sapt method, the geometry given to Theory or Geometry.write
-should have a ‘components’ attribute with each monomer being a component</p>
-<p>the charge and multiplicity given to Theory should be a list, with the first
-item in each list being the overall charge/multiplicity and the subsequent items
-being the charge/multiplicity of the monomers (components)</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.SAPTMethod.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.SAPTMethod.__init__" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<em>str</em>) – functional name</p></li>
-<li><p><strong>is_semiempirical</strong> (<em>bool</em>) – basis set is not required</p></li>
-<li><p><strong>is_oniom</strong> (<em>bool</em>) – oniom_layer must be in kwargs, is_mm must be in kwargs</p></li>
-<li><p><strong>oniom_layer</strong> (<em>str</em>) – oniom layer method describes, must be “H”, “M”, or “L”</p></li>
-<li><p><strong>is_mm</strong> (<em>bool</em>) – basis set is not required</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+<span class="w">    </span><span class="c1"># check if job finished</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="sb">`</span>printInfo.py<span class="w"> </span>-i<span class="w"> </span>FINISHED<span class="w"> </span><span class="nv">$name</span>.log<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-c<span class="w"> </span>True<span class="sb">`</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">     </span><span class="c1"># check if geometry optimized to a minimum</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="sb">`</span>printFreq.py<span class="w"> </span>-t<span class="w"> </span>neg<span class="w"> </span><span class="nv">$name</span>.log<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l<span class="sb">`</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$name</span><span class="w"> </span>finished!
+<span class="w">      </span><span class="k">else</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$name</span><span class="w"> </span>optimized<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>saddle<span class="w"> </span>point--following<span class="w"> </span>imaginary<span class="w"> </span>mode
+<span class="w">        </span>follow.py<span class="w"> </span><span class="nv">$name</span>.log<span class="w"> </span><span class="p">|</span><span class="w"> </span>makeInput.py<span class="w"> </span>-m<span class="w"> </span><span class="nv">$method</span><span class="w"> </span>-b<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$basis</span><span class="s2">&quot;</span><span class="w"> </span>-opt<span class="w"> </span>-freq<span class="w"> </span>-o<span class="w"> </span><span class="nv">$name</span>.com
+<span class="w">        </span>jobSubmit.py<span class="w"> </span><span class="nv">$name</span>.com<span class="w"> </span>-p<span class="w"> </span><span class="m">8</span><span class="w"> </span>-m<span class="w"> </span><span class="m">12</span>
+<span class="w">      </span><span class="k">fi</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">      </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$name</span><span class="w"> </span>not<span class="w"> </span>finished!<span class="w"> </span>Restarting
+<span class="w">      </span>makeInput.py<span class="w"> </span><span class="nv">$name</span>.log<span class="w"> </span>-m<span class="w"> </span><span class="nv">$method</span><span class="w"> </span>-b<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$basis</span><span class="s2">&quot;</span><span class="w"> </span>-opt<span class="w"> </span>-freq<span class="w"> </span>-o<span class="w"> </span><span class="nv">$name</span>.com
+<span class="w">      </span>jobSubmit.py<span class="w"> </span><span class="nv">$name</span>.com<span class="w"> </span>-p<span class="w"> </span><span class="m">8</span><span class="w"> </span>-m<span class="w"> </span><span class="m">12</span>
+<span class="w">    </span><span class="k">fi</span>
+<span class="w">  </span><span class="k">fi</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</section>
 </section>
 
         </article>
@@ -464,23 +449,23 @@ being the charge/multiplicity of the monomers (components)</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="dispersion.html">
+          <a class="next-page" href="adding_to_libraries.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title"><code class="docutils literal notranslate"><span class="pre">EmpiricalDispersion</span></code> class</div>
+                <div class="title">Adding Structures to your AaronTools Library</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="basis.html">
+          <a class="prev-page" href="cls_tutorials.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Basis Set classes</div>
+                <div class="title">Intro to Command Line Scripts</div>
                 
               </div>
             </a>
@@ -514,21 +499,9 @@ being the charge/multiplicity of the monomers (components)</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">Method</span></code> classes</a><ul>
-<li><a class="reference internal" href="#AaronTools.theory.Method"><code class="docutils literal notranslate"><span class="pre">Method</span></code></a><ul>
-<li><a class="reference internal" href="#AaronTools.theory.Method.__init__"><code class="docutils literal notranslate"><span class="pre">Method.__init__()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.Method.sanity_check_method"><code class="docutils literal notranslate"><span class="pre">Method.sanity_check_method()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.Method.get_gaussian"><code class="docutils literal notranslate"><span class="pre">Method.get_gaussian()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.Method.get_orca"><code class="docutils literal notranslate"><span class="pre">Method.get_orca()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.Method.get_psi4"><code class="docutils literal notranslate"><span class="pre">Method.get_psi4()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.Method.get_sqm"><code class="docutils literal notranslate"><span class="pre">Method.get_sqm()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.Method.get_qchem"><code class="docutils literal notranslate"><span class="pre">Method.get_qchem()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#AaronTools.theory.SAPTMethod"><code class="docutils literal notranslate"><span class="pre">SAPTMethod</span></code></a><ul>
-<li><a class="reference internal" href="#AaronTools.theory.SAPTMethod.__init__"><code class="docutils literal notranslate"><span class="pre">SAPTMethod.__init__()</span></code></a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">Example BASH Scripts for Common Tasks</a><ul>
+<li><a class="reference internal" href="#optimization-and-frequencies">Optimization and Frequencies</a></li>
+<li><a class="reference internal" href="#checking-and-rerunning-jobs">Checking and Rerunning Jobs</a></li>
 </ul>
 </li>
 </ul>
