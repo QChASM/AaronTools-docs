@@ -48,7 +48,7 @@ We will read the Z-matrix and variables and then construct the corresponding mol
 Reading ZMAT file
 -----------------
 The Python below will read the Z-matrix (removing the *'s) and variable definitions (stored as a dictionary)
-from a file called ZMAT as shown above
+from a file called ZMAT as shown above.
 
 .. code-block:: python
 
@@ -76,7 +76,9 @@ from a file called ZMAT as shown above
 
 Converting Z-Matrix to Cartesian Coordinates
 --------------------------------------------
-With the Z-matrix definition now saved as `zmat`, the following Python code will build a new `Geometry` object with the corresponding coordinates:
+With the Z-matrix definition now saved as `zmat` and the corresponding variables as the 
+dictionary `vars`, the following Python code will build a new :py:meth:`AaronTools.geometry.Geometry`
+object with the corresponding coordinates:
 
 .. code-block:: python
 
@@ -105,8 +107,8 @@ With the Z-matrix definition now saved as `zmat`, the following Python code will
                 dihedral = np.radians(vars[line_items[6]))
                 geom.change_dihedral(a0, a1, a2, a3, dihedral, fix=4, as_group=False)
     
-For a given atom, we start by placing that atom in a random position (this avoids accidentally having co-linear atoms, which will trip up `angle` and `dihedral`)
-We then use the AaronTools functions `change_distance`, `change_angle`, and `change_dihedral` to set the distance, angle, and dihedral values as specified in the Z-matrix, taking care to move only the newly added atom.
+For a given atom, we start by placing that atom in a random position to avoids accidentally having co-linear atoms.
+We then use :py:meth:`AaronTools.geometry.Geometry.change_distance`, :py:meth:`AaronTools.geometry.Geometry.change_angle`, and :py:meth:`AaronTools.geometry.Geometry.change_dihedral` to set the distance, angle, and dihedral values as specified in the Z-matrix, taking care to move only the newly added atom.
 That's it!
 
 For completeness, we can also remove any dummy atoms (X) and then center and place the molecule in a reasonable orientation, then print the resulting coordinates in XYZ format:

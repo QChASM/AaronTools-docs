@@ -402,7 +402,7 @@ Strangely, there seem to be limited tools available that will convert a general 
 <section id="reading-zmat-file">
 <h2>Reading ZMAT file<a class="headerlink" href="#reading-zmat-file" title="Link to this heading">¶</a></h2>
 <p>The Python below will read the Z-matrix (removing the <a href="#id1"><span class="problematic" id="id2">*</span></a>’s) and variable definitions (stored as a dictionary)
-from a file called ZMAT as shown above</p>
+from a file called ZMAT as shown above.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;ZMAT&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
 <span class="n">comment</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
 <span class="n">geom</span><span class="o">.</span><span class="n">comment</span> <span class="o">=</span> <span class="n">comment</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
@@ -428,7 +428,9 @@ from a file called ZMAT as shown above</p>
 </section>
 <section id="converting-z-matrix-to-cartesian-coordinates">
 <h2>Converting Z-Matrix to Cartesian Coordinates<a class="headerlink" href="#converting-z-matrix-to-cartesian-coordinates" title="Link to this heading">¶</a></h2>
-<p>With the Z-matrix definition now saved as <cite>zmat</cite>, the following Python code will build a new <cite>Geometry</cite> object with the corresponding coordinates:</p>
+<p>With the Z-matrix definition now saved as <cite>zmat</cite> and the corresponding variables as the
+dictionary <cite>vars</cite>, the following Python code will build a new <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry()</span></code></a>
+object with the corresponding coordinates:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># loop over lines in zmat and build molecule</span>
 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">zmat</span><span class="o">.</span><span class="n">splitlines</span><span class="p">():</span>
     <span class="n">line_items</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
@@ -455,8 +457,8 @@ from a file called ZMAT as shown above</p>
         <span class="n">geom</span><span class="o">.</span><span class="n">change_dihedral</span><span class="p">(</span><span class="n">a0</span><span class="p">,</span> <span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">a3</span><span class="p">,</span> <span class="n">dihedral</span><span class="p">,</span> <span class="n">fix</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">as_group</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>For a given atom, we start by placing that atom in a random position (this avoids accidentally having co-linear atoms, which will trip up <cite>angle</cite> and <cite>dihedral</cite>)
-We then use the AaronTools functions <cite>change_distance</cite>, <cite>change_angle</cite>, and <cite>change_dihedral</cite> to set the distance, angle, and dihedral values as specified in the Z-matrix, taking care to move only the newly added atom.
+<p>For a given atom, we start by placing that atom in a random position to avoids accidentally having co-linear atoms.
+We then use <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry.change_distance" title="AaronTools.geometry.Geometry.change_distance"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.change_distance()</span></code></a>, <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry.change_angle" title="AaronTools.geometry.Geometry.change_angle"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.change_angle()</span></code></a>, and <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry.change_dihedral" title="AaronTools.geometry.Geometry.change_dihedral"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.change_dihedral()</span></code></a> to set the distance, angle, and dihedral values as specified in the Z-matrix, taking care to move only the newly added atom.
 That’s it!</p>
 <p>For completeness, we can also remove any dummy atoms (X) and then center and place the molecule in a reasonable orientation, then print the resulting coordinates in XYZ format:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># remove any dummy atoms</span>
