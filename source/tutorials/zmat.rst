@@ -47,10 +47,14 @@ We will read the Z-matrix and variables and then construct the corresponding mol
 
 Reading ZMAT file
 -----------------
-The Python below will read the Z-matrix (removing the *'s) and variable definitions (stored as a dictionary)
+The Python below will read the Z-matrix (removing the stars) and variable definitions (stored as a dictionary)
 from a file called ZMAT as shown above.
 
 .. code-block:: python
+
+        from AaronTools.geometry import Geometry
+        from AaronTools.atoms import Atom
+        import numpy as np
 
         f = open('ZMAT', 'r')
         comment = f.readline()
@@ -93,18 +97,19 @@ object with the corresponding coordinates:
             # set distance
             if len(line_items) > 1:
                 a1 = geom.atoms[int(line_items[1]) - 1]
-                geom.change_distance(a0, a1, dist=vars[line_items[2]], fix=2, as_group=False)
+                dist = vars[line_items[2]]
+                geom.change_distance(a0, a1, dist=dist, fix=2, as_group=False)
                 
             # set angle
             if len(line_items) > 3:
                 a2 = geom.atoms[int(line_items[3]) - 1]
-                angle = np.radians(vars[line_items[4]))
+                angle = np.radians(vars[line_items[4]])
                 geom.change_angle(a0, a1, a2, angle, fix=3, as_group=False)
                       
             # set dihedral
             if len(line_items) > 5:
                 a3 = geom.atoms[int(line_items[5]) - 1]
-                dihedral = np.radians(vars[line_items[6]))
+                dihedral = np.radians(vars[line_items[6]])
                 geom.change_dihedral(a0, a1, a2, a3, dihedral, fix=4, as_group=False)
     
 For a given atom, we start by placing that atom in a random position to avoids accidentally having co-linear atoms.
