@@ -462,11 +462,63 @@ object with the corresponding coordinates:</p>
         <span class="n">geom</span><span class="o">.</span><span class="n">change_dihedral</span><span class="p">(</span><span class="n">a0</span><span class="p">,</span> <span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">a3</span><span class="p">,</span> <span class="n">dihedral</span><span class="p">,</span> <span class="n">fix</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">as_group</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>For a given atom, we start by placing that atom in a random position to avoids accidentally having co-linear atoms.
+<p>For a given atom, we start by placing that atom in a random position to avoid accidentally having co-linear atoms.
 We then use <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry.change_distance" title="AaronTools.geometry.Geometry.change_distance"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.change_distance()</span></code></a>, <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry.change_angle" title="AaronTools.geometry.Geometry.change_angle"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.change_angle()</span></code></a>, and <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry.change_dihedral" title="AaronTools.geometry.Geometry.change_dihedral"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.change_dihedral()</span></code></a> to set the distance, angle, and dihedral values as specified in the Z-matrix, taking care to move only the newly added atom.
 That’s it!</p>
-<p>For completeness, we can also remove any dummy atoms (X) and then center and place the molecule in a reasonable orientation, then print the resulting coordinates in XYZ format:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># remove any dummy atoms</span>
+<p>For completeness, we can also remove any dummy atoms (X) and then center and place the molecule in a reasonable orientation, then print the resulting coordinates in XYZ format.
+Putting this all together, we have a simple little ZMAT to XYZ converter:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">from</span> <span class="nn">AaronTools.atoms</span> <span class="kn">import</span> <span class="n">Atom</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;ZMAT&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">comment</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="n">geom</span><span class="o">.</span><span class="n">comment</span> <span class="o">=</span> <span class="n">comment</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="c1"># read z-matrix</span>
+<span class="n">zmat</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="k">while</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="c1"># remove stars from optimized vars</span>
+    <span class="n">zmat</span> <span class="o">+=</span> <span class="n">line</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+
+<span class="c1"># read variables and build dict</span>
+<span class="nb">vars</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="k">while</span> <span class="n">line</span><span class="p">:</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="c1"># strip white space</span>
+    <span class="n">line_items</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)</span>
+    <span class="nb">vars</span><span class="p">[</span><span class="n">line_items</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">line_items</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="c1"># loop over lines in zmat and build molecule</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">zmat</span><span class="o">.</span><span class="n">splitlines</span><span class="p">():</span>
+    <span class="n">line_items</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+
+    <span class="c1"># place atom in random spot to avoid co-linear atoms</span>
+    <span class="n">geom</span> <span class="o">+=</span> <span class="p">[</span><span class="n">Atom</span><span class="p">(</span><span class="n">element</span><span class="o">=</span><span class="n">line_items</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">coords</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_sample</span><span class="p">(</span><span class="mi">3</span><span class="p">))]</span>
+    <span class="n">a0</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># new atom</span>
+
+    <span class="c1"># set distance</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line_items</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">a1</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">line_items</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">dist</span> <span class="o">=</span> <span class="nb">vars</span><span class="p">[</span><span class="n">line_items</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+        <span class="n">geom</span><span class="o">.</span><span class="n">change_distance</span><span class="p">(</span><span class="n">a0</span><span class="p">,</span> <span class="n">a1</span><span class="p">,</span> <span class="n">dist</span><span class="o">=</span><span class="n">dist</span><span class="p">,</span> <span class="n">fix</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">as_group</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="c1"># set angle</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line_items</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">a2</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">line_items</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="nb">vars</span><span class="p">[</span><span class="n">line_items</span><span class="p">[</span><span class="mi">4</span><span class="p">]])</span>
+        <span class="n">geom</span><span class="o">.</span><span class="n">change_angle</span><span class="p">(</span><span class="n">a0</span><span class="p">,</span> <span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">fix</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">as_group</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="c1"># set dihedral</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line_items</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="n">a3</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">line_items</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">dihedral</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="nb">vars</span><span class="p">[</span><span class="n">line_items</span><span class="p">[</span><span class="mi">6</span><span class="p">]])</span>
+        <span class="n">geom</span><span class="o">.</span><span class="n">change_dihedral</span><span class="p">(</span><span class="n">a0</span><span class="p">,</span> <span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">a3</span><span class="p">,</span> <span class="n">dihedral</span><span class="p">,</span> <span class="n">fix</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">as_group</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># remove any dummy atoms</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="n">geom</span> <span class="o">-=</span> <span class="n">geom</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
 <span class="k">except</span><span class="p">:</span>

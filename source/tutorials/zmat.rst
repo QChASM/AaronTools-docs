@@ -112,14 +112,66 @@ object with the corresponding coordinates:
                 dihedral = np.radians(vars[line_items[6]])
                 geom.change_dihedral(a0, a1, a2, a3, dihedral, fix=4, as_group=False)
     
-For a given atom, we start by placing that atom in a random position to avoids accidentally having co-linear atoms.
+For a given atom, we start by placing that atom in a random position to avoid accidentally having co-linear atoms.
 We then use :py:meth:`AaronTools.geometry.Geometry.change_distance`, :py:meth:`AaronTools.geometry.Geometry.change_angle`, and :py:meth:`AaronTools.geometry.Geometry.change_dihedral` to set the distance, angle, and dihedral values as specified in the Z-matrix, taking care to move only the newly added atom.
 That's it!
 
-For completeness, we can also remove any dummy atoms (X) and then center and place the molecule in a reasonable orientation, then print the resulting coordinates in XYZ format:
+For completeness, we can also remove any dummy atoms (X) and then center and place the molecule in a reasonable orientation, then print the resulting coordinates in XYZ format.
+Putting this all together, we have a simple little ZMAT to XYZ converter:
 
 
 .. code-block:: python
+
+        from AaronTools.geometry import Geometry
+        from AaronTools.atoms import Atom
+        import numpy as np
+
+        f = open('ZMAT', 'r')
+        comment = f.readline()
+        geom.comment = comment.strip()
+        
+        # read z-matrix
+        zmat = ""
+        line = f.readline()
+        while line.strip():
+            line = line.replace("*","") # remove stars from optimized vars
+            zmat += line
+            line = f.readline()
+        
+        # read variables and build dict
+        vars = {}
+        line = f.readline().strip()
+        while line:
+            line = line.replace(" ","") # strip white space
+            line_items = line.split("=")
+            vars[line_items[0]] = float(line_items[1])
+            line = f.readline().strip()
+
+        # loop over lines in zmat and build molecule
+        for line in zmat.splitlines():
+            line_items = line.split()
+        
+            # place atom in random spot to avoid co-linear atoms
+            geom += [Atom(element=line_items[0], coords=np.random.random_sample(3))]
+            a0 = geom.atoms[-1] # new atom
+            
+            # set distance
+            if len(line_items) > 1:
+                a1 = geom.atoms[int(line_items[1]) - 1]
+                dist = vars[line_items[2]]
+                geom.change_distance(a0, a1, dist=dist, fix=2, as_group=False)
+                
+            # set angle
+            if len(line_items) > 3:
+                a2 = geom.atoms[int(line_items[3]) - 1]
+                angle = np.radians(vars[line_items[4]])
+                geom.change_angle(a0, a1, a2, angle, fix=3, as_group=False)
+                      
+            # set dihedral
+            if len(line_items) > 5:
+                a3 = geom.atoms[int(line_items[5]) - 1]
+                dihedral = np.radians(vars[line_items[6]])
+                geom.change_dihedral(a0, a1, a2, a3, dihedral, fix=4, as_group=False)
 
         # remove any dummy atoms
         try:
@@ -135,7 +187,5 @@ For completeness, we can also remove any dummy atoms (X) and then center and pla
         geom.coords @= axes
         
         print(geom)
-
-
 
 
