@@ -26,3 +26,4 @@ Tutorials
     
     Jupyter_basics
     Jupyter_Psi4
+    Jupyter_Matplotlib

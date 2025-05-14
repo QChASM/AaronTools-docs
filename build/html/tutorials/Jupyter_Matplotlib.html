@@ -3,11 +3,11 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Intro to Command Line Scripts" href="cls_tutorials.html" /><link rel="prev" title="Installation Guide" href="install.html" />
-        <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/tutorials/tut_list.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="List of Command Line Scripts" href="../cls/list.html" /><link rel="prev" title="AaronTools and Psi4" href="Jupyter_Psi4.html" />
+        <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/tutorials/Jupyter_Matplotlib.html" />
 
     <!-- Generated with Sphinx 8.0.2 and Furo 2024.08.06 -->
-        <title>Tutorials - AaronTools 1.0b19 documentation</title>
+        <title>AaronTools and Matplotlib - AaronTools 1.0b19 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
@@ -205,7 +205,7 @@
   <p class="caption" role="heading"><span class="caption-text">Pages:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation Guide</a></li>
-<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Tutorials</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Tutorials</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="tut_list.html">Tutorials</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Tutorials</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="cls_tutorials.html">Intro to Command Line Scripts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="example_bash.html">Example BASH Scripts for Common Tasks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adding_to_libraries.html">Adding Structures to your AaronTools Library</a></li>
@@ -215,7 +215,7 @@
 <li class="toctree-l2"><a class="reference internal" href="zmat.html">Converting Z-Matrices to Cartesian Coordinates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Jupyter_basics.html">Working with AaronTools in Jupyter Notebooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Jupyter_Psi4.html">AaronTools and Psi4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Jupyter_Matplotlib.html">AaronTools and Matplotlib</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">AaronTools and Matplotlib</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../cls/list.html">List of Command Line Scripts</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of List of Command Line Scripts</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -341,7 +341,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../_sources/tutorials/tut_list.rst.txt" title="View this page">
+  <a class="muted-link" href="../_sources/tutorials/Jupyter_Matplotlib.ipynb.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -361,76 +361,121 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="tutorials">
-<h1>Tutorials<a class="headerlink" href="#tutorials" title="Link to this heading">¶</a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Command Line Scripts:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="cls_tutorials.html">Intro to Command Line Scripts</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cls_tutorials.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cls_tutorials.html#file-input-output">File Input/Output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cls_tutorials.html#finding-atoms">Finding Atoms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cls_tutorials.html#structure-modification">Structure Modification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cls_tutorials.html#running-jobs">Running Jobs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cls_tutorials.html#analyzing-output">Analyzing Output</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="example_bash.html">Example BASH Scripts for Common Tasks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="example_bash.html#optimization-and-frequencies">Optimization and Frequencies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="example_bash.html#checking-and-rerunning-jobs">Checking and Rerunning Jobs</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="adding_to_libraries.html">Adding Structures to your AaronTools Library</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="adding_to_libraries.html#ligands">Ligands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="adding_to_libraries.html#substituents">Substituents</a></li>
-<li class="toctree-l2"><a class="reference internal" href="adding_to_libraries.html#rings">Rings</a></li>
-</ul>
-</li>
-</ul>
+          <section id="aarontools-and-matplotlib">
+<h1>AaronTools and Matplotlib<a class="headerlink" href="#aarontools-and-matplotlib" title="Link to this heading">¶</a></h1>
+<p>You can download the Jupyter Notebook version of this page <a href="https://github.com/QChASM/AaronTools-docs/blob/main/source/tutorials/Jupyter_Matplotlib.ipynb" target="_blank">here</a> (click “Download raw file”).</p>
+<p>AaronTools <code class="docutils literal notranslate"><span class="pre">Geometry</span></code> objects can be plotted within Matplotlib figures using ‘HoukMol’ style (you’ll recognize it when you see it).</p>
+<p>For instance, if we just want to generate a HoukMol style image of a molecule, we can create an empty Matplotlib figure/axis, set a reasonable scale, set the aspect to ‘equal’ and then plot the molecule:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Create AaronTools geometry</span>
+<span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="s1">&#39;toluene&#39;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="s1">&#39;iupac&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span> <span class="c1"># create figure and axis</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>           <span class="c1"># hide axes</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>        <span class="c1"># set scale for x-axis</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>   <span class="c1"># set aspect to &#39;equal&#39;</span>
+<span class="n">geom</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">fig</span><span class="p">)</span>       <span class="c1"># plot molecule</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
 </div>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Python Scripting:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="coding_with_geometries.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> Objects</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="coding_with_geometries.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="coding_with_geometries.html#file-input-output">File Input/Output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="coding_with_geometries.html#finding-atoms">Finding Atoms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="coding_with_geometries.html#structure-modification">Structure Modification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="coding_with_geometries.html#removing-substituents">Removing Substituents</a></li>
-<li class="toctree-l2"><a class="reference internal" href="coding_with_geometries.html#creating-fused-rings">Creating Fused Rings</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="coding_with_theories.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> Objects</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="coding_with_theories.html#building-a-basic-input-file">Building a Basic Input File</a></li>
-<li class="toctree-l2"><a class="reference internal" href="coding_with_theories.html#creation">Creation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="coding_with_theories.html#method-class">Method Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="coding_with_theories.html#empirical-dispersion">Empirical Dispersion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="coding_with_theories.html#integration-grid">Integration Grid</a></li>
-<li class="toctree-l2"><a class="reference internal" href="coding_with_theories.html#job-types">Job Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="coding_with_theories.html#other-options">Other Options</a></li>
-<li class="toctree-l2"><a class="reference internal" href="coding_with_theories.html#examples">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="coding_with_filereaders.html">Coding with <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> objects</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="coding_with_filereaders.html#creation">Creation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="coding_with_filereaders.html#getting-more-information">Getting More Information</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="zmat.html">Converting Z-Matrices to Cartesian Coordinates</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="zmat.html#zmat-format">ZMAT Format</a></li>
-<li class="toctree-l2"><a class="reference internal" href="zmat.html#reading-zmat-file">Reading ZMAT file</a></li>
-<li class="toctree-l2"><a class="reference internal" href="zmat.html#converting-z-matrix-to-cartesian-coordinates">Converting Z-Matrix to Cartesian Coordinates</a></li>
-</ul>
-</li>
-</ul>
 </div>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Jupyter Notebooks:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Jupyter_basics.html">Working with AaronTools in Jupyter Notebooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Jupyter_Psi4.html">AaronTools and Psi4</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Jupyter_Matplotlib.html">AaronTools and Matplotlib</a></li>
-</ul>
+<div class="cell_output docutils container">
+<img alt="../_images/807a697dacd273b3c5725d667cd66e32fe0411b3d8a96d596a1a13ae9fd1ca2c.png" src="../_images/807a697dacd273b3c5725d667cd66e32fe0411b3d8a96d596a1a13ae9fd1ca2c.png" />
+</div>
+</div>
+<p>If we want to insert a molecular structure into a plot of data, we need to create a subplot in order to control the scale of the molecular structure.</p>
+<p>We will also need to set both the x- and y-limits to enable control over the vertical and horizontal placement of the molecule within the plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Create dummy plot of data as an example</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="c1"># add subplot to hold molecular structure figure</span>
+<span class="n">ax2</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;HoukMol&quot;</span><span class="p">,</span> <span class="n">frame_on</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+
+<span class="c1"># Create AaronTools geometry</span>
+<span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="s1">&#39;toluene&#39;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="s1">&#39;iupac&#39;</span><span class="p">)</span>
+<span class="c1"># Shift geometry to place it within overall figure</span>
+<span class="n">geom</span><span class="o">.</span><span class="n">coord_shift</span><span class="p">([</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="c1"># Plot AaronTools geometry</span>
+<span class="n">geom</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax2</span><span class="p">,</span> <span class="n">fig</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/5719fcee59599c2b805938c1293e1d3d8d961ce2d5bb21b3037a096b74ea66da.png" src="../_images/5719fcee59599c2b805938c1293e1d3d8d961ce2d5bb21b3037a096b74ea66da.png" />
+</div>
+</div>
+<p>Finally, one of the most useful aspects of being able to plot AaronTools geometries within a Matplotlib figure is to superimpose computed molecular data over top of a HoukMol style molecule.</p>
+<p>For example, below we use Psi4 to calculate the electrostatic potential (ESP) in the plane 3.5 A from  pyridine at the HF/STO-3G level and then make a semi-transparent contour plot of this data on top of a HoukMol figure of pyridine at the same scale.</p>
+<p>In this way, we can visualize the ESP (or other data computed on a grid) in the vicinity of a molecule!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">import</span> <span class="nn">psi4</span>
+<span class="kn">import</span> <span class="nn">psi4.core</span> <span class="k">as</span> <span class="nn">p4c</span>
+
+<span class="c1"># Build Geometry and convert to Psi4 molecule object</span>
+<span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="s1">&#39;pyridine&#39;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="s1">&#39;iupac&#39;</span><span class="p">)</span> <span class="c1"># Will be *close* to being in the XY plane</span>
+<span class="n">mol</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">convert_to_Psi4</span><span class="p">()</span>
+
+<span class="c1"># build grid to compute ESP on</span>
+<span class="n">xgrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">ygrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># build 2D meshgrid</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">xgrid</span><span class="p">,</span> <span class="n">ygrid</span><span class="p">)</span>
+
+<span class="c1"># Get HF/STO-3G wavefunction using Psi4</span>
+<span class="n">psi4</span><span class="o">.</span><span class="n">set_output_file</span><span class="p">(</span><span class="s2">&quot;output.dat&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">energy</span><span class="p">,</span> <span class="n">wfn</span> <span class="o">=</span> <span class="n">psi4</span><span class="o">.</span><span class="n">energy</span><span class="p">(</span><span class="s1">&#39;scf/sto-3g&#39;</span><span class="p">,</span> <span class="n">return_wfn</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Build 3D grid in z = 3.5 A plane and setup ESP calculation on grid</span>
+<span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">ravel</span><span class="p">()]</span> <span class="o">+</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">3.5</span><span class="p">]</span><span class="o">*</span><span class="n">xgrid</span><span class="o">.</span><span class="n">size</span><span class="o">*</span><span class="n">ygrid</span><span class="o">.</span><span class="n">size</span><span class="p">)])</span><span class="o">.</span><span class="n">T</span>
+<span class="n">psi4_matrix</span> <span class="o">=</span> <span class="n">p4c</span><span class="o">.</span><span class="n">Matrix</span><span class="o">.</span><span class="n">from_array</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+<span class="n">myepc</span> <span class="o">=</span> <span class="n">p4c</span><span class="o">.</span><span class="n">ESPPropCalc</span><span class="p">(</span><span class="n">wfn</span><span class="p">)</span>
+<span class="n">psi4</span><span class="o">.</span><span class="n">set_num_threads</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">quiet</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Calculate ESP and convert to kcal/mol</span>
+<span class="n">ESP</span> <span class="o">=</span> <span class="mf">627.51</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">myepc</span><span class="o">.</span><span class="n">compute_esp_over_grid_in_memory</span><span class="p">(</span><span class="n">psi4_matrix</span><span class="p">))</span>
+
+<span class="c1"># Convert ESP to 2D array</span>
+<span class="n">ESP</span> <span class="o">=</span> <span class="n">ESP</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="c1"># Make contour plot superimposed over HoukMol image</span>
+<span class="n">ESPmax</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">ESPmin</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
+<span class="n">scale</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ESPmin</span><span class="p">,</span> <span class="n">ESPmax</span><span class="p">,</span> <span class="p">(</span><span class="n">ESPmax</span> <span class="o">-</span> <span class="n">ESPmin</span><span class="p">)</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="n">CS</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">ESP</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">linewidths</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;solid&#39;</span><span class="p">)</span>
+<span class="n">CSF</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">ESP</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">extend</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">geom</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">fig</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/aec4d4336cd0ec26d88c3704c27324e3774c8789241df7840f75bb2bb59f1364.png" src="../_images/aec4d4336cd0ec26d88c3704c27324e3774c8789241df7840f75bb2bb59f1364.png" />
+</div>
 </div>
 </section>
 
@@ -439,23 +484,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="cls_tutorials.html">
+          <a class="next-page" href="../cls/list.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Intro to Command Line Scripts</div>
+                <div class="title">List of Command Line Scripts</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="install.html">
+          <a class="prev-page" href="Jupyter_Psi4.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Installation Guide</div>
+                <div class="title">AaronTools and Psi4</div>
                 
               </div>
             </a>
