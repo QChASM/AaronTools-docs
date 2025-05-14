@@ -3,11 +3,11 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Intro to Command Line Scripts" href="cls_tutorials.html" /><link rel="prev" title="Installation Guide" href="install.html" />
-        <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/tutorials/tut_list.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="List of Command Line Scripts" href="../cls/list.html" /><link rel="prev" title="Working with AaronTools in Jupyter Notebooks" href="Jupyter_basics.html" />
+        <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/tutorials/Jupyter_Psi4.html" />
 
     <!-- Generated with Sphinx 8.0.2 and Furo 2024.08.06 -->
-        <title>Tutorials - AaronTools 1.0b19 documentation</title>
+        <title>AaronTools and Psi4 - AaronTools 1.0b19 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
@@ -205,7 +205,7 @@
   <p class="caption" role="heading"><span class="caption-text">Pages:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation Guide</a></li>
-<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Tutorials</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Tutorials</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="tut_list.html">Tutorials</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Tutorials</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="cls_tutorials.html">Intro to Command Line Scripts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="example_bash.html">Example BASH Scripts for Common Tasks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adding_to_libraries.html">Adding Structures to your AaronTools Library</a></li>
@@ -214,7 +214,7 @@
 <li class="toctree-l2"><a class="reference internal" href="coding_with_filereaders.html">Coding with <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="zmat.html">Converting Z-Matrices to Cartesian Coordinates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Jupyter_basics.html">Working with AaronTools in Jupyter Notebooks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Jupyter_Psi4.html">AaronTools and Psi4</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">AaronTools and Psi4</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../cls/list.html">List of Command Line Scripts</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of List of Command Line Scripts</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -340,7 +340,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../_sources/tutorials/tut_list.rst.txt" title="View this page">
+  <a class="muted-link" href="../_sources/tutorials/Jupyter_Psi4.ipynb.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -360,76 +360,295 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="tutorials">
-<h1>Tutorials<a class="headerlink" href="#tutorials" title="Link to this heading">¶</a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Command Line Scripts:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="cls_tutorials.html">Intro to Command Line Scripts</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cls_tutorials.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cls_tutorials.html#file-input-output">File Input/Output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cls_tutorials.html#finding-atoms">Finding Atoms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cls_tutorials.html#structure-modification">Structure Modification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cls_tutorials.html#running-jobs">Running Jobs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cls_tutorials.html#analyzing-output">Analyzing Output</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="example_bash.html">Example BASH Scripts for Common Tasks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="example_bash.html#optimization-and-frequencies">Optimization and Frequencies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="example_bash.html#checking-and-rerunning-jobs">Checking and Rerunning Jobs</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="adding_to_libraries.html">Adding Structures to your AaronTools Library</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="adding_to_libraries.html#ligands">Ligands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="adding_to_libraries.html#substituents">Substituents</a></li>
-<li class="toctree-l2"><a class="reference internal" href="adding_to_libraries.html#rings">Rings</a></li>
-</ul>
-</li>
-</ul>
+          <section id="aarontools-and-psi4">
+<h1>AaronTools and Psi4<a class="headerlink" href="#aarontools-and-psi4" title="Link to this heading">¶</a></h1>
+<p>You can download the Jupyter Notebook version of this page <a href="https://github.com/QChASM/AaronTools-docs/blob/main/source/tutorials/Jupyter_Psi4.ipynb" target="_blank">here</a> (click “Download raw file”).</p>
+<p>Psi4 is an open-source quantum chemistry package that has a simple Python API that lets you run quantum chemistry computations straight from Jupyter.
+By combining this with the molecular building, visualization, and analysis tools from AaronTools, you can do quite a lot right from a Jupyter Notebook.</p>
+<p>For example, below we first build formadlehyde using AaronTools:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="s1">&#39;formaldehyde&#39;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="s1">&#39;iupac&#39;</span><span class="p">)</span>
+<span class="n">geom</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+</pre></div>
 </div>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Python Scripting:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="coding_with_geometries.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> Objects</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="coding_with_geometries.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="coding_with_geometries.html#file-input-output">File Input/Output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="coding_with_geometries.html#finding-atoms">Finding Atoms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="coding_with_geometries.html#structure-modification">Structure Modification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="coding_with_geometries.html#removing-substituents">Removing Substituents</a></li>
-<li class="toctree-l2"><a class="reference internal" href="coding_with_geometries.html#creating-fused-rings">Creating Fused Rings</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="coding_with_theories.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> Objects</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="coding_with_theories.html#building-a-basic-input-file">Building a Basic Input File</a></li>
-<li class="toctree-l2"><a class="reference internal" href="coding_with_theories.html#creation">Creation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="coding_with_theories.html#method-class">Method Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="coding_with_theories.html#empirical-dispersion">Empirical Dispersion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="coding_with_theories.html#integration-grid">Integration Grid</a></li>
-<li class="toctree-l2"><a class="reference internal" href="coding_with_theories.html#job-types">Job Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="coding_with_theories.html#other-options">Other Options</a></li>
-<li class="toctree-l2"><a class="reference internal" href="coding_with_theories.html#examples">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="coding_with_filereaders.html">Coding with <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> objects</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="coding_with_filereaders.html#creation">Creation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="coding_with_filereaders.html#getting-more-information">Getting More Information</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="zmat.html">Converting Z-Matrices to Cartesian Coordinates</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="zmat.html#zmat-format">ZMAT Format</a></li>
-<li class="toctree-l2"><a class="reference internal" href="zmat.html#reading-zmat-file">Reading ZMAT file</a></li>
-<li class="toctree-l2"><a class="reference internal" href="zmat.html#converting-z-matrix-to-cartesian-coordinates">Converting Z-Matrix to Cartesian Coordinates</a></li>
-</ul>
-</li>
-</ul>
 </div>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Jupyter Notebooks:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Jupyter_basics.html">Working with AaronTools in Jupyter Notebooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Jupyter_Psi4.html">AaronTools and Psi4</a></li>
-</ul>
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="3dmolviewer_17472323767133858"  style="position: relative; width: 640px; height: 480px;">
+        <p id="3dmolwarning_17472323767133858" style="background-color:#ffcccc;color:black">3Dmol.js failed to load for some reason.  Please check your browser console for error messages.<br></p>
+        </div>
+<script>
+
+var loadScriptAsync = function(uri){
+  return new Promise((resolve, reject) => {
+    //this is to ignore the existence of requirejs amd
+    var savedexports, savedmodule;
+    if (typeof exports !== 'undefined') savedexports = exports;
+    else exports = {}
+    if (typeof module !== 'undefined') savedmodule = module;
+    else module = {}
+
+    var tag = document.createElement('script');
+    tag.src = uri;
+    tag.async = true;
+    tag.onload = () => {
+        exports = savedexports;
+        module = savedmodule;
+        resolve();
+    };
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+});
+};
+
+if(typeof $3Dmolpromise === 'undefined') {
+$3Dmolpromise = null;
+  $3Dmolpromise = loadScriptAsync('https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.4.0/3Dmol-min.js');
+}
+
+var viewer_17472323767133858 = null;
+var warn = document.getElementById("3dmolwarning_17472323767133858");
+if(warn) {
+    warn.parentNode.removeChild(warn);
+}
+$3Dmolpromise.then(function() {
+viewer_17472323767133858 = $3Dmol.createViewer(document.getElementById("3dmolviewer_17472323767133858"),{backgroundColor:"white"});
+viewer_17472323767133858.addModel("4\n\nC      0.04510   -0.02340   -0.02420\nO      1.11970   -0.17210   -0.58980\nH     -0.70940   -0.71480    0.35300\nH     -0.45540    0.91030    0.26100");
+viewer_17472323767133858.setStyle({"stick": {"colorscheme": "Jmol"}});
+viewer_17472323767133858.zoomTo();
+	viewer_17472323767133858.setHoverable({},true,"function(atom,viewer,event,container) {\n                       if(!atom.label) {\n                        var ndx = atom.index + 1;\n                        atom.label = viewer.addLabel(\n                            atom.atom + \":\" + ndx,\n                            {position: atom, backgroundColor: 'white', fontColor:'black'}\n                        );\n                       }}","function(atom,viewer) {\n                       if(atom.label) {\n                        viewer.removeLabel(atom.label);\n                        delete atom.label;\n                       }\n                    }");
+viewer_17472323767133858.render();
+});
+</script></div></div>
 </div>
+<p>We can print the C-O bond length and H-C-O angle (remember, hovering over atoms in the above structure will give you atom numbers).
+Note that <code class="docutils literal notranslate"><span class="pre">geom.angle()</span></code> will return the angle in radians, so we convert this to degrees using Numpy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">atom1</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">atom1</span><span class="o">.</span><span class="n">dist</span><span class="p">(</span><span class="n">geom</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">geom</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;C-O bond distance: </span><span class="si">{</span><span class="n">d</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> Angstroms&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;HCO angle:         </span><span class="si">{</span><span class="n">a</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> degrees&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C-O bond distance: 1.223 Angstroms
+HCO angle:         133.7 degrees
+</pre></div>
+</div>
+</div>
+</div>
+<p>To run Psi4 computations on this molecule, we need to convert the AaronTools <code class="docutils literal notranslate"><span class="pre">Geometry</span></code> into a Psi4 <code class="docutils literal notranslate"><span class="pre">Molecule</span></code>.
+We can then run a HF/STO-3G geometry optimization using <code class="docutils literal notranslate"><span class="pre">psi4.opt('scf')</span></code>.
+Note that the native geometry optimizer in Psi4 (OptKing) will print all sorts of messages/warnings to the screen.  Just ignore those.
+Once finished, it should say <code class="docutils literal notranslate"><span class="pre">Optimization</span> <span class="pre">complete</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">psi4</span>
+<span class="n">mol</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">convert_to_Psi4</span><span class="p">()</span>
+
+<span class="c1"># set psi4 parameters </span>
+<span class="n">psi4</span><span class="o">.</span><span class="n">set_memory</span><span class="p">(</span><span class="s1">&#39;2 GB&#39;</span><span class="p">)</span>
+<span class="n">psi4</span><span class="o">.</span><span class="n">set_options</span><span class="p">({</span><span class="s1">&#39;basis&#39;</span><span class="p">:</span> <span class="s1">&#39;sto-3g&#39;</span><span class="p">})</span>
+
+<span class="c1"># Perform HF/sto-3g geometry optimization</span>
+<span class="n">psi4</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">set_output_file</span><span class="p">(</span><span class="s1">&#39;formaldehyde_optimization.dat&#39;</span><span class="p">)</span>
+<span class="n">energy</span> <span class="o">=</span> <span class="n">psi4</span><span class="o">.</span><span class="n">opt</span><span class="p">(</span><span class="s1">&#39;scf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Energy has increased in a minimization.
+	Energy ratio indicates iffy step.
+	Intrafrag trust radius decreased to   0.25.
+	Energy has increased in a minimization.
+	Energy ratio indicates iffy step.
+	Intrafrag trust radius decreased to 0.0625.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimizer: Optimization complete!
+</pre></div>
+</div>
+</div>
+</div>
+<p>To view this optimized structure, we can create a <code class="docutils literal notranslate"><span class="pre">Geometry</span></code> object from the saved output file.
+If the output filename ends with ‘.dat’ or ‘.out’ then AaronTools will automatically parse it as a Psi4 output.
+If you use some other ending you’ll have to give AaronTools more information to know how to parse the file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">opt_geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="s1">&#39;formaldehyde_optimization.dat&#39;</span><span class="p">)</span>
+<span class="n">opt_geom</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+
+<span class="n">atom1</span> <span class="o">=</span> <span class="n">opt_geom</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">dnew</span> <span class="o">=</span> <span class="n">atom1</span><span class="o">.</span><span class="n">dist</span><span class="p">(</span><span class="n">opt_geom</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">anew</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">opt_geom</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After Optimization&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;C-O bond distance: </span><span class="si">{</span><span class="n">dnew</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> Angstroms&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;HCO angle:         </span><span class="si">{</span><span class="n">anew</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> degrees&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="3dmolviewer_1747232386707152"  style="position: relative; width: 640px; height: 480px;">
+        <p id="3dmolwarning_1747232386707152" style="background-color:#ffcccc;color:black">3Dmol.js failed to load for some reason.  Please check your browser console for error messages.<br></p>
+        </div>
+<script>
+
+var loadScriptAsync = function(uri){
+  return new Promise((resolve, reject) => {
+    //this is to ignore the existence of requirejs amd
+    var savedexports, savedmodule;
+    if (typeof exports !== 'undefined') savedexports = exports;
+    else exports = {}
+    if (typeof module !== 'undefined') savedmodule = module;
+    else module = {}
+
+    var tag = document.createElement('script');
+    tag.src = uri;
+    tag.async = true;
+    tag.onload = () => {
+        exports = savedexports;
+        module = savedmodule;
+        resolve();
+    };
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+});
+};
+
+if(typeof $3Dmolpromise === 'undefined') {
+$3Dmolpromise = null;
+  $3Dmolpromise = loadScriptAsync('https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.4.0/3Dmol-min.js');
+}
+
+var viewer_1747232386707152 = null;
+var warn = document.getElementById("3dmolwarning_1747232386707152");
+if(warn) {
+    warn.parentNode.removeChild(warn);
+}
+$3Dmolpromise.then(function() {
+viewer_1747232386707152 = $3Dmol.createViewer(document.getElementById("3dmolviewer_1747232386707152"),{backgroundColor:"white"});
+viewer_1747232386707152.addModel("4\n\nC     -0.00559    0.00091    0.00299\nO      1.05882   -0.17964   -0.55818\nH     -0.65800   -0.82660    0.32330\nH     -0.39524    1.00533    0.23190");
+viewer_1747232386707152.setStyle({"stick": {"colorscheme": "Jmol"}});
+viewer_1747232386707152.zoomTo();
+	viewer_1747232386707152.setHoverable({},true,"function(atom,viewer,event,container) {\n                       if(!atom.label) {\n                        var ndx = atom.index + 1;\n                        atom.label = viewer.addLabel(\n                            atom.atom + \":\" + ndx,\n                            {position: atom, backgroundColor: 'white', fontColor:'black'}\n                        );\n                       }}","function(atom,viewer) {\n                       if(atom.label) {\n                        viewer.removeLabel(atom.label);\n                        delete atom.label;\n                       }\n                    }");
+viewer_1747232386707152.render();
+});
+</script></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After Optimization
+C-O bond distance: 1.217 Angstroms
+HCO angle:         122.7 degrees
+</pre></div>
+</div>
+</div>
+</div>
+<p>Of course, visually this looks pretty much like our starting structure, but if we print the C-O bond length and HCO angle we see that the structure has indeed changed (this level of theory gives a pretty terrible structure for formaldehyde, but the idea here is to make this example run as quickly as possible).</p>
+<p>Suppose we now want to compute vibrational frequencies, which must be run on the optimized geometry (at the same level of theory).</p>
+<p>Our Psi4 molecule <code class="docutils literal notranslate"><span class="pre">mol</span></code> will contain the optimized structure (or we could recreate it from <code class="docutils literal notranslate"><span class="pre">opt_geom</span></code> using <code class="docutils literal notranslate"><span class="pre">opt_geom.convert_to_Psi4()</span></code> to be safe), so we simply ask Psi4 to run frequencies and save the results to a new output file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># perform HF/sto-3g frequency computation</span>
+<span class="n">psi4</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">set_output_file</span><span class="p">(</span><span class="s1">&#39;formaldehyde_freq.dat&#39;</span><span class="p">)</span>
+<span class="n">energy</span> <span class="o">=</span> <span class="n">psi4</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="s1">&#39;scf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A  limitation of the Psi4 API is that some of the data you likely need is found in the saved output file but not available through the API.</p>
+<p>However, we can just use AaronTools to parse the output file using a <code class="docutils literal notranslate"><span class="pre">FileReader</span></code> object!</p>
+<p>For instance, below we create a <code class="docutils literal notranslate"><span class="pre">FileReader</span></code> object (remembering to set <code class="docutils literal notranslate"><span class="pre">just_geom=False</span></code>) and then save the <code class="docutils literal notranslate"><span class="pre">Frequency</span></code> object.
+We can list the values of all real and imaginary frequencies or print a table of frequencies with IR intensities.</p>
+<p>We also plot a simulated IR spectrum using <code class="docutils literal notranslate"><span class="pre">freq.plot_ir()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.fileIO</span> <span class="kn">import</span> <span class="n">FileReader</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># create FileReader</span>
+<span class="n">fr</span> <span class="o">=</span> <span class="n">FileReader</span><span class="p">(</span><span class="s1">&#39;formaldehyde_freq.dat&#39;</span><span class="p">,</span> <span class="n">just_geom</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># grab Frequency object from FileReader</span>
+<span class="n">freq</span> <span class="o">=</span> <span class="n">fr</span><span class="o">.</span><span class="n">other</span><span class="p">[</span><span class="s2">&quot;frequency&quot;</span><span class="p">]</span>
+
+<span class="c1"># print frequency values</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Real frequencies&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">freq</span><span class="o">.</span><span class="n">real_frequencies</span><span class="p">)</span>
+
+<span class="c1"># print imaginary values</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Imaginary frequencies&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">freq</span><span class="o">.</span><span class="n">imaginary_frequencies</span><span class="p">)</span>
+
+<span class="c1"># loop over frequency values and print intensities</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">  Freq     Intensity&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; (cm-1)     (km/mol)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">20</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">frq</span><span class="p">,</span> <span class="nb">dict</span> <span class="ow">in</span> <span class="n">freq</span><span class="o">.</span><span class="n">by_frequency</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="n">frq</span><span class="si">:</span><span class="s2">6.1f</span><span class="si">}</span><span class="s2">     </span><span class="si">{</span><span class="nb">dict</span><span class="p">[</span><span class="s1">&#39;intensity&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">6.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+<span class="c1"># create MatpLotlib figure and plot IR spectrum</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
+<span class="n">freq</span><span class="o">.</span><span class="n">plot_ir</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Real frequencies
+[1278.704, 1397.6315, 1767.1892, 2099.6902, 3498.6582, 3645.6594]
+
+Imaginary frequencies
+[]
+
+  Freq     Intensity
+ (cm-1)     (km/mol)
+--------------------
+ 1278.7       6.16
+ 1397.6      29.60
+ 1767.2       4.15
+ 2099.7       8.47
+ 3498.7       1.82
+ 3645.7      19.93
+</pre></div>
+</div>
+<img alt="../_images/adf87510e081500b48cc0d4ff531567bd913b8c1a8e6865643f213b8c6aa57a6.png" src="../_images/adf87510e081500b48cc0d4ff531567bd913b8c1a8e6865643f213b8c6aa57a6.png" />
+</div>
+</div>
+<p>Finally, suppose we want to calculate some thermodynamic quantities (e.g. absolute free energy, etc.) at T=100K.
+By default, Psi4 computed these quantities at 298.15K. However, we can use AaronTools to recompute these values at any desired temperature.
+We do this using using a <code class="docutils literal notranslate"><span class="pre">CompOutput</span></code> object in AaronTools, which can be created by reading any QM output file containing frequencies.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.comp_output</span> <span class="kn">import</span> <span class="n">CompOutput</span>
+
+<span class="c1"># create CompOutput object </span>
+<span class="n">co</span> <span class="o">=</span> <span class="n">CompOutput</span><span class="p">(</span><span class="s1">&#39;water_freq.dat&#39;</span><span class="p">)</span>
+
+<span class="c1"># Electronic energy</span>
+<span class="n">E</span> <span class="o">=</span> <span class="n">co</span><span class="o">.</span><span class="n">energy</span>
+
+<span class="c1"># correction to E to get RRHO G</span>
+<span class="n">dG</span> <span class="o">=</span> <span class="n">co</span><span class="o">.</span><span class="n">calc_G_corr</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;RRHO Free energy G(100K):  </span><span class="si">{</span><span class="n">E</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dG</span><span class="si">}</span><span class="s2"> hartrees&quot;</span><span class="p">)</span>
+
+<span class="c1"># Grimme&#39;s quasi-RRHO free energy</span>
+<span class="n">QRRHO_G</span> <span class="o">=</span> <span class="n">co</span><span class="o">.</span><span class="n">calc_Grimme_G</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;QRRHO Free energy G(100K): </span><span class="si">{</span><span class="n">QRRHO_G</span><span class="si">}</span><span class="s2"> hartrees&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RRHO Free energy G(100K):  -150.88731175953797 hartrees
+QRRHO Free energy G(100K): -150.88732341443506 hartrees
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that while Psi4 is limited to the standard RRHO free energy, AaronTools allows us to evaluate G using the RRHO, quasi-RRHO, and quasi-harmonic approximations.
+For formaldehyde, these three approximations will be essentially equivalent, because there are no low-frequency vibrational modes for formaldehyde (&lt; 100 cm-1).</p>
+<p>Also, keep in mind that these thermochemical quantitites will be <strong>absolute free energies</strong>, not free energies of formation.</p>
 </section>
 
         </article>
@@ -437,23 +656,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="cls_tutorials.html">
+          <a class="next-page" href="../cls/list.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Intro to Command Line Scripts</div>
+                <div class="title">List of Command Line Scripts</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="install.html">
+          <a class="prev-page" href="Jupyter_basics.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Installation Guide</div>
+                <div class="title">Working with AaronTools in Jupyter Notebooks</div>
                 
               </div>
             </a>

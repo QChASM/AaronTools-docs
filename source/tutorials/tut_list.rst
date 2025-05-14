@@ -25,3 +25,4 @@ Tutorials
     :caption: Jupyter Notebooks:
     
     Jupyter_basics
+    Jupyter_Psi4
