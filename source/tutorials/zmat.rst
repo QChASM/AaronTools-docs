@@ -107,7 +107,8 @@ object with the corresponding coordinates:
             if len(line_items) > 3:
                 a2 = geom.atoms[int(line_items[3]) - 1]
                 angle = np.radians(vars[line_items[4]])
-                geom.change_angle(a0, a1, a2, angle, fix=3, as_group=False)
+                # note that change_angle uses radians by default
+                geom.change_angle(a0, a1, a2, angle, radians=False, fix=3, as_group=False)
                       
             # set dihedral
             if len(line_items) > 5:
