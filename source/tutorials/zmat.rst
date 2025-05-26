@@ -58,6 +58,9 @@ from a file called ZMAT as shown above.
 
         f = open('ZMAT', 'r')
         comment = f.readline()
+        
+        # start with empty geometry
+        geom = Geometry([])
         geom.comment = comment.strip()
         
         # read z-matrix
@@ -109,7 +112,7 @@ object with the corresponding coordinates:
             # set dihedral
             if len(line_items) > 5:
                 a3 = geom.atoms[int(line_items[5]) - 1]
-                dihedral = np.radians(vars[line_items[6]])
+                dihedral = vars[line_items[6]]
                 geom.change_dihedral(a0, a1, a2, a3, dihedral, fix=4, as_group=False)
     
 For a given atom, we start by placing that atom in a random position to avoid accidentally having co-linear atoms.
@@ -128,6 +131,9 @@ Putting this all together, we have a simple little ZMAT to XYZ converter:
 
         f = open('ZMAT', 'r')
         comment = f.readline()
+
+        # start with empty geometry
+        geom = Geometry([])
         geom.comment = comment.strip()
         
         # read z-matrix
@@ -164,13 +170,14 @@ Putting this all together, we have a simple little ZMAT to XYZ converter:
             # set angle
             if len(line_items) > 3:
                 a2 = geom.atoms[int(line_items[3]) - 1]
-                angle = np.radians(vars[line_items[4]])
-                geom.change_angle(a0, a1, a2, angle, fix=3, as_group=False)
+                angle = vars[line_items[4]]
+                # note that change_angle uses radians by default
+                geom.change_angle(a0, a1, a2, angle, radians=False, fix=3, as_group=False)
                       
             # set dihedral
             if len(line_items) > 5:
                 a3 = geom.atoms[int(line_items[5]) - 1]
-                dihedral = np.radians(vars[line_items[6]])
+                dihedral = vars[line_items[6]]
                 geom.change_dihedral(a0, a1, a2, a3, dihedral, fix=4, as_group=False)
 
         # remove any dummy atoms
