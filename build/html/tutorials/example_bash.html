@@ -477,6 +477,24 @@ rm<span class="w"> </span>-f<span class="w"> </span>temp.xyz
 </div>
 <p>Note that <code class="code docutils literal notranslate"><span class="pre">combineMonomers.py</span></code> can only accept geometries from STDIN or from a list of files, so we save the shifted benzene geometry to <cite>temp.xyz</cite> before combining with <cite>benzene.xyz</cite> to build each dimer.</p>
 <p>We could modify this to instead run the T-shaped benzene dimer by first rotating the second benzene (e.g. <code class="code docutils literal notranslate"><span class="pre">rotate.py</span> <span class="pre">benzene.xyz</span> <span class="pre">-x</span> <span class="pre">y</span> <span class="pre">-a</span> <span class="pre">90</span></code>) and then piping this into <code class="code docutils literal notranslate"><span class="pre">translate.py</span></code>.</p>
+<p>We can also use AaronTools to gather the energies after making sure all of the single points ran to completion:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># gather energies from dimer scan</span>
+
+<span class="k">for</span><span class="w"> </span>x<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="sb">`</span>seq<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>.5<span class="w"> </span><span class="m">5</span><span class="sb">`</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">	</span><span class="k">for</span><span class="w"> </span>z<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="sb">`</span>seq<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">0</span>.2<span class="w"> </span><span class="m">4</span><span class="sb">`</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">		</span><span class="c1"># name job by x and z value (e.g. x.0.0.z.3.0.com)</span>
+<span class="w">		</span><span class="nv">name</span><span class="o">=</span>x.<span class="nv">$x</span>.z.<span class="nv">$z</span>
+
+<span class="w">		</span><span class="c1"># print SCF energy from log file and grab the energy</span>
+<span class="w">		</span><span class="nv">E</span><span class="o">=</span><span class="sb">`</span>printInfo.py<span class="w"> </span><span class="nv">$name</span>.log<span class="w"> </span>-i<span class="w"> </span>scf_energy<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-n1<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $3}&#39;</span><span class="sb">`</span>
+
+<span class="w">		</span><span class="c1"># print x, y, and energy</span>
+<span class="w">		</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$x</span><span class="w"> </span><span class="nv">$z</span><span class="w"> </span><span class="nv">$E</span>
+<span class="w">	</span><span class="k">done</span>
+<span class="k">done</span>
+</pre></div>
+</div>
 <p>Note that <code class="code docutils literal notranslate"><span class="pre">makeInput.py</span></code> is not currently able to make SAPT input files, so if we wanted to run SAPT on these dimers we would need to use the AaronTools Python API to make and run these types of computations.</p>
 </section>
 </section>

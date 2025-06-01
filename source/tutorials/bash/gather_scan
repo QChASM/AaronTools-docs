@@ -1,0 +1,15 @@
+#!/bin/bash
+# gather energies from dimer scan
+
+for x in `seq 0 0.5 5`; do
+	for z in `seq 3 0.2 4`; do
+		# name job by x and z value (e.g. x.0.0.z.3.0.com)
+		name=x.$x.z.$z
+
+		# print SCF energy from log file and grab the energy
+		E=`printInfo.py $name.log -i scf_energy | tail -n1 | awk '{print $3}'`
+
+		# print x, y, and energy
+		echo $x $z $E
+	done
+done

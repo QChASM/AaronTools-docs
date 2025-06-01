@@ -65,5 +65,10 @@ Note that :code:`combineMonomers.py` can only accept geometries from STDIN or fr
 
 We could modify this to instead run the T-shaped benzene dimer by first rotating the second benzene (e.g. :code:`rotate.py benzene.xyz -x y -a 90`) and then piping this into :code:`translate.py`.
 
+We can also use AaronTools to gather the energies after making sure all of the single points ran to completion:
+
+.. literalinclude:: bash/gather_scan
+   :language: bash
+
 Note that :code:`makeInput.py` is not currently able to make SAPT input files, so if we wanted to run SAPT on these dimers we would need to use the AaronTools Python API to make and run these types of computations.
 
