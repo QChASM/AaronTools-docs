@@ -1,0 +1,7 @@
+#!/bin/bash
+# Perform wB97XD/def2TZVP optimizations/frequencies on all molecules listed in 'molecules'
+
+for mol in `cat molecules`; do
+  fetchMolecule.py -i "$mol" | makeInput.py -m wB97XD -b "def2tzvp" -opt -freq -o "$mol.com"
+  jobSubmit.py $mol.com -p 8 -m 12
+done
