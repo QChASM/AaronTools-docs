@@ -28,7 +28,8 @@ For instance, suppose we have a file :code:`molecules` that contains a list of I
 .. literalinclude:: bash/opt_all_iupac
    :language: bash
 
-(Note that the above could be a little problematic if the IUPAC names include spaces, so it would be prudent to modify this to replace spaces in :code:`$mol` with "_", for example.)
+Because many IUPAC names contain spaces and/or non-alphanumeric characters (e.g. 1,3-butadiene) we remove those to form the name of the input file.
+
 
 Checking and Rerunning Jobs
 ---------------------------
@@ -54,7 +55,7 @@ Changing the level of theory and/or quantum chemistry package should also be str
 Potential Energy Scans for Stacked Dimers
 -----------------------------------------
 
-AaronTools CLSs make it trivial to run scans over different coordinates for non-bonded dimers.
+AaronTools CLSs make it trivial to run scans over different coordinates for non-bonded dimers (e.g. see `this recent paper <https://pubs.acs.org/doi/10.1021/jacs.5c03169>`_).
 For instance, the script below will run wB97X-D/def2-TZVP single point energies on the benzene dimer as a function of x- and z-coordinates (with a fixed monomer geometry) from x = 0 - 3 angstroms and z = 3 - 4 angstroms.
 It assumes that there is a local file called `benzene.xyz` that contains the coordinates of benzene in the xy-plane that is oriented with a vertex along the x-axis.
 
@@ -70,5 +71,5 @@ We can also use AaronTools to gather the energies after making sure all of the s
 .. literalinclude:: bash/gather_scan
    :language: bash
 
-Note that :code:`makeInput.py` is not currently able to make SAPT input files, so if we wanted to run SAPT on these dimers we would need to use the AaronTools Python API to make and run these types of computations.
+Note that :code:`makeInput.py` is not currently able to make SAPT input files, so if we wanted to run SAPT on these dimers we would need to use the AaronTools Python API to make input files for these types of computations.
 

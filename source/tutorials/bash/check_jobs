@@ -11,7 +11,6 @@ for XYZ in `/bin/ls *.xyz`; do
     echo $name did not run! Trying again.
     jobSubmit.py $name.com -p 8 -m 12
   else
-
     # check if job finished
     if [ `printInfo.py -i FINISHED $name.log | grep -c True` == 1 ]; then
      # check if geometry optimized to a minimum
