@@ -192,7 +192,7 @@ Putting this all together, we have a simple little ZMAT to XYZ converter:
         
         # orient (close) to principle axes
         moments, axes = geom.get_principle_axes()
-        geom.coords @= axes
+        geom.coords = geom.coords@axes
         
         print(geom)
 

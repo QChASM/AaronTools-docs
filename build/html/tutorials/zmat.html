@@ -539,7 +539,7 @@ Putting this all together, we have a simple little ZMAT to XYZ converter:</p>
 
 <span class="c1"># orient (close) to principle axes</span>
 <span class="n">moments</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">get_principle_axes</span><span class="p">()</span>
-<span class="n">geom</span><span class="o">.</span><span class="n">coords</span> <span class="o">@=</span> <span class="n">axes</span>
+<span class="n">geom</span><span class="o">.</span><span class="n">coords</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">coords</span><span class="nd">@axes</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span>
 </pre></div>
