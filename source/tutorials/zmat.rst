@@ -39,7 +39,7 @@ First, below is an example ZMAT file for acetone suitable for running an optimiz
         D0=0.0
         D180=180.0
         
-        *ACES2(CALC=CCSD(T),BASIS=PVDZ)
+        *ACES2(CALC=MP2,BASIS=PVDZ)
 
 
 We will read the Z-matrix and variables and then construct the corresponding molecule using AaronTools functions.
@@ -106,7 +106,7 @@ object with the corresponding coordinates:
             # set angle
             if len(line_items) > 3:
                 a2 = geom.atoms[int(line_items[3]) - 1]
-                angle = np.radians(vars[line_items[4]])
+                angle = vars[line_items[4]]
                 # note that change_angle uses radians by default
                 geom.change_angle(a0, a1, a2, angle, radians=False, fix=3, as_group=False)
                       

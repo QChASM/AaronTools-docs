@@ -5,7 +5,6 @@ basis="def2tzvp"
 
 for XYZ in `/bin/ls *.xyz`; do
   name=`basename $XYZ .xyz`
-
   # Check if output file exists
   if [ ! -e $name.log ]; then
     echo $name did not run! Trying again.

@@ -34,6 +34,8 @@ One way to find this is by running:
 
     python -c "import sys; import os; print(os.path.dirname(sys.executable))"
 
+To enable job submission, follow :ref:`job_submission`.
+
 Install with optional dependencies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

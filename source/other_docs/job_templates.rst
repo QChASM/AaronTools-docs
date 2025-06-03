@@ -3,6 +3,7 @@ Job Submission Templates
 
 Job templates can be used when submitting a job to a queue with an AaronTools utility such as the :code:`jobSubmit.py` command line script.
 Due to the uniqueness of each cluster, no job templates are included in the AaronTools installation - users must create their own.
+The simplest way to do this is to start with a working job submission file from a previous computation and the replace job-specific attributes (job name, number of cores, queue name, etc) with variables as explained below.
 
 There are several text patterns that are replaced by the corresponding resource or attribute requested by the job:
 
@@ -21,7 +22,7 @@ Examples
 --------
 Every cluster will be slightly different.
 Pay close attention to where your scratch space should be, and how to make the Gaussian, Psi4, etc. executable available.
-If you are uncertain of how your queuing system is set up, check whether your cluster administrators (or can help build) a submission script for these programs.
+If you are uncertain of how your queuing system is set up, check whether your cluster administrator(s) have (or can help build) a submission script for these programs.
 If so, we recommend using that as the starting point and modifying it with just the double curly braces outlined above.
 
 PBS
