@@ -212,6 +212,7 @@
 <li class="toctree-l2"><a class="reference internal" href="coding_with_geometries.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="coding_with_theories.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="coding_with_filereaders.html">Coding with <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_python.html">Example Python Scripts for Common Tasks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="zmat.html">Converting Z-Matrices to Cartesian Coordinates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Jupyter_basics.html">Working with AaronTools in Jupyter Notebooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Jupyter_Psi4.html">AaronTools and Psi4</a></li>
@@ -369,9 +370,11 @@
 <h1>Intro to Command Line Scripts<a class="headerlink" href="#intro-to-command-line-scripts" title="Link to this heading">¶</a></h1>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
-<p>Here, you will find tutorials and generalizations for AaronTools’ various command line scripts.
+<p>Here, you will find tutorials and generalizations for AaronTools’ various command line scripts
+(see <a class="reference internal" href="../cls/list.html"><span class="doc">List of Command Line Scripts</span></a>).
 For many of the scripts covered here, some options might not be described.
 To see the full list of options for a script, run it with just the –help flag (e.g. substitute.py –help).</p>
+<p>For examples of BASH scripts that use CLSs to automate common tasks, see <a class="reference internal" href="example_bash.html"><span class="doc">Example BASH Scripts for Common Tasks</span></a>.</p>
 </section>
 <section id="file-input-output">
 <h2>File Input/Output<a class="headerlink" href="#file-input-output" title="Link to this heading">¶</a></h2>
@@ -396,7 +399,7 @@ This can be used to avoid writing intermediate files.</p>
 <h3>Writing Geometry to a File<a class="headerlink" href="#writing-geometry-to-a-file" title="Link to this heading">¶</a></h3>
 <p>Many of our scripts accept the <code class="code docutils literal notranslate"><span class="pre">-o</span></code> flag to specify the destination of the output.
 If no <code class="code docutils literal notranslate"><span class="pre">-o</span></code> flag is specified, the script’s normal output will be printed to the standard output.</p>
-<p>The <code class="code docutils literal notranslate"><span class="pre">printXYZ.py</span></code> command can be used to convert any AaronTools-readable file (.xyz, Gaussian .log file, Gaussian .com file, ORCA .out file) into an XYZ file:</p>
+<p>The <a class="reference internal" href="../cls/printXYZ.html"><span class="doc">printXYZ.py</span></a> command can be used to convert any AaronTools-readable file (.xyz, Gaussian .log file, Gaussian .com file, ORCA .out file) into an XYZ file:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>printXYZ.py<span class="w"> </span>benzene.log
 </pre></div>
 </div>
@@ -425,7 +428,7 @@ For example, to turn a benzene molecule into perfluorobenzene, we can substitute
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">substitute</span><span class="o">.</span><span class="n">py</span> <span class="n">benzene</span><span class="o">.</span><span class="n">xyz</span> <span class="o">-</span><span class="n">s</span> <span class="n">H</span><span class="o">=</span><span class="n">F</span>
 </pre></div>
 </div>
-<p>The <code class="code docutils literal notranslate"><span class="pre">findAtoms.py</span></code> script can be helpful for locating atoms using a variety of descriptions.
+<p>The <a class="reference internal" href="../cls/findAtoms.html"><span class="doc">findAtoms.py</span></a> script can be helpful for locating atoms using a variety of descriptions.
 These descriptions include the element, how many bonds the atom has, and what atoms are bonded to a specific atom.</p>
 </section>
 <section id="structure-modification">
@@ -452,7 +455,7 @@ Here is the benzene structure we are starting with:</p>
 </div>
 <p>For reference, here is how the atoms are ordered:</p>
 <img alt="../_images/benzene_numbers.png" src="../_images/benzene_numbers.png" />
-<p>We can get TNT by running the AaronTools script <code class="code docutils literal notranslate"><span class="pre">substitute.py</span></code> twice.
+<p>We can get TNT by running the AaronTools script <a class="reference internal" href="../cls/substitute.html"><span class="doc">substitute.py</span></a> twice.
 First, let’s turn our benzene into toluene by changing atom 7 into a methyl group:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">substitute</span><span class="o">.</span><span class="n">py</span> <span class="n">benzene</span><span class="o">.</span><span class="n">xyz</span> <span class="o">-</span><span class="n">s</span> <span class="mi">7</span><span class="o">=</span><span class="n">Me</span> <span class="o">-</span><span class="n">o</span> <span class="n">toluene</span><span class="o">.</span><span class="n">xyz</span>
 </pre></div>
@@ -473,7 +476,7 @@ We are writing this to a file named tnt.xyz.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">substitute</span><span class="o">.</span><span class="n">py</span> <span class="n">benzene</span><span class="o">.</span><span class="n">xyz</span> <span class="o">-</span><span class="n">s</span> <span class="mi">7</span><span class="o">=</span><span class="n">Me</span> <span class="o">-</span><span class="n">s</span> <span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">12</span><span class="o">=</span><span class="n">NO2</span> <span class="o">-</span><span class="n">o</span> <span class="n">tnt</span><span class="o">.</span><span class="n">xyz</span>
 </pre></div>
 </div>
-<p>It’s worth noting that the <code class="code docutils literal notranslate"><span class="pre">substitute.py</span></code> script can accept IUPAC
+<p>It’s worth noting that the <a class="reference internal" href="../cls/substitute.html"><span class="doc">substitute.py</span></a> script can accept IUPAC
 names of substituents.
 This makes it easy to use substituents that are not in the AaronTools library.
 Simply prefix the name with <code class="code docutils literal notranslate"><span class="pre">iupac:</span></code>:</p>
@@ -490,8 +493,9 @@ SMILES for a radical can also be used, if prefixed with <code class="code docuti
 <section id="creating-input-files">
 <h3>Creating Input Files<a class="headerlink" href="#creating-input-files" title="Link to this heading">¶</a></h3>
 <p>Now that we’ve modified benzene to get TNT, we ought to minimize our TNT structure before we analyze it.
-<code class="code docutils literal notranslate"><span class="pre">makeInput.py</span></code> can help us set up the input file.
-We’ll be optimizing the structure and compute frequencies at the B3LYP/def2-SVP level of theory with Psi4.
+<a class="reference internal" href="../cls/makeInput.html"><span class="doc">makeInput.py</span></a> can help us set up the input file.
+We’ll be optimizing the structure and computing harmonic vibrational frequencies at the B3LYP/def2-SVP
+level of theory with Psi4.
 To make the input file for the optimization job, run:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>makeInput.py tnt.xyz -o tnt.in -opt -freq -m b3lyp -b def2-svp
 </pre></div>
@@ -549,7 +553,8 @@ The contents of ‘tnt.in’ are:</p>
 <p>If we’re logged on to a computing cluster, we can submit this optimization job to the queue with jobSubmit.py.
 We’ll need to have a template job file that’s compatible with the queuing software (e.g. SGE, PBS, Slurm).
 All clusters are different, and may have different ways to load a module (e.g. <code class="code docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">gaussian</span></code> vs. <code class="code docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">g16</span></code>).
-Below is a template file for a Psi4 computation running on a PBS cluster:</p>
+For more information, see <a class="reference internal" href="../other_docs/job_templates.html"><span class="doc">Job Submission Templates</span></a>.</p>
+<p>Below is a template file for a Psi4 computation running on a PBS cluster:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#PBS -S /bin/bash</span>
 <span class="c1">#PBS -N {{ name }}</span>
 <span class="c1">#PBS -q wheeler_q</span>
@@ -574,7 +579,7 @@ rm<span class="w"> </span>-rf<span class="w"> </span><span class="nv">$SCRATCH</
 <span class="nb">exit</span>
 </pre></div>
 </div>
-<p>the values surrounded by double curly brackets will be replaced by <code class="code docutils literal notranslate"><span class="pre">jobSubmit.py</span></code>:</p>
+<p>the values surrounded by double curly brackets will be replaced by <a class="reference internal" href="../cls/jobSubmit.html"><span class="doc">jobSubmit.py</span></a>:</p>
 <ul class="simple">
 <li><p><code class="code docutils literal notranslate"><span class="pre">{{</span> <span class="pre">name</span> <span class="pre">}}</span></code> - job name, will be determined by the name of the input file</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">{{</span> <span class="pre">walltime</span> <span class="pre">}}</span></code> - allowed wall time in hours</p></li>
@@ -620,7 +625,7 @@ dispatch.ecompute:
                                                                                 Req&#39;d       Req&#39;d       Elap
 Job ID                  Username    Queue    Jobname          SessID  NDS   TSK   Memory      Time    S   Time
 ----------------------- ----------- -------- ---------------- ------ ----- ------ --------- --------- - ---------
-3409256.sapelo2         ajs99778    wheeler_ tnt              196715     1      6      12gb  12:00:00 Q       --
+3409256.sapelo2         XXXXXXXX    wheeler_ tnt              196715     1      6      12gb  12:00:00 Q       --
 </pre></div>
 </div>
 </section>
@@ -632,12 +637,12 @@ Job ID                  Username    Queue    Jobname          SessID  NDS   TSK 
 <h3>Grabbing Thermochemical Corrections<a class="headerlink" href="#grabbing-thermochemical-corrections" title="Link to this heading">¶</a></h3>
 <p>AaronTools can calculate several thermochemical corrections from the output of a frequency job: zero-point energy (or H 0K), rigid-rotor/harmonic oscillator (RRHO) enthalpy, RRHO free energy, quasi-RRHO free energy, and quasi-harmonic free energy.
 AaronTools will recalculate each of these, even if they are printed in the output file, to maintain consistency with the constants that AaronTools uses.
-The <code class="code docutils literal notranslate"><span class="pre">grabThermo.py</span></code> command line script can be used to print thermochemistry:</p>
+The <a class="reference internal" href="../cls/grabThermo.html"><span class="doc">grabThermo.py</span></a> command line script can be used to print thermochemistry:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grabThermo</span><span class="o">.</span><span class="n">py</span> <span class="n">tnt</span><span class="o">.</span><span class="n">dat</span>
 </pre></div>
 </div>
 <p>At the time of writing, Psi4 does not compute IR intensities for DFT methods.
-However, if we used Gaussian, ORCA, or Q-Chem to perform this computations, we could generate an IR spectra from the output using the <code class="code docutils literal notranslate"><span class="pre">plotIR.py</span></code> script:</p>
+However, if we used Gaussian, ORCA, or Q-Chem to perform this computations, we could generate an IR spectra from the output using the <a class="reference internal" href="../cls/plotIR.html"><span class="doc">plotIR.py</span></a> script:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plotIR</span><span class="o">.</span><span class="n">py</span> <span class="n">tnt</span><span class="o">.</span><span class="n">log</span>
 </pre></div>
 </div>

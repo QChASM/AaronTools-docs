@@ -2,9 +2,9 @@ Converting Z-Matrices to Cartesian Coordinates
 ==============================================
 
 AaronTools works almost exclusively with Cartesian coordinates.
-However, some quantum chemistry codes (e.g. CFOUR) require molecular specification in terms of Z-matrices.
+However, some quantum chemistry codes (e.g. `CFOUR <https://cfour.uni-mainz.de/cfour/>`_) require molecular specification in terms of Z-matrices.
 While tools are available to automatically generate Z-matrices, constructing Z-matrices that honor molecular symmetry typically requires their construction by hand.
-This is a somewhat tedious process, and one often needs to check the final Z-matrix to ensure that the correct structure has been constructed.
+This is a somewhat tedious process, and one often needs to check the final Z-matrix to ensure that the correct structure has been built.
 Strangely, there seem to be limited tools available that will convert a general Z-matrix (or a CFOUR-style ZMAT file) to Cartesian coordinates.
 
 To provide such a tool, and to demonstrate the utility of AaronTools, below we describe a simple ZMAT2XYZ converter

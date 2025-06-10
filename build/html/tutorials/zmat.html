@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Working with AaronTools in Jupyter Notebooks" href="Jupyter_basics.html" /><link rel="prev" title="Coding with FileReader objects" href="coding_with_filereaders.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Working with AaronTools in Jupyter Notebooks" href="Jupyter_basics.html" /><link rel="prev" title="Example Python Scripts for Common Tasks" href="example_python.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/tutorials/zmat.html" />
 
     <!-- Generated with Sphinx 8.0.2 and Furo 2024.08.06 -->
@@ -212,6 +212,7 @@
 <li class="toctree-l2"><a class="reference internal" href="coding_with_geometries.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="coding_with_theories.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="coding_with_filereaders.html">Coding with <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_python.html">Example Python Scripts for Common Tasks</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Converting Z-Matrices to Cartesian Coordinates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Jupyter_basics.html">Working with AaronTools in Jupyter Notebooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Jupyter_Psi4.html">AaronTools and Psi4</a></li>
@@ -368,9 +369,9 @@
           <section id="converting-z-matrices-to-cartesian-coordinates">
 <h1>Converting Z-Matrices to Cartesian Coordinates<a class="headerlink" href="#converting-z-matrices-to-cartesian-coordinates" title="Link to this heading">¶</a></h1>
 <p>AaronTools works almost exclusively with Cartesian coordinates.
-However, some quantum chemistry codes (e.g. CFOUR) require molecular specification in terms of Z-matrices.
+However, some quantum chemistry codes (e.g. <a class="reference external" href="https://cfour.uni-mainz.de/cfour/">CFOUR</a>) require molecular specification in terms of Z-matrices.
 While tools are available to automatically generate Z-matrices, constructing Z-matrices that honor molecular symmetry typically requires their construction by hand.
-This is a somewhat tedious process, and one often needs to check the final Z-matrix to ensure that the correct structure has been constructed.
+This is a somewhat tedious process, and one often needs to check the final Z-matrix to ensure that the correct structure has been built.
 Strangely, there seem to be limited tools available that will convert a general Z-matrix (or a CFOUR-style ZMAT file) to Cartesian coordinates.</p>
 <p>To provide such a tool, and to demonstrate the utility of AaronTools, below we describe a simple ZMAT2XYZ converter</p>
 <section id="zmat-format">
@@ -565,14 +566,14 @@ Putting this all together, we have a simple little ZMAT to XYZ converter:</p>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="coding_with_filereaders.html">
+          <a class="prev-page" href="example_python.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Coding with <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> objects</div>
+                <div class="title">Example Python Scripts for Common Tasks</div>
                 
               </div>
             </a>

@@ -17,6 +17,7 @@ Tutorials
     coding_with_geometries
     coding_with_theories
     coding_with_filereaders
+    example_python
     zmat
     
 

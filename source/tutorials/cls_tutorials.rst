@@ -3,9 +3,12 @@ Intro to Command Line Scripts
 
 Overview
 --------
-Here, you will find tutorials and generalizations for AaronTools' various command line scripts.
+Here, you will find tutorials and generalizations for AaronTools' various command line scripts
+(see :doc:`../cls/list`).
 For many of the scripts covered here, some options might not be described.
 To see the full list of options for a script, run it with just the --help flag (e.g. substitute.py --help).
+
+For examples of BASH scripts that use CLSs to automate common tasks, see :doc:`example_bash`.
 
 
 File Input/Output
@@ -41,7 +44,7 @@ Many of our scripts accept the :code:`-o` flag to specify the destination of the
 If no :code:`-o` flag is specified, the script's normal output will be printed to the standard output. 
 
 
-The :code:`printXYZ.py` command can be used to convert any AaronTools-readable file (.xyz, Gaussian .log file, Gaussian .com file, ORCA .out file) into an XYZ file:
+The :doc:`../cls/printXYZ` command can be used to convert any AaronTools-readable file (.xyz, Gaussian .log file, Gaussian .com file, ORCA .out file) into an XYZ file:
 
 .. code-block:: bash
 
@@ -75,7 +78,7 @@ For example, to turn a benzene molecule into perfluorobenzene, we can substitute
     
     substitute.py benzene.xyz -s H=F
     
-The :code:`findAtoms.py` script can be helpful for locating atoms using a variety of descriptions.
+The :doc:`../cls/findAtoms` script can be helpful for locating atoms using a variety of descriptions.
 These descriptions include the element, how many bonds the atom has, and what atoms are bonded to a specific atom.
 
 
@@ -109,7 +112,7 @@ For reference, here is how the atoms are ordered:
 
 .. image:: ../images/benzene_numbers.png
 
-We can get TNT by running the AaronTools script :code:`substitute.py` twice.
+We can get TNT by running the AaronTools script :doc:`../cls/substitute` twice.
 First, let's turn our benzene into toluene by changing atom 7 into a methyl group: 
 
 ::
@@ -139,7 +142,7 @@ We could combine these two steps into one by simply specifying both substitution
     
     substitute.py benzene.xyz -s 7=Me -s 8,9,12=NO2 -o tnt.xyz
 
-It's worth noting that the :code:`substitute.py` script can accept IUPAC
+It's worth noting that the :doc:`../cls/substitute` script can accept IUPAC
 names of substituents.
 This makes it easy to use substituents that are not in the AaronTools library.
 Simply prefix the name with :code:`iupac:`:
@@ -160,8 +163,9 @@ Creating Input Files
 ^^^^^^^^^^^^^^^^^^^^
 
 Now that we've modified benzene to get TNT, we ought to minimize our TNT structure before we analyze it.
-:code:`makeInput.py` can help us set up the input file.
-We'll be optimizing the structure and compute frequencies at the B3LYP/def2-SVP level of theory with Psi4.
+:doc:`../cls/makeInput` can help us set up the input file.
+We'll be optimizing the structure and computing harmonic vibrational frequencies at the B3LYP/def2-SVP
+level of theory with Psi4.
 To make the input file for the optimization job, run: 
 
 .. code-block:: text
@@ -224,6 +228,8 @@ Submitting to the Queue
 If we're logged on to a computing cluster, we can submit this optimization job to the queue with jobSubmit.py.
 We'll need to have a template job file that's compatible with the queuing software (e.g. SGE, PBS, Slurm).
 All clusters are different, and may have different ways to load a module (e.g. :code:`module load gaussian` vs. :code:`module load g16`).
+For more information, see :doc:`../other_docs/job_templates`.
+
 Below is a template file for a Psi4 computation running on a PBS cluster: 
 
 .. code-block:: bash
@@ -252,7 +258,7 @@ Below is a template file for a Psi4 computation running on a PBS cluster:
     exit
 
 
-the values surrounded by double curly brackets will be replaced by :code:`jobSubmit.py`:
+the values surrounded by double curly brackets will be replaced by :doc:`../cls/jobSubmit`:
 
 * :code:`{{ name }}` - job name, will be determined by the name of the input file
 * :code:`{{ walltime }}` - allowed wall time in hours
@@ -305,7 +311,7 @@ Our job should be queued::
                                                                                     Req'd       Req'd       Elap
     Job ID                  Username    Queue    Jobname          SessID  NDS   TSK   Memory      Time    S   Time
     ----------------------- ----------- -------- ---------------- ------ ----- ------ --------- --------- - ---------
-    3409256.sapelo2         ajs99778    wheeler_ tnt              196715     1      6      12gb  12:00:00 Q       --
+    3409256.sapelo2         XXXXXXXX    wheeler_ tnt              196715     1      6      12gb  12:00:00 Q       --
 
 
 Analyzing Output
@@ -318,14 +324,14 @@ Grabbing Thermochemical Corrections
 
 AaronTools can calculate several thermochemical corrections from the output of a frequency job: zero-point energy (or H 0K), rigid-rotor/harmonic oscillator (RRHO) enthalpy, RRHO free energy, quasi-RRHO free energy, and quasi-harmonic free energy.
 AaronTools will recalculate each of these, even if they are printed in the output file, to maintain consistency with the constants that AaronTools uses.
-The :code:`grabThermo.py` command line script can be used to print thermochemistry:
+The :doc:`../cls/grabThermo` command line script can be used to print thermochemistry:
 
 ::
 
     grabThermo.py tnt.dat
 
 At the time of writing, Psi4 does not compute IR intensities for DFT methods. 
-However, if we used Gaussian, ORCA, or Q-Chem to perform this computations, we could generate an IR spectra from the output using the :code:`plotIR.py` script::
+However, if we used Gaussian, ORCA, or Q-Chem to perform this computations, we could generate an IR spectra from the output using the :doc:`../cls/plotIR` script::
 
     plotIR.py tnt.log
 
