@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Converting Z-Matrices to Cartesian Coordinates" href="zmat.html" /><link rel="prev" title="Coding with Theory Objects" href="coding_with_theories.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Example Python Scripts for Common Tasks" href="example_python.html" /><link rel="prev" title="Coding with Theory Objects" href="coding_with_theories.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/tutorials/coding_with_filereaders.html" />
 
     <!-- Generated with Sphinx 8.0.2 and Furo 2024.08.06 -->
@@ -212,6 +212,7 @@
 <li class="toctree-l2"><a class="reference internal" href="coding_with_geometries.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="coding_with_theories.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> Objects</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Coding with <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_python.html">Example Python Scripts for Common Tasks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="zmat.html">Converting Z-Matrices to Cartesian Coordinates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Jupyter_basics.html">Working with AaronTools in Jupyter Notebooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Jupyter_Psi4.html">AaronTools and Psi4</a></li>
@@ -454,9 +455,9 @@ The comment key is used for files that do not have computed data
 to parse (e.g., XYZ or Mol files). With <code class="code docutils literal notranslate"><span class="pre">get_all=False</span></code>,
 the <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code>’s only structure will be the last one in the file.</p>
 <p>Below is sample code for turning each structure in a
-<code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> into a <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.atoms</span> <span class="kn">import</span> <span class="n">Atom</span>
-<span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> into a <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code>, which are then stored in the list
+<code class="code docutils literal notranslate"><span class="pre">geom_list</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
 <span class="kn">from</span> <span class="nn">AaronTools.fileIO</span> <span class="kn">import</span> <span class="n">FileReader</span>
 
 <span class="n">fr</span> <span class="o">=</span> <span class="n">FileReader</span><span class="p">(</span><span class="s1">&#39;benzene.log&#39;</span><span class="p">,</span> <span class="n">get_all</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -468,27 +469,41 @@ the <code class="code docutils literal notranslate"><span class="pre">FileReader
 </div>
 <p>Below is similar code for reading an XYZ file with multiple structures
 that will also copy over the comment information from the original XYZ entry</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.atoms</span> <span class="kn">import</span> <span class="n">Atom</span>
-<span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
 <span class="kn">from</span> <span class="nn">AaronTools.fileIO</span> <span class="kn">import</span> <span class="n">FileReader</span>
 
-<span class="n">fr</span> <span class="o">=</span> <span class="n">FileReader</span><span class="p">(</span><span class="s1">&#39;molecules.xyz&#39;</span><span class="p">,</span> <span class="n">get_all</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fr</span> <span class="o">=</span> <span class="n">FileReader</span><span class="p">(</span><span class="s1">&#39;mols.xyz&#39;</span><span class="p">,</span> <span class="n">get_all</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">geom_list</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">struc</span> <span class="ow">in</span> <span class="n">fr</span><span class="o">.</span><span class="n">all_geom</span><span class="p">:</span>
     <span class="n">geom_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Geometry</span><span class="p">(</span><span class="n">struc</span><span class="p">[</span><span class="s2">&quot;atoms&quot;</span><span class="p">],</span> <span class="n">comment</span><span class="o">=</span><span class="n">struc</span><span class="p">[</span><span class="s2">&quot;comment&quot;</span><span class="p">]))</span>
 </pre></div>
 </div>
-<p>Calculation Information</p>
-<p>The <code class="code docutils literal notranslate"><span class="pre">just_geom</span></code> keyword controls whether the
-<code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> grabs more than the file’s structure.
-Additional information will be stored as a dictionary in the
-<code class="code docutils literal notranslate"><span class="pre">FileReader</span></code>’s other attribute.
+</section>
+<section id="calculation-information">
+<h3>Calculation Information<a class="headerlink" href="#calculation-information" title="Link to this heading">¶</a></h3>
+<p>By default, a <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> will only read the molecular structure.
+The <code class="code docutils literal notranslate"><span class="pre">just_geom</span></code> keyword controls whether other information (e.g. data from a QM output file)
+is also read.
+This additional information will be stored as a dictionary in the
+<code class="code docutils literal notranslate"><span class="pre">FileReader</span></code>’s <code class="code docutils literal notranslate"><span class="pre">other</span></code> attribute.
 This data can also be accessed by using the <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code>
 as if it was a dictionary (<cite>i.e.</cite> <code class="code docutils literal notranslate"><span class="pre">fr[&quot;energy&quot;]</span></code> instead
-of <code class="code docutils literal notranslate"><span class="pre">fr.other[&quot;energy&quot;]</span></code>).
-A list of dictionary keys, what they are, and which of our
-file parsers can grab them can be found on the
+of <code class="code docutils literal notranslate"><span class="pre">fr.other[&quot;energy&quot;]</span></code>).</p>
+<p>For example, the following will first check wither a Psi4 job finished (<code class="code docutils literal notranslate"><span class="pre">fr[&quot;finished&quot;]</span></code>)
+and, if so, print the final energy (<code class="code docutils literal notranslate"><span class="pre">fr[&quot;energy&quot;]</span></code>):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.fileIO</span> <span class="kn">import</span> <span class="n">FileReader</span>
+
+<span class="n">fr</span> <span class="o">=</span> <span class="n">FileReader</span><span class="p">(</span><span class="s1">&#39;output.dat&#39;</span><span class="p">,</span> <span class="n">just_geom</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">fr</span><span class="p">[</span><span class="s2">&quot;finished&quot;</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Final energy = </span><span class="si">{</span><span class="n">fr</span><span class="p">[</span><span class="s2">&quot;energy&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Did not finish&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A list of dictionary keys, what they are, and which of our
+file parsers can grab them can be found on
 <a class="reference external" href="../api/filereader.html#filereader-keys-for-various-output-files">this page</a>.</p>
 </section>
 </section>
@@ -499,12 +514,12 @@ file parsers can grab them can be found on the
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="zmat.html">
+          <a class="next-page" href="example_python.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Converting Z-Matrices to Cartesian Coordinates</div>
+                <div class="title">Example Python Scripts for Common Tasks</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -553,6 +568,7 @@ file parsers can grab them can be found on the
 <li><a class="reference internal" href="#creation">Creation</a></li>
 <li><a class="reference internal" href="#getting-more-information">Getting More Information</a><ul>
 <li><a class="reference internal" href="#multiple-structures">Multiple Structures</a></li>
+<li><a class="reference internal" href="#calculation-information">Calculation Information</a></li>
 </ul>
 </li>
 </ul>

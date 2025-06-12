@@ -91,11 +91,11 @@ to parse (e.g., XYZ or Mol files). With :code:`get_all=False`,
 the :code:`FileReader`'s only structure will be the last one in the file.
 
 Below is sample code for turning each structure in a
-:code:`FileReader` into a :code:`Geometry`:
+:code:`FileReader` into a :code:`Geometry`, which are then stored in the list
+:code:`geom_list`:
 
 .. code-block:: python
 
-    from AaronTools.atoms import Atom
     from AaronTools.geometry import Geometry
     from AaronTools.fileIO import FileReader
     
@@ -110,11 +110,10 @@ that will also copy over the comment information from the original XYZ entry
 
 .. code-block:: python
 
-    from AaronTools.atoms import Atom
     from AaronTools.geometry import Geometry
     from AaronTools.fileIO import FileReader
     
-    fr = FileReader('molecules.xyz', get_all=True)
+    fr = FileReader('mols.xyz', get_all=True)
     
     geom_list = []
     for struc in fr.all_geom:
@@ -122,14 +121,34 @@ that will also copy over the comment information from the original XYZ entry
     
 
 Calculation Information
+***********************
 
-The :code:`just_geom` keyword controls whether the
-:code:`FileReader` grabs more than the file's structure.
-Additional information will be stored as a dictionary in the
-:code:`FileReader`'s other attribute.
+By default, a :code:`FileReader` will only read the molecular structure.
+The :code:`just_geom` keyword controls whether other information (e.g. data from a QM output file)
+is also read. 
+This additional information will be stored as a dictionary in the
+:code:`FileReader`'s :code:`other` attribute.
 This data can also be accessed by using the :code:`FileReader`
 as if it was a dictionary (`i.e.` :code:`fr["energy"]` instead
 of :code:`fr.other["energy"]`).
+
+For example, the following will first check wither a Psi4 job finished (:code:`fr["finished"]`)
+and, if so, print the final energy (:code:`fr["energy"]`):
+
+.. code-block:: python
+
+    from AaronTools.fileIO import FileReader
+    
+    fr = FileReader('output.dat', just_geom=False)
+    
+    if fr["finished"]:
+        print(f"Final energy = {fr["energy"]}")
+    else:
+        print("Did not finish")
+
+
 A list of dictionary keys, what they are, and which of our
-file parsers can grab them can be found on the
+file parsers can grab them can be found on 
 `this page <../api/filereader.html#filereader-keys-for-various-output-files>`_.
+
+

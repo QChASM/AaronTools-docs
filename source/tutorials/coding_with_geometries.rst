@@ -7,7 +7,8 @@ Overview
 Here, you will find tutorials and explanations for using AaronTools' functions,
 classes, and subroutines pertaining to our most basic atomic structure
 object: :py:meth:`AaronTools.geometry.Geometry`. 
-
+An AaronTools :code:`Geometry` consists of a set of a list of :doc:`../api/atoms`
+objects along with other data associated with the molecule.
 
 File Input/Output
 -----------------
@@ -93,6 +94,22 @@ If you'd like to write to a file instead, you can pass the path to the file to :
     ...
     geom.write(outfile='tnt.xyz')
 
+Although the above options will print an XYZ file to stdout or a file, it is instructive to see how to
+manually print an XYZ file from a :code:`Geometry` object to get a feel for how they work:
+
+.. code-block:: python
+
+    from AaronTools.geometry import Geometry
+    
+    geom = Geometry.from_string('c1ccccc1') # create Geometry from SMILES
+    print(geom.num_atoms) # print number of atoms
+    print(geom.comment)   # print comment
+    
+    for atom in geom:     # loop over atoms and print element and coordinates
+        print(atom.element, atom.coords[0], atom.coords[1], atom.coords[2])
+
+
+
 Other :code:`write` Keywords
 ****************************
 
@@ -121,7 +138,19 @@ See :doc:`coding_with_theories` for information on how to use these.
         theory=b3lyp_def2svp
     )
 
-:code:`append=True` means AaronTools will open the output file in append mode instead of write mode. 
+Writing Multiple Geometries to One File
+***************************************
+The option :code:`append=True` will open the output file in append mode instead of write mode, allowing for multiple :code:`Geometry` objects to be written to a single XYZ file:
+
+.. code-block:: python
+
+    from AaronTools.geometry import Geometry
+    
+    for smiles in ('c1ccccc1', 'c1ccccn1', 'c1cccnn1', 'c1ccnnn1', 'c1cnnnn1', 'c1nnnnn1', 'n1nnnnn1'):
+        geom = Geometry.from_string(smiles)
+        geom.write(outfile="mols.xyz", append=True)
+
+See :doc:`coding_with_filereaders` to see how to work with multi-structure XYZ files.
 
 Finding Atoms
 -------------
@@ -137,7 +166,7 @@ For example, to turn a benzene molecule into perfluorobenzene, we can substitute
     
     substitute.py benzene.xyz -s H=F
 
-The :code:`find` method returns any number of atoms given one or more atom specifiers.
+The :code:`find` method returns a list of :code:`atom` objects within the :code:`Geomtery` given one or more atom specifiers.
 
 The :code:`find_exact` method returns the same number of atoms as specifiers passed to the method. 
 
@@ -154,7 +183,7 @@ The following can be passed to find, along with an example:
         geom = Geometry('benzene.xyz')
         geom.find('C')
         
-    this will return all carbon atoms on the "benzene.xyz" geometry: 
+    this will return a list of the carbon atoms in the "benzene.xyz" geometry: 
     
     .. code-block:: text
     

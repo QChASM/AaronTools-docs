@@ -212,6 +212,7 @@
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Coding with <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="coding_with_theories.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="coding_with_filereaders.html">Coding with <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_python.html">Example Python Scripts for Common Tasks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="zmat.html">Converting Z-Matrices to Cartesian Coordinates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Jupyter_basics.html">Working with AaronTools in Jupyter Notebooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Jupyter_Psi4.html">AaronTools and Psi4</a></li>
@@ -371,7 +372,9 @@
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
 <p>Here, you will find tutorials and explanations for using AaronTools’ functions,
 classes, and subroutines pertaining to our most basic atomic structure
-object: <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry()</span></code></a>.</p>
+object: <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry()</span></code></a>.
+An AaronTools <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> consists of a set of a list of <a class="reference internal" href="../api/atoms.html"><span class="doc">Atom class</span></a>
+objects along with other data associated with the molecule.</p>
 </section>
 <section id="file-input-output">
 <h2>File Input/Output<a class="headerlink" href="#file-input-output" title="Link to this heading">¶</a></h2>
@@ -436,6 +439,18 @@ to the <code class="code docutils literal notranslate"><span class="pre">outfile
 <span class="n">geom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outfile</span><span class="o">=</span><span class="s1">&#39;tnt.xyz&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Although the above options will print an XYZ file to stdout or a file, it is instructive to see how to
+manually print an XYZ file from a <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> object to get a feel for how they work:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+
+<span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="s1">&#39;c1ccccc1&#39;</span><span class="p">)</span> <span class="c1"># create Geometry from SMILES</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">geom</span><span class="o">.</span><span class="n">num_atoms</span><span class="p">)</span> <span class="c1"># print number of atoms</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">geom</span><span class="o">.</span><span class="n">comment</span><span class="p">)</span>   <span class="c1"># print comment</span>
+
+<span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">geom</span><span class="p">:</span>     <span class="c1"># loop over atoms and print element and coordinates</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">atom</span><span class="o">.</span><span class="n">element</span><span class="p">,</span> <span class="n">atom</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">atom</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">atom</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
 </section>
 <section id="other-write-keywords">
 <h3>Other <code class="code docutils literal notranslate"><span class="pre">write</span></code> Keywords<a class="headerlink" href="#other-write-keywords" title="Link to this heading">¶</a></h3>
@@ -462,7 +477,18 @@ See <a class="reference internal" href="coding_with_theories.html"><span class="
 <span class="p">)</span>
 </pre></div>
 </div>
-<p><code class="code docutils literal notranslate"><span class="pre">append=True</span></code> means AaronTools will open the output file in append mode instead of write mode.</p>
+</section>
+<section id="writing-multiple-geometries-to-one-file">
+<h3>Writing Multiple Geometries to One File<a class="headerlink" href="#writing-multiple-geometries-to-one-file" title="Link to this heading">¶</a></h3>
+<p>The option <code class="code docutils literal notranslate"><span class="pre">append=True</span></code> will open the output file in append mode instead of write mode, allowing for multiple <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> objects to be written to a single XYZ file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+
+<span class="k">for</span> <span class="n">smiles</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;c1ccccc1&#39;</span><span class="p">,</span> <span class="s1">&#39;c1ccccn1&#39;</span><span class="p">,</span> <span class="s1">&#39;c1cccnn1&#39;</span><span class="p">,</span> <span class="s1">&#39;c1ccnnn1&#39;</span><span class="p">,</span> <span class="s1">&#39;c1cnnnn1&#39;</span><span class="p">,</span> <span class="s1">&#39;c1nnnnn1&#39;</span><span class="p">,</span> <span class="s1">&#39;n1nnnnn1&#39;</span><span class="p">):</span>
+    <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="n">smiles</span><span class="p">)</span>
+    <span class="n">geom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outfile</span><span class="o">=</span><span class="s2">&quot;mols.xyz&quot;</span><span class="p">,</span> <span class="n">append</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>See <a class="reference internal" href="coding_with_filereaders.html"><span class="doc">Coding with FileReader objects</span></a> to see how to work with multi-structure XYZ files.</p>
 </section>
 </section>
 <section id="finding-atoms">
@@ -476,7 +502,7 @@ For example, to turn a benzene molecule into perfluorobenzene, we can substitute
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>substitute.py benzene.xyz -s H=F
 </pre></div>
 </div>
-<p>The <code class="code docutils literal notranslate"><span class="pre">find</span></code> method returns any number of atoms given one or more atom specifiers.</p>
+<p>The <code class="code docutils literal notranslate"><span class="pre">find</span></code> method returns a list of <code class="code docutils literal notranslate"><span class="pre">atom</span></code> objects within the <code class="code docutils literal notranslate"><span class="pre">Geomtery</span></code> given one or more atom specifiers.</p>
 <p>The <code class="code docutils literal notranslate"><span class="pre">find_exact</span></code> method returns the same number of atoms as specifiers passed to the method.</p>
 <section id="atom-specifiers">
 <h3>atom specifiers<a class="headerlink" href="#atom-specifiers" title="Link to this heading">¶</a></h3>
@@ -489,7 +515,7 @@ The following can be passed to find, along with an example:</p>
 <span class="n">geom</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>this will return all carbon atoms on the “benzene.xyz” geometry:</p>
+<p>this will return a list of the carbon atoms in the “benzene.xyz” geometry:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[  C    -4.20339000   -0.06691000   -0.00131000   0  1,
    C    -4.19394000   -1.46592000   -0.00065000   0  2,
    C    -2.99654000    0.64078000   -0.00092000   0  3,
@@ -890,6 +916,7 @@ easily access the hydrogen atoms on the ring we just added:</p>
 <li><a class="reference internal" href="#reading-a-file">Reading a File</a></li>
 <li><a class="reference internal" href="#writing-to-a-file">Writing to a File</a></li>
 <li><a class="reference internal" href="#other-write-keywords">Other <code class="code docutils literal notranslate"><span class="pre">write</span></code> Keywords</a></li>
+<li><a class="reference internal" href="#writing-multiple-geometries-to-one-file">Writing Multiple Geometries to One File</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#finding-atoms">Finding Atoms</a><ul>

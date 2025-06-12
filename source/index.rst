@@ -31,6 +31,10 @@ If you use the Python AaronTools, please cite:
     "QChASM: Quantum Chemistry Automation and Structure Manipulation"
     |wires|_
 
+Contact
+=======
+For questions, feature requests, etc. please `contact the developers <mailto: qchasm@uga.edu>`_.
+
 
 Overview of Features
 ====================
