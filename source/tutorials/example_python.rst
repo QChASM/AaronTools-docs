@@ -13,7 +13,7 @@ Optimization and Frequencies
 ----------------------------
 
 Although the task of submitting optimization + frequency jobs can be readily handled using a BASH script (see :doc:`example_bash`), we include a Python version here for completeness.
-Here we use ORCA as an example, but the script below would instead use Psi4 or Gaussian by simply changing the filename extension to `.in` or `.com`, respectfully!
+Here we use ORCA as an example, but the script below would instead use Psi4 or Gaussian by simply changing the filename extension to :code:`.in` or :code:`.com`, respectfully!
 
 The following script will submit wB97XD/def2-TZVP optimization and frequency jobs (requesting 8 cores/processors, a 12 hour walltime, and 12 GB of memory) on all XYZ files in the current directory:
 
@@ -22,3 +22,18 @@ The following script will submit wB97XD/def2-TZVP optimization and frequency job
 
 This could be easily modified to use IUPAC names or SMILES.
 
+SAPT Calculations
+-----------------
+In :doc:`example_bash` we built a script to run SAPT calculations on the parallel stacked benzene dimer as a function of horizontal and vertical displacements.
+In that case, because we were using :code:`makeInput.py`, we had to rely on Psi4 automatically partitioning the dimer into fragments.
+If more control is required over how the supermolecule is fragmented for SAPT computations, we need to build a Psi4 input file explicitly separating the molecule into componets.
+
+This requires some small changes to how we build the geometry and theory objects.
+First, we need to define the :code:`components` of :code:`Geometry` to be a list of the individual monomers.
+Second, in the :code:`theory` object we need to use :code:`SAPTMethod` instead of :code:`Method`.
+Finally, the charge and multiplicity need to be lists consisting of the charge/multiplicity for the whole system and each monomer.
+
+For instance, the following will write a Psi4 input file to calcualte the SAPT0/jun-cc-pVDZ energy on a dimer (read from :code:`dimer.xyz`) but use AaronTools to separate the monomers:
+
+.. literalinclude:: python/sapt.py
+   :language: python

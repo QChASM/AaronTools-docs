@@ -64,6 +64,9 @@ Changing the level of theory and/or quantum chemistry package should also be str
 Potential Energy Scans for Stacked Dimers
 -----------------------------------------
 
+Density Functional Theory
+*************************
+
 AaronTools CLSs make it trivial to run scans over different coordinates for non-bonded dimers (e.g. see `this recent paper <https://pubs.acs.org/doi/10.1021/jacs.5c03169>`_).
 For instance, the script below will run wB97X-D/def2-TZVP single point energies on the benzene dimer as a function of x- and z-coordinates (with a fixed monomer geometry) from x = 0 to 5 A and z = 3 - 4 A.
 It assumes that there is a local file called `benzene.xyz` that contains the coordinates of benzene in the xy-plane that is oriented with a vertex along the x-axis.
@@ -80,6 +83,21 @@ We can also use AaronTools to gather the energies after making sure all of the s
 .. literalinclude:: bash/gather_scan
    :language: bash
 
-Note that :doc:`../cls/makeInput` is not currently able to make SAPT input files, so if we wanted to run SAPT on these dimers we would need to use the AaronTools Python API to make input files for these types of computations.
-There will be a future tutorial showing example uses of the AaronTools Python API.
+Symmetry Adapted Perturbation Theory (SAPT)
+*******************************************
+
+To instead run SAPT computations (using Psi4), we need to make some minor modifications.
+SAPT computations provide interaction energies between non-bonded molecules.
+As such, these computations require a dimer (for example) to be partitioned into individual components.
+In order to use :code:`makeInput.py` to build a Psi4 SAPT input file we will exploit the fact that Psi4 can automatically detect components for SAPT computations using :code:`activate(auto_fragments())`.
+Because this needs to appear in the Psi4 input file before the job, we pass this to :code:`makeInput.py` using the :code:`--before-job` option.
+Note that with Psi4 we need to explicitly specify that Psi4 calculate the energy (by passing :code:`-e` to :code:`makeInput.py`).
+
+.. literalinclude:: bash/dimer_scan_sapt
+   :language: bash
+
+Finally, we can gather the SAPT data, printing both the individual components (electrostatics, exchange repulsion, induction, and dispersion) as well as the total SAPT0 interaction energy:
+
+.. literalinclude:: bash/gather_scan_sapt
+   :language: bash
 

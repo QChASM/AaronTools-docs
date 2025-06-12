@@ -1,0 +1,30 @@
+#!/bin/bash
+# gathers SAPT data from 2D scan
+
+# print header
+printf "%10s%10s%10s%10s%10s%10s%10s\n" x z Elec Exch Ind Disp SAPT0
+
+# gather SAPT0 data and print
+for x in `seq 0 5`; do
+	for z in `seq 3 0.5 4`; do
+		# name job by x and z value (e.g. x.0.0.z.3.0.in)
+		name=x.$x.z.$z
+
+  		# gather energy components and total interaction energy
+		Elec=`printInfo.py -i Electrostatics $name.out | head -n2 | tail -n1 | awk '{print $3}'`
+		Exch=`printInfo.py -i Exchange $name.out | head -n2 | tail -n1 | awk '{print $3}'`
+		Ind=`printInfo.py -i Induction $name.out | head -n2 | tail -n1 | awk '{print $3}'`
+		Disp=`printInfo.py -i Dispersion $name.out | head -n2 | tail -n1 | awk '{print $3}'`
+		Tot=`printInfo.py -i "Total SAPT0" $name.out | tail -n1 | awk '{print $4}'`
+
+		# Convert everything from Hartrees to kcal/mol
+		Elec=`echo "$Elec * 627.51" | bc`
+		Exch=`echo "$Exch * 627.51" | bc`
+		Ind=`echo "$Ind * 627.51" | bc`
+		Disp=`echo "$Disp* 627.51" | bc`
+		Tot=`echo "$Tot * 627.51" | bc`
+
+		# print data
+		printf "%10.1f%10.1f%10.2f%10.2f%10.2f%10.2f%10.2f\n" $x $z $Elec $Exch $Ind $Disp $Tot
+	done
+done

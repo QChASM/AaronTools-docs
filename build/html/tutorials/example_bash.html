@@ -478,6 +478,8 @@ Changing the level of theory and/or quantum chemistry package should also be str
 </section>
 <section id="potential-energy-scans-for-stacked-dimers">
 <h2>Potential Energy Scans for Stacked Dimers<a class="headerlink" href="#potential-energy-scans-for-stacked-dimers" title="Link to this heading">¶</a></h2>
+<section id="density-functional-theory">
+<h3>Density Functional Theory<a class="headerlink" href="#density-functional-theory" title="Link to this heading">¶</a></h3>
 <p>AaronTools CLSs make it trivial to run scans over different coordinates for non-bonded dimers (e.g. see <a class="reference external" href="https://pubs.acs.org/doi/10.1021/jacs.5c03169">this recent paper</a>).
 For instance, the script below will run wB97X-D/def2-TZVP single point energies on the benzene dimer as a function of x- and z-coordinates (with a fixed monomer geometry) from x = 0 to 5 A and z = 3 - 4 A.
 It assumes that there is a local file called <cite>benzene.xyz</cite> that contains the coordinates of benzene in the xy-plane that is oriented with a vertex along the x-axis.</p>
@@ -512,8 +514,70 @@ rm<span class="w"> </span>-f<span class="w"> </span>temp.xyz
 <span class="k">done</span>
 </pre></div>
 </div>
-<p>Note that <a class="reference internal" href="../cls/makeInput.html"><span class="doc">makeInput.py</span></a> is not currently able to make SAPT input files, so if we wanted to run SAPT on these dimers we would need to use the AaronTools Python API to make input files for these types of computations.
-There will be a future tutorial showing example uses of the AaronTools Python API.</p>
+</section>
+<section id="symmetry-adapted-perturbation-theory-sapt">
+<h3>Symmetry Adapted Perturbation Theory (SAPT)<a class="headerlink" href="#symmetry-adapted-perturbation-theory-sapt" title="Link to this heading">¶</a></h3>
+<p>To instead run SAPT computations (using Psi4), we need to make some minor modifications.
+SAPT computations provide interaction energies between non-bonded molecules.
+As such, these computations require a dimer (for example) to be partitioned into individual components.
+In order to use <code class="code docutils literal notranslate"><span class="pre">makeInput.py</span></code> to build a Psi4 SAPT input file we will exploit the fact that Psi4 can automatically detect components for SAPT computations using <code class="code docutils literal notranslate"><span class="pre">activate(auto_fragments())</span></code>.
+Because this needs to appear in the Psi4 input file before the job, we pass this to <code class="code docutils literal notranslate"><span class="pre">makeInput.py</span></code> using the <code class="code docutils literal notranslate"><span class="pre">--before-job</span></code> option.
+Note that with Psi4 we need to explicitly specify that Psi4 calculate the energy (by passing <code class="code docutils literal notranslate"><span class="pre">-e</span></code> to <code class="code docutils literal notranslate"><span class="pre">makeInput.py</span></code>).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># scan over x, z coordinates for benzene dimer and calculate SAPT0/jun-cc-pVDZ interaction energies</span>
+<span class="c1"># assumes there is a local file called &#39;benzene.xyz&#39; containing benzene coordinates in xy-plane</span>
+
+<span class="k">for</span><span class="w"> </span>x<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="sb">`</span>seq<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>.5<span class="w"> </span><span class="m">5</span><span class="sb">`</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">	</span><span class="k">for</span><span class="w"> </span>z<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="sb">`</span>seq<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">0</span>.2<span class="w"> </span><span class="m">4</span><span class="sb">`</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">		</span><span class="c1"># name job by x and z value (e.g. x.0.0.z.3.0.com)</span>
+<span class="w">		</span><span class="nv">name</span><span class="o">=</span>x.<span class="nv">$x</span>.z.<span class="nv">$z</span>
+
+<span class="w">		</span><span class="c1"># move one benzene to (x, 0, z)</span>
+<span class="w">		</span>translate.py<span class="w"> </span>benzene.xyz<span class="w"> </span>-v<span class="w"> </span><span class="nv">$x</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="nv">$z</span><span class="w"> </span>-o<span class="w"> </span>temp.xyz
+<span class="w">		</span>
+<span class="w">		</span><span class="c1"># combine benzene.xyz and temp.xyz to form dimer then build Gaussian input file</span>
+<span class="w">		</span>combineMonomers.py<span class="w"> </span>benzene.xyz<span class="w"> </span>temp.xyz<span class="w"> </span><span class="p">|</span><span class="w"> </span>makeInput.py<span class="w"> </span>-e<span class="w"> </span>-m<span class="w"> </span>sapt0<span class="w"> </span>-b<span class="w"> </span>jun-cc-pvdz<span class="w"> </span>--before-job<span class="w"> </span><span class="s1">&#39;activate(auto_fragments())&#39;</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">$name</span>.in
+
+<span class="w">		</span><span class="c1"># submit job</span>
+<span class="w">  		</span>jobSubmit.py<span class="w"> </span><span class="nv">$name</span>.in<span class="w"> </span>-p<span class="w"> </span><span class="m">8</span><span class="w"> </span>-m<span class="w"> </span><span class="m">12</span>
+<span class="w">	</span><span class="k">done</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+<p>Finally, we can gather the SAPT data, printing both the individual components (electrostatics, exchange repulsion, induction, and dispersion) as well as the total SAPT0 interaction energy:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># gathers SAPT data from 2D scan</span>
+
+<span class="c1"># print header</span>
+<span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;%10s%10s%10s%10s%10s%10s%10s\n&quot;</span><span class="w"> </span>x<span class="w"> </span>z<span class="w"> </span>Elec<span class="w"> </span>Exch<span class="w"> </span>Ind<span class="w"> </span>Disp<span class="w"> </span>SAPT0
+
+<span class="c1"># gather SAPT0 data and print</span>
+<span class="k">for</span><span class="w"> </span>x<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="sb">`</span>seq<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">5</span><span class="sb">`</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">	</span><span class="k">for</span><span class="w"> </span>z<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="sb">`</span>seq<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">0</span>.5<span class="w"> </span><span class="m">4</span><span class="sb">`</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">		</span><span class="c1"># name job by x and z value (e.g. x.0.0.z.3.0.in)</span>
+<span class="w">		</span><span class="nv">name</span><span class="o">=</span>x.<span class="nv">$x</span>.z.<span class="nv">$z</span>
+
+<span class="w">  		</span><span class="c1"># gather energy components and total interaction energy</span>
+<span class="w">		</span><span class="nv">Elec</span><span class="o">=</span><span class="sb">`</span>printInfo.py<span class="w"> </span>-i<span class="w"> </span>Electrostatics<span class="w"> </span><span class="nv">$name</span>.out<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n2<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-n1<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $3}&#39;</span><span class="sb">`</span>
+<span class="w">		</span><span class="nv">Exch</span><span class="o">=</span><span class="sb">`</span>printInfo.py<span class="w"> </span>-i<span class="w"> </span>Exchange<span class="w"> </span><span class="nv">$name</span>.out<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n2<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-n1<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $3}&#39;</span><span class="sb">`</span>
+<span class="w">		</span><span class="nv">Ind</span><span class="o">=</span><span class="sb">`</span>printInfo.py<span class="w"> </span>-i<span class="w"> </span>Induction<span class="w"> </span><span class="nv">$name</span>.out<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n2<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-n1<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $3}&#39;</span><span class="sb">`</span>
+<span class="w">		</span><span class="nv">Disp</span><span class="o">=</span><span class="sb">`</span>printInfo.py<span class="w"> </span>-i<span class="w"> </span>Dispersion<span class="w"> </span><span class="nv">$name</span>.out<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n2<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-n1<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $3}&#39;</span><span class="sb">`</span>
+<span class="w">		</span><span class="nv">Tot</span><span class="o">=</span><span class="sb">`</span>printInfo.py<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;Total SAPT0&quot;</span><span class="w"> </span><span class="nv">$name</span>.out<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-n1<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $4}&#39;</span><span class="sb">`</span>
+
+<span class="w">		</span><span class="c1"># Convert everything from Hartrees to kcal/mol</span>
+<span class="w">		</span><span class="nv">Elec</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$Elec</span><span class="s2"> * 627.51&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>bc<span class="sb">`</span>
+<span class="w">		</span><span class="nv">Exch</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$Exch</span><span class="s2"> * 627.51&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>bc<span class="sb">`</span>
+<span class="w">		</span><span class="nv">Ind</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$Ind</span><span class="s2"> * 627.51&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>bc<span class="sb">`</span>
+<span class="w">		</span><span class="nv">Disp</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$Disp</span><span class="s2">* 627.51&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>bc<span class="sb">`</span>
+<span class="w">		</span><span class="nv">Tot</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$Tot</span><span class="s2"> * 627.51&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>bc<span class="sb">`</span>
+
+<span class="w">		</span><span class="c1"># print data</span>
+<span class="w">		</span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;%10.1f%10.1f%10.2f%10.2f%10.2f%10.2f%10.2f\n&quot;</span><span class="w"> </span><span class="nv">$x</span><span class="w"> </span><span class="nv">$z</span><span class="w"> </span><span class="nv">$Elec</span><span class="w"> </span><span class="nv">$Exch</span><span class="w"> </span><span class="nv">$Ind</span><span class="w"> </span><span class="nv">$Disp</span><span class="w"> </span><span class="nv">$Tot</span>
+<span class="w">	</span><span class="k">done</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</section>
 </section>
 </section>
 
@@ -575,7 +639,11 @@ There will be a future tutorial showing example uses of the AaronTools Python AP
 <li><a class="reference internal" href="#">Example BASH Scripts for Common Tasks</a><ul>
 <li><a class="reference internal" href="#optimization-and-frequencies">Optimization and Frequencies</a></li>
 <li><a class="reference internal" href="#checking-and-rerunning-jobs">Checking and Rerunning Jobs</a></li>
-<li><a class="reference internal" href="#potential-energy-scans-for-stacked-dimers">Potential Energy Scans for Stacked Dimers</a></li>
+<li><a class="reference internal" href="#potential-energy-scans-for-stacked-dimers">Potential Energy Scans for Stacked Dimers</a><ul>
+<li><a class="reference internal" href="#density-functional-theory">Density Functional Theory</a></li>
+<li><a class="reference internal" href="#symmetry-adapted-perturbation-theory-sapt">Symmetry Adapted Perturbation Theory (SAPT)</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

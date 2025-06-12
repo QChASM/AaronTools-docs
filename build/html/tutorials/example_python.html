@@ -377,7 +377,7 @@ More examples will be added over time to make this a sort of ‘cookbook’ of A
 <section id="optimization-and-frequencies">
 <h2>Optimization and Frequencies<a class="headerlink" href="#optimization-and-frequencies" title="Link to this heading">¶</a></h2>
 <p>Although the task of submitting optimization + frequency jobs can be readily handled using a BASH script (see <a class="reference internal" href="example_bash.html"><span class="doc">Example BASH Scripts for Common Tasks</span></a>), we include a Python version here for completeness.
-Here we use ORCA as an example, but the script below would instead use Psi4 or Gaussian by simply changing the filename extension to <cite>.in</cite> or <cite>.com</cite>, respectfully!</p>
+Here we use ORCA as an example, but the script below would instead use Psi4 or Gaussian by simply changing the filename extension to <code class="code docutils literal notranslate"><span class="pre">.in</span></code> or <code class="code docutils literal notranslate"><span class="pre">.com</span></code>, respectfully!</p>
 <p>The following script will submit wB97XD/def2-TZVP optimization and frequency jobs (requesting 8 cores/processors, a 12 hour walltime, and 12 GB of memory) on all XYZ files in the current directory:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># build ORCA input files for optimization + frequency calculation on all XYZ files in current directory</span>
 <span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
@@ -410,6 +410,43 @@ Here we use ORCA as an example, but the script below would instead use Psi4 or G
 </pre></div>
 </div>
 <p>This could be easily modified to use IUPAC names or SMILES.</p>
+</section>
+<section id="sapt-calculations">
+<h2>SAPT Calculations<a class="headerlink" href="#sapt-calculations" title="Link to this heading">¶</a></h2>
+<p>In <a class="reference internal" href="example_bash.html"><span class="doc">Example BASH Scripts for Common Tasks</span></a> we built a script to run SAPT calculations on the parallel stacked benzene dimer as a function of horizontal and vertical displacements.
+In that case, because we were using <code class="code docutils literal notranslate"><span class="pre">makeInput.py</span></code>, we had to rely on Psi4 automatically partitioning the dimer into fragments.
+If more control is required over how the supermolecule is fragmented for SAPT computations, we need to build a Psi4 input file explicitly separating the molecule into componets.</p>
+<p>This requires some small changes to how we build the geometry and theory objects.
+First, we need to define the <code class="code docutils literal notranslate"><span class="pre">components</span></code> of <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> to be a list of the individual monomers.
+Second, in the <code class="code docutils literal notranslate"><span class="pre">theory</span></code> object we need to use <code class="code docutils literal notranslate"><span class="pre">SAPTMethod</span></code> instead of <code class="code docutils literal notranslate"><span class="pre">Method</span></code>.
+Finally, the charge and multiplicity need to be lists consisting of the charge/multiplicity for the whole system and each monomer.</p>
+<p>For instance, the following will write a Psi4 input file to calcualte the SAPT0/jun-cc-pVDZ energy on a dimer (read from <code class="code docutils literal notranslate"><span class="pre">dimer.xyz</span></code>) but use AaronTools to separate the monomers:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.component</span> <span class="kn">import</span> <span class="n">Component</span>
+<span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># make Geometry object from XYZ file containing dimer</span>
+<span class="n">dimer</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="s2">&quot;dimer.xyz&quot;</span><span class="p">)</span>
+
+<span class="c1"># for SAPT, the monomers need to be in the geometry&#39;s components attribute</span>
+<span class="n">dimer</span><span class="o">.</span><span class="n">components</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">mon</span> <span class="ow">in</span> <span class="n">dimer</span><span class="o">.</span><span class="n">get_monomers</span><span class="p">():</span>
+    <span class="n">dimer</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Component</span><span class="p">(</span><span class="n">mon</span><span class="p">))</span>
+
+<span class="c1"># Modified Theory object for SAPT computations</span>
+<span class="n">theory</span> <span class="o">=</span> <span class="n">Theory</span><span class="p">(</span>
+    <span class="n">charge</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="n">multiplicity</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="n">method</span><span class="o">=</span><span class="n">SAPTMethod</span><span class="p">(</span><span class="s2">&quot;sapt0&quot;</span><span class="p">),</span>
+    <span class="n">basis</span><span class="o">=</span><span class="s2">&quot;jun-cc-pvdz&quot;</span><span class="p">,</span>
+    <span class="n">processors</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+    <span class="n">memory</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+    <span class="n">job_type</span><span class="o">=</span><span class="s2">&quot;energy&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">dimer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outfile</span><span class="o">=</span><span class="s1">&#39;dimer.in&#39;</span><span class="p">,</span> <span class="n">theory</span><span class="o">=</span><span class="n">theory</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -470,6 +507,7 @@ Here we use ORCA as an example, but the script below would instead use Psi4 or G
             <ul>
 <li><a class="reference internal" href="#">Example Python Scripts for Common Tasks</a><ul>
 <li><a class="reference internal" href="#optimization-and-frequencies">Optimization and Frequencies</a></li>
+<li><a class="reference internal" href="#sapt-calculations">SAPT Calculations</a></li>
 </ul>
 </li>
 </ul>
