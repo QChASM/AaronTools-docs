@@ -83,8 +83,8 @@ from a file called ZMAT as shown above.
 
 Converting Z-Matrix to Cartesian Coordinates
 --------------------------------------------
-With the Z-matrix definition now saved as `zmat` and the corresponding variables as the 
-dictionary `vars`, the following Python code will build a new :py:meth:`AaronTools.geometry.Geometry`
+With the Z-matrix definition now saved as :code:`zmat` and the corresponding variables as the 
+dictionary :code:`vars`, the following Python code will build a new :py:meth:`AaronTools.geometry.Geometry`
 object with the corresponding coordinates:
 
 .. code-block:: python

@@ -146,7 +146,7 @@ The option :code:`append=True` will open the output file in append mode instead 
 
     from AaronTools.geometry import Geometry
     
-    for smiles in ('c1ccccc1', 'c1ccccn1', 'c1cccnn1', 'c1ccnnn1', 'c1cnnnn1', 'c1nnnnn1', 'n1nnnnn1'):
+    for smiles in ('c1ccccc1', 'c1ccccn1', 'c1cnccn1', 'c1ncncn1', 'c1nncnn1', 'c1nnnnn1', 'n1nnnnn1'):
         geom = Geometry.from_string(smiles)
         geom.write(outfile="mols.xyz", append=True)
 

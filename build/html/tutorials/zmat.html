@@ -442,8 +442,8 @@ from a file called ZMAT as shown above.</p>
 </section>
 <section id="converting-z-matrix-to-cartesian-coordinates">
 <h2>Converting Z-Matrix to Cartesian Coordinates<a class="headerlink" href="#converting-z-matrix-to-cartesian-coordinates" title="Link to this heading">¶</a></h2>
-<p>With the Z-matrix definition now saved as <cite>zmat</cite> and the corresponding variables as the
-dictionary <cite>vars</cite>, the following Python code will build a new <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry()</span></code></a>
+<p>With the Z-matrix definition now saved as <code class="code docutils literal notranslate"><span class="pre">zmat</span></code> and the corresponding variables as the
+dictionary <code class="code docutils literal notranslate"><span class="pre">vars</span></code>, the following Python code will build a new <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry()</span></code></a>
 object with the corresponding coordinates:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># loop over lines in zmat and build molecule</span>
 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">zmat</span><span class="o">.</span><span class="n">splitlines</span><span class="p">():</span>

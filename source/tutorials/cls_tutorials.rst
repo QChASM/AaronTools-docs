@@ -6,7 +6,7 @@ Overview
 Here, you will find tutorials and generalizations for AaronTools' various command line scripts
 (see :doc:`../cls/list`).
 For many of the scripts covered here, some options might not be described.
-To see the full list of options for a script, run it with just the --help flag (e.g. substitute.py --help).
+To see the full list of options for a script, run it with just the --help flag (e.g. :code:`substitute.py --help`).
 
 For examples of BASH scripts that use CLSs to automate common tasks, see :doc:`example_bash`.
 
@@ -32,6 +32,8 @@ If the file has an unconventional extension, you can pass the format to the :cod
 Many of our scripts also support reading the structure from standard input (e.g. pipes (:code:`|`)).
 The input is assumed to be in XYZ format, but :code:`-if` can be used to specify other formats.
 This can be used to avoid writing intermediate files. 
+This example will replace all H atoms with F in :code:`benzene.xyz` (using :doc:`../cls/substitute`) 
+and then change the bond length between atoms 6 and 7 by 0.3 Angstroms (using :doc:`../cls/bond`).
 
 .. code-block:: 
 
@@ -44,7 +46,8 @@ Many of our scripts accept the :code:`-o` flag to specify the destination of the
 If no :code:`-o` flag is specified, the script's normal output will be printed to the standard output. 
 
 
-The :doc:`../cls/printXYZ` command can be used to convert any AaronTools-readable file (.xyz, Gaussian .log file, Gaussian .com file, ORCA .out file) into an XYZ file:
+The :doc:`../cls/printXYZ` command can be used to convert any AaronTools-readable file (XYZ, Gaussian 
+.log file, Gaussian .com file, ORCA .out file, etc.) into an XYZ file:
 
 .. code-block:: bash
 
@@ -67,19 +70,41 @@ The :doc:`../cls/printXYZ` command can be used to convert any AaronTools-readabl
     H     -0.84658    0.49695    0.00044
     H     -3.00385    1.72310   -0.00143
 
+To instead write this to the file :code:`benzene.xyz` you would do
+
+.. code-block:: bash
+
+    printXYZ.py benzene.log -o benzene.xyz
+
 
 Finding Atoms
 -------------
 
 Atoms can be specified by atom number (1-indexed) or by element.
-For example, to turn a benzene molecule into perfluorobenzene, we can substitute all hydrogens with fluorines: 
+For example, to replace atom 7 (one of the hydrogens) of benzene with CN, you would do
+
+::
+    
+    substitute.py benzene.xyz -s 7=CN
+
+
+Instead, to turn a benzene molecule into perfluorobenzene, we can substitute all hydrogens with fluorines: 
 
 ::
     
     substitute.py benzene.xyz -s H=F
     
+In either case, using :code:`-o file.xyz` will save the new structure to a file instead of printing to stdout.
+
 The :doc:`../cls/findAtoms` script can be helpful for locating atoms using a variety of descriptions.
 These descriptions include the element, how many bonds the atom has, and what atoms are bonded to a specific atom.
+
+For instance, we could confirm that the H atoms in `benzene.xyz` are indeed atoms 7-12 by using :code:`findAtoms.py`
+to list all atoms that are bonded to only a single other atom:
+
+::
+  
+    findAtoms.py benzene.xyz -nb 1
 
 
 Structure Modification
@@ -330,8 +355,11 @@ The :doc:`../cls/grabThermo` command line script can be used to print thermochem
 
     grabThermo.py tnt.dat
 
+Plotting Simulated IR Spectra
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 At the time of writing, Psi4 does not compute IR intensities for DFT methods. 
-However, if we used Gaussian, ORCA, or Q-Chem to perform this computations, we could generate an IR spectra from the output using the :doc:`../cls/plotIR` script::
+However, if we had used Gaussian, ORCA, or Q-Chem to perform this computation, we could generate an IR spectra from the output using the :doc:`../cls/plotIR` script::
 
     plotIR.py tnt.log
 

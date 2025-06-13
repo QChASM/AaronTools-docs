@@ -373,7 +373,7 @@
 <p>Here, you will find tutorials and generalizations for AaronTools’ various command line scripts
 (see <a class="reference internal" href="../cls/list.html"><span class="doc">List of Command Line Scripts</span></a>).
 For many of the scripts covered here, some options might not be described.
-To see the full list of options for a script, run it with just the –help flag (e.g. substitute.py –help).</p>
+To see the full list of options for a script, run it with just the –help flag (e.g. <code class="code docutils literal notranslate"><span class="pre">substitute.py</span> <span class="pre">--help</span></code>).</p>
 <p>For examples of BASH scripts that use CLSs to automate common tasks, see <a class="reference internal" href="example_bash.html"><span class="doc">Example BASH Scripts for Common Tasks</span></a>.</p>
 </section>
 <section id="file-input-output">
@@ -390,7 +390,9 @@ To see the full list of options for a script, run it with just the –help flag 
 </div>
 <p>Many of our scripts also support reading the structure from standard input (e.g. pipes (<code class="code docutils literal notranslate"><span class="pre">|</span></code>)).
 The input is assumed to be in XYZ format, but <code class="code docutils literal notranslate"><span class="pre">-if</span></code> can be used to specify other formats.
-This can be used to avoid writing intermediate files.</p>
+This can be used to avoid writing intermediate files.
+This example will replace all H atoms with F in <code class="code docutils literal notranslate"><span class="pre">benzene.xyz</span></code> (using <a class="reference internal" href="../cls/substitute.html"><span class="doc">substitute.py</span></a>)
+and then change the bond length between atoms 6 and 7 by 0.3 Angstroms (using <a class="reference internal" href="../cls/bond.html"><span class="doc">bond.py</span></a>).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">substitute</span><span class="o">.</span><span class="n">py</span> <span class="n">benzene</span><span class="o">.</span><span class="n">xyz</span> <span class="o">-</span><span class="n">s</span> <span class="n">H</span><span class="o">=</span><span class="n">F</span> <span class="o">|</span> <span class="n">bond</span><span class="o">.</span><span class="n">py</span> <span class="n">xyz</span> <span class="o">-</span><span class="n">c</span> <span class="mi">6</span> <span class="mi">7</span> <span class="mf">0.3</span>
 </pre></div>
 </div>
@@ -399,7 +401,8 @@ This can be used to avoid writing intermediate files.</p>
 <h3>Writing Geometry to a File<a class="headerlink" href="#writing-geometry-to-a-file" title="Link to this heading">¶</a></h3>
 <p>Many of our scripts accept the <code class="code docutils literal notranslate"><span class="pre">-o</span></code> flag to specify the destination of the output.
 If no <code class="code docutils literal notranslate"><span class="pre">-o</span></code> flag is specified, the script’s normal output will be printed to the standard output.</p>
-<p>The <a class="reference internal" href="../cls/printXYZ.html"><span class="doc">printXYZ.py</span></a> command can be used to convert any AaronTools-readable file (.xyz, Gaussian .log file, Gaussian .com file, ORCA .out file) into an XYZ file:</p>
+<p>The <a class="reference internal" href="../cls/printXYZ.html"><span class="doc">printXYZ.py</span></a> command can be used to convert any AaronTools-readable file (XYZ, Gaussian
+.log file, Gaussian .com file, ORCA .out file, etc.) into an XYZ file:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>printXYZ.py<span class="w"> </span>benzene.log
 </pre></div>
 </div>
@@ -419,17 +422,31 @@ If no <code class="code docutils literal notranslate"><span class="pre">-o</span
 <span class="n">H</span>     <span class="o">-</span><span class="mf">3.00385</span>    <span class="mf">1.72310</span>   <span class="o">-</span><span class="mf">0.00143</span>
 </pre></div>
 </div>
+<p>To instead write this to the file <code class="code docutils literal notranslate"><span class="pre">benzene.xyz</span></code> you would do</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>printXYZ.py<span class="w"> </span>benzene.log<span class="w"> </span>-o<span class="w"> </span>benzene.xyz
+</pre></div>
+</div>
 </section>
 </section>
 <section id="finding-atoms">
 <h2>Finding Atoms<a class="headerlink" href="#finding-atoms" title="Link to this heading">¶</a></h2>
 <p>Atoms can be specified by atom number (1-indexed) or by element.
-For example, to turn a benzene molecule into perfluorobenzene, we can substitute all hydrogens with fluorines:</p>
+For example, to replace atom 7 (one of the hydrogens) of benzene with CN, you would do</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">substitute</span><span class="o">.</span><span class="n">py</span> <span class="n">benzene</span><span class="o">.</span><span class="n">xyz</span> <span class="o">-</span><span class="n">s</span> <span class="mi">7</span><span class="o">=</span><span class="n">CN</span>
+</pre></div>
+</div>
+<p>Instead, to turn a benzene molecule into perfluorobenzene, we can substitute all hydrogens with fluorines:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">substitute</span><span class="o">.</span><span class="n">py</span> <span class="n">benzene</span><span class="o">.</span><span class="n">xyz</span> <span class="o">-</span><span class="n">s</span> <span class="n">H</span><span class="o">=</span><span class="n">F</span>
 </pre></div>
 </div>
+<p>In either case, using <code class="code docutils literal notranslate"><span class="pre">-o</span> <span class="pre">file.xyz</span></code> will save the new structure to a file instead of printing to stdout.</p>
 <p>The <a class="reference internal" href="../cls/findAtoms.html"><span class="doc">findAtoms.py</span></a> script can be helpful for locating atoms using a variety of descriptions.
 These descriptions include the element, how many bonds the atom has, and what atoms are bonded to a specific atom.</p>
+<p>For instance, we could confirm that the H atoms in <cite>benzene.xyz</cite> are indeed atoms 7-12 by using <code class="code docutils literal notranslate"><span class="pre">findAtoms.py</span></code>
+to list all atoms that are bonded to only a single other atom:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">findAtoms</span><span class="o">.</span><span class="n">py</span> <span class="n">benzene</span><span class="o">.</span><span class="n">xyz</span> <span class="o">-</span><span class="n">nb</span> <span class="mi">1</span>
+</pre></div>
+</div>
 </section>
 <section id="structure-modification">
 <h2>Structure Modification<a class="headerlink" href="#structure-modification" title="Link to this heading">¶</a></h2>
@@ -641,8 +658,11 @@ The <a class="reference internal" href="../cls/grabThermo.html"><span class="doc
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grabThermo</span><span class="o">.</span><span class="n">py</span> <span class="n">tnt</span><span class="o">.</span><span class="n">dat</span>
 </pre></div>
 </div>
+</section>
+<section id="plotting-simulated-ir-spectra">
+<h3>Plotting Simulated IR Spectra<a class="headerlink" href="#plotting-simulated-ir-spectra" title="Link to this heading">¶</a></h3>
 <p>At the time of writing, Psi4 does not compute IR intensities for DFT methods.
-However, if we used Gaussian, ORCA, or Q-Chem to perform this computations, we could generate an IR spectra from the output using the <a class="reference internal" href="../cls/plotIR.html"><span class="doc">plotIR.py</span></a> script:</p>
+However, if we had used Gaussian, ORCA, or Q-Chem to perform this computation, we could generate an IR spectra from the output using the <a class="reference internal" href="../cls/plotIR.html"><span class="doc">plotIR.py</span></a> script:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plotIR</span><span class="o">.</span><span class="n">py</span> <span class="n">tnt</span><span class="o">.</span><span class="n">log</span>
 </pre></div>
 </div>
@@ -724,6 +744,7 @@ However, if we used Gaussian, ORCA, or Q-Chem to perform this computations, we c
 </li>
 <li><a class="reference internal" href="#analyzing-output">Analyzing Output</a><ul>
 <li><a class="reference internal" href="#grabbing-thermochemical-corrections">Grabbing Thermochemical Corrections</a></li>
+<li><a class="reference internal" href="#plotting-simulated-ir-spectra">Plotting Simulated IR Spectra</a></li>
 </ul>
 </li>
 </ul>

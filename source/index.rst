@@ -25,7 +25,7 @@ The version available via :code:`pip` is usually slightly behind.
 
 Citation
 ========
-If you use the Python AaronTools, please cite:
+If you use AaronTools, please cite:
 
     V. M. Ingman, A. J. Schaefer, L. R. Andreola, and S. E. Wheeler
     "QChASM: Quantum Chemistry Automation and Structure Manipulation"
@@ -39,11 +39,13 @@ For questions, feature requests, etc. please `contact the developers <mailto: qc
 Overview of Features
 ====================
 
-These are some of the more popular features in AaronTools, with links to the
-relevant command line scripts or Python API.
+Below are some of the more popular features in AaronTools, with links to the
+relevant command line scripts and/or Python API.
 
 Data can be processed from several popular quantum chemsitry software packages including
 Gaussian, ORCA, Psi4, and xTB.
+
+See :doc:`tutorials/tut_list` to get started using AaronTools.
 
 Steric Parameters
 -----------------
