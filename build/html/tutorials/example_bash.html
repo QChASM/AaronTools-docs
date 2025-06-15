@@ -516,7 +516,7 @@ rm<span class="w"> </span>-f<span class="w"> </span>temp.xyz
 </div>
 </section>
 <section id="symmetry-adapted-perturbation-theory-sapt">
-<h3>Symmetry Adapted Perturbation Theory (SAPT)<a class="headerlink" href="#symmetry-adapted-perturbation-theory-sapt" title="Link to this heading">¶</a></h3>
+<span id="bash-sapt-calculations"></span><h3>Symmetry Adapted Perturbation Theory (SAPT)<a class="headerlink" href="#symmetry-adapted-perturbation-theory-sapt" title="Link to this heading">¶</a></h3>
 <p>To instead run SAPT computations (using Psi4), we need to make some minor modifications.
 SAPT computations provide interaction energies between non-bonded molecules.
 As such, these computations require a dimer (for example) to be partitioned into individual components.
@@ -544,6 +544,8 @@ Note that with Psi4 we need to explicitly specify that Psi4 calculate the energy
 <span class="k">done</span>
 </pre></div>
 </div>
+<p>If Psi4 does not properly recognize your monomers, or you want more control over how a given complex is divided, you will need to use the Python API.
+See <a class="reference internal" href="example_python.html#python-sapt-calculations"><span class="std std-ref">SAPT Calculations</span></a>.</p>
 <p>Finally, we can gather the SAPT data, printing both the individual components (electrostatics, exchange repulsion, induction, and dispersion) as well as the total SAPT0 interaction energy:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="c1"># gathers SAPT data from 2D scan</span>

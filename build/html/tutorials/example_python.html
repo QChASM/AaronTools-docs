@@ -412,15 +412,15 @@ Here we use ORCA as an example, but the script below would instead use Psi4 or G
 <p>This could be easily modified to use IUPAC names or SMILES.</p>
 </section>
 <section id="sapt-calculations">
-<h2>SAPT Calculations<a class="headerlink" href="#sapt-calculations" title="Link to this heading">¶</a></h2>
-<p>In <a class="reference internal" href="example_bash.html"><span class="doc">Example BASH Scripts for Common Tasks</span></a> we built a script to run SAPT calculations on the parallel stacked benzene dimer as a function of horizontal and vertical displacements.
+<span id="python-sapt-calculations"></span><h2>SAPT Calculations<a class="headerlink" href="#sapt-calculations" title="Link to this heading">¶</a></h2>
+<p>In <a class="reference internal" href="example_bash.html#bash-sapt-calculations"><span class="std std-ref">Symmetry Adapted Perturbation Theory (SAPT)</span></a> we built a script to run SAPT calculations on the parallel stacked benzene dimer as a function of horizontal and vertical displacements.
 In that case, because we were using <code class="code docutils literal notranslate"><span class="pre">makeInput.py</span></code>, we had to rely on Psi4 automatically partitioning the dimer into fragments.
 If more control is required over how the supermolecule is fragmented for SAPT computations, we need to build a Psi4 input file explicitly separating the molecule into componets.</p>
 <p>This requires some small changes to how we build the geometry and theory objects.
 First, we need to define the <code class="code docutils literal notranslate"><span class="pre">components</span></code> of <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> to be a list of the individual monomers.
 Second, in the <code class="code docutils literal notranslate"><span class="pre">theory</span></code> object we need to use <code class="code docutils literal notranslate"><span class="pre">SAPTMethod</span></code> instead of <code class="code docutils literal notranslate"><span class="pre">Method</span></code>.
-Finally, the charge and multiplicity need to be lists consisting of the charge/multiplicity for the whole system and each monomer.</p>
-<p>For instance, the following will write a Psi4 input file to calcualte the SAPT0/jun-cc-pVDZ energy on a dimer (read from <code class="code docutils literal notranslate"><span class="pre">dimer.xyz</span></code>) but use AaronTools to separate the monomers:</p>
+Finally, the <code class="code docutils literal notranslate"><span class="pre">charge</span></code> and <code class="code docutils literal notranslate"><span class="pre">multiplicity</span></code> need to be lists consisting of the charge/multiplicity for the whole system and each monomer.</p>
+<p>For instance, the following will submit a Psi4 job to calcualte the SAPT0/jun-cc-pVDZ energy on a dimer (read from <code class="code docutils literal notranslate"><span class="pre">dimer.xyz</span></code>) but use the AaronTools function <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry.get_monomers" title="AaronTools.geometry.Geometry.get_monomers"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.get_monomers()</span></code></a> to separate the monomers:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.component</span> <span class="kn">import</span> <span class="n">Component</span>
 <span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
 <span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="o">*</span>
@@ -444,7 +444,16 @@ Finally, the charge and multiplicity need to be lists consisting of the charge/m
     <span class="n">job_type</span><span class="o">=</span><span class="s2">&quot;energy&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="n">dimer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outfile</span><span class="o">=</span><span class="s1">&#39;dimer.in&#39;</span><span class="p">,</span> <span class="n">theory</span><span class="o">=</span><span class="n">theory</span><span class="p">)</span>
+<span class="n">outfile</span><span class="o">=</span><span class="s1">&#39;dimer.in&#39;</span>
+
+<span class="c1"># write Psi4 input then submit job</span>
+<span class="n">dimer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outfile</span><span class="o">=</span><span class="n">outfile</span><span class="p">,</span> <span class="n">theory</span><span class="o">=</span><span class="n">theory</span><span class="p">)</span>
+<span class="n">submit_process</span> <span class="o">=</span> <span class="n">SubmitProcess</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">submit_process</span><span class="o">.</span><span class="n">submit</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">warn</span><span class="p">(</span><span class="s2">&quot;failed to submit </span><span class="si">%s</span><span class="s2">: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
+
 </pre></div>
 </div>
 </section>

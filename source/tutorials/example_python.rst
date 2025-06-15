@@ -22,18 +22,20 @@ The following script will submit wB97XD/def2-TZVP optimization and frequency job
 
 This could be easily modified to use IUPAC names or SMILES.
 
+.. _python_SAPT_calculations:
+
 SAPT Calculations
 -----------------
-In :doc:`example_bash` we built a script to run SAPT calculations on the parallel stacked benzene dimer as a function of horizontal and vertical displacements.
+In :ref:`bash_SAPT_calculations` we built a script to run SAPT calculations on the parallel stacked benzene dimer as a function of horizontal and vertical displacements.
 In that case, because we were using :code:`makeInput.py`, we had to rely on Psi4 automatically partitioning the dimer into fragments.
 If more control is required over how the supermolecule is fragmented for SAPT computations, we need to build a Psi4 input file explicitly separating the molecule into componets.
 
 This requires some small changes to how we build the geometry and theory objects.
 First, we need to define the :code:`components` of :code:`Geometry` to be a list of the individual monomers.
 Second, in the :code:`theory` object we need to use :code:`SAPTMethod` instead of :code:`Method`.
-Finally, the charge and multiplicity need to be lists consisting of the charge/multiplicity for the whole system and each monomer.
+Finally, the :code:`charge` and :code:`multiplicity` need to be lists consisting of the charge/multiplicity for the whole system and each monomer.
 
-For instance, the following will write a Psi4 input file to calcualte the SAPT0/jun-cc-pVDZ energy on a dimer (read from :code:`dimer.xyz`) but use AaronTools to separate the monomers:
+For instance, the following will submit a Psi4 job to calcualte the SAPT0/jun-cc-pVDZ energy on a dimer (read from :code:`dimer.xyz`) but use the AaronTools function :py:meth:`AaronTools.geometry.Geometry.get_monomers` to separate the monomers:
 
 .. literalinclude:: python/sapt.py
    :language: python

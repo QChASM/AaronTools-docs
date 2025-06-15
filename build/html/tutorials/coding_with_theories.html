@@ -212,6 +212,7 @@
 <li class="toctree-l2"><a class="reference internal" href="coding_with_geometries.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> Objects</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Coding with <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="coding_with_filereaders.html">Coding with <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_python.html">Example Python Scripts for Common Tasks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="zmat.html">Converting Z-Matrices to Cartesian Coordinates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Jupyter_basics.html">Working with AaronTools in Jupyter Notebooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Jupyter_Psi4.html">AaronTools and Psi4</a></li>
@@ -369,11 +370,35 @@
 <h1>Coding with <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> Objects<a class="headerlink" href="#coding-with-theory-objects" title="Link to this heading">¶</a></h1>
 <p><a class="reference internal" href="../api/theory_class.html#AaronTools.theory.Theory" title="AaronTools.theory.Theory"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.Theory()</span></code></a> keeps much of the code for
 writing quantum chemistry input files similar across different software packages.
-Here, we will cover the basics of creating and using a Theory.</p>
-<section id="building-a-basic-input-file">
-<h2>Building a Basic Input File<a class="headerlink" href="#building-a-basic-input-file" title="Link to this heading">¶</a></h2>
-<p>The following will build a Gaussian input file called <cite>benzene.com</cite> that
-does a B3LYP/def2-SVP optimization of the coordinates in <cite>benzene.xyz</cite>
+This makes it (nearly) trivial to switch between different QM packages without
+having to dig into the nuances of the corresponding input file formats or worry
+about specific names for DFT functionals (e.g. PBE0 vs PBE1PBE or M06-2X vs M062X) and
+basis sets (def2-TZVP vs def2tzvp) in different packages.</p>
+<p>Here, we will cover the basics of creating and using a <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> object to write
+input files for popular QM packages.</p>
+<p>To have a functional <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> object, at a minimum you  need to define the <code class="code docutils literal notranslate"><span class="pre">method</span></code>, <code class="code docutils literal notranslate"><span class="pre">basis</span></code>
+(unless using a semi-empirical method), and <code class="code docutils literal notranslate"><span class="pre">job_type</span></code>.</p>
+<p>Optionally, you can also specify:</p>
+<ul class="simple">
+<li><p>charge - overall charge</p></li>
+<li><p>multiplicity - multiplicity</p></li>
+<li><p>processors - allocated cores</p></li>
+<li><p>memory - allocated RAM</p></li>
+<li><p>empirical_dispersion - Grimme D2, D3, etc.</p></li>
+<li><p>grid - integration grid</p></li>
+</ul>
+<p>When writing an input file, additional keywords can be passed to
+<a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry.write" title="AaronTools.geometry.Geometry.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.write()</span></code></a> that specify any other options (often program-specific).
+The keywords for the dictionary are listed in <a class="reference internal" href="../api/theory_parameters.html"><span class="doc">Theory parameters</span></a>.</p>
+<p>For <code class="code docutils literal notranslate"><span class="pre">method</span></code>, <code class="code docutils literal notranslate"><span class="pre">basis</span></code>, <code class="code docutils literal notranslate"><span class="pre">job_type</span></code>, <code class="code docutils literal notranslate"><span class="pre">empirical_dispersion</span></code>, and <code class="code docutils literal notranslate"><span class="pre">grid</span></code>
+you can either explicitly construct the corresponding object or provide a keyword and let <code class="code docutils literal notranslate"><span class="pre">Theory</span></code>
+automatically construct the required object.</p>
+<p>The latter approach is much simpler, but the former provides more control.
+This control is most often needed for <code class="code docutils literal notranslate"><span class="pre">basis</span></code> (e.g. when using mixed basis sets or ECPs, etc).</p>
+<section id="building-basic-input-files">
+<h2>Building Basic Input Files<a class="headerlink" href="#building-basic-input-files" title="Link to this heading">¶</a></h2>
+<p>As a first example, the following will build a Gaussian input file called <code class="code docutils literal notranslate"><span class="pre">benzene.com</span></code> that
+does a B3LYP/def2-SVP optimization of the coordinates in <code class="code docutils literal notranslate"><span class="pre">benzene.xyz</span></code>
 followed by the computation of vibrational frequencies</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
 <span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="o">*</span>
@@ -389,10 +414,47 @@ followed by the computation of vibrational frequencies</p>
 <span class="n">geom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outfile</span><span class="o">=</span><span class="n">outfile</span><span class="p">,</span> <span class="n">theory</span><span class="o">=</span><span class="n">method</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Note that the resulting Gaussian input file will use <code class="code docutils literal notranslate"><span class="pre">def2svp</span></code> for the basis set, even though we specified <code class="code docutils literal notranslate"><span class="pre">def2-SVP</span></code>.</p>
+<p>Equivalently, we could have done the following, where we explicitly build <code class="code docutils literal notranslate"><span class="pre">Method</span></code> and <code class="code docutils literal notranslate"><span class="pre">BasisSet</span></code> objects:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="s1">&#39;benzene.xyz&#39;</span><span class="p">)</span>
+
+<span class="n">method</span> <span class="o">=</span> <span class="n">Theory</span><span class="p">(</span>
+    <span class="n">method</span><span class="o">=</span><span class="n">Method</span><span class="p">(</span><span class="s2">&quot;B3LYP&quot;</span><span class="p">),</span>
+    <span class="n">basis</span><span class="o">=</span><span class="n">BasisSet</span><span class="p">(</span><span class="s2">&quot;def2-SVP&quot;</span><span class="p">),</span>
+    <span class="n">job_type</span><span class="o">=</span><span class="p">[</span><span class="n">OptimizationJob</span><span class="p">(),</span> <span class="n">FrequencyJob</span><span class="p">()]</span>
+<span class="p">)</span>
+<span class="n">outfile</span> <span class="o">=</span> <span class="s2">&quot;benzene.com&quot;</span>
+<span class="n">geom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outfile</span><span class="o">=</span><span class="n">outfile</span><span class="p">,</span> <span class="n">theory</span><span class="o">=</span><span class="n">method</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If a molecule has a charge and multiplicity other than 0 and 1, we need to pass that to <code class="code docutils literal notranslate"><span class="pre">Theory</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">method</span> <span class="o">=</span> <span class="n">Theory</span><span class="p">(</span>
+    <span class="n">method</span><span class="o">=</span><span class="s2">&quot;B3LYP&quot;</span><span class="p">,</span>
+    <span class="n">charge</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">multiplicity</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">basis</span><span class="o">=</span><span class="s2">&quot;def2-SVP&quot;</span><span class="p">,</span>
+    <span class="n">job_type</span><span class="o">=</span><span class="p">[</span><span class="n">OptimizationJob</span><span class="p">(),</span> <span class="n">FrequencyJob</span><span class="p">()]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Similarly, if we want to use B3LYP-D3, instead of B3LYP, we can specify <code class="code docutils literal notranslate"><span class="pre">empirical_dispersion=&quot;D3&quot;</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">method</span> <span class="o">=</span> <span class="n">Theory</span><span class="p">(</span>
+    <span class="n">method</span><span class="o">=</span><span class="s2">&quot;B3LYP&quot;</span><span class="p">,</span>
+    <span class="n">charge</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">multiplicity</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">empirical_dispersion</span><span class="o">=</span><span class="s2">&quot;D3&quot;</span><span class="p">,</span>
+    <span class="n">basis</span><span class="o">=</span><span class="s2">&quot;def2-SVP&quot;</span><span class="p">,</span>
+    <span class="n">job_type</span><span class="o">=</span><span class="p">[</span><span class="n">OptimizationJob</span><span class="p">(),</span> <span class="n">FrequencyJob</span><span class="p">()]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 <p>By changing the extension of the file being written, the corresponding format
-and keyword changes are automatically handled.</p>
-<p>For example, the example below will write (essentially) equivalent input files
-for Gaussian, ORCA, and Psi4.</p>
+and keyword changes (def2-svp vs def2svp, etc) are automatically handled.</p>
+<p>For example, the example below will write (essentially) equivalent
+input files for Gaussian, ORCA, and Psi4.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
 <span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="o">*</span>
 
@@ -407,16 +469,73 @@ for Gaussian, ORCA, and Psi4.</p>
     <span class="n">geom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outfile</span><span class="o">=</span><span class="n">outfile</span><span class="p">,</span> <span class="n">theory</span><span class="o">=</span><span class="n">method</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Below, we discuss more detail about working with Theory objects.</p>
+<section id="job-types">
+<h3>Job Types<a class="headerlink" href="#job-types" title="Link to this heading">¶</a></h3>
+<p>There are six job types in the theory package:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../api/job_types.html#AaronTools.theory.job_types.OptimizationJob" title="AaronTools.theory.job_types.OptimizationJob"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.job_types.OptimizationJob()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../api/job_types.html#AaronTools.theory.job_types.FrequencyJob" title="AaronTools.theory.job_types.FrequencyJob"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.job_types.FrequencyJob()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../api/job_types.html#AaronTools.theory.job_types.SinglePointJob" title="AaronTools.theory.job_types.SinglePointJob"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.job_types.SinglePointJob()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../api/job_types.html#AaronTools.theory.job_types.ForceJob" title="AaronTools.theory.job_types.ForceJob"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.job_types.ForceJob()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../api/job_types.html#AaronTools.theory.job_types.ConformerSearchJob" title="AaronTools.theory.job_types.ConformerSearchJob"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.job_types.ConformerSearchJob()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../api/job_types.html#AaronTools.theory.job_types.TDDFTJob" title="AaronTools.theory.job_types.TDDFTJob"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.job_types.TDDFTJob()</span></code></a></p></li>
+</ul>
+<p>A single <code class="code docutils literal notranslate"><span class="pre">JobType</span></code> can be given to a <code class="code docutils literal notranslate"><span class="pre">Theory</span></code>.
+If multiple <code class="code docutils literal notranslate"><span class="pre">JobType</span></code> instances are given as list,
+the job-related information will appear in the order it appears
+in the list.
+For example, above we used <code class="code docutils literal notranslate"><span class="pre">job_type=[OptimizationJob(),</span> <span class="pre">FrequencyJob()]</span></code>
+to specify a geometry optimization followed by vibrational frequencies.</p>
+<p>However, if we instead did</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">job_type</span> <span class="o">=</span> <span class="p">[</span><span class="n">FrequencyJob</span><span class="p">(),</span> <span class="n">OptimizationJob</span><span class="p">()]</span>
+</pre></div>
+</div>
+<p>then any Psi4 input file constructed using the corresponding <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> object will
+request frequencies before the optimization.
+Other programs are are not sensitive to the order these jobs will appear in the input file.</p>
+<p>Many of these job types take additional arguments (click the links above to see the options).
+For example, for a transition state optimization you need to specify <code class="code docutils literal notranslate"><span class="pre">OptimizationJob(transition_state=True)</span></code>:</p>
+<p>If we wanted to do a constrained optimization, we need to do a little more work.
+For example, suppose we have an AaronTools <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> (probably not benzene) called <code class="code docutils literal notranslate"><span class="pre">geom</span></code> and we want to write an input file
+for an optimization with a constraint on the distance between atoms 1 and 4.
+We need to build a dictionary of constraints and add the corresponding atom pairs as
+an entry in this dictionary with the key <code class="code docutils literal notranslate"><span class="pre">bonds</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">constraints</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">constraints</span><span class="p">[</span><span class="s2">&quot;bonds&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">geom</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;1,4&quot;</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>Now we can pass this list of constraints to <code class="code docutils literal notranslate"><span class="pre">OptimizationJob()</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">method</span> <span class="o">=</span> <span class="n">Theory</span><span class="p">(</span>
+    <span class="n">method</span><span class="o">=</span><span class="s2">&quot;B3LYP&quot;</span><span class="p">,</span>
+    <span class="n">basis</span><span class="o">=</span><span class="s2">&quot;def2-SVP&quot;</span><span class="p">,</span>
+    <span class="n">job_type</span><span class="o">=</span><span class="n">OptimizationJob</span><span class="p">(</span><span class="n">constraints</span><span class="o">=</span><span class="n">constraints</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>An input file written using this <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> object will include this geometric constraint, formatted properly for the correspinding QM package.</p>
+<p>To add more constraints we simply append more pairs (or triples for an angle, quadruples for a torsion, etc) to the corresponding
+entry in the constraints dictionary:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">constraints</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">constraints</span><span class="p">[</span><span class="s2">&quot;bonds&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">geom</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;1,4&quot;</span><span class="p">),</span> <span class="n">geom</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;7,11&quot;</span><span class="p">)]</span>
+<span class="n">constraints</span><span class="p">[</span><span class="s2">&quot;angles&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">geom</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;2,3,5&quot;</span><span class="p">)]</span>
+<span class="n">constraints</span><span class="p">[</span><span class="s2">&quot;torsions&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">geom</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;1,2,3,4&quot;</span><span class="p">)]</span>
+
+<span class="n">method</span> <span class="o">=</span> <span class="n">Theory</span><span class="p">(</span>
+    <span class="n">method</span><span class="o">=</span><span class="s2">&quot;B3LYP&quot;</span><span class="p">,</span>
+    <span class="n">basis</span><span class="o">=</span><span class="s2">&quot;def2-SVP&quot;</span><span class="p">,</span>
+    <span class="n">job_type</span><span class="o">=</span><span class="n">OptimizationJob</span><span class="p">(</span><span class="n">constraints</span><span class="o">=</span><span class="n">constraints</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 </section>
-<section id="creation">
-<h2>Creation<a class="headerlink" href="#creation" title="Link to this heading">¶</a></h2>
-<p>Several objects or variables must be passed to Theory to make it usable.
-Each of the necessary objects are found in the AaronTools.theory package.
-We’ll briefly cover each of these.</p>
 </section>
+<section id="finer-control">
+<h2>Finer Control<a class="headerlink" href="#finer-control" title="Link to this heading">¶</a></h2>
+<p>If you need more control over one or more of these objects you can explicitly define various objects and pass these to <code class="code docutils literal notranslate"><span class="pre">Theory</span></code>.
+This is most likely to occur for <code class="code docutils literal notranslate"><span class="pre">BasisSet</span></code>, for example, when working with mixed basis sets and/or ECPs.</p>
+<p>The various objects that can be passed to <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> are discussed below.</p>
 <section id="method-class">
-<h2>Method Class<a class="headerlink" href="#method-class" title="Link to this heading">¶</a></h2>
+<h3>Method Class<a class="headerlink" href="#method-class" title="Link to this heading">¶</a></h3>
 <p><a class="reference internal" href="../api/method.html#AaronTools.theory.Method" title="AaronTools.theory.Method"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.Method()</span></code></a> is used to keep method keywords
 the same across different formats.
 As an example:</p>
@@ -425,7 +544,7 @@ As an example:</p>
 <span class="n">pbe0</span> <span class="o">=</span> <span class="n">Method</span><span class="p">(</span><span class="s2">&quot;PBE0&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>When used with a Gaussian input file, this <code class="code docutils literal notranslate"><span class="pre">Method</span></code> will use the
+<p>When used to write a Gaussian input file, this <code class="code docutils literal notranslate"><span class="pre">Method</span></code> will use the
 Gaussian keyword for PBE0 (PBE1PBE).</p>
 <p>Method also takes a <code class="code docutils literal notranslate"><span class="pre">is_semiempirical</span></code> argument:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rm1</span> <span class="o">=</span> <span class="n">Method</span><span class="p">(</span><span class="s2">&quot;RM1&quot;</span><span class="p">,</span> <span class="n">is_semiempirical</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -433,6 +552,7 @@ Gaussian keyword for PBE0 (PBE1PBE).</p>
 </div>
 <p>For Gaussian and ORCA input files, using a semi-empirical method
 will cause basis set information to be omitted.</p>
+</section>
 <section id="saptmethod">
 <h3>SAPTMethod<a class="headerlink" href="#saptmethod" title="Link to this heading">¶</a></h3>
 <p><a class="reference internal" href="../api/method.html#AaronTools.theory.SAPTMethod" title="AaronTools.theory.SAPTMethod"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.SAPTMethod()</span></code></a> is a subclass of <code class="code docutils literal notranslate"><span class="pre">Method</span></code>
@@ -442,12 +562,44 @@ components attribute of the Geometry instance.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sapt0</span> <span class="o">=</span> <span class="n">SAPTMethod</span><span class="p">(</span><span class="s2">&quot;sapt0&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Basis Sets</p>
+<p>See <a class="reference internal" href="example_python.html#python-sapt-calculations"><span class="std std-ref">SAPT Calculations</span></a> for an example.</p>
+</section>
+<section id="basis-sets">
+<h3>Basis Sets<a class="headerlink" href="#basis-sets" title="Link to this heading">¶</a></h3>
 <p>The <a class="reference internal" href="../api/basis.html#AaronTools.theory.BasisSet" title="AaronTools.theory.BasisSet"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.BasisSet()</span></code></a> object is a collection of
-<a class="reference internal" href="../api/basis.html#AaronTools.theory.Basis" title="AaronTools.theory.Basis"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.Basis()</span></code></a> and <a class="reference internal" href="../api/basis.html#AaronTools.theory.ECP" title="AaronTools.theory.ECP"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.ECP()</span></code></a> objects.</p>
+<a class="reference internal" href="../api/basis.html#AaronTools.theory.Basis" title="AaronTools.theory.Basis"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.Basis()</span></code></a> and (optionally) <a class="reference internal" href="../api/basis.html#AaronTools.theory.ECP" title="AaronTools.theory.ECP"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.ECP()</span></code></a> objects.</p>
+<p>The second argument given to each <code class="code docutils literal notranslate"><span class="pre">Basis</span></code> determines which elements that basis applies to.
+By default, a <code class="code docutils literal notranslate"><span class="pre">Basis</span></code> applies to all elements while an <code class="code docutils literal notranslate"><span class="pre">ECP</span></code> applies to any transition metal.</p>
+<p>For example, suppose we had some Pt(CO)n complex.
+To build a <code class="code docutils literal notranslate"><span class="pre">BasisSet</span></code> object for a calculation in which we use LANL2DZ basis set
+and ECP on Pt and 6-31G(d) on everything else, we could do</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="n">Basis</span><span class="p">,</span> <span class="n">ECP</span><span class="p">,</span> <span class="n">BasisSet</span>
+<span class="n">basis</span> <span class="o">=</span> <span class="n">BasisSet</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">Basis</span><span class="p">(</span><span class="s2">&quot;6-31G(d)&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;O&quot;</span><span class="p">]),</span>
+        <span class="n">Basis</span><span class="p">(</span><span class="s2">&quot;LANL2DZ&quot;</span><span class="p">,</span> <span class="s2">&quot;Pt&quot;</span><span class="p">)</span>
+    <span class="p">],</span>
+    <span class="p">[</span><span class="n">ECP</span><span class="p">(</span><span class="s2">&quot;LANL2DZ&quot;</span><span class="p">)]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Alternatively, we can use <code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.finders.Finders()</span></code> to automatically build lists of elements (currently does not work!):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="n">Basis</span><span class="p">,</span> <span class="n">ECP</span><span class="p">,</span> <span class="n">BasisSet</span>
 <span class="kn">from</span> <span class="nn">AaronTools.finders</span> <span class="kn">import</span> <span class="n">AnyTransitionMetal</span><span class="p">,</span> <span class="n">AnyNonTransitionMetal</span>
 
+<span class="n">basis</span> <span class="o">=</span> <span class="n">BasisSet</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">Basis</span><span class="p">(</span><span class="s2">&quot;6-31G(d)&quot;</span><span class="p">,</span> <span class="n">AnyNonTransitionMetal</span><span class="p">()),</span>
+        <span class="n">Basis</span><span class="p">(</span><span class="s2">&quot;LANL2DZ&quot;</span><span class="p">,</span> <span class="n">AnyTransitionMetal</span><span class="p">()),</span>
+    <span class="p">],</span>
+    <span class="p">[</span><span class="n">ECP</span><span class="p">(</span><span class="s2">&quot;LANL2DZ&quot;</span><span class="p">)]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Finally, the <code class="code docutils literal notranslate"><span class="pre">aux_type</span></code> keyword is used for ORCA and Psi4 input files to specify
+auxiliary basis sets.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="n">Basis</span><span class="p">,</span> <span class="n">ECP</span><span class="p">,</span> <span class="n">BasisSet</span>
+<span class="kn">from</span> <span class="nn">AaronTools.finders</span> <span class="kn">import</span> <span class="n">AnyTransitionMetal</span><span class="p">,</span> <span class="n">AnyNonTransitionMetal</span>
 <span class="n">basis</span> <span class="o">=</span> <span class="n">BasisSet</span><span class="p">(</span>
     <span class="p">[</span>
         <span class="n">Basis</span><span class="p">(</span><span class="s2">&quot;cc-pVTZ&quot;</span><span class="p">,</span> <span class="n">AnyNonTransitionMetal</span><span class="p">()),</span>
@@ -459,28 +611,17 @@ components attribute of the Geometry instance.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>The second argument given to each <code class="code docutils literal notranslate"><span class="pre">Basis</span></code> determines which
-elements that basis applies to. By default, a Basis applies to all elements.
-An <code class="code docutils literal notranslate"><span class="pre">ECP</span></code> applies to any transition metal.
-These elements will be overridden if another argument is supplied when
-creating an <code class="code docutils literal notranslate"><span class="pre">ECP</span></code> or <code class="code docutils literal notranslate"><span class="pre">Basis</span></code> (<cite>i.e.</cite> list of elements or
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.finders.Finders()</span></code>).</p>
-<p>The <code class="code docutils literal notranslate"><span class="pre">aux_type</span></code> keyword is used for ORCA and Psi4 input files to specify
-auxiliary basis sets.
-A list of elements or an appropriate <code class="code docutils literal notranslate"><span class="pre">Finder</span></code> that use that basis set can
-be given to a <code class="code docutils literal notranslate"><span class="pre">Basis</span></code> or <code class="code docutils literal notranslate"><span class="pre">ECP</span></code>.</p>
 </section>
 </section>
 <section id="empirical-dispersion">
 <h2>Empirical Dispersion<a class="headerlink" href="#empirical-dispersion" title="Link to this heading">¶</a></h2>
 <p><a class="reference internal" href="../api/dispersion.html#AaronTools.theory.EmpiricalDispersion" title="AaronTools.theory.emp_dispersion.EmpiricalDispersion"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.emp_dispersion.EmpiricalDispersion()</span></code></a> keeps specifying dispersion
-corrections consistent across different formats.</p>
+corrections consistent across different input file formats.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="n">EmpiricalDispersion</span>
 
 <span class="n">disp</span> <span class="o">=</span> <span class="n">EmpiricalDispersion</span><span class="p">(</span><span class="s2">&quot;Grimme D2&quot;</span><span class="p">)</span>
 
-<span class="n">The</span> <span class="n">following</span> <span class="n">are</span> <span class="n">equivalent</span><span class="p">:</span>
-
+<span class="c1"># The following are equivalent:</span>
 <span class="n">disp</span> <span class="o">=</span> <span class="n">EmpiricalDispersion</span><span class="p">(</span><span class="s2">&quot;Grimme D2&quot;</span><span class="p">)</span>
 <span class="n">disp</span> <span class="o">=</span> <span class="n">EmpiricalDispersion</span><span class="p">(</span><span class="s2">&quot;GD2&quot;</span><span class="p">)</span>
 <span class="n">disp</span> <span class="o">=</span> <span class="n">EmpiricalDispersion</span><span class="p">(</span><span class="s2">&quot;D2&quot;</span><span class="p">)</span>
@@ -498,9 +639,10 @@ acceptable dispersion methods.</p>
 <a class="reference internal" href="../api/integration_grid.html#AaronTools.theory.IntegrationGrid" title="AaronTools.theory.IntegrationGrid"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.IntegrationGrid()</span></code></a> object is a way to
 specify grids in a similar manner across different file formats.</p>
 <p>It’s important to note that different programs use different types of grids.
-This, combined with varied grid pruning algorithms, mean that grids will
-usually have to be approximated if you use a keyword from one program
-to make an input file for a different program.</p>
+This, combined with varied grid pruning algorithms, mean that getting exactly
+equivalent grids in two QM programs is nearly impossible.
+If you use a keyword from one program to make an input file for a different program,
+<code class="code docutils literal notranslate"><span class="pre">IntegrationGrid</span></code> will at least try to specify an equivalent grid.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="n">IntegrationGrid</span>
 
 <span class="n">grid</span> <span class="o">=</span> <span class="n">IntegrationGrid</span><span class="p">(</span><span class="s2">&quot;SuperFineGrid&quot;</span><span class="p">)</span>
@@ -519,48 +661,17 @@ As an example,</p>
 </div>
 <p>This grid can be used with Gaussian and Psi4, and should give similar results
 (down to grid pruning and other algorithmic differences).
-If you’re going to write and ORCA input file with this grid,
+If you’re going to write an ORCA input file with this grid,
 the number of radial points is set indirectly with the <code class="code docutils literal notranslate"><span class="pre">IntAcc</span></code> option.
 <code class="code docutils literal notranslate"><span class="pre">IntAcc</span></code> will be set for the number of radial points in the 2nd row
 of the periodic table.</p>
 </section>
-<section id="job-types">
-<h2>Job Types<a class="headerlink" href="#job-types" title="Link to this heading">¶</a></h2>
-<p>There are six job types in the theory package:</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="../api/job_types.html#AaronTools.theory.job_types.OptimizationJob" title="AaronTools.theory.job_types.OptimizationJob"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.job_types.OptimizationJob()</span></code></a></p></li>
-<li><p><a class="reference internal" href="../api/job_types.html#AaronTools.theory.job_types.FrequencyJob" title="AaronTools.theory.job_types.FrequencyJob"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.job_types.FrequencyJob()</span></code></a></p></li>
-<li><p><a class="reference internal" href="../api/job_types.html#AaronTools.theory.job_types.SinglePointJob" title="AaronTools.theory.job_types.SinglePointJob"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.job_types.SinglePointJob()</span></code></a></p></li>
-<li><p><a class="reference internal" href="../api/job_types.html#AaronTools.theory.job_types.ForceJob" title="AaronTools.theory.job_types.ForceJob"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.job_types.ForceJob()</span></code></a></p></li>
-<li><p><a class="reference internal" href="../api/job_types.html#AaronTools.theory.job_types.ConformerSearchJob" title="AaronTools.theory.job_types.ConformerSearchJob"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.job_types.ConformerSearchJob()</span></code></a></p></li>
-<li><p><a class="reference internal" href="../api/job_types.html#AaronTools.theory.job_types.TDDFTJob" title="AaronTools.theory.job_types.TDDFTJob"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.job_types.TDDFTJob()</span></code></a></p></li>
-</ul>
-<p>A single <code class="code docutils literal notranslate"><span class="pre">JobType</span></code> can be given to a Theory.
-If multiple <code class="code docutils literal notranslate"><span class="pre">JobType</span></code> instances are given as list,
-the job-related information will appear in the order it appears
-in the list. For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">jobs</span> <span class="o">=</span> <span class="p">[</span><span class="n">FrequencyJob</span><span class="p">(),</span> <span class="n">OptimizationJob</span><span class="p">()]</span>
-</pre></div>
-</div>
-<p>A Psi4 input file that uses this list will specify frequency before optimize,
-but many programs are not sensitive to the order these jobs
-will appear in the input file.</p>
-</section>
-<section id="other-options">
-<h2>Other Options<a class="headerlink" href="#other-options" title="Link to this heading">¶</a></h2>
-<ul class="simple">
-<li><p>charge - overall charge</p></li>
-<li><p>multiplicity - multiplicity</p></li>
-<li><p>processors - allocated cores</p></li>
-<li><p>memory - allocated RAM</p></li>
-</ul>
-<p>When writing an input file, additional keywords can be passed to
-<a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry.write" title="AaronTools.geometry.Geometry.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.write()</span></code></a> that specify any other options.
-The keywords for the dictionary are listed in <a class="reference internal" href="../api/theory_parameters.html"><span class="doc">Theory parameters</span></a>.</p>
-</section>
-<section id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading">¶</a></h2>
-<p>Below are examples of writing roughly equivalent input files for Gaussian, ORCA, and Psi4.</p>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Link to this heading">¶</a></h2>
+<p>Below is an example of writing roughly equivalent input files for Gaussian, ORCA, and Psi4.
+Unlike the basic examples above, this explicitly defines <code class="code docutils literal notranslate"><span class="pre">BasisSet</span></code>, <code class="code docutils literal notranslate"><span class="pre">EmpiricalDispersion</span></code>, etc.
+objects before building the <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> object.
+This example also uses <code class="code docutils literal notranslate"><span class="pre">GAUSSIAN_ROUTE</span></code> to add additional keywords to the Gaussian input file route section.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
 <span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="o">*</span>
 
@@ -595,18 +706,6 @@ The keywords for the dictionary are listed in <a class="reference internal" href
 <span class="n">geom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
     <span class="n">outfile</span><span class="o">=</span><span class="s2">&quot;tnt_freq.in&quot;</span><span class="p">,</span>
     <span class="n">theory</span><span class="o">=</span><span class="n">b3lyp_def2svp</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<p>Note that <code class="code docutils literal notranslate"><span class="pre">Method</span></code>, <code class="code docutils literal notranslate"><span class="pre">BasisSet</span></code>, <code class="code docutils literal notranslate"><span class="pre">IntegrationGrid</span></code>,
-and <code class="code docutils literal notranslate"><span class="pre">EmpiricalDispersion</span></code> objects can be created automatically
-when creating a <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> object just by passing strings:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b3lyp_def2svp</span> <span class="o">=</span> <span class="n">Theory</span><span class="p">(</span>
-    <span class="n">method</span><span class="o">=</span><span class="s2">&quot;B3LYP&quot;</span><span class="p">,</span>
-    <span class="n">basis</span><span class="o">=</span><span class="s2">&quot;def2-SVP&quot;</span><span class="p">,</span>
-    <span class="n">grid</span><span class="o">=</span><span class="s2">&quot;(99, 590)&quot;</span><span class="p">,</span>
-    <span class="n">empirical_dispersion</span><span class="o">=</span><span class="s2">&quot;D2&quot;</span><span class="p">,</span>
-    <span class="n">job_type</span><span class="o">=</span><span class="n">jobs</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -669,17 +768,19 @@ when creating a <code class="code docutils literal notranslate"><span class="pre
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Coding with <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> Objects</a><ul>
-<li><a class="reference internal" href="#building-a-basic-input-file">Building a Basic Input File</a></li>
-<li><a class="reference internal" href="#creation">Creation</a></li>
-<li><a class="reference internal" href="#method-class">Method Class</a><ul>
+<li><a class="reference internal" href="#building-basic-input-files">Building Basic Input Files</a><ul>
+<li><a class="reference internal" href="#job-types">Job Types</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#finer-control">Finer Control</a><ul>
+<li><a class="reference internal" href="#method-class">Method Class</a></li>
 <li><a class="reference internal" href="#saptmethod">SAPTMethod</a></li>
+<li><a class="reference internal" href="#basis-sets">Basis Sets</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#empirical-dispersion">Empirical Dispersion</a></li>
 <li><a class="reference internal" href="#integration-grid">Integration Grid</a></li>
-<li><a class="reference internal" href="#job-types">Job Types</a></li>
-<li><a class="reference internal" href="#other-options">Other Options</a></li>
-<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
 </ul>
 </li>
 </ul>

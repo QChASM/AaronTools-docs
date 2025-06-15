@@ -5,6 +5,10 @@ Here, you will find tutorials and explanations for using AaronTools'
 functions, classes, and subroutines pertaining to our object for reading
 files: :py:meth:`AaronTools.fileIO.FileReader`.
 
+Note that, by default, :code:`FileReader` will read the geometry and 
+limited other information (charge, multiplicity, etc) from a QM output file.
+Use :code:`just_geom=False` to fully parse QM output.
+See `Calculation Information`_.
 
 Creation
 --------

@@ -371,6 +371,10 @@
 <p>Here, you will find tutorials and explanations for using AaronTools’
 functions, classes, and subroutines pertaining to our object for reading
 files: <a class="reference internal" href="../api/filereader.html#AaronTools.fileIO.FileReader" title="AaronTools.fileIO.FileReader"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.fileIO.FileReader()</span></code></a>.</p>
+<p>Note that, by default, <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> will read the geometry and
+limited other information (charge, multiplicity, etc) from a QM output file.
+Use <code class="code docutils literal notranslate"><span class="pre">just_geom=False</span></code> to fully parse QM output.
+See <a class="reference internal" href="#calculation-information">Calculation Information</a>.</p>
 <section id="creation">
 <h2>Creation<a class="headerlink" href="#creation" title="Link to this heading">¶</a></h2>
 <p>A <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> object can be created by passing the path
