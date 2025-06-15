@@ -212,6 +212,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/coding_with_geometries.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/coding_with_theories.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/coding_with_filereaders.html">Coding with <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/example_python.html">Example Python Scripts for Common Tasks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/zmat.html">Converting Z-Matrices to Cartesian Coordinates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/Jupyter_basics.html">Working with AaronTools in Jupyter Notebooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/Jupyter_Psi4.html">AaronTools and Psi4</a></li>
@@ -370,8 +371,8 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="AaronTools.job_control.SubmitProcess">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.job_control.</span></span><span class="sig-name descname"><span class="pre">SubmitProcess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">walltime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">template</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.job_control.SubmitProcess" title="Link to this definition">¶</a></dt>
-<dd><p>class for submitting jobs to the queue
-attributes:</p>
+<dd><p>class for submitting jobs to the queue</p>
+<p>Attributes:</p>
 <ul class="simple">
 <li><p>name       - name of job and input file minus the extension</p></li>
 <li><p>exe        - type of input file (com, in, inp)</p></li>
@@ -425,8 +426,9 @@ extension on fname)</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>wait</strong> (<em>bool</em><em>|</em><em>int</em>) – do not leave the function until any job in the directory
-finishes (polled every 5 minutes or ‘wait’ seconds)</p></li>
+<li><p><strong>wait</strong> (<em>bool</em><em>|</em><em>int</em>) – do not leave the function until ALL jobs in the directory
+finish (polled every 5 minutes if ‘wait=True’ or every ‘wait’ seconds if ‘wait’ is int)</p></li>
+<li><p><strong>quiet</strong> (<em>bool</em>) – print output from submission to queue</p></li>
 <li><p><strong>opts</strong> (<em>dict</em>) – used to render template; keys are template variables (e.g. exec_memory)
 and values are the corresponding values</p></li>
 </ul>

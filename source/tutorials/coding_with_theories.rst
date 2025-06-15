@@ -150,23 +150,24 @@ However, if we instead did
 
 then any Psi4 input file constructed using the corresponding :code:`Theory` object will
 request frequencies before the optimization.
-Other programs are are not sensitive to the order these jobs will appear in the input file. 
+Other programs are not sensitive to the order these jobs will appear in the input file. 
 
 Many of these job types take additional arguments (click the links above to see the options).
-For example, for a transition state optimization you need to specify :code:`OptimizationJob(transition_state=True)`:
+For example, for a transition state optimization you need to specify :code:`OptimizationJob(transition_state=True)`.
 
-If we wanted to do a constrained optimization, we need to do a little more work.
+If we want to do a constrained optimization, we need to do a little more work.
 For example, suppose we have an AaronTools :code:`Geometry` (probably not benzene) called :code:`geom` and we want to write an input file
 for an optimization with a constraint on the distance between atoms 1 and 4.
-We need to build a dictionary of constraints and add the corresponding atom pairs as
-an entry in this dictionary with the key :code:`bonds`:
+Constraints are passed to :code:`OptimizationJob()` as a dictionary, with the keys corresponding to the types of constraints (bonds, angles, torsions, etc).
+Each entry in the dictionary is a list of lists of :code:`AaronTools Atoms`.
+In our case, we are constraining a distance ('bond') so need to supply a list of a list of two atoms, whcih are most easily built using :code:`Geometry.find()`:
 
 .. code-block:: python
 
     constraints = {}
     constraints["bonds"] = [geom.find("1,4")]
 
-Now we can pass this list of constraints to :code:`OptimizationJob()`:
+Now we can pass this constraints dictionary to :code:`OptimizationJob()`:
 
 .. code-block:: python
 
@@ -179,7 +180,8 @@ Now we can pass this list of constraints to :code:`OptimizationJob()`:
 An input file written using this :code:`Theory` object will include this geometric constraint, formatted properly for the correspinding QM package.
 
 To add more constraints we simply append more pairs (or triples for an angle, quadruples for a torsion, etc) to the corresponding
-entry in the constraints dictionary:
+entry in the constraints dictionary.
+The following (silly) example will constrain distances 1-4 and 7-11, angle 2-3-5, and torsion 1-2-3-4:
 
 .. code-block:: python
 
@@ -193,6 +195,7 @@ entry in the constraints dictionary:
         basis="def2-SVP", 
         job_type=OptimizationJob(constraints=constraints)
     )
+
 
 Finer Control
 -------------
@@ -250,7 +253,7 @@ The :py:meth:`AaronTools.theory.BasisSet` object is a collection of
 The second argument given to each :code:`Basis` determines which elements that basis applies to.
 By default, a :code:`Basis` applies to all elements while an :code:`ECP` applies to any transition metal.
 
-For example, suppose we had some Pt(CO)n complex. 
+For example, suppose we have some Pt complex. 
 To build a :code:`BasisSet` object for a calculation in which we use LANL2DZ basis set
 and ECP on Pt and 6-31G(d) on everything else, we could do
 
@@ -265,7 +268,7 @@ and ECP on Pt and 6-31G(d) on everything else, we could do
         [ECP("LANL2DZ")]
     )
 
-Alternatively, we can use :py:meth:`AaronTools.finders.Finders` to automatically build lists of elements (currently does not work!):
+Alternatively, we can use :py:meth:`AaronTools.finders.Finders` to automatically build lists of elements:
 
 .. code-block:: python
 
@@ -297,6 +300,33 @@ auxiliary basis sets.
         ],
         [ECP("SK-MCDHF-RSC")]
     )
+
+Any of these :code:`BasiSet` objects can then be passed to a :code:`Theory` object.
+For example,
+
+.. code-block:: python
+
+    from AaronTools.geometry import Geometry
+    from AaronTools.theory import *
+    from AaronTools.finders import AnyTransitionMetal, AnyNonTransitionMetal
+    
+    geom = Geometry('TM_complex.xyz')
+
+    basis = BasisSet(
+        [
+            Basis("6-31G(d)", AnyNonTransitionMetal()), 
+            Basis("LANL2DZ", AnyTransitionMetal()),
+        ], 
+        [ECP("LANL2DZ")]
+    
+    method = Theory(
+        method="M062X", 
+        basis=basis,
+        job_type=[OptimizationJob(), FrequencyJob()]
+    )
+    outfile = "TM_complex.com"
+    geom.write(outfile=outfile, theory=method)
+
 
 
 Empirical Dispersion
@@ -362,49 +392,13 @@ the number of radial points is set indirectly with the :code:`IntAcc` option.
 of the periodic table.
 
 
-Example
---------
+Additional Keywords
+-------------------
+Additional keywords are often program-specific, and are passed as a dictionary to different keywords depending on the QM package and the location where the additional options are required.
 
-Below is an example of writing roughly equivalent input files for Gaussian, ORCA, and Psi4.
-Unlike the basic examples above, this explicitly defines :code:`BasisSet`, :code:`EmpiricalDispersion`, etc.
-objects before building the :code:`Theory` object.
-This example also uses :code:`GAUSSIAN_ROUTE` to add additional keywords to the Gaussian input file route section.
+For example, to add items to the route line of a Gaussian input file you pass a dictionary to `GAUSSIAN_ROUTE`:
 
-.. code-block:: python
+Freq/HPmodes
+Opt/TS,noeigen
 
-    from AaronTools.geometry import Geometry
-    from AaronTools.theory import *
-    
-    geom = Geometry('tnt.xyz')
-    
-    fun = Method("B3LYP")
-    basis_set = BasisSet([Basis("def2-SVP")])
-    int_grid = IntegrationGrid("(99, 590)")
-    disp = EmpiricalDispersion("D2")
-    
-    jobs = [OptimizationJob(), FrequencyJob()]
-    
-    b3lyp_def2svp = Theory(
-        method=fun, 
-        basis=basis_set, 
-        grid=int_grid, 
-        empirical_dispersion=disp, 
-        job_type=jobs, 
-    )
-    
-    geom.write(
-        outfile="tnt_freq.com", 
-        theory=b3lyp_def2svp, 
-        GAUSSIAN_ROUTE={'freq':['HPModes', 'NoRaman']}
-    )
-    
-    geom.write(
-        outfile="tnt_freq.inp", 
-        theory=b3lyp_def2svp
-    )
-    
-    geom.write(
-        outfile="tnt_freq.in", 
-        theory=b3lyp_def2svp
-    )
 

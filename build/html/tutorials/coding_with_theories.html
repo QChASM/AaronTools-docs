@@ -492,19 +492,20 @@ to specify a geometry optimization followed by vibrational frequencies.</p>
 </div>
 <p>then any Psi4 input file constructed using the corresponding <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> object will
 request frequencies before the optimization.
-Other programs are are not sensitive to the order these jobs will appear in the input file.</p>
+Other programs are not sensitive to the order these jobs will appear in the input file.</p>
 <p>Many of these job types take additional arguments (click the links above to see the options).
-For example, for a transition state optimization you need to specify <code class="code docutils literal notranslate"><span class="pre">OptimizationJob(transition_state=True)</span></code>:</p>
-<p>If we wanted to do a constrained optimization, we need to do a little more work.
+For example, for a transition state optimization you need to specify <code class="code docutils literal notranslate"><span class="pre">OptimizationJob(transition_state=True)</span></code>.</p>
+<p>If we want to do a constrained optimization, we need to do a little more work.
 For example, suppose we have an AaronTools <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> (probably not benzene) called <code class="code docutils literal notranslate"><span class="pre">geom</span></code> and we want to write an input file
 for an optimization with a constraint on the distance between atoms 1 and 4.
-We need to build a dictionary of constraints and add the corresponding atom pairs as
-an entry in this dictionary with the key <code class="code docutils literal notranslate"><span class="pre">bonds</span></code>:</p>
+Constraints are passed to <code class="code docutils literal notranslate"><span class="pre">OptimizationJob()</span></code> as a dictionary, with the keys corresponding to the types of constraints (bonds, angles, torsions, etc).
+Each entry in the dictionary is a list of lists of <code class="code docutils literal notranslate"><span class="pre">AaronTools</span> <span class="pre">Atoms</span></code>.
+In our case, we are constraining a distance (‘bond’) so need to supply a list of a list of two atoms, whcih are most easily built using <code class="code docutils literal notranslate"><span class="pre">Geometry.find()</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">constraints</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="n">constraints</span><span class="p">[</span><span class="s2">&quot;bonds&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">geom</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;1,4&quot;</span><span class="p">)]</span>
 </pre></div>
 </div>
-<p>Now we can pass this list of constraints to <code class="code docutils literal notranslate"><span class="pre">OptimizationJob()</span></code>:</p>
+<p>Now we can pass this constraints dictionary to <code class="code docutils literal notranslate"><span class="pre">OptimizationJob()</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">method</span> <span class="o">=</span> <span class="n">Theory</span><span class="p">(</span>
     <span class="n">method</span><span class="o">=</span><span class="s2">&quot;B3LYP&quot;</span><span class="p">,</span>
     <span class="n">basis</span><span class="o">=</span><span class="s2">&quot;def2-SVP&quot;</span><span class="p">,</span>
@@ -514,7 +515,8 @@ an entry in this dictionary with the key <code class="code docutils literal notr
 </div>
 <p>An input file written using this <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> object will include this geometric constraint, formatted properly for the correspinding QM package.</p>
 <p>To add more constraints we simply append more pairs (or triples for an angle, quadruples for a torsion, etc) to the corresponding
-entry in the constraints dictionary:</p>
+entry in the constraints dictionary.
+The following (silly) example will constrain distances 1-4 and 7-11, angle 2-3-5, and torsion 1-2-3-4:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">constraints</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="n">constraints</span><span class="p">[</span><span class="s2">&quot;bonds&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">geom</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;1,4&quot;</span><span class="p">),</span> <span class="n">geom</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;7,11&quot;</span><span class="p">)]</span>
 <span class="n">constraints</span><span class="p">[</span><span class="s2">&quot;angles&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">geom</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;2,3,5&quot;</span><span class="p">)]</span>
@@ -570,7 +572,7 @@ components attribute of the Geometry instance.</p>
 <a class="reference internal" href="../api/basis.html#AaronTools.theory.Basis" title="AaronTools.theory.Basis"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.Basis()</span></code></a> and (optionally) <a class="reference internal" href="../api/basis.html#AaronTools.theory.ECP" title="AaronTools.theory.ECP"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.ECP()</span></code></a> objects.</p>
 <p>The second argument given to each <code class="code docutils literal notranslate"><span class="pre">Basis</span></code> determines which elements that basis applies to.
 By default, a <code class="code docutils literal notranslate"><span class="pre">Basis</span></code> applies to all elements while an <code class="code docutils literal notranslate"><span class="pre">ECP</span></code> applies to any transition metal.</p>
-<p>For example, suppose we had some Pt(CO)n complex.
+<p>For example, suppose we have some Pt complex.
 To build a <code class="code docutils literal notranslate"><span class="pre">BasisSet</span></code> object for a calculation in which we use LANL2DZ basis set
 and ECP on Pt and 6-31G(d) on everything else, we could do</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="n">Basis</span><span class="p">,</span> <span class="n">ECP</span><span class="p">,</span> <span class="n">BasisSet</span>
@@ -583,7 +585,7 @@ and ECP on Pt and 6-31G(d) on everything else, we could do</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>Alternatively, we can use <code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.finders.Finders()</span></code> to automatically build lists of elements (currently does not work!):</p>
+<p>Alternatively, we can use <code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.finders.Finders()</span></code> to automatically build lists of elements:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="n">Basis</span><span class="p">,</span> <span class="n">ECP</span><span class="p">,</span> <span class="n">BasisSet</span>
 <span class="kn">from</span> <span class="nn">AaronTools.finders</span> <span class="kn">import</span> <span class="n">AnyTransitionMetal</span><span class="p">,</span> <span class="n">AnyNonTransitionMetal</span>
 
@@ -609,6 +611,30 @@ auxiliary basis sets.</p>
     <span class="p">],</span>
     <span class="p">[</span><span class="n">ECP</span><span class="p">(</span><span class="s2">&quot;SK-MCDHF-RSC&quot;</span><span class="p">)]</span>
 <span class="p">)</span>
+</pre></div>
+</div>
+<p>Any of these <code class="code docutils literal notranslate"><span class="pre">BasiSet</span></code> objects can then be passed to a <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> object.
+For example,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">AaronTools.finders</span> <span class="kn">import</span> <span class="n">AnyTransitionMetal</span><span class="p">,</span> <span class="n">AnyNonTransitionMetal</span>
+
+<span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="s1">&#39;TM_complex.xyz&#39;</span><span class="p">)</span>
+
+<span class="n">basis</span> <span class="o">=</span> <span class="n">BasisSet</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">Basis</span><span class="p">(</span><span class="s2">&quot;6-31G(d)&quot;</span><span class="p">,</span> <span class="n">AnyNonTransitionMetal</span><span class="p">()),</span>
+        <span class="n">Basis</span><span class="p">(</span><span class="s2">&quot;LANL2DZ&quot;</span><span class="p">,</span> <span class="n">AnyTransitionMetal</span><span class="p">()),</span>
+    <span class="p">],</span>
+    <span class="p">[</span><span class="n">ECP</span><span class="p">(</span><span class="s2">&quot;LANL2DZ&quot;</span><span class="p">)]</span>
+
+<span class="n">method</span> <span class="o">=</span> <span class="n">Theory</span><span class="p">(</span>
+    <span class="n">method</span><span class="o">=</span><span class="s2">&quot;M062X&quot;</span><span class="p">,</span>
+    <span class="n">basis</span><span class="o">=</span><span class="n">basis</span><span class="p">,</span>
+    <span class="n">job_type</span><span class="o">=</span><span class="p">[</span><span class="n">OptimizationJob</span><span class="p">(),</span> <span class="n">FrequencyJob</span><span class="p">()]</span>
+<span class="p">)</span>
+<span class="n">outfile</span> <span class="o">=</span> <span class="s2">&quot;TM_complex.com&quot;</span>
+<span class="n">geom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outfile</span><span class="o">=</span><span class="n">outfile</span><span class="p">,</span> <span class="n">theory</span><span class="o">=</span><span class="n">method</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -666,49 +692,12 @@ the number of radial points is set indirectly with the <code class="code docutil
 <code class="code docutils literal notranslate"><span class="pre">IntAcc</span></code> will be set for the number of radial points in the 2nd row
 of the periodic table.</p>
 </section>
-<section id="example">
-<h2>Example<a class="headerlink" href="#example" title="Link to this heading">¶</a></h2>
-<p>Below is an example of writing roughly equivalent input files for Gaussian, ORCA, and Psi4.
-Unlike the basic examples above, this explicitly defines <code class="code docutils literal notranslate"><span class="pre">BasisSet</span></code>, <code class="code docutils literal notranslate"><span class="pre">EmpiricalDispersion</span></code>, etc.
-objects before building the <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> object.
-This example also uses <code class="code docutils literal notranslate"><span class="pre">GAUSSIAN_ROUTE</span></code> to add additional keywords to the Gaussian input file route section.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
-<span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="s1">&#39;tnt.xyz&#39;</span><span class="p">)</span>
-
-<span class="n">fun</span> <span class="o">=</span> <span class="n">Method</span><span class="p">(</span><span class="s2">&quot;B3LYP&quot;</span><span class="p">)</span>
-<span class="n">basis_set</span> <span class="o">=</span> <span class="n">BasisSet</span><span class="p">([</span><span class="n">Basis</span><span class="p">(</span><span class="s2">&quot;def2-SVP&quot;</span><span class="p">)])</span>
-<span class="n">int_grid</span> <span class="o">=</span> <span class="n">IntegrationGrid</span><span class="p">(</span><span class="s2">&quot;(99, 590)&quot;</span><span class="p">)</span>
-<span class="n">disp</span> <span class="o">=</span> <span class="n">EmpiricalDispersion</span><span class="p">(</span><span class="s2">&quot;D2&quot;</span><span class="p">)</span>
-
-<span class="n">jobs</span> <span class="o">=</span> <span class="p">[</span><span class="n">OptimizationJob</span><span class="p">(),</span> <span class="n">FrequencyJob</span><span class="p">()]</span>
-
-<span class="n">b3lyp_def2svp</span> <span class="o">=</span> <span class="n">Theory</span><span class="p">(</span>
-    <span class="n">method</span><span class="o">=</span><span class="n">fun</span><span class="p">,</span>
-    <span class="n">basis</span><span class="o">=</span><span class="n">basis_set</span><span class="p">,</span>
-    <span class="n">grid</span><span class="o">=</span><span class="n">int_grid</span><span class="p">,</span>
-    <span class="n">empirical_dispersion</span><span class="o">=</span><span class="n">disp</span><span class="p">,</span>
-    <span class="n">job_type</span><span class="o">=</span><span class="n">jobs</span><span class="p">,</span>
-<span class="p">)</span>
-
-<span class="n">geom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
-    <span class="n">outfile</span><span class="o">=</span><span class="s2">&quot;tnt_freq.com&quot;</span><span class="p">,</span>
-    <span class="n">theory</span><span class="o">=</span><span class="n">b3lyp_def2svp</span><span class="p">,</span>
-    <span class="n">GAUSSIAN_ROUTE</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;freq&#39;</span><span class="p">:[</span><span class="s1">&#39;HPModes&#39;</span><span class="p">,</span> <span class="s1">&#39;NoRaman&#39;</span><span class="p">]}</span>
-<span class="p">)</span>
-
-<span class="n">geom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
-    <span class="n">outfile</span><span class="o">=</span><span class="s2">&quot;tnt_freq.inp&quot;</span><span class="p">,</span>
-    <span class="n">theory</span><span class="o">=</span><span class="n">b3lyp_def2svp</span>
-<span class="p">)</span>
-
-<span class="n">geom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
-    <span class="n">outfile</span><span class="o">=</span><span class="s2">&quot;tnt_freq.in&quot;</span><span class="p">,</span>
-    <span class="n">theory</span><span class="o">=</span><span class="n">b3lyp_def2svp</span>
-<span class="p">)</span>
-</pre></div>
-</div>
+<section id="additional-keywords">
+<h2>Additional Keywords<a class="headerlink" href="#additional-keywords" title="Link to this heading">¶</a></h2>
+<p>Additional keywords are often program-specific, and are passed as a dictionary to different keywords depending on the QM package and the location where the additional options are required.</p>
+<p>For example, to add items to the route line of a Gaussian input file you pass a dictionary to <cite>GAUSSIAN_ROUTE</cite>:</p>
+<p>Freq/HPmodes
+Opt/TS,noeigen</p>
 </section>
 </section>
 
@@ -780,7 +769,7 @@ This example also uses <code class="code docutils literal notranslate"><span cla
 </li>
 <li><a class="reference internal" href="#empirical-dispersion">Empirical Dispersion</a></li>
 <li><a class="reference internal" href="#integration-grid">Integration Grid</a></li>
-<li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#additional-keywords">Additional Keywords</a></li>
 </ul>
 </li>
 </ul>
