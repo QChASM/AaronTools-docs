@@ -1,11 +1,10 @@
 Coding with :code:`Theory` Objects
 ==================================
 
-:py:meth:`AaronTools.theory.Theory` keeps much of the code for
-writing quantum chemistry input files similar across different software packages.
-This makes it (nearly) trivial to switch between different QM packages without 
-having to dig into the nuances of the corresponding input file formats or worry 
-about specific names for DFT functionals (e.g. PBE0 vs PBE1PBE or M06-2X vs M062X) and
+:py:meth:`AaronTools.theory.Theory` is used to designate computational options when building input files for different QM packages.
+It is designed to keep much of the code for writing quantum chemistry input files similar across different software packages
+to avoid having to dig into the nuances of the corresponding input file formats or worry 
+about specific names for DFT functionals (e.g. PBE0 vs PBE1PBE or M06-2X vs M062X) or
 basis sets (def2-TZVP vs def2tzvp) in different packages.
 
 Here, we will cover the basics of creating and using a :code:`Theory` object to write
@@ -25,7 +24,8 @@ Optionally, you can also specify:
 
 When writing an input file, additional keywords can be passed to
 :py:meth:`AaronTools.geometry.Geometry.write` that specify any other options (often program-specific).
-The keywords for the dictionary are listed in :doc:`../api/theory_parameters`.
+These keywords are described in :doc:`../api/theory_parameters`.
+See `Additional Keywords`_.
 
 For :code:`method`, :code:`basis`, :code:`job_type`, :code:`empirical_dispersion`, and :code:`grid`
 you can either explicitly construct the corresponding object or provide a keyword and let :code:`Theory`
@@ -394,11 +394,35 @@ of the periodic table.
 
 Additional Keywords
 -------------------
-Additional keywords are often program-specific, and are passed as a dictionary to different keywords depending on the QM package and the location where the additional options are required.
+Additional program options are often program-specific and are passed to :py:meth:`AaronTools.geometry.Geometry.write` differently depending on the QM package and the location where the additional options are required.
+These keywords are described in :doc:`../api/theory_parameters`.
 
-For example, to add items to the route line of a Gaussian input file you pass a dictionary to `GAUSSIAN_ROUTE`:
+For example, above we added constraints using the :code:`constraints` option in :code:`OptimizationJob()`.
+Alternatively, we can directly write data to the constraints section of a Gaussian input file using :code:`GAUSSIAN_CONSTRAINTS`.
+For instance, we can write the constraints from the example above by modifying the :code:`geom.write` line:
 
-Freq/HPmodes
-Opt/TS,noeigen
+.. code-block:: python
 
+    geom.write(outfile=outfile, theory=method, GAUSSIAN_CONSTRAINTS = "B 1 4 F\nB 7 11 F\nA 1 2 3 F\nD 1 2 3 4 F")
+
+The advantage of building a :code:`constraints` dictionary and passing that to :code:`OptimizationJob()` is that you can more easily switch to a different QM package.
+
+Some of these additional keywords take a dictionary.
+:code:`GAUSSIAN_ROUTE` provides a nice example.
+As noted above, you can requiest a TS optimization by passing :code:`transition_state=True` to :code:`OptimizationJob()`.
+However, what if you also want to include :code:`noeigen` as an option to :code:`opt`?
+In other words, by using :code:`transition_state=True` the route section will include :code:`opt=(ts,CalcFC`), but we want to add :code:`noeigen` to the list of :code:`opt` options.
+We can do this by defining a dictionary with key :code:`opt` and value :code:`noeigen` and :code:`noeigen` will automatically be added to the list of options under :code:`opt`:
+
+.. code-block:: python
+
+    route = {"opt": "noeigen"}
+    geom.write(outfile=outfile, theory=method, GAUSSIAN_ROUTE=route)
+
+For route entries with no options (e.g. :code:`nosym`) you simply provide the key but an empty value:
+
+.. code-block:: python
+
+    route = {"nosym": ""}
+    geom.write(outfile=outfile, theory=method, GAUSSIAN_ROUTE=route)
 

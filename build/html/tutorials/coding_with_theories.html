@@ -368,11 +368,10 @@
         <article role="main" id="furo-main-content">
           <section id="coding-with-theory-objects">
 <h1>Coding with <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> Objects<a class="headerlink" href="#coding-with-theory-objects" title="Link to this heading">¶</a></h1>
-<p><a class="reference internal" href="../api/theory_class.html#AaronTools.theory.Theory" title="AaronTools.theory.Theory"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.Theory()</span></code></a> keeps much of the code for
-writing quantum chemistry input files similar across different software packages.
-This makes it (nearly) trivial to switch between different QM packages without
-having to dig into the nuances of the corresponding input file formats or worry
-about specific names for DFT functionals (e.g. PBE0 vs PBE1PBE or M06-2X vs M062X) and
+<p><a class="reference internal" href="../api/theory_class.html#AaronTools.theory.Theory" title="AaronTools.theory.Theory"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.Theory()</span></code></a> is used to designate computational options when building input files for different QM packages.
+It is designed to keep much of the code for writing quantum chemistry input files similar across different software packages
+to avoid having to dig into the nuances of the corresponding input file formats or worry
+about specific names for DFT functionals (e.g. PBE0 vs PBE1PBE or M06-2X vs M062X) or
 basis sets (def2-TZVP vs def2tzvp) in different packages.</p>
 <p>Here, we will cover the basics of creating and using a <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> object to write
 input files for popular QM packages.</p>
@@ -389,7 +388,8 @@ input files for popular QM packages.</p>
 </ul>
 <p>When writing an input file, additional keywords can be passed to
 <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry.write" title="AaronTools.geometry.Geometry.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.write()</span></code></a> that specify any other options (often program-specific).
-The keywords for the dictionary are listed in <a class="reference internal" href="../api/theory_parameters.html"><span class="doc">Theory parameters</span></a>.</p>
+These keywords are described in <a class="reference internal" href="../api/theory_parameters.html"><span class="doc">Theory parameters</span></a>.
+See <a class="reference internal" href="#additional-keywords">Additional Keywords</a>.</p>
 <p>For <code class="code docutils literal notranslate"><span class="pre">method</span></code>, <code class="code docutils literal notranslate"><span class="pre">basis</span></code>, <code class="code docutils literal notranslate"><span class="pre">job_type</span></code>, <code class="code docutils literal notranslate"><span class="pre">empirical_dispersion</span></code>, and <code class="code docutils literal notranslate"><span class="pre">grid</span></code>
 you can either explicitly construct the corresponding object or provide a keyword and let <code class="code docutils literal notranslate"><span class="pre">Theory</span></code>
 automatically construct the required object.</p>
@@ -694,10 +694,30 @@ of the periodic table.</p>
 </section>
 <section id="additional-keywords">
 <h2>Additional Keywords<a class="headerlink" href="#additional-keywords" title="Link to this heading">¶</a></h2>
-<p>Additional keywords are often program-specific, and are passed as a dictionary to different keywords depending on the QM package and the location where the additional options are required.</p>
-<p>For example, to add items to the route line of a Gaussian input file you pass a dictionary to <cite>GAUSSIAN_ROUTE</cite>:</p>
-<p>Freq/HPmodes
-Opt/TS,noeigen</p>
+<p>Additional program options are often program-specific and are passed to <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry.write" title="AaronTools.geometry.Geometry.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.write()</span></code></a> differently depending on the QM package and the location where the additional options are required.
+These keywords are described in <a class="reference internal" href="../api/theory_parameters.html"><span class="doc">Theory parameters</span></a>.</p>
+<p>For example, above we added constraints using the <code class="code docutils literal notranslate"><span class="pre">constraints</span></code> option in <code class="code docutils literal notranslate"><span class="pre">OptimizationJob()</span></code>.
+Alternatively, we can directly write data to the constraints section of a Gaussian input file using <code class="code docutils literal notranslate"><span class="pre">GAUSSIAN_CONSTRAINTS</span></code>.
+For instance, we can write the constraints from the example above by modifying the <code class="code docutils literal notranslate"><span class="pre">geom.write</span></code> line:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">geom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outfile</span><span class="o">=</span><span class="n">outfile</span><span class="p">,</span> <span class="n">theory</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">GAUSSIAN_CONSTRAINTS</span> <span class="o">=</span> <span class="s2">&quot;B 1 4 F</span><span class="se">\n</span><span class="s2">B 7 11 F</span><span class="se">\n</span><span class="s2">A 1 2 3 F</span><span class="se">\n</span><span class="s2">D 1 2 3 4 F&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The advantage of building a <code class="code docutils literal notranslate"><span class="pre">constraints</span></code> dictionary and passing that to <code class="code docutils literal notranslate"><span class="pre">OptimizationJob()</span></code> is that you can more easily switch to a different QM package.</p>
+<p>Some of these additional keywords take a dictionary.
+<code class="code docutils literal notranslate"><span class="pre">GAUSSIAN_ROUTE</span></code> provides a nice example.
+As noted above, you can requiest a TS optimization by passing <code class="code docutils literal notranslate"><span class="pre">transition_state=True</span></code> to <code class="code docutils literal notranslate"><span class="pre">OptimizationJob()</span></code>.
+However, what if you also want to include <code class="code docutils literal notranslate"><span class="pre">noeigen</span></code> as an option to <code class="code docutils literal notranslate"><span class="pre">opt</span></code>?
+In other words, by using <code class="code docutils literal notranslate"><span class="pre">transition_state=True</span></code> the route section will include <code class="code docutils literal notranslate"><span class="pre">opt=(ts,CalcFC</span></code>), but we want to add <code class="code docutils literal notranslate"><span class="pre">noeigen</span></code> to the list of <code class="code docutils literal notranslate"><span class="pre">opt</span></code> options.
+We can do this by defining a dictionary with key <code class="code docutils literal notranslate"><span class="pre">opt</span></code> and value <code class="code docutils literal notranslate"><span class="pre">noeigen</span></code> and <code class="code docutils literal notranslate"><span class="pre">noeigen</span></code> will automatically be added to the list of options under <code class="code docutils literal notranslate"><span class="pre">opt</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">route</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;opt&quot;</span><span class="p">:</span> <span class="s2">&quot;noeigen&quot;</span><span class="p">}</span>
+<span class="n">geom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outfile</span><span class="o">=</span><span class="n">outfile</span><span class="p">,</span> <span class="n">theory</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">GAUSSIAN_ROUTE</span><span class="o">=</span><span class="n">route</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For route entries with no options (e.g. <code class="code docutils literal notranslate"><span class="pre">nosym</span></code>) you simply provide the key but an empty value:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">route</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;nosym&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">}</span>
+<span class="n">geom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outfile</span><span class="o">=</span><span class="n">outfile</span><span class="p">,</span> <span class="n">theory</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">GAUSSIAN_ROUTE</span><span class="o">=</span><span class="n">route</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 </section>
 
