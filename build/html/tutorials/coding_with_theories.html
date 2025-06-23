@@ -384,6 +384,7 @@ input files for popular QM packages.</p>
 <li><p>processors - allocated cores</p></li>
 <li><p>memory - allocated RAM</p></li>
 <li><p>empirical_dispersion - Grimme D2, D3, etc.</p></li>
+<li><p>solvent - continuum solvent model and solvent</p></li>
 <li><p>grid - integration grid</p></li>
 </ul>
 <p>When writing an input file, additional keywords can be passed to
@@ -395,6 +396,7 @@ you can either explicitly construct the corresponding object or provide a keywor
 automatically construct the required object.</p>
 <p>The latter approach is much simpler, but the former provides more control.
 This control is most often needed for <code class="code docutils literal notranslate"><span class="pre">basis</span></code> (e.g. when using mixed basis sets or ECPs, etc).</p>
+<p>For specifying solvent and continuum solvent model, you must use the <a class="reference internal" href="../api/solvent.html"><span class="doc">ImplicitSolvent class</span></a> object.</p>
 <section id="building-basic-input-files">
 <h2>Building Basic Input Files<a class="headerlink" href="#building-basic-input-files" title="Link to this heading">¶</a></h2>
 <p>As a first example, the following will build a Gaussian input file called <code class="code docutils literal notranslate"><span class="pre">benzene.com</span></code> that
@@ -469,9 +471,29 @@ input files for Gaussian, ORCA, and Psi4.</p>
     <span class="n">geom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outfile</span><span class="o">=</span><span class="n">outfile</span><span class="p">,</span> <span class="n">theory</span><span class="o">=</span><span class="n">method</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>The above examples will all be in the gas phase.
+To instead use a continuum solvent model (e.g. PCM, SMD, etc.) we create and then use an <code class="code docutils literal notranslate"><span class="pre">ImplicitSolvent</span></code> object (here requesting the SMD model and water as solvent):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="s1">&#39;benzene.xyz&#39;</span><span class="p">)</span>
+
+<span class="n">solvent</span> <span class="o">=</span> <span class="n">ImplicitSolvent</span><span class="p">(</span><span class="s2">&quot;smd&quot;</span><span class="p">,</span> <span class="s2">&quot;water&quot;</span><span class="p">)</span>
+
+<span class="n">method</span> <span class="o">=</span> <span class="n">Theory</span><span class="p">(</span>
+    <span class="n">method</span><span class="o">=</span><span class="s2">&quot;B3LYP&quot;</span><span class="p">,</span>
+    <span class="n">basis</span><span class="o">=</span><span class="s2">&quot;def2-SVP&quot;</span><span class="p">,</span>
+    <span class="n">solvent</span><span class="o">=</span><span class="n">solvent</span><span class="p">,</span>
+    <span class="n">job_type</span><span class="o">=</span><span class="p">[</span><span class="n">OptimizationJob</span><span class="p">(),</span> <span class="n">FrequencyJob</span><span class="p">()]</span>
+<span class="p">)</span>
+
+<span class="k">for</span> <span class="n">outfile</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;gaussian.com&quot;</span><span class="p">,</span> <span class="s2">&quot;ORCA.inp&quot;</span><span class="p">,</span> <span class="s2">&quot;psi4.in&quot;</span><span class="p">]:</span>
+    <span class="n">geom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outfile</span><span class="o">=</span><span class="n">outfile</span><span class="p">,</span> <span class="n">theory</span><span class="o">=</span><span class="n">method</span><span class="p">)</span>
+</pre></div>
+</div>
 <section id="job-types">
 <h3>Job Types<a class="headerlink" href="#job-types" title="Link to this heading">¶</a></h3>
-<p>There are six job types in the theory package:</p>
+<p>There are currently seven job types in the theory package:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../api/job_types.html#AaronTools.theory.job_types.OptimizationJob" title="AaronTools.theory.job_types.OptimizationJob"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.job_types.OptimizationJob()</span></code></a></p></li>
 <li><p><a class="reference internal" href="../api/job_types.html#AaronTools.theory.job_types.FrequencyJob" title="AaronTools.theory.job_types.FrequencyJob"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.job_types.FrequencyJob()</span></code></a></p></li>
@@ -479,6 +501,7 @@ input files for Gaussian, ORCA, and Psi4.</p>
 <li><p><a class="reference internal" href="../api/job_types.html#AaronTools.theory.job_types.ForceJob" title="AaronTools.theory.job_types.ForceJob"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.job_types.ForceJob()</span></code></a></p></li>
 <li><p><a class="reference internal" href="../api/job_types.html#AaronTools.theory.job_types.ConformerSearchJob" title="AaronTools.theory.job_types.ConformerSearchJob"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.job_types.ConformerSearchJob()</span></code></a></p></li>
 <li><p><a class="reference internal" href="../api/job_types.html#AaronTools.theory.job_types.TDDFTJob" title="AaronTools.theory.job_types.TDDFTJob"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.job_types.TDDFTJob()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../api/job_types.html#AaronTools.theory.job_types.NMRJob" title="AaronTools.theory.job_types.NMRJob"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.job_types.NMRJob()</span></code></a></p></li>
 </ul>
 <p>A single <code class="code docutils literal notranslate"><span class="pre">JobType</span></code> can be given to a <code class="code docutils literal notranslate"><span class="pre">Theory</span></code>.
 If multiple <code class="code docutils literal notranslate"><span class="pre">JobType</span></code> instances are given as list,
@@ -663,6 +686,16 @@ Check the <code class="code docutils literal notranslate"><span class="pre">get_
 <code class="code docutils literal notranslate"><span class="pre">EmpiricalDispersion</span></code> class (or the respective manuals) for
 acceptable dispersion methods.</p>
 </section>
+<section id="continuum-solvent-model">
+<h2>Continuum Solvent Model<a class="headerlink" href="#continuum-solvent-model" title="Link to this heading">¶</a></h2>
+<p>The <a class="reference internal" href="../api/solvent.html#AaronTools.theory.ImplicitSolvent" title="AaronTools.theory.ImplicitSolvent"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.ImplicitSolvent()</span></code></a> object is how you request a continuum solvent model
+in a <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> object:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="n">ImplicitSolvent</span>
+
+<span class="n">solvent</span> <span class="o">=</span> <span class="n">ImplicitSolvent</span><span class="p">(</span><span class="s2">&quot;PCM&quot;</span><span class="p">,</span> <span class="s2">&quot;toluene&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 <section id="integration-grid">
 <h2>Integration Grid<a class="headerlink" href="#integration-grid" title="Link to this heading">¶</a></h2>
 <p>As with other objects in the <code class="code docutils literal notranslate"><span class="pre">AaronTools.theory</span></code> package, the
@@ -795,6 +828,7 @@ We can do this by defining a dictionary with key <code class="code docutils lite
 </ul>
 </li>
 <li><a class="reference internal" href="#empirical-dispersion">Empirical Dispersion</a></li>
+<li><a class="reference internal" href="#continuum-solvent-model">Continuum Solvent Model</a></li>
 <li><a class="reference internal" href="#integration-grid">Integration Grid</a></li>
 <li><a class="reference internal" href="#additional-keywords">Additional Keywords</a></li>
 </ul>

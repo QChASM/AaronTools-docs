@@ -20,6 +20,7 @@ Optionally, you can also specify:
 * processors - allocated cores
 * memory - allocated RAM
 * empirical_dispersion - Grimme D2, D3, etc.
+* solvent - continuum solvent model and solvent
 * grid - integration grid
 
 When writing an input file, additional keywords can be passed to
@@ -33,6 +34,8 @@ automatically construct the required object.
 
 The latter approach is much simpler, but the former provides more control.
 This control is most often needed for :code:`basis` (e.g. when using mixed basis sets or ECPs, etc).
+
+For specifying solvent and continuum solvent model, you must use the :doc:`../api/solvent` object.
 
 
 Building Basic Input Files
@@ -122,11 +125,33 @@ input files for Gaussian, ORCA, and Psi4.
     for outfile in ["gaussian.com", "ORCA.inp", "psi4.in"]:
         geom.write(outfile=outfile, theory=method)
 
+The above examples will all be in the gas phase.
+To instead use a continuum solvent model (e.g. PCM, SMD, etc.) we create and then use an :code:`ImplicitSolvent` object (here requesting the SMD model and water as solvent):
+
+.. code-block:: python
+
+    from AaronTools.geometry import Geometry
+    from AaronTools.theory import *
+    
+    geom = Geometry('benzene.xyz')
+
+    solvent = ImplicitSolvent("smd", "water")
+    
+    method = Theory(
+        method="B3LYP", 
+        basis="def2-SVP", 
+        solvent=solvent,
+        job_type=[OptimizationJob(), FrequencyJob()]
+    )
+
+    for outfile in ["gaussian.com", "ORCA.inp", "psi4.in"]:
+        geom.write(outfile=outfile, theory=method)
+
 
 Job Types
 ^^^^^^^^^
 
-There are six job types in the theory package:
+There are currently seven job types in the theory package:
 
 * :py:meth:`AaronTools.theory.job_types.OptimizationJob`
 * :py:meth:`AaronTools.theory.job_types.FrequencyJob`
@@ -134,6 +159,7 @@ There are six job types in the theory package:
 * :py:meth:`AaronTools.theory.job_types.ForceJob`
 * :py:meth:`AaronTools.theory.job_types.ConformerSearchJob`
 * :py:meth:`AaronTools.theory.job_types.TDDFTJob`
+* :py:meth:`AaronTools.theory.job_types.NMRJob`
 
 A single :code:`JobType` can be given to a :code:`Theory`.
 If multiple :code:`JobType` instances are given as list,
@@ -355,6 +381,19 @@ Some dispersion methods are not available in all QM software programs.
 Check the :code:`get_gaussian`, :code:`get_orca`, etc. methods of the
 :code:`EmpiricalDispersion` class (or the respective manuals) for
 acceptable dispersion methods.
+
+
+Continuum Solvent Model
+-----------------------
+The :py:meth:`AaronTools.theory.ImplicitSolvent` object is how you request a continuum solvent model
+in a :code:`Theory` object:
+
+.. code-block:: python
+
+    from AaronTools.theory import ImplicitSolvent
+    
+    solvent = ImplicitSolvent("PCM", "toluene")
+
 
 Integration Grid
 ----------------
