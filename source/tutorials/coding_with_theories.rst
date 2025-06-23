@@ -156,7 +156,8 @@ Many of these job types take additional arguments (click the links above to see 
 For example, for a transition state optimization you need to specify :code:`OptimizationJob(transition_state=True)`.
 
 Constrained Optimizations
-=========================
+"""""""""""""""""""""""""
+
 If we want to do a constrained optimization, we need to do a little more work.
 For example, suppose we have an AaronTools :code:`Geometry` (probably not benzene) called :code:`geom` and we want to write an input file
 for an optimization with a constraint on the distance between atoms 1 and 4.

@@ -24,7 +24,7 @@ This could be easily modified to use IUPAC names or SMILES.
 
 
 Transition Metal Complexes
-==========================
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Alternatively, if we have a set of transition metal complexes, we need to build a :py:meth:`AaronTools.theory.BasisSet` object to specify different basis sets/ECPs for the transition metal.
 
