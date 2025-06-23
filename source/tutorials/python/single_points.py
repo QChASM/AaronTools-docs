@@ -26,9 +26,9 @@ method = Theory(
 
 # loop over XYZ files in current directory
 for XYZ in glob.glob("*.xyz"):
-    name = XYZ.split('.')[0]  # grab name without .xyz ending
-    geom = Geometry(XYZ)      # build AaronTools geometry
-    outfile = name + ".sp." + "com" # build filename with .com extension for Gaussian
+    name = XYZ.split('.')[0]   # grab name without .xyz ending
+    geom = Geometry(XYZ)       # build AaronTools geometry
+    outfile = f"{name}.sp.com" # build filename with .com extension for Gaussian
     geom.write(outfile=outfile, theory=method) # make input file
 
     # create SubmitProcess object

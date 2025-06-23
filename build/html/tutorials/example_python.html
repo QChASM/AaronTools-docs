@@ -396,7 +396,7 @@ Here we use ORCA as an example, but the script below would instead use Psi4 or G
 <span class="k">for</span> <span class="n">XYZ</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.xyz&quot;</span><span class="p">):</span>
     <span class="n">name</span> <span class="o">=</span> <span class="n">XYZ</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># grab name without .xyz ending</span>
     <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="n">XYZ</span><span class="p">)</span>      <span class="c1"># build AaronTools geometry</span>
-    <span class="n">outfile</span> <span class="o">=</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="s2">&quot;inp&quot;</span> <span class="c1"># build filename with .inp extension for ORCA</span>
+    <span class="n">outfile</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">.inp&quot;</span>   <span class="c1"># filename with .inp extension for ORCA</span>
     <span class="n">geom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outfile</span><span class="o">=</span><span class="n">outfile</span><span class="p">,</span> <span class="n">theory</span><span class="o">=</span><span class="n">method</span><span class="p">)</span> <span class="c1"># make input file</span>
 
     <span class="c1"># create SubmitProcess object</span>
@@ -444,7 +444,7 @@ Here we use ORCA as an example, but the script below would instead use Psi4 or G
 <span class="k">for</span> <span class="n">XYZ</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.xyz&quot;</span><span class="p">):</span>
     <span class="n">name</span> <span class="o">=</span> <span class="n">XYZ</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># grab name without .xyz ending</span>
     <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="n">XYZ</span><span class="p">)</span>      <span class="c1"># build AaronTools geometry</span>
-    <span class="n">outfile</span> <span class="o">=</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="s2">&quot;com&quot;</span> <span class="c1"># build filename with .com extension for Gaussian</span>
+    <span class="n">outfile</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">.com&quot;</span>   <span class="c1"># filename with .com extension for Gaussian</span>
     <span class="n">geom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outfile</span><span class="o">=</span><span class="n">outfile</span><span class="p">,</span> <span class="n">theory</span><span class="o">=</span><span class="n">method</span><span class="p">)</span> <span class="c1"># make input file</span>
 
     <span class="c1"># create SubmitProcess object</span>
@@ -486,9 +486,9 @@ Here we use ORCA as an example, but the script below would instead use Psi4 or G
 
 <span class="c1"># loop over XYZ files in current directory</span>
 <span class="k">for</span> <span class="n">XYZ</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.xyz&quot;</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="n">XYZ</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># grab name without .xyz ending</span>
-    <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="n">XYZ</span><span class="p">)</span>      <span class="c1"># build AaronTools geometry</span>
-    <span class="n">outfile</span> <span class="o">=</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;.sp.&quot;</span> <span class="o">+</span> <span class="s2">&quot;com&quot;</span> <span class="c1"># build filename with .com extension for Gaussian</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">XYZ</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>   <span class="c1"># grab name without .xyz ending</span>
+    <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="n">XYZ</span><span class="p">)</span>       <span class="c1"># build AaronTools geometry</span>
+    <span class="n">outfile</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">.sp.com&quot;</span> <span class="c1"># build filename with .com extension for Gaussian</span>
     <span class="n">geom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outfile</span><span class="o">=</span><span class="n">outfile</span><span class="p">,</span> <span class="n">theory</span><span class="o">=</span><span class="n">method</span><span class="p">)</span> <span class="c1"># make input file</span>
 
     <span class="c1"># create SubmitProcess object</span>
@@ -545,6 +545,28 @@ Finally, the <code class="code docutils literal notranslate"><span class="pre">c
     <span class="n">submit_process</span><span class="o">.</span><span class="n">submit</span><span class="p">()</span>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="n">warn</span><span class="p">(</span><span class="s2">&quot;failed to submit </span><span class="si">%s</span><span class="s2">: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
+
+</pre></div>
+</div>
+</section>
+<section id="splitting-up-multi-structure-xyz-files">
+<h2>Splitting Up Multi-structure XYZ Files<a class="headerlink" href="#splitting-up-multi-structure-xyz-files" title="Link to this heading">¶</a></h2>
+<p>Often, one needs to take an XYZ file containing multiple structures (e.g. the conformers generated by <a class="reference external" href="https://crest-lab.github.io/crest-docs/">CREST</a>) and
+split this into individual XYZ files for each structure.
+This can be done easily in AaronTools:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># split a multistructure XYZ file (e.g. from Crest) into individual XYZ files</span>
+
+<span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">from</span> <span class="nn">AaronTools.fileIO</span> <span class="kn">import</span> <span class="n">FileReader</span>
+
+<span class="n">fr</span> <span class="o">=</span> <span class="n">FileReader</span><span class="p">(</span><span class="s1">&#39;crest_conformers.xyz&#39;</span><span class="p">,</span> <span class="n">get_all</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># loop over conformers</span>
+<span class="k">for</span> <span class="n">confnum</span><span class="p">,</span><span class="n">conf</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">fr</span><span class="o">.</span><span class="n">all_geom</span><span class="p">):</span>
+    <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="n">conf</span><span class="p">[</span><span class="s2">&quot;atoms&quot;</span><span class="p">])</span>
+    <span class="n">outfile</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;conf</span><span class="si">{</span><span class="n">confnum</span><span class="si">}</span><span class="s2">.xyz&quot;</span>
+    <span class="n">geom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outfile</span><span class="o">=</span><span class="n">outfile</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -644,6 +666,7 @@ This could be easily modified to instead only print every N steps, etc. or other
 </ul>
 </li>
 <li><a class="reference internal" href="#sapt-calculations">SAPT Calculations</a></li>
+<li><a class="reference internal" href="#splitting-up-multi-structure-xyz-files">Splitting Up Multi-structure XYZ Files</a></li>
 <li><a class="reference internal" href="#analyzing-xyz-trajectories">Analyzing XYZ Trajectories</a></li>
 </ul>
 </li>

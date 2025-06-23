@@ -15,7 +15,7 @@ method = Theory(
 for XYZ in glob.glob("*.xyz"):
     name = XYZ.split('.')[0]  # grab name without .xyz ending
     geom = Geometry(XYZ)      # build AaronTools geometry
-    outfile = name + "." + "inp" # build filename with .inp extension for ORCA
+    outfile = f"{name}.inp"   # filename with .inp extension for ORCA
     geom.write(outfile=outfile, theory=method) # make input file
 
     # create SubmitProcess object
