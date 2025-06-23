@@ -179,6 +179,35 @@ Other programs are not sensitive to the order these jobs will appear in the inpu
 Many of these job types take additional arguments (click the links above to see the options).
 For example, for a transition state optimization you need to specify :code:`OptimizationJob(transition_state=True)`.
 
+JobType Abbreviations
+"""""""""""""""""""""
+
+There are shorthand versions of many common job types.  For instance, to request numberical frequencies you could do
+
+.. code-block:: python
+
+    job_type = FrequencyJob(numerical=True)
+
+or, equivalently,
+
+.. code-block:: python
+
+    job_type = "freq.num"
+
+Similarly,
+.. code-block:: python
+
+    job_type = OptimizationJob(transition_state=True)
+
+is equivalent to
+
+.. code-block:: python
+
+    job_type = "opt.ts"
+
+See :py:method:`AaronTools.theory.job_types.job_from_string` for more information.
+
+
 Constrained Optimizations
 """""""""""""""""""""""""
 
@@ -187,7 +216,7 @@ For example, suppose we have an AaronTools :code:`Geometry` (probably not benzen
 for an optimization with a constraint on the distance between atoms 1 and 4.
 Constraints are passed to :code:`OptimizationJob()` as a dictionary, with the keys corresponding to the types of constraints (bonds, angles, torsions, etc).
 Each entry in the dictionary is a list of lists of :code:`AaronTools Atoms`.
-In our case, we are constraining a distance ('bond') so need to supply a list of a list of two atoms, whcih are most easily built using :code:`Geometry.find()`:
+In our case, we are constraining a distance ('bond') so need to supply a list of a list of two atoms, which is most easily built using :code:`Geometry.find()`:
 
 .. code-block:: python
 
