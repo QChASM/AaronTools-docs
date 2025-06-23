@@ -28,7 +28,7 @@ Transition Metal Complexes
 
 Alternatively, if we have a set of transition metal complexes, we need to build a :py:meth:`AaronTools.theory.BasisSet` object to specify different basis sets/ECPs for the transition metal.
 
-The following will build Gaussian input files to run optimizations and frequencies at the M06-2X/6-31G(d)/LANL2DZ level of theory for all XYZ files in the current directory:
+The following will build Gaussian input files to run optimizations and frequencies at the B3LYP-D3/6-31G(d)/LANL2DZ level of theory for all XYZ files in the current directory:
 
 .. literalinclude:: python/opt_all_TM.py
    :language: python

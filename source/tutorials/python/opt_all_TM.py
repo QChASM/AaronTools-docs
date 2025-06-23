@@ -17,7 +17,8 @@ basis = BasisSet(
 
 # build theory object
 method = Theory(
-    method="m062x",
+    method="b3lyp",
+    empirical_dispersion="D3",
     basis=basis,
     job_type=[OptimizationJob(), FrequencyJob()]
 )

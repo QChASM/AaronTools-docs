@@ -413,7 +413,7 @@ Here we use ORCA as an example, but the script below would instead use Psi4 or G
 <section id="transition-metal-complexes">
 <h3>Transition Metal Complexes<a class="headerlink" href="#transition-metal-complexes" title="Link to this heading">¶</a></h3>
 <p>Alternatively, if we have a set of transition metal complexes, we need to build a <a class="reference internal" href="../api/basis.html#AaronTools.theory.BasisSet" title="AaronTools.theory.BasisSet"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.BasisSet()</span></code></a> object to specify different basis sets/ECPs for the transition metal.</p>
-<p>The following will build Gaussian input files to run optimizations and frequencies at the M06-2X/6-31G(d)/LANL2DZ level of theory for all XYZ files in the current directory:</p>
+<p>The following will build Gaussian input files to run optimizations and frequencies at the B3LYP-D3/6-31G(d)/LANL2DZ level of theory for all XYZ files in the current directory:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># build Gaussian input files for optimization + frequency calculation on all XYZ files in current directory</span>
 <span class="c1"># use LANL2DZ basis and ECP on any transition metal and 6-31G(d) on everything else</span>
 
@@ -433,7 +433,8 @@ Here we use ORCA as an example, but the script below would instead use Psi4 or G
 
 <span class="c1"># build theory object</span>
 <span class="n">method</span> <span class="o">=</span> <span class="n">Theory</span><span class="p">(</span>
-    <span class="n">method</span><span class="o">=</span><span class="s2">&quot;m062x&quot;</span><span class="p">,</span>
+    <span class="n">method</span><span class="o">=</span><span class="s2">&quot;b3lyp&quot;</span><span class="p">,</span>
+    <span class="n">empirical_dispersion</span><span class="o">=</span><span class="s2">&quot;D3&quot;</span><span class="p">,</span>
     <span class="n">basis</span><span class="o">=</span><span class="n">basis</span><span class="p">,</span>
     <span class="n">job_type</span><span class="o">=</span><span class="p">[</span><span class="n">OptimizationJob</span><span class="p">(),</span> <span class="n">FrequencyJob</span><span class="p">()]</span>
 <span class="p">)</span>
