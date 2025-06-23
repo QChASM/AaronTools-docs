@@ -4,26 +4,26 @@ method="wb97xd"
 basis="def2tzvp"
 
 for XYZ in `/bin/ls *.xyz`; do
-  name=`basename $XYZ .xyz`
-  # Check if output file exists
-  if [ ! -e $name.log ]; then
-    echo $name did not run! Trying again.
-    jobSubmit.py $name.com -p 8 -m 12
-  else
-    # check if job finished
-    if [ `printInfo.py -i FINISHED $name.log | grep -c True` == 1 ]; then
-     # check if geometry optimized to a minimum
-      if [ `printFreq.py -t neg $name.log | wc -l` == 1 ]; then
-        echo $name finished!
-      else
-        echo $name optimized to a saddle point--following imaginary mode
-        follow.py $name.log | makeInput.py -m $method -b "$basis" -opt -freq -o $name.com
+    name=`basename $XYZ .xyz`
+    # Check if output file exists
+    if [ ! -e $name.log ]; then
+        echo $name did not run! Trying again.
         jobSubmit.py $name.com -p 8 -m 12
-      fi
     else
-      echo $name not finished! Restarting
-      makeInput.py $name.log -m $method -b "$basis" -opt -freq -o $name.com
-      jobSubmit.py $name.com -p 8 -m 12
+        # check if job finished
+        if [ `printInfo.py -i FINISHED $name.log | grep -c True` == 1 ]; then
+            # check if geometry optimized to a minimum
+            if [ `printFreq.py -t neg $name.log | wc -l` == 1 ]; then
+                echo $name finished!
+            else
+                echo $name optimized to a saddle point--following imaginary mode
+                follow.py $name.log | makeInput.py -m $method -b "$basis" -opt -freq -o $name.com
+                jobSubmit.py $name.com -p 8 -m 12
+            fi
+        else
+            echo $name not finished! Restarting
+            makeInput.py $name.log -m $method -b "$basis" -opt -freq -o $name.com
+            jobSubmit.py $name.com -p 8 -m 12
+        fi
     fi
-  fi
 done
