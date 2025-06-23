@@ -2,9 +2,9 @@
 # gather energies from dimer scan
 
 for x in `seq 0 0.5 5`; do
-	for z in `seq 3 0.2 4`; do
-		name=x.$x.z.$z
-		E=`printInfo.py $name.log -i scf_energy | tail -n1 | awk '{print $3}'`
-		echo $x $z $E
-	done
+    for z in `seq 3 0.2 4`; do
+        name=x.$x.z.$z
+        E=`printInfo.py $name.log -i scf_energy | tail -n1 | awk '{print $3}'`
+        echo $x $z $E
+    done
 done

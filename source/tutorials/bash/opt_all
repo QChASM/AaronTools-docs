@@ -2,7 +2,7 @@
 # Perform wB97XD/def2TZVP optimizations/frequencies on all XYZ files 
 
 for XYZ in `/bin/ls *.xyz`; do
-  name=`basename $XYZ .xyz`  # get filename without .xyz
-  makeInput.py $XYZ -m wB97XD -b "def2tzvp" -opt -freq -o $name.com
-  jobSubmit.py $name.com -p 8 -m 12
+    name=`basename $XYZ .xyz`  # get filename without .xyz
+    makeInput.py $XYZ -m wB97XD -b "def2tzvp" -opt -freq -o $name.com
+    jobSubmit.py $name.com -p 8 -m 12
 done

@@ -69,14 +69,14 @@ Density Functional Theory
 
 AaronTools CLSs make it trivial to run scans over different coordinates for non-bonded dimers (e.g. see `this recent paper <https://pubs.acs.org/doi/10.1021/jacs.5c03169>`_).
 For instance, the script below will run wB97X-D/def2-TZVP single point energies on the benzene dimer as a function of x- and z-coordinates (with a fixed monomer geometry) from x = 0 to 5 A and z = 3 - 4 A.
-It assumes that there is a local file called `benzene.xyz` that contains the coordinates of benzene in the xy-plane that is oriented with a vertex along the x-axis.
+It assumes that there is a local file called :code:`benzene.xyz` that contains the coordinates of benzene in the xy-plane that is oriented with a vertex along the x-axis.
 
 .. literalinclude:: bash/dimer_scan
    :language: bash
 
 Note that :doc:`../cls/combineMonomers` can only accept geometries from STDIN or from a list of files, so we save the shifted benzene geometry to :code:`temp.xyz` before combining with :code:`benzene.xyz` to build each dimer.
 
-If you have an aversion to writing temporary files, we could instead combine the monomers first and then use translate to shift atoms 13-24:
+If you have an aversion to writing temporary files, we could instead combine the monomers first and then use :code:`translate.py` to shift atoms 13-24:
 
 .. literalinclude:: bash/dimer_scan2
    :language: bash

@@ -3,17 +3,17 @@
 # assumes there is a local file called 'benzene.xyz' containing benzene coordinates in xy-plane
 
 for x in `seq 0 0.5 5`; do
-	for z in `seq 3 0.2 4`; do
-		# name job by x and z value (e.g. x.0.0.z.3.0.com)
-		name=x.$x.z.$z
+    for z in `seq 3 0.2 4`; do
+        # name job by x and z value (e.g. x.0.0.z.3.0.com)
+        name=x.$x.z.$z
 
-		# move one benzene to (x, 0, z)
-		translate.py benzene.xyz -v $x 0 $z -o temp.xyz
-		
-		# combine benzene.xyz and temp.xyz to form dimer then build Gaussian input file
-		combineMonomers.py benzene.xyz temp.xyz | makeInput.py -e -m sapt0 -b jun-cc-pvdz --before-job 'activate(auto_fragments())' -o $name.in
+        # move one benzene to (x, 0, z)
+        translate.py benzene.xyz -v $x 0 $z -o temp.xyz
+        
+        # combine benzene.xyz and temp.xyz to form dimer then build Gaussian input file
+        combineMonomers.py benzene.xyz temp.xyz | makeInput.py -e -m sapt0 -b jun-cc-pvdz --before-job 'activate(auto_fragments())' -o $name.in
 
-		# submit job
-  		jobSubmit.py $name.in -p 8 -m 12
-	done
+        # submit job
+        jobSubmit.py $name.in -p 8 -m 12
+    done
 done
