@@ -135,12 +135,10 @@ To instead use a continuum solvent model (e.g. PCM, SMD, etc.) we create and the
     
     geom = Geometry('benzene.xyz')
 
-    solvent = ImplicitSolvent("smd", "water")
-    
     method = Theory(
         method="B3LYP", 
         basis="def2-SVP", 
-        solvent=solvent,
+        solvent=ImplicitSolvent("smd", "water"),
         job_type=[OptimizationJob(), FrequencyJob()]
     )
 
@@ -196,7 +194,7 @@ In our case, we are constraining a distance ('bond') so need to supply a list of
     constraints = {}
     constraints["bonds"] = [geom.find("1,4")]
 
-Now we can pass this constraints dictionary to :code:`OptimizationJob()`:
+Now we can pass this constraint dictionary to :code:`OptimizationJob()`:
 
 .. code-block:: python
 
@@ -224,6 +222,29 @@ The following (silly) example will constrain distances 1-4 and 7-11, angle 2-3-5
         basis="def2-SVP", 
         job_type=OptimizationJob(constraints=constraints)
     )
+
+Alternatively, we can use :doc:`../api/finders` to build our :code:`constraints` dictionary.
+For example, suppose we want to optimize the structure of benzene with all C-H bonds frozen.
+We could look up the atom numbers for each carbon and the associated H, or we can loop over all H atoms
+and use :py:meth:`AaronTools.finders.BondedTo` to figure out the connected C atom:
+
+.. code-block:: python
+
+    from AaronTools.finders import BondedTo
+    
+    constraints = {}
+    constraints["bonds"] = []
+
+    for H in geom.find('H'):
+        bondedC = geom.find(BondedTo(H))[0]
+        constraints["bonds"].append([bondedC, H])
+    
+    method = Theory(
+        method="B3LYP",
+        basis="def2-SVP",
+        job_type=OptimizationJob(constraints=constraints)
+    )
+    
 
 
 Finer Control

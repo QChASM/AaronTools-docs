@@ -478,12 +478,10 @@ To instead use a continuum solvent model (e.g. PCM, SMD, etc.) we create and the
 
 <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="s1">&#39;benzene.xyz&#39;</span><span class="p">)</span>
 
-<span class="n">solvent</span> <span class="o">=</span> <span class="n">ImplicitSolvent</span><span class="p">(</span><span class="s2">&quot;smd&quot;</span><span class="p">,</span> <span class="s2">&quot;water&quot;</span><span class="p">)</span>
-
 <span class="n">method</span> <span class="o">=</span> <span class="n">Theory</span><span class="p">(</span>
     <span class="n">method</span><span class="o">=</span><span class="s2">&quot;B3LYP&quot;</span><span class="p">,</span>
     <span class="n">basis</span><span class="o">=</span><span class="s2">&quot;def2-SVP&quot;</span><span class="p">,</span>
-    <span class="n">solvent</span><span class="o">=</span><span class="n">solvent</span><span class="p">,</span>
+    <span class="n">solvent</span><span class="o">=</span><span class="n">ImplicitSolvent</span><span class="p">(</span><span class="s2">&quot;smd&quot;</span><span class="p">,</span> <span class="s2">&quot;water&quot;</span><span class="p">),</span>
     <span class="n">job_type</span><span class="o">=</span><span class="p">[</span><span class="n">OptimizationJob</span><span class="p">(),</span> <span class="n">FrequencyJob</span><span class="p">()]</span>
 <span class="p">)</span>
 
@@ -530,7 +528,7 @@ In our case, we are constraining a distance (‘bond’) so need to supply a lis
 <span class="n">constraints</span><span class="p">[</span><span class="s2">&quot;bonds&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">geom</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;1,4&quot;</span><span class="p">)]</span>
 </pre></div>
 </div>
-<p>Now we can pass this constraints dictionary to <code class="code docutils literal notranslate"><span class="pre">OptimizationJob()</span></code>:</p>
+<p>Now we can pass this constraint dictionary to <code class="code docutils literal notranslate"><span class="pre">OptimizationJob()</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">method</span> <span class="o">=</span> <span class="n">Theory</span><span class="p">(</span>
     <span class="n">method</span><span class="o">=</span><span class="s2">&quot;B3LYP&quot;</span><span class="p">,</span>
     <span class="n">basis</span><span class="o">=</span><span class="s2">&quot;def2-SVP&quot;</span><span class="p">,</span>
@@ -546,6 +544,26 @@ The following (silly) example will constrain distances 1-4 and 7-11, angle 2-3-5
 <span class="n">constraints</span><span class="p">[</span><span class="s2">&quot;bonds&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">geom</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;1,4&quot;</span><span class="p">),</span> <span class="n">geom</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;7,11&quot;</span><span class="p">)]</span>
 <span class="n">constraints</span><span class="p">[</span><span class="s2">&quot;angles&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">geom</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;2,3,5&quot;</span><span class="p">)]</span>
 <span class="n">constraints</span><span class="p">[</span><span class="s2">&quot;torsions&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">geom</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;1,2,3,4&quot;</span><span class="p">)]</span>
+
+<span class="n">method</span> <span class="o">=</span> <span class="n">Theory</span><span class="p">(</span>
+    <span class="n">method</span><span class="o">=</span><span class="s2">&quot;B3LYP&quot;</span><span class="p">,</span>
+    <span class="n">basis</span><span class="o">=</span><span class="s2">&quot;def2-SVP&quot;</span><span class="p">,</span>
+    <span class="n">job_type</span><span class="o">=</span><span class="n">OptimizationJob</span><span class="p">(</span><span class="n">constraints</span><span class="o">=</span><span class="n">constraints</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Alternatively, we can use <a class="reference internal" href="../api/finders.html"><span class="doc">Finders</span></a> to build our <code class="code docutils literal notranslate"><span class="pre">constraints</span></code> dictionary.
+For example, suppose we want to optimize the structure of benzene with all C-H bonds frozen.
+We could look up the atom numbers for each carbon and the associated H, or we can loop over all H atoms
+and use <a class="reference internal" href="../api/finders.html#AaronTools.finders.BondedTo" title="AaronTools.finders.BondedTo"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.finders.BondedTo()</span></code></a> to figure out the connected C atom:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.finders</span> <span class="kn">import</span> <span class="n">BondedTo</span>
+
+<span class="n">constraints</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">constraints</span><span class="p">[</span><span class="s2">&quot;bonds&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">H</span> <span class="ow">in</span> <span class="n">geom</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">):</span>
+    <span class="n">bondedC</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">BondedTo</span><span class="p">(</span><span class="n">H</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">constraints</span><span class="p">[</span><span class="s2">&quot;bonds&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">bondedC</span><span class="p">,</span> <span class="n">H</span><span class="p">])</span>
 
 <span class="n">method</span> <span class="o">=</span> <span class="n">Theory</span><span class="p">(</span>
     <span class="n">method</span><span class="o">=</span><span class="s2">&quot;B3LYP&quot;</span><span class="p">,</span>
