@@ -155,6 +155,8 @@ Other programs are not sensitive to the order these jobs will appear in the inpu
 Many of these job types take additional arguments (click the links above to see the options).
 For example, for a transition state optimization you need to specify :code:`OptimizationJob(transition_state=True)`.
 
+Constrained Optimizations
+=========================
 If we want to do a constrained optimization, we need to do a little more work.
 For example, suppose we have an AaronTools :code:`Geometry` (probably not benzene) called :code:`geom` and we want to write an input file
 for an optimization with a constraint on the distance between atoms 1 and 4.
@@ -253,9 +255,9 @@ The :py:meth:`AaronTools.theory.BasisSet` object is a collection of
 The second argument given to each :code:`Basis` determines which elements that basis applies to.
 By default, a :code:`Basis` applies to all elements while an :code:`ECP` applies to any transition metal.
 
-For example, suppose we have some Pt complex. 
+For example, suppose we have some Pt carbonyl complex. 
 To build a :code:`BasisSet` object for a calculation in which we use LANL2DZ basis set
-and ECP on Pt and 6-31G(d) on everything else, we could do
+and ECP on Pt and 6-31G(d) on C and O, we could do
 
 .. code-block:: python
 
@@ -268,7 +270,7 @@ and ECP on Pt and 6-31G(d) on everything else, we could do
         [ECP("LANL2DZ")]
     )
 
-Alternatively, we can use :py:meth:`AaronTools.finders.Finders` to automatically build lists of elements:
+Alternatively, we can use :doc:`../api/finders` to automatically build lists of elements:
 
 .. code-block:: python
 
@@ -302,7 +304,8 @@ auxiliary basis sets.
     )
 
 Any of these :code:`BasiSet` objects can then be passed to a :code:`Theory` object.
-For example,
+For example, the following will write a Gaussian input file :code:`TM_complex.com` for an optimization + frequency
+job at the M06-2X/6-31G(d)/LANL2DZ level of theory for any transition metal complex in :code:`TM_complex.xyz`: 
 
 .. code-block:: python
 
@@ -397,9 +400,9 @@ Additional Keywords
 Additional program options are often program-specific and are passed to :py:meth:`AaronTools.geometry.Geometry.write` differently depending on the QM package and the location where the additional options are required.
 These keywords are described in :doc:`../api/theory_parameters`.
 
-For example, above we added constraints using the :code:`constraints` option in :code:`OptimizationJob()`.
+For example, in `Constrained Optimizations`_ we added constraints using the :code:`constraints` option in :code:`OptimizationJob()`.
 Alternatively, we can directly write data to the constraints section of a Gaussian input file using :code:`GAUSSIAN_CONSTRAINTS`.
-For instance, we can write the constraints from the example above by modifying the :code:`geom.write` line:
+For instance, we can write the constraints from `Constrained Optimizations`_ by modifying the :code:`geom.write` line:
 
 .. code-block:: python
 

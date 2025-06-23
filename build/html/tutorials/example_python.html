@@ -457,6 +457,38 @@ Finally, the <code class="code docutils literal notranslate"><span class="pre">c
 </pre></div>
 </div>
 </section>
+<section id="analyzing-xyz-trajectories">
+<h2>Analyzing XYZ Trajectories<a class="headerlink" href="#analyzing-xyz-trajectories" title="Link to this heading">¶</a></h2>
+<p>AaronTools <a class="reference internal" href="../api/filereader.html#AaronTools.fileIO.FileReader" title="AaronTools.fileIO.FileReader"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.fileIO.FileReader()</span></code></a> objects can be used to read all geometries from multi-structure XYZ files.
+This can be used, for example, to analyze distances, angles, etc. from an XYZ trajectory file.</p>
+<p>The script below does this, reading <code class="code docutils literal notranslate"><span class="pre">traj.xyz</span></code> and printing the distance between atoms 1 and 2 and the 2-1-3 angle for each step.
+This could be easily modified to instead only print every N steps, etc. or other geometric parameters.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># print a table of selected distances and angles from an XYZ trajectory</span>
+
+<span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">from</span> <span class="nn">AaronTools.fileIO</span> <span class="kn">import</span> <span class="n">FileReader</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">fr</span> <span class="o">=</span> <span class="n">FileReader</span><span class="p">(</span><span class="s1">&#39;traj.xyz&#39;</span><span class="p">,</span> <span class="n">get_all</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># print header</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Step     R(1,2)   A(2,1,3)&quot;</span><span class="p">)</span>
+
+<span class="c1"># loop over all XYZ files</span>
+<span class="k">for</span> <span class="n">step</span><span class="p">,</span><span class="n">struc</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">fr</span><span class="o">.</span><span class="n">all_geom</span><span class="p">):</span>
+    <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="n">struc</span><span class="p">[</span><span class="s2">&quot;atoms&quot;</span><span class="p">])</span>
+    <span class="c1"># get atoms 1, 2, 3</span>
+    <span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">a3</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">find</span><span class="p">([</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="s1">&#39;3&#39;</span><span class="p">])</span>
+    <span class="c1"># get distance and angle</span>
+    <span class="n">dist</span> <span class="o">=</span> <span class="n">a1</span><span class="o">.</span><span class="n">dist</span><span class="p">(</span><span class="n">a2</span><span class="p">)</span>
+    <span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">geom</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">a2</span><span class="p">,</span> <span class="n">a1</span><span class="p">,</span> <span class="n">a3</span><span class="p">))</span>
+    <span class="c1"># print data</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">step</span><span class="si">:</span><span class="s2">5</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">dist</span><span class="si">:</span><span class="s2">10.3f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">angle</span><span class="si">:</span><span class="s2">10.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</section>
 </section>
 
         </article>
@@ -517,6 +549,7 @@ Finally, the <code class="code docutils literal notranslate"><span class="pre">c
 <li><a class="reference internal" href="#">Example Python Scripts for Common Tasks</a><ul>
 <li><a class="reference internal" href="#optimization-and-frequencies">Optimization and Frequencies</a></li>
 <li><a class="reference internal" href="#sapt-calculations">SAPT Calculations</a></li>
+<li><a class="reference internal" href="#analyzing-xyz-trajectories">Analyzing XYZ Trajectories</a></li>
 </ul>
 </li>
 </ul>

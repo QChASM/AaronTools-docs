@@ -1,5 +1,5 @@
 #!/bin/bash
-# Perform wB97XD/def2TZVP optimizations/frequencies on all molecules listed in 'molecules'
+# Perform optimizations/frequencies on all molecules listed in 'molecules' using different methods
 
 for func in wb97xd b3lyp m062x; do
   mkdir $func

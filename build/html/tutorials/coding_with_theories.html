@@ -211,6 +211,7 @@
 <li class="toctree-l2"><a class="reference internal" href="adding_to_libraries.html">Adding Structures to your AaronTools Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="coding_with_geometries.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> Objects</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Coding with <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#constrained-optimizations">Constrained Optimizations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="coding_with_filereaders.html">Coding with <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="example_python.html">Example Python Scripts for Common Tasks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="zmat.html">Converting Z-Matrices to Cartesian Coordinates</a></li>
@@ -495,6 +496,11 @@ request frequencies before the optimization.
 Other programs are not sensitive to the order these jobs will appear in the input file.</p>
 <p>Many of these job types take additional arguments (click the links above to see the options).
 For example, for a transition state optimization you need to specify <code class="code docutils literal notranslate"><span class="pre">OptimizationJob(transition_state=True)</span></code>.</p>
+</section>
+</section>
+</section>
+<section id="constrained-optimizations">
+<h1>Constrained Optimizations<a class="headerlink" href="#constrained-optimizations" title="Link to this heading">¶</a></h1>
 <p>If we want to do a constrained optimization, we need to do a little more work.
 For example, suppose we have an AaronTools <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> (probably not benzene) called <code class="code docutils literal notranslate"><span class="pre">geom</span></code> and we want to write an input file
 for an optimization with a constraint on the distance between atoms 1 and 4.
@@ -529,8 +535,6 @@ The following (silly) example will constrain distances 1-4 and 7-11, angle 2-3-5
 <span class="p">)</span>
 </pre></div>
 </div>
-</section>
-</section>
 <section id="finer-control">
 <h2>Finer Control<a class="headerlink" href="#finer-control" title="Link to this heading">¶</a></h2>
 <p>If you need more control over one or more of these objects you can explicitly define various objects and pass these to <code class="code docutils literal notranslate"><span class="pre">Theory</span></code>.
@@ -572,9 +576,9 @@ components attribute of the Geometry instance.</p>
 <a class="reference internal" href="../api/basis.html#AaronTools.theory.Basis" title="AaronTools.theory.Basis"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.Basis()</span></code></a> and (optionally) <a class="reference internal" href="../api/basis.html#AaronTools.theory.ECP" title="AaronTools.theory.ECP"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.ECP()</span></code></a> objects.</p>
 <p>The second argument given to each <code class="code docutils literal notranslate"><span class="pre">Basis</span></code> determines which elements that basis applies to.
 By default, a <code class="code docutils literal notranslate"><span class="pre">Basis</span></code> applies to all elements while an <code class="code docutils literal notranslate"><span class="pre">ECP</span></code> applies to any transition metal.</p>
-<p>For example, suppose we have some Pt complex.
+<p>For example, suppose we have some Pt carbonyl complex.
 To build a <code class="code docutils literal notranslate"><span class="pre">BasisSet</span></code> object for a calculation in which we use LANL2DZ basis set
-and ECP on Pt and 6-31G(d) on everything else, we could do</p>
+and ECP on Pt and 6-31G(d) on C and O, we could do</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="n">Basis</span><span class="p">,</span> <span class="n">ECP</span><span class="p">,</span> <span class="n">BasisSet</span>
 <span class="n">basis</span> <span class="o">=</span> <span class="n">BasisSet</span><span class="p">(</span>
     <span class="p">[</span>
@@ -585,7 +589,7 @@ and ECP on Pt and 6-31G(d) on everything else, we could do</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>Alternatively, we can use <code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.finders.Finders()</span></code> to automatically build lists of elements:</p>
+<p>Alternatively, we can use <a class="reference internal" href="../api/finders.html"><span class="doc">Finders</span></a> to automatically build lists of elements:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="n">Basis</span><span class="p">,</span> <span class="n">ECP</span><span class="p">,</span> <span class="n">BasisSet</span>
 <span class="kn">from</span> <span class="nn">AaronTools.finders</span> <span class="kn">import</span> <span class="n">AnyTransitionMetal</span><span class="p">,</span> <span class="n">AnyNonTransitionMetal</span>
 
@@ -614,7 +618,8 @@ auxiliary basis sets.</p>
 </pre></div>
 </div>
 <p>Any of these <code class="code docutils literal notranslate"><span class="pre">BasiSet</span></code> objects can then be passed to a <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> object.
-For example,</p>
+For example, the following will write a Gaussian input file <code class="code docutils literal notranslate"><span class="pre">TM_complex.com</span></code> for an optimization + frequency
+job at the M06-2X/6-31G(d)/LANL2DZ level of theory for any transition metal complex in <code class="code docutils literal notranslate"><span class="pre">TM_complex.xyz</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
 <span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">AaronTools.finders</span> <span class="kn">import</span> <span class="n">AnyTransitionMetal</span><span class="p">,</span> <span class="n">AnyNonTransitionMetal</span>
@@ -696,9 +701,9 @@ of the periodic table.</p>
 <h2>Additional Keywords<a class="headerlink" href="#additional-keywords" title="Link to this heading">¶</a></h2>
 <p>Additional program options are often program-specific and are passed to <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry.write" title="AaronTools.geometry.Geometry.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.write()</span></code></a> differently depending on the QM package and the location where the additional options are required.
 These keywords are described in <a class="reference internal" href="../api/theory_parameters.html"><span class="doc">Theory parameters</span></a>.</p>
-<p>For example, above we added constraints using the <code class="code docutils literal notranslate"><span class="pre">constraints</span></code> option in <code class="code docutils literal notranslate"><span class="pre">OptimizationJob()</span></code>.
+<p>For example, in <a class="reference internal" href="#constrained-optimizations">Constrained Optimizations</a> we added constraints using the <code class="code docutils literal notranslate"><span class="pre">constraints</span></code> option in <code class="code docutils literal notranslate"><span class="pre">OptimizationJob()</span></code>.
 Alternatively, we can directly write data to the constraints section of a Gaussian input file using <code class="code docutils literal notranslate"><span class="pre">GAUSSIAN_CONSTRAINTS</span></code>.
-For instance, we can write the constraints from the example above by modifying the <code class="code docutils literal notranslate"><span class="pre">geom.write</span></code> line:</p>
+For instance, we can write the constraints from <a class="reference internal" href="#constrained-optimizations">Constrained Optimizations</a> by modifying the <code class="code docutils literal notranslate"><span class="pre">geom.write</span></code> line:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">geom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outfile</span><span class="o">=</span><span class="n">outfile</span><span class="p">,</span> <span class="n">theory</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">GAUSSIAN_CONSTRAINTS</span> <span class="o">=</span> <span class="s2">&quot;B 1 4 F</span><span class="se">\n</span><span class="s2">B 7 11 F</span><span class="se">\n</span><span class="s2">A 1 2 3 F</span><span class="se">\n</span><span class="s2">D 1 2 3 4 F&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -781,6 +786,9 @@ We can do this by defining a dictionary with key <code class="code docutils lite
 <li><a class="reference internal" href="#job-types">Job Types</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a class="reference internal" href="#constrained-optimizations">Constrained Optimizations</a><ul>
 <li><a class="reference internal" href="#finer-control">Finer Control</a><ul>
 <li><a class="reference internal" href="#method-class">Method Class</a></li>
 <li><a class="reference internal" href="#saptmethod">SAPTMethod</a></li>

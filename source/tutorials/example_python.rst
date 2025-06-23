@@ -39,3 +39,14 @@ For instance, the following will submit a Psi4 job to calcualte the SAPT0/jun-cc
 
 .. literalinclude:: python/sapt.py
    :language: python
+
+Analyzing XYZ Trajectories
+--------------------------
+AaronTools :py:meth:`AaronTools.fileIO.FileReader` objects can be used to read all geometries from multi-structure XYZ files.
+This can be used, for example, to analyze distances, angles, etc. from an XYZ trajectory file.
+
+The script below does this, reading :code:`traj.xyz` and printing the distance between atoms 1 and 2 and the 2-1-3 angle for each step.
+This could be easily modified to instead only print every N steps, etc. or other geometric parameters.
+
+.. literalinclude:: python/analyze_traj.py
+   :language: python
