@@ -518,7 +518,7 @@ Other programs are not sensitive to the order these jobs will appear in the inpu
 For example, for a transition state optimization you need to specify <code class="code docutils literal notranslate"><span class="pre">OptimizationJob(transition_state=True)</span></code>.</p>
 <section id="jobtype-abbreviations">
 <h4>JobType Abbreviations<a class="headerlink" href="#jobtype-abbreviations" title="Link to this heading">¶</a></h4>
-<p>There are shorthand versions of many common job types.  For instance, to request numberical frequencies you could do</p>
+<p>There are shorthand versions of many common job types.  For instance, to request numerical frequencies you could do</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">job_type</span> <span class="o">=</span> <span class="n">FrequencyJob</span><span class="p">(</span><span class="n">numerical</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -526,16 +526,15 @@ For example, for a transition state optimization you need to specify <code class
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">job_type</span> <span class="o">=</span> <span class="s2">&quot;freq.num&quot;</span>
 </pre></div>
 </div>
-<p>Similarly,
-.. code-block:: python</p>
-<blockquote>
-<div><p>job_type = OptimizationJob(transition_state=True)</p>
-</div></blockquote>
+<p>Similarly,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">job_type</span> <span class="o">=</span> <span class="n">OptimizationJob</span><span class="p">(</span><span class="n">transition_state</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>is equivalent to</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">job_type</span> <span class="o">=</span> <span class="s2">&quot;opt.ts&quot;</span>
 </pre></div>
 </div>
-<p>See <a href="#id1"><span class="problematic" id="id2">:py:method:`AaronTools.theory.job_types.job_from_string`</span></a> for more information.</p>
+<p>See <a class="reference internal" href="../api/job_types.html#AaronTools.theory.job_types.job_from_string" title="AaronTools.theory.job_types.job_from_string"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.job_types.job_from_string()</span></code></a> for more information.</p>
 </section>
 <section id="constrained-optimizations">
 <h4>Constrained Optimizations<a class="headerlink" href="#constrained-optimizations" title="Link to this heading">¶</a></h4>

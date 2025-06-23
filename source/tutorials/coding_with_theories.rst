@@ -182,7 +182,7 @@ For example, for a transition state optimization you need to specify :code:`Opti
 JobType Abbreviations
 """""""""""""""""""""
 
-There are shorthand versions of many common job types.  For instance, to request numberical frequencies you could do
+There are shorthand versions of many common job types.  For instance, to request numerical frequencies you could do
 
 .. code-block:: python
 
@@ -195,6 +195,7 @@ or, equivalently,
     job_type = "freq.num"
 
 Similarly,
+
 .. code-block:: python
 
     job_type = OptimizationJob(transition_state=True)
@@ -205,7 +206,7 @@ is equivalent to
 
     job_type = "opt.ts"
 
-See :py:method:`AaronTools.theory.job_types.job_from_string` for more information.
+See :py:meth:`AaronTools.theory.job_types.job_from_string` for more information.
 
 
 Constrained Optimizations
