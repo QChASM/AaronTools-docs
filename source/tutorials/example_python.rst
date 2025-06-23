@@ -22,10 +22,23 @@ The following script will submit wB97XD/def2-TZVP optimization and frequency job
 
 This could be easily modified to use IUPAC names or SMILES.
 
+
+Transition Metal Complexes
+==========================
+
+Alternatively, if we have a set of transition metal complexes, we need to build a :py:meth:`AaronTools.theory.BasisSet` object to specify different basis sets/ECPs for the transition metal.
+
+The following will build Gaussian input files to run optimizations and frequencies at the M06-2X/6-31G(d)/LANL2DZ level of theory for all XYZ files in the current directory:
+
+.. literalinclude:: python/opt_all_TM.py
+   :language: python
+
+
 .. _python_SAPT_calculations:
 
 SAPT Calculations
 -----------------
+
 In :ref:`bash_SAPT_calculations` we built a script to run SAPT calculations on the parallel stacked benzene dimer as a function of horizontal and vertical displacements.
 In that case, because we were using :code:`makeInput.py`, we had to rely on Psi4 automatically partitioning the dimer into fragments.
 If more control is required over how the supermolecule is fragmented for SAPT computations, we need to build a Psi4 input file explicitly separating the molecule into componets.

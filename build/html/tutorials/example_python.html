@@ -211,8 +211,10 @@
 <li class="toctree-l2"><a class="reference internal" href="adding_to_libraries.html">Adding Structures to your AaronTools Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="coding_with_geometries.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="coding_with_theories.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding_with_theories.html#constrained-optimizations">Constrained Optimizations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="coding_with_filereaders.html">Coding with <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> objects</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Example Python Scripts for Common Tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transition-metal-complexes">Transition Metal Complexes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="zmat.html">Converting Z-Matrices to Cartesian Coordinates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Jupyter_basics.html">Working with AaronTools in Jupyter Notebooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Jupyter_Psi4.html">AaronTools and Psi4</a></li>
@@ -411,6 +413,52 @@ Here we use ORCA as an example, but the script below would instead use Psi4 or G
 </div>
 <p>This could be easily modified to use IUPAC names or SMILES.</p>
 </section>
+</section>
+<section id="transition-metal-complexes">
+<h1>Transition Metal Complexes<a class="headerlink" href="#transition-metal-complexes" title="Link to this heading">¶</a></h1>
+<p>Alternatively, if we have a set of transition metal complexes, we need to build a <a class="reference internal" href="../api/basis.html#AaronTools.theory.BasisSet" title="AaronTools.theory.BasisSet"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.BasisSet()</span></code></a> object to specify different basis sets/ECPs for the transition metal.</p>
+<p>The following will build Gaussian input files to run optimizations and frequencies at the M06-2X/6-31G(d)/LANL2DZ level of theory for all XYZ files in the current directory:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># build Gaussian input files for optimization + frequency calculation on all XYZ files in current directory</span>
+<span class="c1"># use LANL2DZ basis and ECP on any transition metal and 6-31G(d) on everything else</span>
+
+<span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">AaronTools.job_control</span> <span class="kn">import</span> <span class="n">SubmitProcess</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+
+<span class="c1"># build basis object</span>
+<span class="n">basis</span> <span class="o">=</span> <span class="n">BasisSet</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">Basis</span><span class="p">(</span><span class="s2">&quot;6-31G(d)&quot;</span><span class="p">,</span> <span class="n">AnyNonTransitionMetal</span><span class="p">()),</span>
+        <span class="n">Basis</span><span class="p">(</span><span class="s2">&quot;LANL2DZ&quot;</span><span class="p">,</span> <span class="n">AnyTransitionMetal</span><span class="p">()),</span>
+    <span class="p">],</span>
+    <span class="p">[</span><span class="n">ECP</span><span class="p">(</span><span class="s2">&quot;LANL2DZ&quot;</span><span class="p">)]</span>
+<span class="p">)</span>
+
+<span class="c1"># build theory object</span>
+<span class="n">method</span> <span class="o">=</span> <span class="n">Theory</span><span class="p">(</span>
+    <span class="n">method</span><span class="o">=</span><span class="s2">&quot;m062x&quot;</span><span class="p">,</span>
+    <span class="n">basis</span><span class="o">=</span><span class="n">basis</span><span class="p">,</span>
+    <span class="n">job_type</span><span class="o">=</span><span class="p">[</span><span class="n">OptimizationJob</span><span class="p">(),</span> <span class="n">FrequencyJob</span><span class="p">()]</span>
+<span class="p">)</span>
+
+<span class="c1"># loop over XYZ files in current directory</span>
+<span class="k">for</span> <span class="n">XYZ</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.xyz&quot;</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">XYZ</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># grab name without .xyz ending</span>
+    <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="n">XYZ</span><span class="p">)</span>      <span class="c1"># build AaronTools geometry</span>
+    <span class="n">outfile</span> <span class="o">=</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="s2">&quot;com&quot;</span> <span class="c1"># build filename with .com extension for Gaussian</span>
+    <span class="n">geom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outfile</span><span class="o">=</span><span class="n">outfile</span><span class="p">,</span> <span class="n">theory</span><span class="o">=</span><span class="n">method</span><span class="p">)</span> <span class="c1"># make input file</span>
+
+    <span class="c1"># create SubmitProcess object</span>
+    <span class="n">submit_process</span> <span class="o">=</span> <span class="n">SubmitProcess</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+
+    <span class="c1"># submit job</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">submit_process</span><span class="o">.</span><span class="n">submit</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">warn</span><span class="p">(</span><span class="s2">&quot;failed to submit </span><span class="si">%s</span><span class="s2">: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
+</pre></div>
+</div>
 <section id="sapt-calculations">
 <span id="python-sapt-calculations"></span><h2>SAPT Calculations<a class="headerlink" href="#sapt-calculations" title="Link to this heading">¶</a></h2>
 <p>In <a class="reference internal" href="example_bash.html#bash-sapt-calculations"><span class="std std-ref">Symmetry Adapted Perturbation Theory (SAPT)</span></a> we built a script to run SAPT calculations on the parallel stacked benzene dimer as a function of horizontal and vertical displacements.
@@ -548,6 +596,9 @@ This could be easily modified to instead only print every N steps, etc. or other
             <ul>
 <li><a class="reference internal" href="#">Example Python Scripts for Common Tasks</a><ul>
 <li><a class="reference internal" href="#optimization-and-frequencies">Optimization and Frequencies</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#transition-metal-complexes">Transition Metal Complexes</a><ul>
 <li><a class="reference internal" href="#sapt-calculations">SAPT Calculations</a></li>
 <li><a class="reference internal" href="#analyzing-xyz-trajectories">Analyzing XYZ Trajectories</a></li>
 </ul>
