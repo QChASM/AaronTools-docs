@@ -76,7 +76,12 @@ It assumes that there is a local file called `benzene.xyz` that contains the coo
 
 Note that :doc:`../cls/combineMonomers` can only accept geometries from STDIN or from a list of files, so we save the shifted benzene geometry to :code:`temp.xyz` before combining with :code:`benzene.xyz` to build each dimer.
 
-We could modify this to instead run the T-shaped benzene dimer by first rotating the second benzene by 90 degrees around the y-axis (e.g. :code:`rotate.py benzene.xyz -x y -a 90`) and then piping this into :code:`translate.py -v $x 0 $z -o temp.xyz`.
+If you have an aversion to writing temporary files, we could instead combine the monomers first and then use translate to shift atoms 13-24:
+
+.. literalinclude:: bash/dimer_scan2
+   :language: bash
+
+We could modify either of these to instead run the T-shaped benzene dimer by first rotating the second benzene by 90 degrees around the y-axis (e.g. :code:`rotate.py benzene.xyz -x y -a 90`) and then piping this into :code:`translate.py -v $x 0 $z ...`.
 
 We can also use AaronTools to gather the energies after making sure all of the single points ran to completion:
 
