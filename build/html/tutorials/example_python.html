@@ -412,9 +412,10 @@ Here we use ORCA as an example, but the script below would instead use Psi4 or G
 <p>This could be easily modified to use IUPAC names or SMILES.</p>
 <section id="transition-metal-complexes">
 <h3>Transition Metal Complexes<a class="headerlink" href="#transition-metal-complexes" title="Link to this heading">¶</a></h3>
-<p>Alternatively, if we have a set of transition metal complexes, we need to build a <a class="reference internal" href="../api/basis.html#AaronTools.theory.BasisSet" title="AaronTools.theory.BasisSet"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.BasisSet()</span></code></a> object to specify different basis sets/ECPs for the transition metal.</p>
+<p>Alternatively, if we have a set of transition metal complexes, we need to build a <a class="reference internal" href="../api/basis.html#AaronTools.theory.BasisSet" title="AaronTools.theory.BasisSet"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.BasisSet()</span></code></a> object to specify different basis sets/ECPs for the transition metal (See <a class="reference internal" href="coding_with_theories.html"><span class="doc">Coding with Theory Objects</span></a>).</p>
 <p>The following will build Gaussian input files to run optimizations and frequencies at the B3LYP-D3/6-31G(d)/LANL2DZ level of theory for all XYZ files in the current directory:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># build Gaussian input files for optimization + frequency calculation on all XYZ files in current directory</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># build Gaussian input files for optimization + frequency calculation</span>
+<span class="c1"># on all XYZ files in current directory </span>
 <span class="c1"># use LANL2DZ basis and ECP on any transition metal and 6-31G(d) on everything else</span>
 
 <span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
@@ -444,6 +445,50 @@ Here we use ORCA as an example, but the script below would instead use Psi4 or G
     <span class="n">name</span> <span class="o">=</span> <span class="n">XYZ</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># grab name without .xyz ending</span>
     <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="n">XYZ</span><span class="p">)</span>      <span class="c1"># build AaronTools geometry</span>
     <span class="n">outfile</span> <span class="o">=</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="s2">&quot;com&quot;</span> <span class="c1"># build filename with .com extension for Gaussian</span>
+    <span class="n">geom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outfile</span><span class="o">=</span><span class="n">outfile</span><span class="p">,</span> <span class="n">theory</span><span class="o">=</span><span class="n">method</span><span class="p">)</span> <span class="c1"># make input file</span>
+
+    <span class="c1"># create SubmitProcess object</span>
+    <span class="n">submit_process</span> <span class="o">=</span> <span class="n">SubmitProcess</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+
+    <span class="c1"># submit job</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">submit_process</span><span class="o">.</span><span class="n">submit</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">warn</span><span class="p">(</span><span class="s2">&quot;failed to submit </span><span class="si">%s</span><span class="s2">: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>After these are run to completion, we could submit B3LYP-D3/6-311+G(d,p)/LANL2DZ single point energies using the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># build Gaussian input files for Single Point calculations on all XYZ files in </span>
+<span class="c1"># current directory </span>
+<span class="c1"># use LANL2DZ basis and ECP on any transition metal and 6-311+G(d,p) on everything else</span>
+
+<span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">AaronTools.job_control</span> <span class="kn">import</span> <span class="n">SubmitProcess</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+
+<span class="c1"># build basis object</span>
+<span class="n">basis</span> <span class="o">=</span> <span class="n">BasisSet</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">Basis</span><span class="p">(</span><span class="s2">&quot;6-311+G(d,p)&quot;</span><span class="p">,</span> <span class="n">AnyNonTransitionMetal</span><span class="p">()),</span>
+        <span class="n">Basis</span><span class="p">(</span><span class="s2">&quot;LANL2DZ&quot;</span><span class="p">,</span> <span class="n">AnyTransitionMetal</span><span class="p">()),</span>
+    <span class="p">],</span>
+    <span class="p">[</span><span class="n">ECP</span><span class="p">(</span><span class="s2">&quot;LANL2DZ&quot;</span><span class="p">)]</span>
+<span class="p">)</span>
+
+<span class="c1"># build theory object</span>
+<span class="n">method</span> <span class="o">=</span> <span class="n">Theory</span><span class="p">(</span>
+    <span class="n">method</span><span class="o">=</span><span class="s2">&quot;b3lyp&quot;</span><span class="p">,</span>
+    <span class="n">empirical_dispersion</span><span class="o">=</span><span class="s2">&quot;D3&quot;</span><span class="p">,</span>
+    <span class="n">basis</span><span class="o">=</span><span class="n">basis</span><span class="p">,</span>
+    <span class="n">job_type</span><span class="o">=</span><span class="n">SinglePointJob</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="c1"># loop over XYZ files in current directory</span>
+<span class="k">for</span> <span class="n">XYZ</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.xyz&quot;</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">XYZ</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># grab name without .xyz ending</span>
+    <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="n">XYZ</span><span class="p">)</span>      <span class="c1"># build AaronTools geometry</span>
+    <span class="n">outfile</span> <span class="o">=</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;.sp.&quot;</span> <span class="o">+</span> <span class="s2">&quot;com&quot;</span> <span class="c1"># build filename with .com extension for Gaussian</span>
     <span class="n">geom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outfile</span><span class="o">=</span><span class="n">outfile</span><span class="p">,</span> <span class="n">theory</span><span class="o">=</span><span class="n">method</span><span class="p">)</span> <span class="c1"># make input file</span>
 
     <span class="c1"># create SubmitProcess object</span>

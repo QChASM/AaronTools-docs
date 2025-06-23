@@ -26,13 +26,17 @@ This could be easily modified to use IUPAC names or SMILES.
 Transition Metal Complexes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Alternatively, if we have a set of transition metal complexes, we need to build a :py:meth:`AaronTools.theory.BasisSet` object to specify different basis sets/ECPs for the transition metal.
+Alternatively, if we have a set of transition metal complexes, we need to build a :py:meth:`AaronTools.theory.BasisSet` object to specify different basis sets/ECPs for the transition metal (See :doc:`coding_with_theories`).
 
 The following will build Gaussian input files to run optimizations and frequencies at the B3LYP-D3/6-31G(d)/LANL2DZ level of theory for all XYZ files in the current directory:
 
 .. literalinclude:: python/opt_all_TM.py
    :language: python
 
+After these are run to completion, we could submit B3LYP-D3/6-311+G(d,p)/LANL2DZ single point energies using the following:
+
+.. literalinclude:: python/single_points.py
+   :language: python
 
 .. _python_SAPT_calculations:
 

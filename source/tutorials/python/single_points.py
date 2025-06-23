@@ -1,6 +1,6 @@
-# build Gaussian input files for optimization + frequency calculation
-# on all XYZ files in current directory 
-# use LANL2DZ basis and ECP on any transition metal and 6-31G(d) on everything else
+# build Gaussian input files for Single Point calculations on all XYZ files in 
+# current directory 
+# use LANL2DZ basis and ECP on any transition metal and 6-311+G(d,p) on everything else
 
 from AaronTools.geometry import Geometry
 from AaronTools.theory import *
@@ -10,7 +10,7 @@ import glob
 # build basis object
 basis = BasisSet(
     [
-        Basis("6-31G(d)", AnyNonTransitionMetal()),
+        Basis("6-311+G(d,p)", AnyNonTransitionMetal()),
         Basis("LANL2DZ", AnyTransitionMetal()),
     ],
     [ECP("LANL2DZ")]
@@ -21,14 +21,14 @@ method = Theory(
     method="b3lyp",
     empirical_dispersion="D3",
     basis=basis,
-    job_type=[OptimizationJob(), FrequencyJob()]
+    job_type=SinglePointJob()
 )
 
 # loop over XYZ files in current directory
 for XYZ in glob.glob("*.xyz"):
     name = XYZ.split('.')[0]  # grab name without .xyz ending
     geom = Geometry(XYZ)      # build AaronTools geometry
-    outfile = name + "." + "com" # build filename with .com extension for Gaussian
+    outfile = name + ".sp." + "com" # build filename with .com extension for Gaussian
     geom.write(outfile=outfile, theory=method) # make input file
 
     # create SubmitProcess object
