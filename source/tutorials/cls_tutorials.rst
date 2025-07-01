@@ -246,6 +246,14 @@ The contents of 'tnt.in' are:
     nrg = optimize('b3lyp')
     nrg = frequencies('b3lyp')
 
+Note that :code:`makeInput.py` can (try to) read the level of theory and selected other options from output files and then use this to construct a new input file using the last geometry but same level of theory as the previous calculation:
+For instance, the following will read the final geometry from :code:`tnt.out` and then build a new input file using the same method and basis.
+
+.. code-block:: text
+    
+    makeInput.py -u tnt.out -o tnt.in
+
+N.B. :code:`makeInput.py -u` does not currently read things like solvent model, so make sure you carefully check any input files generated to make sure that all options are correctly copied over!
 
 Submitting to the Queue 
 ^^^^^^^^^^^^^^^^^^^^^^^

@@ -564,6 +564,12 @@ The contents of ‘tnt.in’ are:</p>
 <span class="n">nrg</span> <span class="o">=</span> <span class="n">frequencies</span><span class="p">(</span><span class="s1">&#39;b3lyp&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Note that <code class="code docutils literal notranslate"><span class="pre">makeInput.py</span></code> can (try to) read the level of theory and selected other options from output files and then use this to construct a new input file using the last geometry but same level of theory as the previous calculation:
+For instance, the following will read the final geometry from <code class="code docutils literal notranslate"><span class="pre">tnt.out</span></code> and then build a new input file using the same method and basis.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>makeInput.py -u tnt.out -o tnt.in
+</pre></div>
+</div>
+<p>N.B. <code class="code docutils literal notranslate"><span class="pre">makeInput.py</span> <span class="pre">-u</span></code> does not currently read things like solvent model, so make sure you carefully check any input files generated to make sure that all options are correctly copied over!</p>
 </section>
 <section id="submitting-to-the-queue">
 <h3>Submitting to the Queue<a class="headerlink" href="#submitting-to-the-queue" title="Link to this heading">¶</a></h3>
