@@ -99,7 +99,7 @@ In either case, using :code:`-o file.xyz` will save the new structure to a file 
 The :doc:`../cls/findAtoms` script can be helpful for locating atoms using a variety of descriptions.
 These descriptions include the element, how many bonds the atom has, and what atoms are bonded to a specific atom.
 
-For instance, we could confirm that the H atoms in `benzene.xyz` are indeed atoms 7-12 by using :code:`findAtoms.py`
+For instance, we could confirm that the H atoms in :code:`benzene.xyz` are indeed atoms 7-12 by using :code:`findAtoms.py`
 to list all atoms that are bonded to only a single other atom:
 
 ::
@@ -156,12 +156,19 @@ We can run the substitute.py script again to turn these into nitro groups:
     
     substitute.py toluene.xyz -s 8,9,12=NO2 -o tnt.xyz
 
-We're using the toluene.xyz that we created in the previous step.
+We're using the :code:`toluene.xyz` that we created in the previous step.
 "NO2" is the name of the nitro substituent in the AaronTools library.
 We are writing this to a file named tnt.xyz.
 
+We could avoid writing the intermediate file :code:`toluene.xyz` by piping the output from the
+first :code:`substitute.py` directly into the second one:
 
-We could combine these two steps into one by simply specifying both substitution instructions: 
+::
+    
+    substitute.py toluene.xyz -s 8,9,12=NO2 | substitute.py -s 8,9,12=NO2 -o tnt.xyz
+
+Alternatively, we could combine these two steps into one :code:`substitute.py` command
+by simply specifying both substitution instructions: 
 
 ::
     
@@ -174,7 +181,7 @@ Simply prefix the name with :code:`iupac:`:
 
 .. code-block:: text
 
-    substitute.py benzene.xyz --minimize -s 7=iupac:cinnamyl -s 8,9,12=iupac:butyl -o tnt.xyz
+    substitute.py benzene.xyz --minimize -s 7=iupac:cinnamyl -s 8,9,12=iupac:butyl -o new.xyz
 
 This does require an internet connection to fetch structures from the
 `OPSIN web API <https://opsin.ch.cam.ac.uk/>`_.
@@ -205,10 +212,10 @@ To make the input file for the optimization job, run:
 * :code:`-mem` or :code:`--memory` specifies the allocated memory in GB
 * :code:`-p` or :code:`--processors` specifies the allocated number of CPU cores
 
-The Psi4 input file is written to 'tnt.in'.
+The Psi4 input file is written to :code:'tnt.in'.
 Because the '.in' extension was used, it's assumed that we want the file in Psi4 format.
 Gaussian format is assumed when '.com' is used, and ORCA is assumed when '.inp' is used.
-The contents of 'tnt.in' are:
+The contents of :code:'tnt.in' are:
 
 .. code-block:: python
 
@@ -246,7 +253,7 @@ The contents of 'tnt.in' are:
     nrg = optimize('b3lyp')
     nrg = frequencies('b3lyp')
 
-Note that :code:`makeInput.py` can (try to) read the level of theory and selected other options from output files and then use this to construct a new input file using the last geometry but same level of theory as the previous calculation:
+Note that :code:`makeInput.py` can (try to) read the level of theory and selected other options from output files and then use this to construct a new input file using the last geometry but same level of theory as the previous calculation.
 For instance, the following will read the final geometry from :code:`tnt.out` and then build a new input file using the same method and basis.
 
 .. code-block:: text

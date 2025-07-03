@@ -442,7 +442,7 @@ For example, to replace atom 7 (one of the hydrogens) of benzene with CN, you wo
 <p>In either case, using <code class="code docutils literal notranslate"><span class="pre">-o</span> <span class="pre">file.xyz</span></code> will save the new structure to a file instead of printing to stdout.</p>
 <p>The <a class="reference internal" href="../cls/findAtoms.html"><span class="doc">findAtoms.py</span></a> script can be helpful for locating atoms using a variety of descriptions.
 These descriptions include the element, how many bonds the atom has, and what atoms are bonded to a specific atom.</p>
-<p>For instance, we could confirm that the H atoms in <cite>benzene.xyz</cite> are indeed atoms 7-12 by using <code class="code docutils literal notranslate"><span class="pre">findAtoms.py</span></code>
+<p>For instance, we could confirm that the H atoms in <code class="code docutils literal notranslate"><span class="pre">benzene.xyz</span></code> are indeed atoms 7-12 by using <code class="code docutils literal notranslate"><span class="pre">findAtoms.py</span></code>
 to list all atoms that are bonded to only a single other atom:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">findAtoms</span><span class="o">.</span><span class="n">py</span> <span class="n">benzene</span><span class="o">.</span><span class="n">xyz</span> <span class="o">-</span><span class="n">nb</span> <span class="mi">1</span>
 </pre></div>
@@ -486,10 +486,16 @@ We can run the substitute.py script again to turn these into nitro groups:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">substitute</span><span class="o">.</span><span class="n">py</span> <span class="n">toluene</span><span class="o">.</span><span class="n">xyz</span> <span class="o">-</span><span class="n">s</span> <span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">12</span><span class="o">=</span><span class="n">NO2</span> <span class="o">-</span><span class="n">o</span> <span class="n">tnt</span><span class="o">.</span><span class="n">xyz</span>
 </pre></div>
 </div>
-<p>We’re using the toluene.xyz that we created in the previous step.
+<p>We’re using the <code class="code docutils literal notranslate"><span class="pre">toluene.xyz</span></code> that we created in the previous step.
 “NO2” is the name of the nitro substituent in the AaronTools library.
 We are writing this to a file named tnt.xyz.</p>
-<p>We could combine these two steps into one by simply specifying both substitution instructions:</p>
+<p>We could avoid writing the intermediate file <code class="code docutils literal notranslate"><span class="pre">toluene.xyz</span></code> by piping the output from the
+first <code class="code docutils literal notranslate"><span class="pre">substitute.py</span></code> directly into the second one:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">substitute</span><span class="o">.</span><span class="n">py</span> <span class="n">toluene</span><span class="o">.</span><span class="n">xyz</span> <span class="o">-</span><span class="n">s</span> <span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">12</span><span class="o">=</span><span class="n">NO2</span> <span class="o">|</span> <span class="n">substitute</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">s</span> <span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">12</span><span class="o">=</span><span class="n">NO2</span> <span class="o">-</span><span class="n">o</span> <span class="n">tnt</span><span class="o">.</span><span class="n">xyz</span>
+</pre></div>
+</div>
+<p>Alternatively, we could combine these two steps into one <code class="code docutils literal notranslate"><span class="pre">substitute.py</span></code> command
+by simply specifying both substitution instructions:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">substitute</span><span class="o">.</span><span class="n">py</span> <span class="n">benzene</span><span class="o">.</span><span class="n">xyz</span> <span class="o">-</span><span class="n">s</span> <span class="mi">7</span><span class="o">=</span><span class="n">Me</span> <span class="o">-</span><span class="n">s</span> <span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">12</span><span class="o">=</span><span class="n">NO2</span> <span class="o">-</span><span class="n">o</span> <span class="n">tnt</span><span class="o">.</span><span class="n">xyz</span>
 </pre></div>
 </div>
@@ -497,7 +503,7 @@ We are writing this to a file named tnt.xyz.</p>
 names of substituents.
 This makes it easy to use substituents that are not in the AaronTools library.
 Simply prefix the name with <code class="code docutils literal notranslate"><span class="pre">iupac:</span></code>:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>substitute.py benzene.xyz --minimize -s 7=iupac:cinnamyl -s 8,9,12=iupac:butyl -o tnt.xyz
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>substitute.py benzene.xyz --minimize -s 7=iupac:cinnamyl -s 8,9,12=iupac:butyl -o new.xyz
 </pre></div>
 </div>
 <p>This does require an internet connection to fetch structures from the
@@ -525,10 +531,10 @@ To make the input file for the optimization job, run:</p>
 <li><p><code class="code docutils literal notranslate"><span class="pre">-mem</span></code> or <code class="code docutils literal notranslate"><span class="pre">--memory</span></code> specifies the allocated memory in GB</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">-p</span></code> or <code class="code docutils literal notranslate"><span class="pre">--processors</span></code> specifies the allocated number of CPU cores</p></li>
 </ul>
-<p>The Psi4 input file is written to ‘tnt.in’.
+<p>The Psi4 input file is written to :code:’tnt.in’.
 Because the ‘.in’ extension was used, it’s assumed that we want the file in Psi4 format.
 Gaussian format is assumed when ‘.com’ is used, and ORCA is assumed when ‘.inp’ is used.
-The contents of ‘tnt.in’ are:</p>
+The contents of :code:’tnt.in’ are:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">set_num_threads</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
 <span class="n">memory</span> <span class="mi">12</span> <span class="n">GB</span>
 <span class="n">basis</span> <span class="p">{</span>
@@ -564,7 +570,7 @@ The contents of ‘tnt.in’ are:</p>
 <span class="n">nrg</span> <span class="o">=</span> <span class="n">frequencies</span><span class="p">(</span><span class="s1">&#39;b3lyp&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Note that <code class="code docutils literal notranslate"><span class="pre">makeInput.py</span></code> can (try to) read the level of theory and selected other options from output files and then use this to construct a new input file using the last geometry but same level of theory as the previous calculation:
+<p>Note that <code class="code docutils literal notranslate"><span class="pre">makeInput.py</span></code> can (try to) read the level of theory and selected other options from output files and then use this to construct a new input file using the last geometry but same level of theory as the previous calculation.
 For instance, the following will read the final geometry from <code class="code docutils literal notranslate"><span class="pre">tnt.out</span></code> and then build a new input file using the same method and basis.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>makeInput.py -u tnt.out -o tnt.in
 </pre></div>

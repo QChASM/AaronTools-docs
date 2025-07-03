@@ -458,7 +458,7 @@ Here we use ORCA as an example, but the script below would instead use Psi4 or G
 </pre></div>
 </div>
 <p>After these are run to completion, we could submit B3LYP-D3/6-311+G(d,p)/LANL2DZ single point energies using the following:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># build Gaussian input files for Single Point calculations on all XYZ files in </span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># build Gaussian input files for Single Point calculations on all LOG files in </span>
 <span class="c1"># current directory </span>
 <span class="c1"># use LANL2DZ basis and ECP on any transition metal and 6-311+G(d,p) on everything else</span>
 
@@ -484,10 +484,10 @@ Here we use ORCA as an example, but the script below would instead use Psi4 or G
     <span class="n">job_type</span><span class="o">=</span><span class="n">SinglePointJob</span><span class="p">()</span>
 <span class="p">)</span>
 
-<span class="c1"># loop over XYZ files in current directory</span>
-<span class="k">for</span> <span class="n">XYZ</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.xyz&quot;</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="n">XYZ</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>   <span class="c1"># grab name without .xyz ending</span>
-    <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="n">XYZ</span><span class="p">)</span>       <span class="c1"># build AaronTools geometry</span>
+<span class="c1"># loop over LOG files in current directory</span>
+<span class="k">for</span> <span class="n">LOG</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.xyz&quot;</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">LOG</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>   <span class="c1"># grab name without .log ending</span>
+    <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="n">LOG</span><span class="p">)</span>       <span class="c1"># build AaronTools geometry</span>
     <span class="n">outfile</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">.sp.com&quot;</span> <span class="c1"># build filename with .com extension for Gaussian</span>
     <span class="n">geom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outfile</span><span class="o">=</span><span class="n">outfile</span><span class="p">,</span> <span class="n">theory</span><span class="o">=</span><span class="n">method</span><span class="p">)</span> <span class="c1"># make input file</span>
 

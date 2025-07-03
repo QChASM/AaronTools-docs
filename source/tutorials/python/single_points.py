@@ -1,4 +1,4 @@
-# build Gaussian input files for Single Point calculations on all XYZ files in 
+# build Gaussian input files for Single Point calculations on all LOG files in 
 # current directory 
 # use LANL2DZ basis and ECP on any transition metal and 6-311+G(d,p) on everything else
 
@@ -24,10 +24,10 @@ method = Theory(
     job_type=SinglePointJob()
 )
 
-# loop over XYZ files in current directory
-for XYZ in glob.glob("*.xyz"):
-    name = XYZ.split('.')[0]   # grab name without .xyz ending
-    geom = Geometry(XYZ)       # build AaronTools geometry
+# loop over LOG files in current directory
+for LOG in glob.glob("*.xyz"):
+    name = LOG.split('.')[0]   # grab name without .log ending
+    geom = Geometry(LOG)       # build AaronTools geometry
     outfile = f"{name}.sp.com" # build filename with .com extension for Gaussian
     geom.write(outfile=outfile, theory=method) # make input file
 
