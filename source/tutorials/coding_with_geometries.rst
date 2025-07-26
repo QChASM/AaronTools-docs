@@ -326,6 +326,13 @@ which is a subclass of :code:`Finder`:
 
 To create your own working Finder subclass, you'll need to define a get_matching_atoms method, which is given a list of atoms and the geometry passed to Geometry.find. This method should return a list of the given atoms that match the Finder's criteria.
 
+Two tips for working with Finders:
+#. A Finder will return a list of atoms. 
+   #. Even if you only expect a single atom, it will still be returned as a list so you need to grab that single element (e.g. :code:`geom.find('N')[0]` to get the one N atom in a molecule.
+   #. Depending on what you want to do with these atoms you might need to then create a new :code:`Geometry` object from this list of atoms.
+   #. These atoms are the actual atom objects from the original :code:`Geometry` object. In other words, if you do what I just suggested above and built a new :code:`Geometry` object using these atoms it will most likely screw up your original :code:`Geometry` object (by redefining bonds between atoms, etc. based on the subset of atoms returned by the finder).
+#. Assume that the atoms returned by a Finder will be in random order. I doubt this is always true, but Finders do not seem to preserve atom ordering. Consider yourself warned!
+
 AaronTools has several built-in finders. See the :doc:`../api/finders` page to see a list.
 
 Structure Modification 

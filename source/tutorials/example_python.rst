@@ -52,7 +52,7 @@ First, we need to define the :code:`components` of :code:`Geometry` to be a list
 Second, in the :code:`theory` object we need to use :code:`SAPTMethod` instead of :code:`Method`.
 Finally, the :code:`charge` and :code:`multiplicity` need to be lists consisting of the charge/multiplicity for the whole system and each monomer.
 
-For instance, the following will submit a Psi4 job to calcualte the SAPT0/jun-cc-pVDZ energy on a dimer (read from :code:`dimer.xyz`) but use the AaronTools function :py:meth:`AaronTools.geometry.Geometry.get_monomers` to separate the monomers:
+For instance, the following will submit a Psi4 job to calculate the SAPT0/jun-cc-pVDZ energy on a dimer (read from :code:`dimer.xyz`) but use the AaronTools function :py:meth:`AaronTools.geometry.Geometry.get_monomers` to separate the monomers:
 
 .. literalinclude:: python/sapt.py
    :language: python
