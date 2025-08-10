@@ -22,6 +22,8 @@ method = Theory(
     empirical_dispersion="D3",
     basis=basis,
     job_type=[OptimizationJob(), FrequencyJob()]
+    processors=8,
+    memory=12,
 )
 
 # loop over XYZ files in current directory

@@ -25,7 +25,7 @@ outfile='dimer.in'
 
 # write Psi4 input then submit job
 dimer.write(outfile=outfile, theory=theory)
-submit_process = SubmitProcess(outfile, 12, 8, 12)
+submit_process = SubmitProcess(outfile, 12, 4, 8)
 try:
     submit_process.submit()
 except Exception as e:

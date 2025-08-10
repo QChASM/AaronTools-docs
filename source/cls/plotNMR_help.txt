@@ -1,0 +1,76 @@
+.. code-block:: text
+
+    usage: plotNMR.py [-h] [-o OUTFILE] [-pf PULSE_FREQUENCY] [-e ELEMENT] [-c COUPLE_WITH] [-j COUPLING_THRESHOLD]
+                      [-p {pseudo-voigt,gaussian,lorentzian,delta}] [-m VOIGT_MIXING] [-fwhm FWHM] [-s POINT_SPACING]
+                      [-ss SCALAR_SCALE] [-l LINEAR_SCALE] [-nr] [-sc CENTERS] [-sw WIDTHS] [-r RANGES] [-fw FIG_WIDTH]
+                      [-fh FIG_HEIGHT] [-csv EXP_DATA [EXP_DATA ...]] [-rx]
+                      files [files ...]
+    
+    plot NMR spectrum
+    
+    positional arguments:
+      files                 NMR job output file(s)
+    
+    options:
+      -h, --help            show this help message and exit
+      -o OUTFILE, --output OUTFILE
+                            output destination
+                            Default: show plot
+      -pf PULSE_FREQUENCY, --pulse-frequency PULSE_FREQUENCY
+                            pulse frequency
+                            Default: 60 MHz
+      -e ELEMENT, --element ELEMENT
+                            plot shifts for specified element
+                            Default: H
+      -c COUPLE_WITH, --couple-with COUPLE_WITH
+                            split only with the specified elements
+                            Default: some common odd isotopes
+      -j COUPLING_THRESHOLD, --coupling-threshold COUPLING_THRESHOLD
+                            coupling threshold when applying splits
+                            Default: 0 Hz
+      -s POINT_SPACING, --point-spacing POINT_SPACING
+                            spacing between each x value
+                            Default: a non-uniform spacing that is more dense near peaks
+      -nr, --no-reverse     do not reverse x-axis
+      -fw FIG_WIDTH, --figure-width FIG_WIDTH
+                            width of figure in inches
+      -fh FIG_HEIGHT, --figure-height FIG_HEIGHT
+                            height of figure in inches
+      -csv EXP_DATA [EXP_DATA ...], --experimental-csv EXP_DATA [EXP_DATA ...]
+                            CSV file containing observed spectrum data, which will be plotted on top
+                            frequency job files should not come directly after this flag
+      -rx, --rotate-x-ticks
+                            rotate x-axis tick labels by 45 degrees
+    
+    peak options:
+      -p {pseudo-voigt,gaussian,lorentzian,delta}, --peak-type {pseudo-voigt,gaussian,lorentzian,delta}
+                            function for peaks
+                            Default: lorentzian
+      -m VOIGT_MIXING, --voigt-mixing VOIGT_MIXING
+                            fraction of pseudo-Voigt that is Gaussian
+                            Default: 0.5
+      -fwhm FWHM, --full-width-half-max FWHM
+                            full width at half max. of peaks
+                            Default: 2.5 Hz
+    
+    scale shifts:
+      -ss SCALAR_SCALE, --scalar-shift SCALAR_SCALE
+                            shift centers
+                            Default: 0 (no shift)
+      -l LINEAR_SCALE, --linear-scale LINEAR_SCALE
+                            multiply the center of each shift by linear_scale
+                            Default: -1 (no scaling)
+    
+    x-centered interruptions:
+      -sc CENTERS, --section-centers CENTERS
+                            split plot into sections with a section centered on each of the specified values
+                            values should be separated by commas
+      -sw WIDTHS, --section-widths WIDTHS
+                            width of each section specified by -c/--centers
+                            should be separated by commas, with one for each section
+    
+    x-range interruptions:
+      -r RANGES, --ranges RANGES
+                            split plot into sections (e.g. 0-4,7-10)
+    
+    

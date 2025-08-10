@@ -17,12 +17,12 @@ for XYZ in `/bin/ls *.xyz`; do
                 echo $name finished!
             else
                 echo $name optimized to a saddle point--following imaginary mode
-                follow.py $name.log | makeInput.py -m $method -b "$basis" -opt -freq -o $name.com
+                follow.py $name.log | makeInput.py -m $method -b "$basis" -opt -freq -o $name.com -np 8 -mem 12
                 jobSubmit.py $name.com -p 8 -m 12
             fi
         else
             echo $name not finished! Restarting
-            makeInput.py $name.log -m $method -b "$basis" -opt -freq -o $name.com
+            makeInput.py $name.log -m $method -b "$basis" -opt -freq -o $name.com -np 8 -mem 12
             jobSubmit.py $name.com -p 8 -m 12
         fi
     fi

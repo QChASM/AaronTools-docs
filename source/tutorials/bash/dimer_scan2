@@ -5,7 +5,7 @@
 for x in `seq 0 0.5 5`; do
     for z in `seq 3 0.2 4`; do
         name=x.$x.z.$z
-        combineMonomers.py benzene.xyz benzene.xyz | translate.py -v $x 0 $z -t 13-24 | makeInput.py -m wb97xd -b def2tzvp -o $name.com
+        combineMonomers.py benzene.xyz benzene.xyz | translate.py -v $x 0 $z -t 13-24 | makeInput.py -m wb97xd -b def2tzvp -o $name.com -np 8 -mem 12
         jobSubmit.py $name.com -p 8 -m 12
     done
 done

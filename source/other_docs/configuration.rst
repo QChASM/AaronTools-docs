@@ -7,5 +7,5 @@ Customization
     
     job_templates
     libraries
-    
+    configuration_files
     

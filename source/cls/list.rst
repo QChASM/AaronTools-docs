@@ -81,10 +81,12 @@ The page for each command line script shows the usage info and possibly further 
     condensedFukui
     grabStatus
     grabThermo
-    plotAverageIR
-    plotAverageUVVis
     plotIR
+    plotAverageIR
     plotUVVis
+    plotAverageUVVis
+    plotNMR
+    plotAverageNMR
     printAtomInfo
     printAtomPairInfo
     printCube

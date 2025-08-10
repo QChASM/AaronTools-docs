@@ -10,7 +10,7 @@ for func in wb97xd b3lyp m062x; do
         cd $basis_name
         for mol in `cat ../../molecules`; do
             safe_name=`echo $mol | tr -dc [:alnum:]` # strip non alphanumeric characters from name
-            fetchMolecule.py -i "$mol" | makeInput.py -m $func -b $basis -opt -freq -o $safe_name.com
+            fetchMolecule.py -i "$mol" | makeInput.py -m $func -b $basis -opt -freq -o $safe_name.com -np 8 -mem 12
             jobSubmit.py $safe_name.com -p 8 -m 12
         done
         cd ..

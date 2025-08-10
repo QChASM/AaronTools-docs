@@ -6,34 +6,34 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="AaronTools and Matplotlib" href="Jupyter_Matplotlib.html" /><link rel="prev" title="Working with AaronTools in Jupyter Notebooks" href="Jupyter_basics.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/tutorials/Jupyter_Psi4.html" />
 
-    <!-- Generated with Sphinx 8.0.2 and Furo 2024.08.06 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
         <title>AaronTools and Psi4 - AaronTools 1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
 
 
 <style>
   body {
-    --color-code-background: #f8f8f8;
-  --color-code-foreground: black;
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
   
   }
   @media not print {
     body[data-theme="dark"] {
-      --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
+      --color-code-background: #2b2b2b;
+  --color-code-foreground: #f8f8f2;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
-        --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
+        --color-code-background: #2b2b2b;
+  --color-code-foreground: #f8f8f2;
   
       }
     }
@@ -193,7 +193,6 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
-  
   <span class="sidebar-brand-text">AaronTools 1.1 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
@@ -212,6 +211,7 @@
 <li class="toctree-l2"><a class="reference internal" href="coding_with_geometries.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="coding_with_theories.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="coding_with_filereaders.html">Coding with <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_python.html">Example Python Scripts for Common Tasks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="zmat.html">Converting Z-Matrices to Cartesian Coordinates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Jupyter_basics.html">Working with AaronTools in Jupyter Notebooks</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">AaronTools and Psi4</a></li>
@@ -283,6 +283,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../other_docs/configuration.html">Customization</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Customization</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../other_docs/job_templates.html">Job Submission Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../other_docs/libraries.html">AaronTools Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../other_docs/configuration_files.html">INI Files</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/api.html">Python API Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Python API Documentation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -346,7 +347,7 @@
     <span class="visually-hidden">View this page</span>
   </a>
 </div><div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/QChASM/AaronTools-docs/edit/main/source/tutorials/Jupyter_Psi4.ipynb" title="Edit this page">
+  <a class="muted-link" href="https://github.com/QChASM/AaronTools-docs/edit/main/source/tutorials/Jupyter_Psi4.ipynb" rel="edit" title="Edit this page">
     <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
@@ -373,8 +374,8 @@ By combining this with the molecular building, visualization, and analysis tools
 <p>For example, below we first build formadlehyde using AaronTools:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="s1">&#39;formaldehyde&#39;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="s1">&#39;iupac&#39;</span><span class="p">)</span>
 <span class="n">geom</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
@@ -454,7 +455,7 @@ Note that the native geometry optimizer in Psi4 (OptKing) will print all sorts o
 Once finished, it should say <code class="docutils literal notranslate"><span class="pre">Optimization</span> <span class="pre">complete</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">psi4</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">psi4</span>
 <span class="n">mol</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">convert_to_Psi4</span><span class="p">()</span>
 
 <span class="c1"># set psi4 parameters </span>
@@ -570,8 +571,8 @@ We can list the values of all real and imaginary frequencies or print a table of
 <p>We also plot a simulated IR spectrum using <code class="docutils literal notranslate"><span class="pre">freq.plot_ir()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.fileIO</span> <span class="kn">import</span> <span class="n">FileReader</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.fileIO</span><span class="w"> </span><span class="kn">import</span> <span class="n">FileReader</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="c1"># create FileReader</span>
 <span class="n">fr</span> <span class="o">=</span> <span class="n">FileReader</span><span class="p">(</span><span class="s1">&#39;formaldehyde_freq.dat&#39;</span><span class="p">,</span> <span class="n">just_geom</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -626,7 +627,7 @@ By default, Psi4 computed these quantities at 298.15K. However, we can use Aaron
 We do this using using a <code class="docutils literal notranslate"><span class="pre">CompOutput</span></code> object in AaronTools, which can be created by reading any QM output file containing frequencies.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.comp_output</span> <span class="kn">import</span> <span class="n">CompOutput</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.comp_output</span><span class="w"> </span><span class="kn">import</span> <span class="n">CompOutput</span>
 
 <span class="c1"># create CompOutput object </span>
 <span class="n">co</span> <span class="o">=</span> <span class="n">CompOutput</span><span class="p">(</span><span class="s1">&#39;water_freq.dat&#39;</span><span class="p">)</span>
@@ -706,9 +707,9 @@ For formaldehyde, these three approximations will be essentially equivalent, bec
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=a4d4be8e"></script>
     </body>

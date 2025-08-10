@@ -22,6 +22,8 @@ method = Theory(
     empirical_dispersion="D3",
     basis=basis,
     job_type=SinglePointJob()
+    processors=8,
+    memory=12,
 )
 
 # loop over LOG files in current directory

@@ -1,0 +1,878 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Python API Documentation" href="../api/api.html" /><link rel="prev" title="AaronTools Libraries" href="libraries.html" />
+        <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/other_docs/configuration_files.html" />
+
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
+        <title>INI Files - AaronTools 1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #2b2b2b;
+  --color-code-foreground: #f8f8f2;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #2b2b2b;
+  --color-code-foreground: #f8f8f2;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">AaronTools 1.1 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  <span class="sidebar-brand-text">AaronTools 1.1 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Pages:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/install.html">Installation Guide</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tutorials/tut_list.html">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Tutorials</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/cls_tutorials.html">Intro to Command Line Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/example_bash.html">Example BASH Scripts for Common Tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/adding_to_libraries.html">Adding Structures to your AaronTools Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/coding_with_geometries.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/coding_with_theories.html">Coding with <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/coding_with_filereaders.html">Coding with <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/example_python.html">Example Python Scripts for Common Tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/zmat.html">Converting Z-Matrices to Cartesian Coordinates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/Jupyter_basics.html">Working with AaronTools in Jupyter Notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/Jupyter_Psi4.html">AaronTools and Psi4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/Jupyter_Matplotlib.html">AaronTools and Matplotlib</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cls/list.html">List of Command Line Scripts</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of List of Command Line Scripts</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cls/angle.html">angle.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/bond.html">bond.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/changeChirality.html">changeChirality.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/changeElement.html">changeElement.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/closeRing.html">closeRing.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/dihedral.html">dihedral.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/follow.html">follow.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/getMonomers.html">getMonomers.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/combineMonomers.html">combineMonomers.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/interpolate.html">interpolate.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/makeConf.html">makeConf.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/mapLigand.html">mapLigand.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/mirror.html">mirror.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/multiSubstitute.html">multiSubstitute.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/removeFragment.html">removeFragment.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/rmsdAlign.html">rmsdAlign.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/rotate.html">rotate.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/substitute.html">substitute.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/symmetrize.html">symmetrize.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/translate.html">translate.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/averageBuriedVolume.html">averageBuriedVolume.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/averageSterimol.html">averageSterimol.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/bond.html">bond.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/coneAngle.html">coneAngle.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/findAtoms.html">findAtoms.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/ligandSterimol.html">ligandSterimol.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/percentVolumeBuried.html">percentVolumeBuried.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/pointGroup.html">pointGroup.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/rmsdAlign.html">rmsdAlign.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/solidAngle.html">solidAngle.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/stericMap.html">stericMap.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/stericMapDifference.html">stericMapDifference.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/substituentSterimol.html">substituentSterimol.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/unique.html">unique.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/fetchMolecule.html">fetchMolecule.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/getCoordinationComplexes.html">getCoordinationComplexes.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/jobSubmit.html">jobSubmit.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/makeCrestInput.html">makeCrestInput.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/makeInput.html">makeInput.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/condensedFukui.html">condensedFukui.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/grabStatus.html">grabStatus.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/grabThermo.html">grabThermo.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageIR.html">plotAverageIR.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageUVVis.html">plotAverageUVVis.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotIR.html">plotIR.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotUVVis.html">plotUVVis.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/printAtomInfo.html">printAtomInfo.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/printAtomPairInfo.html">printAtomPairInfo.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/printCube.html">printCube.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/printFreq.html">printFreq.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/printFreqBild.html">printFreqBild.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/printInfo.html">printInfo.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/printXYZ.html">printXYZ.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/getCitations.html">getCitations.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/libaddLigand.html">libaddLigand.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/libaddRing.html">libaddRing.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/libaddSubstituent.html">libaddSubstituent.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/listChanges.html">listChanges.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/parsePDF.html">parsePDF.py</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="configuration.html">Customization</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Customization</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="job_templates.html">Job Submission Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libraries.html">AaronTools Libraries</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">INI Files</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api/api.html">Python API Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Python API Documentation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/geometry.html"><code class="docutils literal notranslate"><span class="pre">Geometry</span></code> class</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api/fileIO.html">Reading and Writing Files</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Reading and Writing Files</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/filereader.html"><code class="docutils literal notranslate"><span class="pre">FileReader</span></code> class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/filewriter.html"><code class="docutils literal notranslate"><span class="pre">FileWriter</span></code> class</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/finders.html">Finders</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api/theory.html"><code class="docutils literal notranslate"><span class="pre">theory</span></code> module</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of theory module</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/theory_class.html"><code class="docutils literal notranslate"><span class="pre">Theory</span></code> class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/theory_parameters.html">Theory parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/job_types.html"><code class="docutils literal notranslate"><span class="pre">JobType</span></code> classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/basis.html">Basis Set classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/method.html"><code class="docutils literal notranslate"><span class="pre">Method</span></code> classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/dispersion.html"><code class="docutils literal notranslate"><span class="pre">EmpiricalDispersion</span></code> class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/solvent.html"><code class="docutils literal notranslate"><span class="pre">ImplicitSolvent</span></code> class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/integration_grid.html"><code class="docutils literal notranslate"><span class="pre">IntegrationGrid</span></code> class</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/atoms.html"><code class="docutils literal notranslate"><span class="pre">Atom</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/component.html"><code class="docutils literal notranslate"><span class="pre">Component</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/substituent.html"><code class="docutils literal notranslate"><span class="pre">Substituent</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/rings.html"><code class="docutils literal notranslate"><span class="pre">Ring</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/spectra.html">Spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/comp_output.html"><code class="docutils literal notranslate"><span class="pre">CompOutput</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/orbitals.html"><code class="docutils literal notranslate"><span class="pre">Orbital</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/job_control.html"><code class="docutils literal notranslate"><span class="pre">SubmitProcess</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/json_extension.html">JSON Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/symmetry.html"><code class="docutils literal notranslate"><span class="pre">PointGroup</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/utils.html"><code class="docutils literal notranslate"><span class="pre">Utilities</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../advanced/advanced.html">Advanced Topics</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Advanced Topics</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/algorithm_implementation.html">Structure Analysis and Descriptor Implementation</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="https://github.com/QChASM/AaronTools-docs/blob/main/source/other_docs/configuration_files.rst?plain=true" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div><div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/QChASM/AaronTools-docs/edit/main/source/other_docs/configuration_files.rst" rel="edit" title="Edit this page">
+    <svg><use href="#svg-pencil"></use></svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="ini-files">
+<h1>INI Files<a class="headerlink" href="#ini-files" title="Link to this heading">¶</a></h1>
+<p>AaronTools provides INI configuration file parsing with <code class="docutils literal notranslate"><span class="pre">AaronTools.config.Config(&quot;/path/to/config.ini&quot;)</span></code> allowing one to cleanly pass information AaronTools needs.
+This functionality is also used by <a class="reference external" href="https://github.com/QChASM/AaronJr">AaronJr</a>.
+Note that AaronJr development is not complete.</p>
+<p>Built-in configuration defaults are provided in <code class="docutils literal notranslate"><span class="pre">$QCHASM/AaronTools/config.ini</span></code> and user-defined defaults can be put in <code class="docutils literal notranslate"><span class="pre">$AARONLIB/config.ini</span></code> to stream-line job-specific configuration files.</p>
+<section id="ini-configuration-format-overview">
+<h2>INI configuration format overview<a class="headerlink" href="#ini-configuration-format-overview" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">global_option</span> <span class="o">=</span> <span class="n">value</span>
+
+<span class="p">[</span><span class="n">Section</span><span class="p">]</span>
+<span class="n">foo</span> <span class="o">=</span> <span class="n">bar</span>
+<span class="n">multiword</span> <span class="n">option</span> <span class="o">=</span> <span class="n">multiword</span> <span class="n">value</span>
+
+<span class="p">[</span><span class="n">Other</span> <span class="n">Section</span><span class="p">]</span>
+<span class="n">hello</span> <span class="o">=</span> <span class="n">world</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://docs.python.org/3/library/configparser.html#supported-ini-file-structure">See here for more info</a></p>
+<p>AaronJr also supports prefixing any option with a number corresponding to a step in the workflow. By doing so, that option will only be applied to a particular step. Eg:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Section</span><span class="p">]</span>
+<span class="n">option</span> <span class="o">=</span> <span class="n">value_default</span>
+<span class="mi">1</span> <span class="n">option</span> <span class="o">=</span> <span class="n">value_1</span>
+</pre></div>
+</div>
+<p>will use <code class="docutils literal notranslate"><span class="pre">option</span> <span class="pre">=</span> <span class="pre">value_1</span></code> for the first step of the workflow and use <code class="docutils literal notranslate"><span class="pre">option=value_default</span></code> for all other steps.
+This is especially helpful when the workflow includes higher-level single points or when relaxing substituted components using a lower-level of theory prior to optimization.</p>
+</section>
+<section id="configuration-sections-and-their-options">
+<h2>Configuration sections and their options<a class="headerlink" href="#configuration-sections-and-their-options" title="Link to this heading">¶</a></h2>
+<section id="default">
+<h3>[DEFAULT]<a class="headerlink" href="#default" title="Link to this heading">¶</a></h3>
+<p>This is the global section, and option/value pairs are available in all sections.
+The <code class="docutils literal notranslate"><span class="pre">[DEFAULT]</span></code> section header is optional as long as the global option/value pairs come at the top of the file.</p>
+<p>Option descriptions:</p>
+<ul class="simple">
+<li><p>local_only - set to true to disable any features that utilize web APIs (e.g. fetching molecular structures from IUPAC names)</p></li>
+<li><p>name - a name for AaronTools to use for the structure/job; will default to the filename of the configuration file used without the “.ini” extension</p></li>
+<li><p>project - this can be set to help tag multiple config files as part of a single project; it doesn’t really do anything concrete (like affecting file name conventions), but can be helpful for organization or when searching for groups of jobs.</p></li>
+</ul>
+</section>
+<section id="geometry">
+<h3>[Geometry]<a class="headerlink" href="#geometry" title="Link to this heading">¶</a></h3>
+<p>This is the section used to import molecular structures.</p>
+<p>Option descriptions:</p>
+<ul class="simple">
+<li><p>structure - loads the value as a <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Geometry()</span></code></a> object; the value can be a file name, a smiles string, or a subdirectory (using a subdirectory will import all structures in that location)</p></li>
+<li><p>constraints - comma-separated list of atom-index tuples; applied only for constrained optimizations (see <a class="reference internal" href="../tutorials/coding_with_theories.html#job-types"><span class="std std-ref">Job Types</span></a>)</p></li>
+</ul>
+<p>This will constrain the 1-2 bond length, the 3-4-5 bond angle, and the 6-7-8-9 dihedral</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">constraints</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Special options:</p>
+<section id="call">
+<h4>&amp;call<a class="headerlink" href="#call" title="Link to this heading">¶</a></h4>
+<p>This is used to apply <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Geometry()</span></code></a> methods to the imported structure(s).
+Take care to use the same syntax you would if calling the method within a Python script when providing the arguments for the function call, eg: using quotes around atom indices since they should be passed as strings, capitalizing boolean values, etc.
+This will set the 1-2-3-4 dihedral to 60-degrees and change atom 2 to Si.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">structure</span> <span class="o">=</span> <span class="n">ethane</span><span class="o">.</span><span class="n">xyz</span>
+<span class="o">&amp;</span><span class="n">call</span><span class="p">:</span>
+    <span class="n">structure</span><span class="o">.</span><span class="n">change_dihedral</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+    <span class="n">structure</span><span class="o">.</span><span class="n">change_element</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;Si&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="for-name-in-iterator">
+<h4>&amp;for {name} in {iterator}<a class="headerlink" href="#for-name-in-iterator" title="Link to this heading">¶</a></h4>
+<p>This is used to generate starting structures using a for loop; use a suffix on the <cite>structure</cite> key to distinguish the generated structures from one another.
+The following will create structures corresponding to a H-C-C-H dihedral scan in 10-degree increments.
+Note that we are changing the dihedral for <code class="docutils literal notranslate"><span class="pre">structure.0</span></code> to 0-degrees (just in case the dihedral for the structure in <code class="docutils literal notranslate"><span class="pre">ethane.xyz</span></code> is not equal to 0), so we iterate starting at 0 degrees.
+Additionally, note that <code class="docutils literal notranslate"><span class="pre">range(a,</span> <span class="pre">b,</span> <span class="pre">step)</span></code> follows Python’s builtin implementation of the <code class="docutils literal notranslate"><span class="pre">range</span></code> function, specifically it will iterate from <code class="docutils literal notranslate"><span class="pre">a</span></code> up to <em>but not including</em> <code class="docutils literal notranslate"><span class="pre">b</span></code> in increments of <code class="docutils literal notranslate"><span class="pre">step</span></code>.
+Finally, most Geometry() methods are implemented as in-place changes to the structure, so it will often be necessary to call <code class="docutils literal notranslate"><span class="pre">copy()</span></code> to get a separate structure to alter.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Geometry</span><span class="p">]</span>
+<span class="n">structure</span><span class="mf">.0</span> <span class="o">=</span> <span class="n">ethane</span><span class="o">.</span><span class="n">xyz</span>
+<span class="o">&amp;</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">370</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="n">structure</span><span class="o">.</span><span class="n">i</span> <span class="o">=</span> <span class="n">structure</span><span class="mf">.0</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">structure</span><span class="o">.</span><span class="n">i</span><span class="o">.</span><span class="n">change_dihedral</span><span class="p">(</span><span class="s2">&quot;3&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;6&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The following will create several structures, in which atom 4 (a carbon) will be changed to various other elements:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Geometry</span><span class="p">]</span>
+<span class="n">structure</span><span class="o">.</span><span class="n">C</span> <span class="o">=</span> <span class="n">hydrocarbon</span><span class="o">.</span><span class="n">xyz</span>
+<span class="o">&amp;</span><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;O&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;Si&#39;</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">]:</span>
+    <span class="n">structure</span><span class="o">.</span><span class="n">element</span> <span class="o">=</span> <span class="n">structure</span><span class="o">.</span><span class="n">C</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">structure</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">change_element</span><span class="p">(</span><span class="s2">&quot;4&quot;</span><span class="p">,</span> <span class="n">element</span><span class="p">,</span> <span class="n">adjust_bonds</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">adjust_hydrogens</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="theory">
+<h3>[Theory]<a class="headerlink" href="#theory" title="Link to this heading">¶</a></h3>
+<p>This section is used to specify options that will be used to define the level of theory requested in the input files built for computational software.</p>
+<p>Option descriptions:</p>
+<ul class="simple">
+<li><p>charge - the charge of the structure</p></li>
+<li><p>multiplicity - the multiplicity of the structure</p></li>
+<li><p>method - the name of the DFT or ab initio method requested</p></li>
+<li><p>basis - basis set info - see <a class="reference internal" href="#basis-options"><span class="std std-ref">Basis Options</span></a></p></li>
+<li><p>ecp - ECP info - see <a class="reference internal" href="#basis-options"><span class="std std-ref">Basis Options</span></a></p></li>
+<li><p>temperature - the temperature in Kelvin</p></li>
+<li><p>solvent - the solvent name (defaults to gas)</p></li>
+<li><p>solvent model - the solvent model to use (unused if solvent=gas)</p></li>
+</ul>
+<p>Other options can also be provided, depending on which computational software is to be used.
+See <a class="reference internal" href="#software-specific-theory-options"><span class="std std-ref">Software Specific Theory Options</span></a> for more info.</p>
+</section>
+<section id="job">
+<h3>[Job]<a class="headerlink" href="#job" title="Link to this heading">¶</a></h3>
+<p>This section is used to specify options that define the computational job, eg: what to compute, what software to use, resources to request, etc.
+Not all of these options will need to be specified.
+Check the template file used to build computational files.
+Note that if you are using AaronJr, the <code class="docutils literal notranslate"><span class="pre">type</span></code> option will be defined for you if you decide to use one of our pre-built workflows.</p>
+<p>Option descriptions:</p>
+<ul class="simple">
+<li><p>type - what kind of computation to run (optimization, frequencies, single-point, etc.) See <a class="reference internal" href="../tutorials/coding_with_theories.html#job-types"><span class="std std-ref">Job types</span></a> for more info.</p></li>
+<li><p>exec_type - the computational software to use (“gaussian”, “orca”, “psi4”, “q-chem”, “xtb”, or “sqm”)</p></li>
+<li><p>queue - the name of the queue to submit to</p></li>
+<li><p>memory - the amount of memory to request (eg: <code class="docutils literal notranslate"><span class="pre">memory=4GB</span></code>)</p></li>
+<li><p>ppmem - the per-processor memory to request</p></li>
+<li><p>exec_memory - the amount of memory to tell the executable to use (only use if different from memory)</p></li>
+<li><p>procs - the number of processors to request</p></li>
+<li><p>ppn - the number of processes per node</p></li>
+<li><p>nodes - the number of nodes to request</p></li>
+<li><p>wall - the wall time to request</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">procs</span></code> and <code class="docutils literal notranslate"><span class="pre">memory</span></code> options also control the default memory and processors for the <a class="reference internal" href="../cls/makeInput.html"><span class="doc">makeInput.py</span></a> and <a class="reference internal" href="../cls/jobSubmit.html"><span class="doc">jobSubmit.py</span></a> command line scripts.</p>
+<p>The user can add any other options they wish to be used when filling in job submission templates or execuatable templates. See <a class="reference internal" href="job_templates.html"><span class="doc">Job Submission Templates</span></a> for more information.</p>
+</section>
+<section id="hpc">
+<h3>[HPC]<a class="headerlink" href="#hpc" title="Link to this heading">¶</a></h3>
+<p>These options are used to define how to connect to the HPC and queuing system when submitting jobs.</p>
+<p>Option descriptions:</p>
+<ul class="simple">
+<li><p>user - the user name used to login to the HPC</p></li>
+<li><p>host - the host name of the HPC</p></li>
+<li><p>transfer_host - if a different host name is used when transferring files, this option is available (defaults to the value of <cite>host</cite>)</p></li>
+<li><p>scratch_dir - the top of the user’s scratch directory on the HPC</p></li>
+<li><p>queue_type - the type of queuing system used on the HPC (eg: PBS, SLURM, etc.)</p></li>
+</ul>
+</section>
+<section id="substitution">
+<h3>[Substitution]<a class="headerlink" href="#substitution" title="Link to this heading">¶</a></h3>
+<p>This section is used to define the changes that will be made to a Geometry object when using AaronJr.
+To quickly list what changes will be made to to generate the new structures, use the <code class="docutils literal notranslate"><span class="pre">listChanges.py</span></code> command-line script included with AaronTools.</p>
+<p>Options:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">reopt</span> <span class="pre">=</span> <span class="pre">True</span></code> to re-optimize the template structure or False to only add changed structures to the workflow (default is False)</p></li>
+</ul>
+<p>Substitution requests are illustrated in the following examples:</p>
+<p>Example 1: This creates two structures. One formed by replacing only the functional group at atom #1 with a methyl group, and one by replacing both functional groups at atom 1 and atom 2 with an ethyl group.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mySub1</span><span class="p">:</span> <span class="mi">1</span> <span class="o">=</span> <span class="n">Me</span>
+<span class="n">mySub2</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">=</span> <span class="n">Et</span>
+</pre></div>
+</div>
+<p>Example 2: This creates one structure, where a methyl group replaces groups at atoms 1 and 2 and an alcohol group at atom 3</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mySub</span><span class="p">:</span>
+    <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">=</span> <span class="n">Me</span>
+    <span class="mi">3</span> <span class="o">=</span> <span class="n">OH</span>
+</pre></div>
+</div>
+<p>Or equivalently (note the semicolon!):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mySub</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">=</span><span class="n">Me</span><span class="p">;</span> <span class="mi">3</span><span class="o">=</span><span class="n">OH</span>
+</pre></div>
+</div>
+<p>You can also request combinations of substitutions:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">combinations</span><span class="p">:</span>
+    <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">=</span> <span class="n">H</span><span class="p">,</span> <span class="n">Me</span><span class="p">,</span> <span class="n">Et</span><span class="p">,</span> <span class="n">iPr</span>
+    <span class="mi">3</span> <span class="o">=</span> <span class="n">F</span><span class="p">,</span> <span class="n">Cl</span><span class="p">,</span> <span class="n">Br</span><span class="p">,</span> <span class="n">I</span>
+</pre></div>
+</div>
+<p>The snippet above produces 16 structures: all combinations of replacing atoms 1 and 2 with H, Me, Et, or iPr groups and replacing atom 3 with F, Cl, Br, or I.
+Combinations can also be used similar to a list:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">combinations</span><span class="p">:</span>
+    <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">=</span> <span class="n">H</span><span class="p">,</span> <span class="n">Me</span><span class="p">,</span> <span class="n">Et</span><span class="p">,</span> <span class="n">iPr</span>
+</pre></div>
+</div>
+<p>is equivalent to</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">H_H</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">=</span> <span class="n">H</span>
+<span class="n">Me_Me</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">=</span> <span class="n">Me</span>
+<span class="n">Et_Et</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">=</span> <span class="n">Et</span>
+<span class="n">iPr_iPr</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">=</span> <span class="n">iPr</span>
+</pre></div>
+</div>
+<p>Allowed substituent forms:</p>
+<ul class="simple">
+<li><p>AARONLIB name (run <code class="docutils literal notranslate"><span class="pre">substitute.py</span> <span class="pre">-ls</span></code> at the command line to get a list of all available substituents or browse using ChimeraX with the SEQCROW plugin by navigating to “Tools &gt; <a class="reference external" href="https://github.com/QChASM/SEQCROW/wiki/Browse-AaronTools-Libraries-Tool">Browse AaronTools Libraries</a>” and clicking the “substituents” tab)</p></li>
+<li><p>{SMILES} with X in place of sub.end eg: <code class="docutils literal notranslate"><span class="pre">{XOH}</span></code> adds alcohol group, <code class="docutils literal notranslate"><span class="pre">{X=NH}</span></code> adds imine</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code> will simply remove the fragment without adding a new substituent</p></li>
+</ul>
+</section>
+<section id="mapping">
+<h3>[Mapping]<a class="headerlink" href="#mapping" title="Link to this heading">¶</a></h3>
+<p>“Key atoms” are used to properly map the new ligand to the old ligand.
+For transition metal centered systems, the key atoms would be the atoms of the ligand that coordinate with the metal center.
+It may be helpful to look at some of the ligands provided in the AaronTools ligand library (You can browse the AARON and AaronTools libraries at with SEQCROW’s <a class="reference external" href="https://github.com/QChASM/SEQCROW/wiki/Browse-AaronTools-Libraries-Tool">Browse AaronTools Libraries</a> tool) to see which atoms are defined as the key atoms for that ligand.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lig1</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">=</span> <span class="n">S</span><span class="o">-</span><span class="n">BINAP</span>
+</pre></div>
+</div>
+<p>Replaces the ligand(s) with key atoms 1 and 2 with the bidentate S-BINAP ligand.
+Note that the order of key atoms matters, as AaronTools will attempt to place the first key atom in the ligand template file on the first listed key atom.
+Though it doesn’t really matter with S-BINAP, since it it C<sub>2</sub>-symmetric.
+If the order were swapped (i.e. <code class="docutils literal notranslate"><span class="pre">lig1:</span> <span class="pre">2,</span> <span class="pre">1</span> <span class="pre">=</span> <span class="pre">S-BINAP</span></code>), the S-BINAP ligand would be mounted in the opposite orientation.
+This can be more complex with higher denticity ligands.</p>
+<p>For multiple mappings:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lig1</span><span class="p">:</span>
+    <span class="mi">1</span> <span class="o">=</span> <span class="n">PPh3</span>
+    <span class="mi">2</span> <span class="o">=</span> <span class="n">PPh3</span>
+<span class="n">lig2</span><span class="p">:</span>
+    <span class="mi">1</span> <span class="o">=</span> <span class="n">XPhos</span>
+    <span class="mi">2</span> <span class="o">=</span> <span class="n">XPhos</span>
+</pre></div>
+</div>
+<p>Or equivalently (note the semicolon!):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lig1</span><span class="p">:</span> <span class="mi">1</span><span class="o">=</span><span class="n">PPh3</span><span class="p">;</span> <span class="mi">2</span><span class="o">=</span><span class="n">PPh3</span>
+<span class="n">lig2</span><span class="p">:</span> <span class="mi">1</span><span class="o">=</span><span class="n">XPhos</span><span class="p">;</span> <span class="mi">2</span><span class="o">=</span><span class="n">XPhos</span>
+</pre></div>
+</div>
+<p>Replaces the ligand(s) with key atoms 1 and 2 with two monodentate PPh3 ligands (one at atom 1 and one at atom 2) to form the <code class="docutils literal notranslate"><span class="pre">lig1</span></code> structure. Does similarly with XPhos to form the <code class="docutils literal notranslate"><span class="pre">lig2</span></code> structure.</p>
+</section>
+<section id="substitutions-and-mappings-in-the-same-config-file">
+<h3>Substitutions and Mappings in the same config file<a class="headerlink" href="#substitutions-and-mappings-in-the-same-config-file" title="Link to this heading">¶</a></h3>
+<p>Structures are generated by combinatorially applying each substitution with each mapping. By default, the original template structure is not optimized again. Use the <cite>reopt</cite> option in either the [Substitution] or [Mapping] section to reoptimize the template structure.</p>
+<p>The following will generate four structures (original, sub1 only, lig1 only, sub1+lig1):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Substitution</span><span class="p">]</span>
+<span class="n">reopt</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">sub1</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">=</span><span class="n">Me</span><span class="p">,</span> <span class="mi">3</span><span class="o">=</span><span class="n">Cl</span>
+
+<span class="p">[</span><span class="n">Mapping</span><span class="p">]</span>
+<span class="n">lig1</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="o">=</span><span class="n">S</span><span class="o">-</span><span class="n">BINAP</span>
+</pre></div>
+</div>
+<p>This next example will generate eight structures (sub1 only, sub2 only, lig1 only, lig2 only, sub1+lig1, sub2+lig1, sub1+lig2, sub2+lig2):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Substitution</span><span class="p">]</span>
+<span class="n">sub1</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span> <span class="o">=</span> <span class="n">Me</span>
+<span class="n">sub2</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span> <span class="o">=</span> <span class="n">Et</span>
+
+<span class="p">[</span><span class="n">Mapping</span><span class="p">]</span>
+<span class="n">lig1</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="o">=</span><span class="n">S</span><span class="o">-</span><span class="n">BINAP</span>
+<span class="n">lig2</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="o">=</span><span class="n">R</span><span class="o">-</span><span class="n">BINAP</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="using-functions">
+<h2>Using functions<a class="headerlink" href="#using-functions" title="Link to this heading">¶</a></h2>
+<p>Complex interpolation of the configuration file is provided to simplify configuration. For example, consider one wants to always request 2GB of memory for every processor requested on the HPC. In the user’s default configuration file, the memory option is defined as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># snippet from $AARONLIB/config.ini
+[HPC]
+memory = %{ $procs * 2 }GB
+</pre></div>
+</div>
+<p>Now, we simply indicate the number of processors we need for our specific jobs</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># snippet from really_small_job.ini</span>
+<span class="p">[</span><span class="n">HPC</span><span class="p">]</span>
+<span class="n">procs</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># snippet from much_bigger_job.ini</span>
+<span class="p">[</span><span class="n">HPC</span><span class="p">]</span>
+<span class="n">procs</span> <span class="o">=</span> <span class="mi">48</span>
+</pre></div>
+</div>
+<p>When using <code class="docutils literal notranslate"><span class="pre">really_small_job.ini</span></code>, <code class="docutils literal notranslate"><span class="pre">memory</span> <span class="pre">=</span> <span class="pre">2GB</span></code>. When using <code class="docutils literal notranslate"><span class="pre">much_bigger_job.ini</span></code>, <code class="docutils literal notranslate"><span class="pre">memory</span> <span class="pre">=</span> <span class="pre">96GB</span></code>.</p>
+<p>To refer to values from other sections, use <code class="docutils literal notranslate"><span class="pre">$section:key</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Job]
+temperature = 298
+
+[HPC]
+exec_options = -temp %{ $Job:temperature }
+</pre></div>
+</div>
+</section>
+<section id="software-specific-theory-options">
+<h2>Software Specific Theory Options<a class="headerlink" href="#software-specific-theory-options" title="Link to this heading">¶</a></h2>
+<section id="gaussian">
+<h3>Gaussian<a class="headerlink" href="#gaussian" title="Link to this heading">¶</a></h3>
+<p>Gaussian has the following options:</p>
+<ul class="simple">
+<li><p>link0</p></li>
+<li><p>route</p></li>
+<li><p>end_of_file</p></li>
+<li><p>comments</p></li>
+</ul>
+<p>Route keywords should be separated onto different lines.
+Options for route keywords should follow the keyword, separated by commas. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">route</span> <span class="o">=</span> <span class="n">pop</span> <span class="n">NBORead</span><span class="p">,</span> <span class="n">NBO7</span>
+        <span class="n">DensityFit</span>
+</pre></div>
+</div>
+<p>will add <code class="docutils literal notranslate"><span class="pre">pop=(NBORead,NBO7)</span> <span class="pre">DensityFit</span></code> to the route, with any additional <code class="docutils literal notranslate"><span class="pre">pop</span></code> from the job type being added.</p>
+<p>Link0 keywords use the same format as route options, though the “%” is removed from the Link 0 command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">link0</span> <span class="o">=</span> <span class="n">Save</span>
+        <span class="n">LindaWorkers</span> <span class="n">hamlet</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="n">ophelia</span><span class="p">:</span><span class="mi">4</span>
+</pre></div>
+</div>
+<p>end_of_file adds lines to the end of the file (<em>e.g.</em> for NBORead). Multiple lines can be added.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>end_of_file = $nbo RESONANCE NBOSUM E2PERT=0.0 NLMO BNDIDX $end
+</pre></div>
+</div>
+<p>The format for comments is identical to the format of end_of_line.</p>
+</section>
+<section id="orca">
+<h3>ORCA<a class="headerlink" href="#orca" title="Link to this heading">¶</a></h3>
+<p>ORCA has the following options:</p>
+<ul class="simple">
+<li><p>simple</p></li>
+<li><p>blocks</p></li>
+<li><p>comments</p></li>
+</ul>
+<p>Simple input keywords and comments should be on separate lines. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">simple</span> <span class="o">=</span> <span class="n">TightSCF</span>
+         <span class="n">Split</span><span class="o">-</span><span class="n">RI</span><span class="o">-</span><span class="n">J</span>
+</pre></div>
+</div>
+<p>Blocks should be separated onto different lines. Options are separated by commas. The first item in each block is used as the block name, though “%” should be omitted. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">blocks</span> <span class="o">=</span> <span class="n">cpcm</span> <span class="n">epsilon</span> <span class="mf">80.0</span><span class="p">,</span> <span class="n">refrac</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">rsolv</span> <span class="mf">1.3</span>
+         <span class="n">scf</span> <span class="n">SOSCFStart</span> <span class="mf">0.00033</span>
+</pre></div>
+</div>
+<p>will add</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">cpcm</span>
+    <span class="n">epsilon</span> <span class="mf">80.0</span>
+    <span class="n">refrac</span> <span class="mf">1.0</span>
+    <span class="n">rsolv</span> <span class="mf">1.3</span>
+<span class="n">end</span>
+<span class="o">%</span><span class="n">scf</span>
+    <span class="n">SOSCFStart</span> <span class="mf">0.00033</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>to ORCA input files.</p>
+</section>
+<section id="psi4">
+<h3>Psi4<a class="headerlink" href="#psi4" title="Link to this heading">¶</a></h3>
+<p>Psi4 has the following options:</p>
+<ul class="simple">
+<li><p>settings</p></li>
+<li><p>before_molecule</p></li>
+<li><p>before_job</p></li>
+<li><p>after_job</p></li>
+<li><p>molecule</p></li>
+<li><p>job</p></li>
+<li><p>optking</p></li>
+<li><p>comments</p></li>
+</ul>
+<p>Settings, job, optking, and molecule options should be on separate lines. The setting or function comes first, followed by an option or value. For job, additional options can be added by separating individual options with commas. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">settings</span> <span class="o">=</span> <span class="n">reference</span> <span class="n">uhf</span>
+           <span class="n">diag_method</span> <span class="n">olsen</span>
+           <span class="n">ex_level</span> <span class="mi">2</span>
+<span class="n">molecule</span> <span class="o">=</span> <span class="n">no_com</span>
+           <span class="n">no_reorient</span>
+<span class="n">job</span> <span class="o">=</span> <span class="n">frequencies</span> <span class="n">return_wfn</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dertype</span><span class="o">=</span><span class="n">energy</span>
+</pre></div>
+</div>
+<p>before_molecule, before_job, and after_job can be used to add lines in difference places in the input file. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">before_job</span> <span class="o">=</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;AaronTools is cool&quot;</span><span class="p">)</span>
+             <span class="n">activate</span><span class="p">(</span><span class="n">auto_fragments</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>comments uses the same format as before_molecule, etc., though the “#” should be omitted.</p>
+</section>
+<section id="crest-and-xtb">
+<h3>Crest and xtb<a class="headerlink" href="#crest-and-xtb" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>gfn - The GFN version to use (default = 2)</p></li>
+<li><p>cmdline - A string containing any other desired command line options (e.g.: <code class="docutils literal notranslate"><span class="pre">cmdline</span> <span class="pre">=</span> <span class="pre">--esp</span> <span class="pre">--opt</span> <span class="pre">extreme</span></code>. These will be appended to the command line options built from the [Theory] section options (temperature, solvent, charge, multiplicity, etc.), so it is possible to override automatically-generated options.</p></li>
+</ul>
+</section>
+</section>
+<section id="basis-options">
+<h2>Basis Options<a class="headerlink" href="#basis-options" title="Link to this heading">¶</a></h2>
+<p>Basis sets and effective core potentials can be specified with the <code class="docutils literal notranslate"><span class="pre">basis</span></code> and <code class="docutils literal notranslate"><span class="pre">ecp</span></code> options, respectively.
+By default, basis sets will by used for all elements, and ECP’s will only apply to d-block elements. The simplest basis specification is</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">basis</span> <span class="o">=</span> <span class="n">def2</span><span class="o">-</span><span class="n">SVP</span>
+</pre></div>
+</div>
+<p>This will use def2-SVP for all elements, and no ECP will be used. A list of elements (space-separated) can precede a basis name. An exclamation point can be used to exclude an element from a basis. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>basis =  H cc-pvqz
+        !H aug-cc-pvqz
+</pre></div>
+</div>
+<p>will use cc-pVQZ for hydrogen and aug-cc-pVQZ for all other elements. As a shortcut, “tm” and “all” can be used to specify d-block elements and all elements, respectively.</p>
+<p>Auxiliary basis sets can be employed by adding <code class="docutils literal notranslate"><span class="pre">aux</span> <span class="pre">&lt;auxiliary</span> <span class="pre">type&gt;</span></code> before the basis name:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">basis</span> <span class="o">=</span> <span class="n">aux</span> <span class="n">C</span> <span class="n">cc</span><span class="o">-</span><span class="n">pVTZ</span>
+</pre></div>
+</div>
+<p>ORCA auxiliary basis types are C, J, JK, CABS, and OptRI CABS. Psi4 auxiliary basis types are JK and RI.</p>
+<p>For external basis sets, the path to the basis set file can come after the basis set name. The path cannot include spaces, and the file must be compatible with the program you are using.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">basis</span> <span class="o">=</span> <span class="n">def2</span><span class="o">-</span><span class="n">SVPD</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">CoolUser</span><span class="o">/</span><span class="n">basis_sets</span><span class="o">/</span><span class="n">def2svpd</span><span class="o">.</span><span class="n">gbs</span>
+</pre></div>
+</div>
+<p>ECP’s use the same format, though auxiliary type will be ignored:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ecp</span> <span class="o">=</span> <span class="n">Ir</span> <span class="n">LANL2DZ</span>
+</pre></div>
+</div>
+<p>ECP’s will not be printed to Psi4 input files, as Psi4 expects ECP’s to be included in the basis set definition.</p>
+</section>
+<section id="atom-types">
+<h2>Atom Types<a class="headerlink" href="#atom-types" title="Link to this heading">¶</a></h2>
+<p>Symbols for dummy atoms can be defined in config files.
+By default, X is used for dummy atoms.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">AtomTypes</span><span class="p">]</span>
+<span class="n">dummy</span><span class="o">=</span><span class="n">X</span> <span class="n">Du</span>
+</pre></div>
+</div>
+<p>This sets the symbols “X” and “Du” to be considered dummy atoms.</p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../api/api.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Python API Documentation</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="libraries.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">AaronTools Libraries</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, V. M. Ingman, A. J. Schaefer, L. R. Andreola, and S. E. Wheeler
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">INI Files</a><ul>
+<li><a class="reference internal" href="#ini-configuration-format-overview">INI configuration format overview</a></li>
+<li><a class="reference internal" href="#configuration-sections-and-their-options">Configuration sections and their options</a><ul>
+<li><a class="reference internal" href="#default">[DEFAULT]</a></li>
+<li><a class="reference internal" href="#geometry">[Geometry]</a><ul>
+<li><a class="reference internal" href="#call">&amp;call</a></li>
+<li><a class="reference internal" href="#for-name-in-iterator">&amp;for {name} in {iterator}</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#theory">[Theory]</a></li>
+<li><a class="reference internal" href="#job">[Job]</a></li>
+<li><a class="reference internal" href="#hpc">[HPC]</a></li>
+<li><a class="reference internal" href="#substitution">[Substitution]</a></li>
+<li><a class="reference internal" href="#mapping">[Mapping]</a></li>
+<li><a class="reference internal" href="#substitutions-and-mappings-in-the-same-config-file">Substitutions and Mappings in the same config file</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-functions">Using functions</a></li>
+<li><a class="reference internal" href="#software-specific-theory-options">Software Specific Theory Options</a><ul>
+<li><a class="reference internal" href="#gaussian">Gaussian</a></li>
+<li><a class="reference internal" href="#orca">ORCA</a></li>
+<li><a class="reference internal" href="#psi4">Psi4</a></li>
+<li><a class="reference internal" href="#crest-and-xtb">Crest and xtb</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#basis-options">Basis Options</a></li>
+<li><a class="reference internal" href="#atom-types">Atom Types</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=a4d4be8e"></script>
+    </body>
+</html>

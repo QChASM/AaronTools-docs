@@ -6,34 +6,34 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Adding Structures to your AaronTools Library" href="adding_to_libraries.html" /><link rel="prev" title="Intro to Command Line Scripts" href="cls_tutorials.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/tutorials/example_bash.html" />
 
-    <!-- Generated with Sphinx 8.0.2 and Furo 2024.08.06 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
         <title>Example BASH Scripts for Common Tasks - AaronTools 1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
 
 
 <style>
   body {
-    --color-code-background: #f8f8f8;
-  --color-code-foreground: black;
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
   
   }
   @media not print {
     body[data-theme="dark"] {
-      --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
+      --color-code-background: #2b2b2b;
+  --color-code-foreground: #f8f8f2;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
-        --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
+        --color-code-background: #2b2b2b;
+  --color-code-foreground: #f8f8f2;
   
       }
     }
@@ -193,7 +193,6 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
-  
   <span class="sidebar-brand-text">AaronTools 1.1 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
@@ -284,6 +283,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../other_docs/configuration.html">Customization</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Customization</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../other_docs/job_templates.html">Job Submission Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../other_docs/libraries.html">AaronTools Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../other_docs/configuration_files.html">INI Files</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/api.html">Python API Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Python API Documentation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -347,7 +347,7 @@
     <span class="visually-hidden">View this page</span>
   </a>
 </div><div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/QChASM/AaronTools-docs/edit/main/source/tutorials/example_bash.rst" title="Edit this page">
+  <a class="muted-link" href="https://github.com/QChASM/AaronTools-docs/edit/main/source/tutorials/example_bash.rst" rel="edit" title="Edit this page">
     <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
@@ -388,7 +388,7 @@ It uses <a class="reference internal" href="../cls/makeInput.html"><span class="
 
 <span class="k">for</span><span class="w"> </span>XYZ<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="sb">`</span>/bin/ls<span class="w"> </span>*.xyz<span class="sb">`</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
 <span class="w">    </span><span class="nv">name</span><span class="o">=</span><span class="sb">`</span>basename<span class="w"> </span><span class="nv">$XYZ</span><span class="w"> </span>.xyz<span class="sb">`</span><span class="w">  </span><span class="c1"># get filename without .xyz</span>
-<span class="w">    </span>makeInput.py<span class="w"> </span><span class="nv">$XYZ</span><span class="w"> </span>-m<span class="w"> </span>wB97XD<span class="w"> </span>-b<span class="w"> </span><span class="s2">&quot;def2tzvp&quot;</span><span class="w"> </span>-opt<span class="w"> </span>-freq<span class="w"> </span>-o<span class="w"> </span><span class="nv">$name</span>.com
+<span class="w">    </span>makeInput.py<span class="w"> </span><span class="nv">$XYZ</span><span class="w"> </span>-m<span class="w"> </span>wB97XD<span class="w"> </span>-b<span class="w"> </span><span class="s2">&quot;def2tzvp&quot;</span><span class="w"> </span>-opt<span class="w"> </span>-freq<span class="w"> </span>-o<span class="w"> </span><span class="nv">$name</span>.com<span class="w"> </span>-np<span class="w"> </span><span class="m">8</span><span class="w"> </span>-mem<span class="w"> </span><span class="m">12</span>
 <span class="w">    </span>jobSubmit.py<span class="w"> </span><span class="nv">$name</span>.com<span class="w"> </span>-p<span class="w"> </span><span class="m">8</span><span class="w"> </span>-m<span class="w"> </span><span class="m">12</span>
 <span class="k">done</span>
 </pre></div>
@@ -401,7 +401,7 @@ For instance, suppose we have a file <code class="code docutils literal notransl
 
 <span class="k">for</span><span class="w"> </span>mol<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="sb">`</span>cat<span class="w"> </span>molecules<span class="sb">`</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
 <span class="w">    </span><span class="nv">safe_name</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$mol</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span>-dc<span class="w"> </span><span class="o">[</span>:alnum:<span class="o">]</span><span class="sb">`</span><span class="w"> </span><span class="c1"># strip non alphanumeric characters from name</span>
-<span class="w">    </span>fetchMolecule.py<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$mol</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>makeInput.py<span class="w"> </span>-m<span class="w"> </span>wB97XD<span class="w"> </span>-b<span class="w"> </span><span class="s2">&quot;def2tzvp&quot;</span><span class="w"> </span>-opt<span class="w"> </span>-freq<span class="w"> </span>-o<span class="w"> </span><span class="nv">$safe_name</span>.com
+<span class="w">    </span>fetchMolecule.py<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$mol</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>makeInput.py<span class="w"> </span>-m<span class="w"> </span>wB97XD<span class="w"> </span>-b<span class="w"> </span><span class="s2">&quot;def2tzvp&quot;</span><span class="w"> </span>-opt<span class="w"> </span>-freq<span class="w"> </span>-o<span class="w"> </span><span class="nv">$safe_name</span>.com<span class="w"> </span>-np<span class="w"> </span><span class="m">8</span><span class="w"> </span>-mem<span class="w"> </span><span class="m">12</span>
 <span class="w">    </span>jobSubmit.py<span class="w"> </span><span class="nv">$safe_name</span>.com<span class="w"> </span>-p<span class="w"> </span><span class="m">8</span><span class="w"> </span>-m<span class="w"> </span><span class="m">12</span>
 <span class="k">done</span>
 </pre></div>
@@ -420,7 +420,7 @@ For instance, suppose we have a file <code class="code docutils literal notransl
 <span class="w">        </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$basis_name</span>
 <span class="w">        </span><span class="k">for</span><span class="w"> </span>mol<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="sb">`</span>cat<span class="w"> </span>../../molecules<span class="sb">`</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
 <span class="w">            </span><span class="nv">safe_name</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$mol</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span>-dc<span class="w"> </span><span class="o">[</span>:alnum:<span class="o">]</span><span class="sb">`</span><span class="w"> </span><span class="c1"># strip non alphanumeric characters from name</span>
-<span class="w">            </span>fetchMolecule.py<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$mol</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>makeInput.py<span class="w"> </span>-m<span class="w"> </span><span class="nv">$func</span><span class="w"> </span>-b<span class="w"> </span><span class="nv">$basis</span><span class="w"> </span>-opt<span class="w"> </span>-freq<span class="w"> </span>-o<span class="w"> </span><span class="nv">$safe_name</span>.com
+<span class="w">            </span>fetchMolecule.py<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$mol</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>makeInput.py<span class="w"> </span>-m<span class="w"> </span><span class="nv">$func</span><span class="w"> </span>-b<span class="w"> </span><span class="nv">$basis</span><span class="w"> </span>-opt<span class="w"> </span>-freq<span class="w"> </span>-o<span class="w"> </span><span class="nv">$safe_name</span>.com<span class="w"> </span>-np<span class="w"> </span><span class="m">8</span><span class="w"> </span>-mem<span class="w"> </span><span class="m">12</span>
 <span class="w">            </span>jobSubmit.py<span class="w"> </span><span class="nv">$safe_name</span>.com<span class="w"> </span>-p<span class="w"> </span><span class="m">8</span><span class="w"> </span>-m<span class="w"> </span><span class="m">12</span>
 <span class="w">        </span><span class="k">done</span>
 <span class="w">        </span><span class="nb">cd</span><span class="w"> </span>..
@@ -463,12 +463,12 @@ Changing the level of theory and/or quantum chemistry package should also be str
 <span class="w">                </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$name</span><span class="w"> </span>finished!
 <span class="w">            </span><span class="k">else</span>
 <span class="w">                </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$name</span><span class="w"> </span>optimized<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>saddle<span class="w"> </span>point--following<span class="w"> </span>imaginary<span class="w"> </span>mode
-<span class="w">                </span>follow.py<span class="w"> </span><span class="nv">$name</span>.log<span class="w"> </span><span class="p">|</span><span class="w"> </span>makeInput.py<span class="w"> </span>-m<span class="w"> </span><span class="nv">$method</span><span class="w"> </span>-b<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$basis</span><span class="s2">&quot;</span><span class="w"> </span>-opt<span class="w"> </span>-freq<span class="w"> </span>-o<span class="w"> </span><span class="nv">$name</span>.com
+<span class="w">                </span>follow.py<span class="w"> </span><span class="nv">$name</span>.log<span class="w"> </span><span class="p">|</span><span class="w"> </span>makeInput.py<span class="w"> </span>-m<span class="w"> </span><span class="nv">$method</span><span class="w"> </span>-b<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$basis</span><span class="s2">&quot;</span><span class="w"> </span>-opt<span class="w"> </span>-freq<span class="w"> </span>-o<span class="w"> </span><span class="nv">$name</span>.com<span class="w"> </span>-np<span class="w"> </span><span class="m">8</span><span class="w"> </span>-mem<span class="w"> </span><span class="m">12</span>
 <span class="w">                </span>jobSubmit.py<span class="w"> </span><span class="nv">$name</span>.com<span class="w"> </span>-p<span class="w"> </span><span class="m">8</span><span class="w"> </span>-m<span class="w"> </span><span class="m">12</span>
 <span class="w">            </span><span class="k">fi</span>
 <span class="w">        </span><span class="k">else</span>
 <span class="w">            </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$name</span><span class="w"> </span>not<span class="w"> </span>finished!<span class="w"> </span>Restarting
-<span class="w">            </span>makeInput.py<span class="w"> </span><span class="nv">$name</span>.log<span class="w"> </span>-m<span class="w"> </span><span class="nv">$method</span><span class="w"> </span>-b<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$basis</span><span class="s2">&quot;</span><span class="w"> </span>-opt<span class="w"> </span>-freq<span class="w"> </span>-o<span class="w"> </span><span class="nv">$name</span>.com
+<span class="w">            </span>makeInput.py<span class="w"> </span><span class="nv">$name</span>.log<span class="w"> </span>-m<span class="w"> </span><span class="nv">$method</span><span class="w"> </span>-b<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$basis</span><span class="s2">&quot;</span><span class="w"> </span>-opt<span class="w"> </span>-freq<span class="w"> </span>-o<span class="w"> </span><span class="nv">$name</span>.com<span class="w"> </span>-np<span class="w"> </span><span class="m">8</span><span class="w"> </span>-mem<span class="w"> </span><span class="m">12</span>
 <span class="w">            </span>jobSubmit.py<span class="w"> </span><span class="nv">$name</span>.com<span class="w"> </span>-p<span class="w"> </span><span class="m">8</span><span class="w"> </span>-m<span class="w"> </span><span class="m">12</span>
 <span class="w">        </span><span class="k">fi</span>
 <span class="w">    </span><span class="k">fi</span>
@@ -491,7 +491,7 @@ It assumes that there is a local file called <code class="code docutils literal 
 <span class="w">    </span><span class="k">for</span><span class="w"> </span>z<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="sb">`</span>seq<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">0</span>.2<span class="w"> </span><span class="m">4</span><span class="sb">`</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
 <span class="w">        </span><span class="nv">name</span><span class="o">=</span>x.<span class="nv">$x</span>.z.<span class="nv">$z</span>
 <span class="w">        </span>translate.py<span class="w"> </span>benzene.xyz<span class="w"> </span>-v<span class="w"> </span><span class="nv">$x</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="nv">$z</span><span class="w"> </span>-o<span class="w"> </span>temp.xyz
-<span class="w">        </span>combineMonomers.py<span class="w"> </span>benzene.xyz<span class="w"> </span>temp.xyz<span class="w"> </span><span class="p">|</span><span class="w"> </span>makeInput.py<span class="w"> </span>-m<span class="w"> </span>wb97xd<span class="w"> </span>-b<span class="w"> </span>def2tzvp<span class="w"> </span>-o<span class="w"> </span><span class="nv">$name</span>.com
+<span class="w">        </span>combineMonomers.py<span class="w"> </span>benzene.xyz<span class="w"> </span>temp.xyz<span class="w"> </span><span class="p">|</span><span class="w"> </span>makeInput.py<span class="w"> </span>-m<span class="w"> </span>wb97xd<span class="w"> </span>-b<span class="w"> </span>def2tzvp<span class="w"> </span>-o<span class="w"> </span><span class="nv">$name</span>.com<span class="w"> </span>-np<span class="w"> </span><span class="m">8</span><span class="w"> </span>-mem<span class="w"> </span><span class="m">12</span>
 <span class="w">        </span>jobSubmit.py<span class="w"> </span><span class="nv">$name</span>.com<span class="w"> </span>-p<span class="w"> </span><span class="m">8</span><span class="w"> </span>-m<span class="w"> </span><span class="m">12</span>
 <span class="w">    </span><span class="k">done</span>
 <span class="k">done</span>
@@ -508,7 +508,7 @@ rm<span class="w"> </span>-f<span class="w"> </span>temp.xyz
 <span class="k">for</span><span class="w"> </span>x<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="sb">`</span>seq<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>.5<span class="w"> </span><span class="m">5</span><span class="sb">`</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span>z<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="sb">`</span>seq<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">0</span>.2<span class="w"> </span><span class="m">4</span><span class="sb">`</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
 <span class="w">        </span><span class="nv">name</span><span class="o">=</span>x.<span class="nv">$x</span>.z.<span class="nv">$z</span>
-<span class="w">        </span>combineMonomers.py<span class="w"> </span>benzene.xyz<span class="w"> </span>benzene.xyz<span class="w"> </span><span class="p">|</span><span class="w"> </span>translate.py<span class="w"> </span>-v<span class="w"> </span><span class="nv">$x</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="nv">$z</span><span class="w"> </span>-t<span class="w"> </span><span class="m">13</span>-24<span class="w"> </span><span class="p">|</span><span class="w"> </span>makeInput.py<span class="w"> </span>-m<span class="w"> </span>wb97xd<span class="w"> </span>-b<span class="w"> </span>def2tzvp<span class="w"> </span>-o<span class="w"> </span><span class="nv">$name</span>.com
+<span class="w">        </span>combineMonomers.py<span class="w"> </span>benzene.xyz<span class="w"> </span>benzene.xyz<span class="w"> </span><span class="p">|</span><span class="w"> </span>translate.py<span class="w"> </span>-v<span class="w"> </span><span class="nv">$x</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="nv">$z</span><span class="w"> </span>-t<span class="w"> </span><span class="m">13</span>-24<span class="w"> </span><span class="p">|</span><span class="w"> </span>makeInput.py<span class="w"> </span>-m<span class="w"> </span>wb97xd<span class="w"> </span>-b<span class="w"> </span>def2tzvp<span class="w"> </span>-o<span class="w"> </span><span class="nv">$name</span>.com<span class="w"> </span>-np<span class="w"> </span><span class="m">8</span><span class="w"> </span>-mem<span class="w"> </span><span class="m">12</span>
 <span class="w">        </span>jobSubmit.py<span class="w"> </span><span class="nv">$name</span>.com<span class="w"> </span>-p<span class="w"> </span><span class="m">8</span><span class="w"> </span>-m<span class="w"> </span><span class="m">12</span>
 <span class="w">    </span><span class="k">done</span>
 <span class="k">done</span>
@@ -550,7 +550,7 @@ Note that with Psi4 we need to explicitly specify that Psi4 calculate the energy
 <span class="w">        </span>translate.py<span class="w"> </span>benzene.xyz<span class="w"> </span>-v<span class="w"> </span><span class="nv">$x</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="nv">$z</span><span class="w"> </span>-o<span class="w"> </span>temp.xyz
 <span class="w">        </span>
 <span class="w">        </span><span class="c1"># combine benzene.xyz and temp.xyz to form dimer then build Gaussian input file</span>
-<span class="w">        </span>combineMonomers.py<span class="w"> </span>benzene.xyz<span class="w"> </span>temp.xyz<span class="w"> </span><span class="p">|</span><span class="w"> </span>makeInput.py<span class="w"> </span>-e<span class="w"> </span>-m<span class="w"> </span>sapt0<span class="w"> </span>-b<span class="w"> </span>jun-cc-pvdz<span class="w"> </span>--before-job<span class="w"> </span><span class="s1">&#39;activate(auto_fragments())&#39;</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">$name</span>.in
+<span class="w">        </span>combineMonomers.py<span class="w"> </span>benzene.xyz<span class="w"> </span>temp.xyz<span class="w"> </span><span class="p">|</span><span class="w"> </span>makeInput.py<span class="w"> </span>-e<span class="w"> </span>-m<span class="w"> </span>sapt0<span class="w"> </span>-b<span class="w"> </span>jun-cc-pvdz<span class="w"> </span>--before-job<span class="w"> </span><span class="s1">&#39;activate(auto_fragments())&#39;</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">$name</span>.in<span class="w">  </span>-np<span class="w"> </span><span class="m">8</span><span class="w"> </span>-mem<span class="w"> </span><span class="m">12</span>
 
 <span class="w">        </span><span class="c1"># submit job</span>
 <span class="w">        </span>jobSubmit.py<span class="w"> </span><span class="nv">$name</span>.in<span class="w"> </span>-p<span class="w"> </span><span class="m">8</span><span class="w"> </span>-m<span class="w"> </span><span class="m">12</span>
@@ -672,9 +672,9 @@ See <a class="reference internal" href="example_python.html#python-sapt-calculat
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=a4d4be8e"></script>
     </body>

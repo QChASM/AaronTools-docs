@@ -1,41 +1,32 @@
 .. code-block:: text
 
     usage: makeInput.py [-h] [-o OUTFILE]
-                        [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}]
-                        [-of {gaussian,orca,psi4,sqm,qchem}]
-                        [-c COMMENTS [COMMENTS ...]] [-q CHARGE]
-                        [-mult MULTIPLICITY] [-p PROCESSORS] [-mem MEMORY] [-up]
-                        [-m METHOD] [-b BASIS [BASIS ...]] [-ecp ECP [ECP ...]]
-                        [-ed EMPIRICAL_DISPERSION] [-sv SOLVENT]
-                        [-sm SOLVENT_MODEL] [-g GRID] [-opt] [-freq] [-e] [-ts]
-                        [-ca ATOMS] [-cb BONDS] [-cang ANGLES] [-ct TORSIONS]
-                        [-cx X] [-cy Y] [-cz Z] [-gx atoms value]
-                        [-gy atoms value] [-gz atoms value] [-n] [-t TEMPERATURE]
-                        [--rem KEYWORD [OPTION ...]]
-                        [--section SECTION_NAME [TEXT ...]] [--simple SIMPLE]
-                        [--block BLOCK OPTION VALUE]
-                        [--before-molecule BEFORE MOL]
-                        [--before-job BEFORE JOB [BEFORE JOB ...]]
-                        [--after-job AFTER JOB [AFTER JOB ...]]
-                        [--job JOB [JOB ...]] [--setting SETTING VALUE]
-                        [--pcm-solver SETTING [VALUE ...]]
-                        [--optking SETTING VALUE] [--molecule SETTING [VALUE ...]]
-                        [--route KEYWORD [OPTION ...]]
-                        [--link0 COMMAND [VALUE ...]] [--end-of-file input]
-                        [input file [input file ...]]
+                        [-if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}]
+                        [-of {gaussian,orca,psi4,sqm,qchem}] [-c COMMENTS [COMMENTS ...]] [-q CHARGE] [-mult MULTIPLICITY]
+                        [-p PROCESSORS] [-mem MEMORY] [-up] [-m METHOD] [-b BASIS [BASIS ...]] [-ecp ECP [ECP ...]]
+                        [-ed EMPIRICAL_DISPERSION] [-sv SOLVENT] [-sm SOLVENT_MODEL] [-g GRID] [-opt] [-freq] [-e] [-ts]
+                        [-ca ATOMS] [-cb BONDS] [-cang ANGLES] [-ct TORSIONS] [-cx X] [-cy Y] [-cz Z] [-gx atoms value]
+                        [-gy atoms value] [-gz atoms value] [-n] [-t TEMPERATURE] [--rem KEYWORD [OPTION ...]]
+                        [--section SECTION_NAME [TEXT ...]] [--simple SIMPLE] [--block BLOCK OPTION VALUE]
+                        [--before-molecule BEFORE MOL] [--before-job BEFORE JOB [BEFORE JOB ...]]
+                        [--after-job AFTER JOB [AFTER JOB ...]] [--job JOB [JOB ...]] [--setting SETTING VALUE]
+                        [--pcm-solver SETTING [VALUE ...]] [--optking SETTING VALUE] [--molecule SETTING [VALUE ...]]
+                        [--route KEYWORD [OPTION ...]] [--link0 COMMAND [VALUE ...]] [--end-of-file input]
+                        [input file ...]
     
     print Gaussian, ORCA, Psi4, SQM, or QChem input file
     
     positional arguments:
       input file            a coordinate file
     
-    optional arguments:
+    options:
       -h, --help            show this help message and exit
       -o OUTFILE, --output OUTFILE
                             output destination
                             $INFILE will be replaced with the name of the input file
+                            $INDIR will be replaced with the directory of the input file
                             Default: stdout
-      -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,crest,xtb,sqmout,47,31,qout}
+      -if {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}, --input-format {xyz,log,com,gjf,sd,sdf,mol,mol2,out,dat,fchk,pdb,pdbqt,cif,mmcif,crest,xtb,sqmout,47,31,qout}
                             file format of input - xyz is assumed if input is stdin
       -of {gaussian,orca,psi4,sqm,qchem}, --output-format {gaussian,orca,psi4,sqm,qchem}
                             file format of output
@@ -50,8 +41,10 @@
                             Default: 1 or what is found in the input file
       -p PROCESSORS, --cores PROCESSORS
                             number of cpu cores to use
+                            default: None
       -mem MEMORY, --memory MEMORY
                             total memory in GB
+                            default: None
                             Note: ORCA and Gaussian only use this to limit the storage-intensive
                                   portions of the calculation (e.g. integrals, wavefunction info)
       -up, --use-previous   use settings that can be parsed from the input file
@@ -153,7 +146,6 @@
                             line to add after the job
                             input file(s) should not be right after --after-job
       --job JOB [JOB ...]   other jobs to add
-                            example: --job hessian
                             input file(s) should not be right after --job
       --setting SETTING VALUE
                             settings
@@ -166,16 +158,14 @@
                             optking settings
       --molecule SETTING [VALUE ...]
                             options to add to the molecule section
-                            example: --molecule units bohr
                             input file(s) should not be right after --molecule
     
     Gaussian-specific options:
       --route KEYWORD [OPTION ...]
                             route options
-                            example: --route freq hpmodes
                             input file(s) should not be right after --route
       --link0 COMMAND [VALUE ...]
                             Link 0 commands (without %)
-                            example: --link0 chk asdf.chk
                             input file(s) should not be right after --link0
       --end-of-file input   line to add to the end of the file (e.g. for NBORead)
+    

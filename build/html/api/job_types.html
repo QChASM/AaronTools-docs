@@ -6,34 +6,34 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Basis Set classes" href="basis.html" /><link rel="prev" title="Theory parameters" href="theory_parameters.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/api/job_types.html" />
 
-    <!-- Generated with Sphinx 8.0.2 and Furo 2024.08.06 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
         <title>JobType classes - AaronTools 1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
 
 
 <style>
   body {
-    --color-code-background: #f8f8f8;
-  --color-code-foreground: black;
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
   
   }
   @media not print {
     body[data-theme="dark"] {
-      --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
+      --color-code-background: #2b2b2b;
+  --color-code-foreground: #f8f8f2;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
-        --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
+        --color-code-background: #2b2b2b;
+  --color-code-foreground: #f8f8f2;
   
       }
     }
@@ -193,7 +193,6 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
-  
   <span class="sidebar-brand-text">AaronTools 1.1 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
@@ -284,6 +283,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../other_docs/configuration.html">Customization</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Customization</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../other_docs/job_templates.html">Job Submission Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../other_docs/libraries.html">AaronTools Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../other_docs/configuration_files.html">INI Files</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="api.html">Python API Documentation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Python API Documentation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
@@ -347,7 +347,7 @@
     <span class="visually-hidden">View this page</span>
   </a>
 </div><div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/QChASM/AaronTools-docs/edit/main/source/api/job_types.rst" title="Edit this page">
+  <a class="muted-link" href="https://github.com/QChASM/AaronTools-docs/edit/main/source/api/job_types.rst" rel="edit" title="Edit this page">
     <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
@@ -413,7 +413,7 @@ kwargs can also have a “temperature” key</p></li>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="AaronTools.theory.job_types.JobType">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">JobType</span></span><a class="headerlink" href="#AaronTools.theory.job_types.JobType" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">JobType</span></span><a class="headerlink" href="#AaronTools.theory.job_types.JobType" title="Link to this definition">¶</a></dt>
 <dd><p>parent class of all job types
 initialization keywords should be the same as attribute names</p>
 <dl class="py method">
@@ -459,7 +459,7 @@ initialization keywords should be the same as attribute names</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.job_types.JobType.resolve_error">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">resolve_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exec_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.JobType.resolve_error" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">resolve_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exec_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.JobType.resolve_error" title="Link to this definition">¶</a></dt>
 <dd><p>returns a copy of theory or modifies theory to attempt
 to resolve an error</p>
 <p>theory will be modified if it is not possible for the current theory
@@ -485,7 +485,7 @@ there are close contacts</p></li>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="AaronTools.theory.job_types.OptimizationJob">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">OptimizationJob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transition_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.OptimizationJob" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">OptimizationJob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transition_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.OptimizationJob" title="Link to this definition">¶</a></dt>
 <dd><p>optimization job</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.job_types.OptimizationJob.__init__">
@@ -573,7 +573,7 @@ with ‘x’, ‘y’, ‘z’, ‘xgroup’, ‘ygroup’, or ‘zgroup’ cons
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.job_types.OptimizationJob.resolve_error">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">resolve_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exec_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.OptimizationJob.resolve_error" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">resolve_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exec_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.OptimizationJob.resolve_error" title="Link to this definition">¶</a></dt>
 <dd><p>resolves optimization-specific errors
 errors resolved by JobType take priority</p>
 <dl class="field-list simple">
@@ -598,7 +598,7 @@ errors resolved by JobType take priority</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="AaronTools.theory.job_types.FrequencyJob">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">FrequencyJob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numerical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.FrequencyJob" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">FrequencyJob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numerical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.FrequencyJob" title="Link to this definition">¶</a></dt>
 <dd><p>frequnecy job</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.job_types.FrequencyJob.__init__">
@@ -644,7 +644,7 @@ errors resolved by JobType take priority</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.job_types.FrequencyJob.resolve_error">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">resolve_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exec_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.FrequencyJob.resolve_error" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">resolve_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exec_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.FrequencyJob.resolve_error" title="Link to this definition">¶</a></dt>
 <dd><p>resolves frequnecy-specific errors
 errors resolved by JobType take priority</p>
 </dd></dl>
@@ -653,7 +653,7 @@ errors resolved by JobType take priority</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="AaronTools.theory.job_types.SinglePointJob">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">SinglePointJob</span></span><a class="headerlink" href="#AaronTools.theory.job_types.SinglePointJob" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">SinglePointJob</span></span><a class="headerlink" href="#AaronTools.theory.job_types.SinglePointJob" title="Link to this definition">¶</a></dt>
 <dd><p>single point energy</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.job_types.SinglePointJob.get_gaussian">
@@ -689,7 +689,7 @@ errors resolved by JobType take priority</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="AaronTools.theory.job_types.ForceJob">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">ForceJob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numerical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ForceJob" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">ForceJob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numerical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ForceJob" title="Link to this definition">¶</a></dt>
 <dd><p>force/gradient job</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.job_types.ForceJob.__init__">
@@ -730,7 +730,7 @@ errors resolved by JobType take priority</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="AaronTools.theory.job_types.ConformerSearchJob">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">ConformerSearchJob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_topology</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ConformerSearchJob" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">ConformerSearchJob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_topology</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ConformerSearchJob" title="Link to this definition">¶</a></dt>
 <dd><p>conformer search (basically only for crest)</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.job_types.ConformerSearchJob.__init__">
@@ -766,7 +766,7 @@ errors resolved by JobType take priority</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="AaronTools.theory.job_types.TDDFTJob">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">TDDFTJob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">roots</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_of_interest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compute_nacmes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.TDDFTJob" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">TDDFTJob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">roots</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_of_interest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compute_nacmes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.TDDFTJob" title="Link to this definition">¶</a></dt>
 <dd><p>TD-DFT job</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.job_types.TDDFTJob.__init__">
@@ -810,7 +810,7 @@ errors resolved by JobType take priority</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="AaronTools.theory.job_types.NMRJob">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">NMRJob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coupling_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.NMRJob" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">NMRJob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coupling_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.NMRJob" title="Link to this definition">¶</a></dt>
 <dd><p>NMR job</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.job_types.NMRJob.__init__">
@@ -971,9 +971,9 @@ errors resolved by JobType take priority</p>
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=a4d4be8e"></script>
     </body>

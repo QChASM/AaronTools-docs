@@ -40,7 +40,7 @@ extensions = [
 ]
 
 # myst-NB stuff
-jupyter_execute_notebooks = "off"
+nb_execution_mode = "off"
 
 html_baseurl = "https://aarontools.readthedocs.io/en/latest/"
 sitemap_url_scheme = "{link}"
