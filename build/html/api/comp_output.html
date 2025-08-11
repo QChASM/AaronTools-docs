@@ -6,11 +6,11 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Orbital class" href="orbitals.html" /><link rel="prev" title="Spectra" href="spectra.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/api/comp_output.html" />
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 7.3.7 and Furo 2025.07.19 -->
         <title>CompOutput class - AaronTools 1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=acfd86a5" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -182,7 +182,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -261,10 +261,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../cls/condensedFukui.html">condensedFukui.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/grabStatus.html">grabStatus.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/grabThermo.html">grabThermo.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageIR.html">plotAverageIR.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageUVVis.html">plotAverageUVVis.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/plotIR.html">plotIR.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageIR.html">plotAverageIR.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/plotUVVis.html">plotUVVis.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageUVVis.html">plotAverageUVVis.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotNMR.html">plotNMR.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageNMR.html">plotAverageNMR.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printAtomInfo.html">printAtomInfo.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printAtomPairInfo.html">printAtomPairInfo.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printCube.html">printCube.py</a></li>
@@ -360,7 +362,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -368,177 +370,6 @@
         <article role="main" id="furo-main-content">
           <section id="compoutput-class">
 <h1><code class="docutils literal notranslate"><span class="pre">CompOutput</span></code> class<a class="headerlink" href="#compoutput-class" title="Link to this heading">¶</a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.comp_output.CompOutput">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.comp_output.</span></span><span class="sig-name descname"><span class="pre">CompOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_all</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conf_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">determine_pg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.comp_output.CompOutput" title="Link to this definition">¶</a></dt>
-<dd><p>Attributes:</p>
-<ul class="simple">
-<li><p>geometry    - the last Geometry</p></li>
-<li><p>opts        - list of Geometry for each optimization steps</p></li>
-<li><p>frequency   - Frequency object</p></li>
-<li><p>archive     - a string containing the archive entry</p></li>
-<li><p>energy, enthalpy, free_energy, grimme_g,</p></li>
-<li><p>mass, temperature, rotational_temperature,</p></li>
-<li><p>multiplicity, charge, rotational_symmetry_number</p></li>
-<li><p>error, error_msg, finished,</p></li>
-<li><p>gradient, E_ZPVE, ZPVE</p></li>
-</ul>
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.comp_output.CompOutput.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_all</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conf_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">determine_pg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.comp_output.CompOutput.__init__" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.comp_output.CompOutput.boltzmann_weights">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">boltzmann_weights</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">thermo_cos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nrg_cos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weighting</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'RRHO'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">298.15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.comp_output.CompOutput.boltzmann_weights" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>thermo_cos</strong> (<em>list</em><em>(</em><a class="reference internal" href="#AaronTools.comp_output.CompOutput" title="AaronTools.comp_output.CompOutput"><em>CompOutput</em></a><em>)</em>) – list of CompOutput
-instances for thermochem corrections</p></li>
-<li><p><strong>nrg_cos</strong> (<em>list</em><em>(</em><a class="reference internal" href="#AaronTools.comp_output.CompOutput" title="AaronTools.comp_output.CompOutput"><em>CompOutput</em></a><em>)</em>) – list of CompOutput to
-take the electronic energy from order should correspond
-to thermo_cos if not given, the energies from thermo_cos
-are used</p></li>
-<li><p><strong>weighting</strong> (<em>str</em>) – <p>type of energy to use for weighting
-can be:</p>
-<blockquote>
-<div><ul>
-<li><p>”NRG”</p></li>
-<li><p>”ZPE”</p></li>
-<li><p>”ENTHALPY”</p></li>
-<li><p>”QHARM”</p></li>
-<li><p>”QRRHO”</p></li>
-<li><p>”RRHO”</p></li>
-</ul>
-</div></blockquote>
-</p></li>
-<li><p><strong>temperature</strong> (<em>float</em>) – temperature in K</p></li>
-<li><p><strong>v0</strong> (<em>float</em>) – parameter for quasi free energy corrections</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>boltzmann weights</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>np.ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.comp_output.CompOutput.calc_zpe">
-<span class="sig-name descname"><span class="pre">calc_zpe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">anharmonic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.comp_output.CompOutput.calc_zpe" title="Link to this definition">¶</a></dt>
-<dd><p>returns ZPVE correction</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.comp_output.CompOutput.therm_corr">
-<span class="sig-name descname"><span class="pre">therm_corr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'RRHO'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enthalpy_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'RRHO'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pressure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.comp_output.CompOutput.therm_corr" title="Link to this definition">¶</a></dt>
-<dd><p>returns thermal correction to energy, enthalpy correction to energy, and entropy
-for the specified cutoff frequency and temperature
-in that order (Hartrees for corrections, Eh/K for entropy)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>temperature</strong> (<em>float</em>) – temperature in K- None will use self.temperature</p></li>
-<li><p><strong>pressure</strong> (<em>float</em>) – pressure in atm</p></li>
-<li><p><strong>v0</strong> (<em>float</em>) – float, cutoff/damping parameter for quasi G corrections</p></li>
-<li><p><strong>method</strong> (<em>str</em>) – <p>treatment of entropy:</p>
-<ul>
-<li><p>RRHO  - no quasi treatment</p></li>
-<li><p>QRRHO - Grimme’s quasi-RRHO
-see Grimme, S. (2012), Supramolecular Binding Thermodynamics by
-Dispersion‐Corrected Density Functional Theory. Chem. Eur. J.,
-18: 9955-9964. (DOI: 10.1002/chem.201200497) for details</p></li>
-<li><p>QHARM - Truhlar’s quasi-harmonic
-see J. Phys. Chem. B 2011, 115, 49, 14556–14562
-(DOI: 10.1021/jp205508z) for details</p></li>
-</ul>
-</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.comp_output.CompOutput.calc_G_corr">
-<span class="sig-name descname"><span class="pre">calc_G_corr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'RRHO'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.comp_output.CompOutput.calc_G_corr" title="Link to this definition">¶</a></dt>
-<dd><p>returns quasi rrho free energy correction (Eh)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>temperature</strong> (<em>float</em>) – temperature; default is self.temperature</p></li>
-<li><p><strong>v0</strong> (<em>float</em>) – parameter for quasi-rrho or quasi-harmonic entropy</p></li>
-<li><p><strong>method</strong> (<em>str</em>) – (RRHO, QRRHO, QHARM) method for treating entropy
-see CompOutput.therm_corr for references</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.comp_output.CompOutput.calc_Grimme_G">
-<span class="sig-name descname"><span class="pre">calc_Grimme_G</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.comp_output.CompOutput.calc_Grimme_G" title="Link to this definition">¶</a></dt>
-<dd><p>returns quasi rrho free energy (Eh)</p>
-<p>see Grimme, S. (2012), Supramolecular Binding Thermodynamics by
-Dispersion‐Corrected Density Functional Theory. Chem. Eur. J.,
-18: 9955-9964. (DOI: 10.1002/chem.201200497) for details</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>temperature</strong> (<em>float</em>) – temperature; default is self.temperature</p></li>
-<li><p><strong>v0</strong> (<em>float</em>) – parameter for quasi-RRHO or quasi-harmonic entropy</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.comp_output.CompOutput.bond_change">
-<span class="sig-name descname"><span class="pre">bond_change</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atom1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atom2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.25</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.comp_output.CompOutput.bond_change" title="Link to this definition">¶</a></dt>
-<dd><p>detects changes in bonds by comparing each structure along optimization (starting with opts[0])</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>atom1</strong> (<a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a>) – first atom</p></li>
-<li><p><strong>atom2</strong> (<a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a>) – second atom - bond being inspected is between atom1 and atom2</p></li>
-<li><p><strong>threshold</strong> (<em>float</em>) – threshold for a bond being considered “changed”; if the difference of the distances between the atoms is below the threshold then it is not considered changed.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>index of the LATEST geometry where the bond is changed</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.comp_output.CompOutput.parse_archive">
-<span class="sig-name descname"><span class="pre">parse_archive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.comp_output.CompOutput.parse_archive" title="Link to this definition">¶</a></dt>
-<dd><p>Reads info from archive string</p>
-<p>Returns: a dictionary with the parsed information</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.comp_output.CompOutput.follow">
-<span class="sig-name descname"><span class="pre">follow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.comp_output.CompOutput.follow" title="Link to this definition">¶</a></dt>
-<dd><p>Follow imaginary mode</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.comp_output.CompOutput.compute_rot_temps">
-<span class="sig-name descname"><span class="pre">compute_rot_temps</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.comp_output.CompOutput.compute_rot_temps" title="Link to this definition">¶</a></dt>
-<dd><p>sets self’s ‘rotational_temperature’ attribute by using self.geometry</p>
-<p>not recommended b/c atoms should be specific isotopes, but this uses
-average atomic weights</p>
-<p>exists because older versions of ORCA don’t print rotational temperatures</p>
-</dd></dl>
-
-</dd></dl>
-
 </section>
 
         </article>
@@ -584,45 +415,14 @@ average atomic weights</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">CompOutput</span></code> class</a><ul>
-<li><a class="reference internal" href="#AaronTools.comp_output.CompOutput"><code class="docutils literal notranslate"><span class="pre">CompOutput</span></code></a><ul>
-<li><a class="reference internal" href="#AaronTools.comp_output.CompOutput.__init__"><code class="docutils literal notranslate"><span class="pre">CompOutput.__init__()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.comp_output.CompOutput.boltzmann_weights"><code class="docutils literal notranslate"><span class="pre">CompOutput.boltzmann_weights()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.comp_output.CompOutput.calc_zpe"><code class="docutils literal notranslate"><span class="pre">CompOutput.calc_zpe()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.comp_output.CompOutput.therm_corr"><code class="docutils literal notranslate"><span class="pre">CompOutput.therm_corr()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.comp_output.CompOutput.calc_G_corr"><code class="docutils literal notranslate"><span class="pre">CompOutput.calc_G_corr()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.comp_output.CompOutput.calc_Grimme_G"><code class="docutils literal notranslate"><span class="pre">CompOutput.calc_Grimme_G()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.comp_output.CompOutput.bond_change"><code class="docutils literal notranslate"><span class="pre">CompOutput.bond_change()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.comp_output.CompOutput.parse_archive"><code class="docutils literal notranslate"><span class="pre">CompOutput.parse_archive()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.comp_output.CompOutput.follow"><code class="docutils literal notranslate"><span class="pre">CompOutput.follow()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.comp_output.CompOutput.compute_rot_temps"><code class="docutils literal notranslate"><span class="pre">CompOutput.compute_rot_temps()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>

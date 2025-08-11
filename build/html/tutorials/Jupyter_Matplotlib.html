@@ -6,11 +6,11 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="List of Command Line Scripts" href="../cls/list.html" /><link rel="prev" title="AaronTools and Psi4" href="Jupyter_Psi4.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/tutorials/Jupyter_Matplotlib.html" />
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 7.3.7 and Furo 2025.07.19 -->
         <title>AaronTools and Matplotlib - AaronTools 1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=acfd86a5" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -261,10 +261,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../cls/condensedFukui.html">condensedFukui.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/grabStatus.html">grabStatus.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/grabThermo.html">grabThermo.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageIR.html">plotAverageIR.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageUVVis.html">plotAverageUVVis.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/plotIR.html">plotIR.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageIR.html">plotAverageIR.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/plotUVVis.html">plotUVVis.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageUVVis.html">plotAverageUVVis.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotNMR.html">plotNMR.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageNMR.html">plotAverageNMR.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printAtomInfo.html">printAtomInfo.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printAtomPairInfo.html">printAtomPairInfo.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printCube.html">printCube.py</a></li>
@@ -373,8 +375,8 @@
 <p>For instance, if we just want to generate a HoukMol style image of a molecule, we can create an empty Matplotlib figure/axis, set a reasonable scale, set the aspect to ‘equal’ and then plot the molecule:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="c1"># Create AaronTools geometry</span>
 <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="s1">&#39;toluene&#39;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="s1">&#39;iupac&#39;</span><span class="p">)</span>
@@ -396,9 +398,9 @@
 <p>We will also need to set both the x- and y-limits to enable control over the vertical and horizontal placement of the molecule within the plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="c1"># Create dummy plot of data as an example</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
@@ -431,9 +433,9 @@
 <p>In this way, we can visualize the ESP (or other data computed on a grid) in the vicinity of a molecule!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">psi4</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">psi4.core</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">p4c</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">import</span> <span class="nn">psi4</span>
+<span class="kn">import</span> <span class="nn">psi4.core</span> <span class="k">as</span> <span class="nn">p4c</span>
 
 <span class="c1"># Build Geometry and convert to Psi4 molecule object</span>
 <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="s1">&#39;pyridine&#39;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="s1">&#39;iupac&#39;</span><span class="p">)</span> <span class="c1"># Will be *close* to being in the XY plane</span>
@@ -534,7 +536,7 @@
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>

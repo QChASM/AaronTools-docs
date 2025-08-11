@@ -6,11 +6,11 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Finders" href="finders.html" /><link rel="prev" title="FileReader class" href="filereader.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/api/filewriter.html" />
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 7.3.7 and Furo 2025.07.19 -->
         <title>FileWriter class - AaronTools 1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=acfd86a5" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -182,7 +182,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -261,10 +261,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../cls/condensedFukui.html">condensedFukui.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/grabStatus.html">grabStatus.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/grabThermo.html">grabThermo.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageIR.html">plotAverageIR.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageUVVis.html">plotAverageUVVis.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/plotIR.html">plotIR.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageIR.html">plotAverageIR.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/plotUVVis.html">plotUVVis.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageUVVis.html">plotAverageUVVis.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotNMR.html">plotNMR.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageNMR.html">plotAverageNMR.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printAtomInfo.html">printAtomInfo.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printAtomPairInfo.html">printAtomPairInfo.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printCube.html">printCube.py</a></li>
@@ -360,7 +362,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -368,375 +370,6 @@
         <article role="main" id="furo-main-content">
           <section id="filewriter-class">
 <h1><code class="docutils literal notranslate"><span class="pre">FileWriter</span></code> class<a class="headerlink" href="#filewriter-class" title="Link to this heading">¶</a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.fileIO.FileWriter">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.fileIO.</span></span><span class="sig-name descname"><span class="pre">FileWriter</span></span><a class="headerlink" href="#AaronTools.fileIO.FileWriter" title="Link to this definition">¶</a></dt>
-<dd><p>class for handling file writing</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.fileIO.FileWriter.write_file">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">append</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileWriter.write_file" title="Link to this definition">¶</a></dt>
-<dd><p>Writes file from geometry in the specified style</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – the Geometry to use</p></li>
-<li><p><strong>style</strong> (<em>str</em>) – <p>the file type style to generate
-Currently supported options: “xyz” (default), “com”,
-“inp”, “inq”, “in”, “sqmin”, “cube”, “xtb”, “crest”, “mol”</p>
-<p>if outfile has one of these extensions, default is that style</p>
-</p></li>
-<li><p><strong>append</strong> (<em>bool</em>) – for <a href="#id1"><span class="problematic" id="id2">*</span></a>.xyz, append geometry to the same file</p></li>
-<li><p><strong>outfile</strong> (<em>str</em><em>|</em><em>None</em><em>|</em><em>False</em>) – output destination - default is
-[geometry name] + [extension] or [geometry name] + [step] + [extension]</p></li>
-<li><p><strong>kwargs</strong> (<em>str</em>) – <p>allowed kwargs:
-* oniom
-* models
-* theory</p>
-<p>if outfile is False, no output file will be written, but the contents will be returned</p>
-</p></li>
-<li><p><strong>theory</strong> (<a class="reference internal" href="theory_class.html#AaronTools.theory.Theory" title="AaronTools.theory.Theory"><em>Theory</em></a>) – for com, inp, and in files, an object with a get_header and get_footer method</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.fileIO.FileWriter.write_xyz">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write_xyz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">append</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileWriter.write_xyz" title="Link to this definition">¶</a></dt>
-<dd><p>write xyz file (file with coordinate system of input geometry)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – molecule(s) to be written to the output</p></li>
-<li><p><strong>append</strong> (<em>bool</em>) – whether the output should be appended to a file (True) or overwrite (False)</p></li>
-<li><p><strong>outfile</strong> (<em>str</em>) – filename to append/write output to</p></li>
-</ul>
-</dd>
-</dl>
-<div class="line-block">
-<div class="line">Default/None: output file is the name of the geometry object provided (e.g. benzene.xyz if geom.name = ‘benzene’)</div>
-<div class="line">False: method simply returns the contents of the output file instead of writing/appending.</div>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>comment</strong> (<em>str</em>) – comment to be added to the output
-Default/None: comment is the same as the geom object’s comment</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>xyz file contents if outfile=False, otherwise no return value</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.fileIO.FileWriter.write_multi_xyz">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write_multi_xyz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">append</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileWriter.write_multi_xyz" title="Link to this definition">¶</a></dt>
-<dd><p>write multiple oniom xyz files from geometry with multiple poses such as a pdb derived geometry</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – molecule(s) to be written to the outputs</p></li>
-<li><p><strong>append</strong> (<em>bool</em>) – whether the output should be appended to a file (True) or overwrite (False)</p></li>
-<li><p><strong>outfile</strong> (<em>str</em>) – filename to append/write output to</p></li>
-</ul>
-</dd>
-</dl>
-<div class="line-block">
-<div class="line">Default/None: output file is the name of the geometry object provided (e.g. benzene.xyz if geom.name = ‘benzene’)</div>
-<div class="line">False: method simply returns the contents of the output file instead of writing/appending.</div>
-</div>
-<dl class="simple">
-<dt>kwargs[“models”] can be string “all”, string of model number e.g. “2”, string of model range e.g. “1-5”,</dt><dd><p>or list of model numbers including ranges e.g. [“1”, “3-5”, “10”]</p>
-</dd>
-</dl>
-<p>kwargs[“oniom”] can be string “all” or string “frag” which requires a specification of the fragment in another kwarg
-kwargs[“layer”] can be defined if kwargs[“oniom”] == “frag”, can be “H”, “M”, or “L”</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.fileIO.FileWriter.write_oniom_xyz">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write_oniom_xyz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">append</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileWriter.write_oniom_xyz" title="Link to this definition">¶</a></dt>
-<dd><p>write xyz files with additional columns for atomtype, charge, and link atom info</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – molecule(s) to be written to the outputs</p></li>
-<li><p><strong>append</strong> (<em>bool</em>) – whether the output should be appended to a file (True) or overwrite (False)</p></li>
-<li><p><strong>outfile</strong> (<em>str</em>) – filename to append/write output to</p></li>
-</ul>
-</dd>
-</dl>
-<div class="line-block">
-<div class="line">Default/None: output file is the name of the geometry object provided (e.g. benzene.xyz if geom.name = ‘benzene’)</div>
-<div class="line">False: method simply returns the contents of the output file instead of writing/appending.</div>
-</div>
-<p>kwargs[“oniom”] can be string “all” or string “frag” which requires a specification of the fragment in another kwarg
-kwargs[“layer”] can be defined if kwargs[“oniom”] == “frag”, can be “H”, “M”, or “L”</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.fileIO.FileWriter.write_mol">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write_mol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileWriter.write_mol" title="Link to this definition">¶</a></dt>
-<dd><p>write V2000 mol file</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – molecule(s) to be written</p></li>
-<li><p><strong>outfile</strong> (<em>str</em>) – file to be written to</p></li>
-</ul>
-</dd>
-</dl>
-<div class="line-block">
-<div class="line">Default/None: output file is the name of the geometry object provided (e.g. benzene.mol if geom.name = ‘benzene’)</div>
-<div class="line">False: method simply returns the contents of the output file instead of writing.</div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.fileIO.FileWriter.write_com">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write_com</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_warnings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileWriter.write_com" title="Link to this definition">¶</a></dt>
-<dd><p>write Gaussian input file for given Theory and Geometry</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – structure</p></li>
-<li><p><strong>theory</strong> (<a class="reference internal" href="theory_class.html#AaronTools.theory.Theory" title="AaronTools.theory.Theory"><em>Theory</em></a>) – input file parameters</p></li>
-<li><p><strong>outfile</strong> (<em>None</em><em>|</em><em>False</em><em>|</em><em>str</em>) – <p>output file option</p>
-<ul>
-<li><p>None - geom.name + “.com” is used as output destination</p></li>
-<li><p>False - return contents of the input file as a str</p></li>
-<li><p>str - output destination</p></li>
-</ul>
-</p></li>
-<li><p><strong>return_warnings</strong> (<em>bool</em>) – True to return a list of warnings (e.g. basis
-set might be misspelled</p></li>
-<li><p><strong>kwargs</strong> – passed to Theory methods (make_header, make_molecule, etc.)</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.fileIO.FileWriter.write_inp">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write_inp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_warnings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileWriter.write_inp" title="Link to this definition">¶</a></dt>
-<dd><p>write ORCA input file for the given Theory() and Geometry()</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – structure</p></li>
-<li><p><strong>theory</strong> (<a class="reference internal" href="theory_class.html#AaronTools.theory.Theory" title="AaronTools.theory.Theory"><em>Theory</em></a>) – input file parameters</p></li>
-<li><p><strong>outfile</strong> (<em>None</em><em>|</em><em>False</em><em>|</em><em>str</em>) – <ul>
-<li><p>None - geom.name + “.inp” is used as output destination</p></li>
-<li><p>False - return contents of the input file as a str</p></li>
-<li><p>str - output destination</p></li>
-</ul>
-</p></li>
-<li><p><strong>return_warnings</strong> (<em>bool</em>) – True to return a list of warnings (e.g. basis
-set might be misspelled</p></li>
-<li><p><strong>kwargs</strong> – passed to Theory methods (make_header, make_molecule, etc.)</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.fileIO.FileWriter.write_inq">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write_inq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_warnings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileWriter.write_inq" title="Link to this definition">¶</a></dt>
-<dd><p>write QChem input file for the given Theory() and Geometry()</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – structure</p></li>
-<li><p><strong>theory</strong> (<a class="reference internal" href="theory_class.html#AaronTools.theory.Theory" title="AaronTools.theory.Theory"><em>Theory</em></a>) – input file parameters</p></li>
-<li><p><strong>outfile</strong> (<em>None</em><em>|</em><em>False</em><em>|</em><em>str</em>) – <ul>
-<li><p>None - geom.name + “.inq” is used as output destination</p></li>
-<li><p>False - return contents of the input file as a str</p></li>
-<li><p>str - output destination</p></li>
-</ul>
-</p></li>
-<li><p><strong>return_warnings</strong> (<em>bool</em>) – True to return a list of warnings (e.g. basis
-set might be misspelled</p></li>
-<li><p><strong>kwargs</strong> – passed to Theory methods (make_header, make_molecule, etc.)</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.fileIO.FileWriter.write_in">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_warnings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileWriter.write_in" title="Link to this definition">¶</a></dt>
-<dd><p>write Psi4 input file for the given Theory() and Geometry()</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – structure</p></li>
-<li><p><strong>theory</strong> (<a class="reference internal" href="theory_class.html#AaronTools.theory.Theory" title="AaronTools.theory.Theory"><em>Theory</em></a>) – input file parameters</p></li>
-<li><p><strong>outfile</strong> (<em>None</em><em>|</em><em>False</em><em>|</em><em>str</em>) – <ul>
-<li><p>None - geom.name + “.in” is used as output destination</p></li>
-<li><p>False - return contents of the input file as a str</p></li>
-<li><p>str - output destination</p></li>
-</ul>
-</p></li>
-<li><p><strong>return_warnings</strong> (<em>bool</em>) – True to return a list of warnings (e.g. basis
-set might be misspelled</p></li>
-<li><p><strong>kwargs</strong> – passed to Theory methods (make_header, make_molecule, etc.)</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.fileIO.FileWriter.write_sqm">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write_sqm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_warnings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileWriter.write_sqm" title="Link to this definition">¶</a></dt>
-<dd><p>write SQM input file for the given Theory() and Geometry()</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – structure</p></li>
-<li><p><strong>theory</strong> (<a class="reference internal" href="theory_class.html#AaronTools.theory.Theory" title="AaronTools.theory.Theory"><em>Theory</em></a>) – input file parameters</p></li>
-<li><p><strong>outfile</strong> (<em>None</em><em>|</em><em>False</em><em>|</em><em>str</em>) – <ul>
-<li><p>None - geom.name + “.sqmin” is used as output destination</p></li>
-<li><p>False - return contents of the input file as a str</p></li>
-<li><p>str - output destination</p></li>
-</ul>
-</p></li>
-<li><p><strong>return_warnings</strong> (<em>bool</em>) – True to return a list of warnings (e.g. basis
-set might be misspelled</p></li>
-<li><p><strong>kwargs</strong> – passed to Theory methods (make_header, make_molecule, etc.)</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.fileIO.FileWriter.write_cube">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write_cube</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orbitals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'homo'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">padding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spacing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xyz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileWriter.write_cube" title="Link to this definition">¶</a></dt>
-<dd><p>write a cube file for a molecular orbital</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – structure</p></li>
-<li><p><strong>orbitals</strong> (<a class="reference internal" href="orbitals.html#AaronTools.orbitals.Orbitals" title="AaronTools.orbitals.Orbitals"><em>Orbitals</em></a>) – orbital data</p></li>
-<li><p><strong>outfile</strong> (<em>str</em>) – output destination</p></li>
-<li><p><strong>kind</strong> (<em>str</em><em>|</em><em>int</em>) – index of molecular orbital or “homo” for ground state
-highest occupied molecular orbital or “lumo” for first
-ground state unoccupied MO
-can also be an array of MO coefficients</p></li>
-<li><p><strong>alpha</strong> (<em>bool</em>)</p></li>
-<li><p><strong>xyz</strong> (<em>bool</em>)</p></li>
-<li><p><strong>ao</strong> (<em>str</em><em>|</em><em>int</em>) – index of atomic orbital to print</p></li>
-<li><p><strong>padding</strong> (<em>float</em>) – padding around geom’s coordinates</p></li>
-<li><p><strong>spacing</strong> (<em>float</em>) – targeted spacing between points</p></li>
-<li><p><strong>n_jobs</strong> (<em>int</em>) – number of parallel threads to use
-this is on top of NumPy’s multithreading, so
-if NumPy uses 8 threads and n_jobs=2, you can
-expect to see 16 threads in use</p></li>
-<li><p><strong>delta</strong> (<em>float</em>) – see Orbitals.fukui_donor_value or fukui_acceptor_value</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.fileIO.FileWriter.write_pdb">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write_pdb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">append</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileWriter.write_pdb" title="Link to this definition">¶</a></dt>
-<dd><p>write input files for pdb</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – molecule to be written/appended</p></li>
-<li><p><strong>append</strong> (<em>bool</em>) – appends instead of overwrites if True</p></li>
-<li><p><strong>outfile</strong> (<em>str</em>) – file to be written to</p></li>
-</ul>
-</dd>
-</dl>
-<div class="line-block">
-<div class="line">Default/None: output file is the name of the geometry object provided (e.g. benzene.mol if geom.name = ‘benzene’)</div>
-<div class="line">False: method simply returns the contents of the output file instead of writing.</div>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>qt</strong> (<em>bool</em>) – determines charge spacing to be used for writing; True is 2, False is 10</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.fileIO.FileWriter.write_xtb">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write_xtb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_warnings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileWriter.write_xtb" title="Link to this definition">¶</a></dt>
-<dd><p>write input files for xtb</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – molecule to be written/appended</p></li>
-<li><p><strong>theory</strong> (<a class="reference internal" href="theory_class.html#AaronTools.theory.Theory" title="AaronTools.theory.Theory"><em>Theory</em></a>) – theory to be used for xtb</p></li>
-<li><p><strong>outfile</strong> (<em>str</em>) – file to be written to</p></li>
-</ul>
-</dd>
-</dl>
-<div class="line-block">
-<div class="line">Default/None: output file is the name of the geometry object provided (e.g. benzene.mol if geom.name = ‘benzene’)</div>
-<div class="line">False: method simply returns the contents of the output file instead of writing.</div>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>return_warnings</strong> (<em>bool</em>) – whether or not warnings should be returned</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.fileIO.FileWriter.write_crest">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write_crest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_warnings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileWriter.write_crest" title="Link to this definition">¶</a></dt>
-<dd><p>write crest input files</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – molecule to be written/appended</p></li>
-<li><p><strong>theory</strong> (<a class="reference internal" href="theory_class.html#AaronTools.theory.Theory" title="AaronTools.theory.Theory"><em>Theory</em></a>) – theory to be used for crest</p></li>
-<li><p><strong>outfile</strong> (<em>str</em>) – file to be written to</p></li>
-</ul>
-</dd>
-</dl>
-<div class="line-block">
-<div class="line">Default/None: output file is the name of the geometry object provided (e.g. benzene.mol if geom.name = ‘benzene’)</div>
-<div class="line">False: method simply returns the contents of the output file instead of writing.</div>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>return_warnings</strong> (<em>bool</em>) – whether or not warnings should be returned</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.fileIO.FileWriter.write_dict_files">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write_dict_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contents</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dirname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileWriter.write_dict_files" title="Link to this definition">¶</a></dt>
-<dd><p>write data to different files</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>contents</strong> (<em>dict</em>) – keys are either a file name (includes a “.”) or
-a file extension (no “.”)</p></li>
-<li><p><strong>dirname</strong> (<em>str</em>) – <p>where to write files
-e.g. calling with contents as</p>
-<blockquote>
-<div><p>{“run.sh”: “cat {{ name }}.txt”, “txt”: “hi”}</p>
-</div></blockquote>
-<p>and name as “test”
-will write run.sh and test.txt to dirname</p>
-</p></li>
-<li><p><strong>name</strong> (<em>str</em>) – name of file to be written</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
 </section>
 
         </article>
@@ -782,50 +415,14 @@ will write run.sh and test.txt to dirname</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">FileWriter</span></code> class</a><ul>
-<li><a class="reference internal" href="#AaronTools.fileIO.FileWriter"><code class="docutils literal notranslate"><span class="pre">FileWriter</span></code></a><ul>
-<li><a class="reference internal" href="#AaronTools.fileIO.FileWriter.write_file"><code class="docutils literal notranslate"><span class="pre">FileWriter.write_file()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.fileIO.FileWriter.write_xyz"><code class="docutils literal notranslate"><span class="pre">FileWriter.write_xyz()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.fileIO.FileWriter.write_multi_xyz"><code class="docutils literal notranslate"><span class="pre">FileWriter.write_multi_xyz()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.fileIO.FileWriter.write_oniom_xyz"><code class="docutils literal notranslate"><span class="pre">FileWriter.write_oniom_xyz()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.fileIO.FileWriter.write_mol"><code class="docutils literal notranslate"><span class="pre">FileWriter.write_mol()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.fileIO.FileWriter.write_com"><code class="docutils literal notranslate"><span class="pre">FileWriter.write_com()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.fileIO.FileWriter.write_inp"><code class="docutils literal notranslate"><span class="pre">FileWriter.write_inp()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.fileIO.FileWriter.write_inq"><code class="docutils literal notranslate"><span class="pre">FileWriter.write_inq()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.fileIO.FileWriter.write_in"><code class="docutils literal notranslate"><span class="pre">FileWriter.write_in()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.fileIO.FileWriter.write_sqm"><code class="docutils literal notranslate"><span class="pre">FileWriter.write_sqm()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.fileIO.FileWriter.write_cube"><code class="docutils literal notranslate"><span class="pre">FileWriter.write_cube()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.fileIO.FileWriter.write_pdb"><code class="docutils literal notranslate"><span class="pre">FileWriter.write_pdb()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.fileIO.FileWriter.write_xtb"><code class="docutils literal notranslate"><span class="pre">FileWriter.write_xtb()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.fileIO.FileWriter.write_crest"><code class="docutils literal notranslate"><span class="pre">FileWriter.write_crest()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.fileIO.FileWriter.write_dict_files"><code class="docutils literal notranslate"><span class="pre">FileWriter.write_dict_files()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>

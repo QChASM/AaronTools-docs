@@ -6,11 +6,11 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="theory module" href="theory.html" /><link rel="prev" title="FileWriter class" href="filewriter.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/api/finders.html" />
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 7.3.7 and Furo 2025.07.19 -->
         <title>Finders - AaronTools 1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=acfd86a5" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -182,7 +182,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -261,10 +261,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../cls/condensedFukui.html">condensedFukui.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/grabStatus.html">grabStatus.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/grabThermo.html">grabThermo.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageIR.html">plotAverageIR.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageUVVis.html">plotAverageUVVis.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/plotIR.html">plotIR.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageIR.html">plotAverageIR.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/plotUVVis.html">plotUVVis.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageUVVis.html">plotAverageUVVis.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotNMR.html">plotNMR.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageNMR.html">plotAverageNMR.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printAtomInfo.html">printAtomInfo.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printAtomPairInfo.html">printAtomPairInfo.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printCube.html">printCube.py</a></li>
@@ -360,184 +362,14 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="module-AaronTools.finders">
-<span id="finders"></span><h1>Finders<a class="headerlink" href="#module-AaronTools.finders" title="Link to this heading">¶</a></h1>
-<p>finders are used by Geometry.find to locate atoms in a more general way</p>
-<dl class="py function">
-<dt class="sig sig-object py" id="AaronTools.finders.get_class">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.finders.</span></span><span class="sig-name descname"><span class="pre">get_class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.finders.get_class" title="Link to this definition">¶</a></dt>
-<dd><p>returns the finder class with the given name</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.finders.BondsFrom">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.finders.</span></span><span class="sig-name descname"><span class="pre">BondsFrom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">central_atom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_of_bonds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avoid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.finders.BondsFrom" title="Link to this definition">¶</a></dt>
-<dd><p>exact number of bonds from specified atom
-avoid: bonding path cannot pass through these atoms</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.finders.WithinBondsOf">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.finders.</span></span><span class="sig-name descname"><span class="pre">WithinBondsOf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">central_atom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_of_bonds</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.finders.WithinBondsOf" title="Link to this definition">¶</a></dt>
-<dd><p>within a specified number of bonds from the atom</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.finders.BondedTo">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.finders.</span></span><span class="sig-name descname"><span class="pre">BondedTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atom</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.finders.BondedTo" title="Link to this definition">¶</a></dt>
-<dd><p>returns all atoms that are bonded to the specified atom</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.finders.WithinRadiusFromPoint">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.finders.</span></span><span class="sig-name descname"><span class="pre">WithinRadiusFromPoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.finders.WithinRadiusFromPoint" title="Link to this definition">¶</a></dt>
-<dd><p>within a specified radius of a point</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.finders.WithinRadiusFromAtom">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.finders.</span></span><span class="sig-name descname"><span class="pre">WithinRadiusFromAtom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.finders.WithinRadiusFromAtom" title="Link to this definition">¶</a></dt>
-<dd><p>within a specified radius of a point</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.finders.NotAny">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.finders.</span></span><span class="sig-name descname"><span class="pre">NotAny</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">critera</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.finders.NotAny" title="Link to this definition">¶</a></dt>
-<dd><p>atoms not matching specifiers/Finders</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.finders.AnyTransitionMetal">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.finders.</span></span><span class="sig-name descname"><span class="pre">AnyTransitionMetal</span></span><a class="headerlink" href="#AaronTools.finders.AnyTransitionMetal" title="Link to this definition">¶</a></dt>
-<dd><p>any atoms that are transition metals</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.finders.AnyNonTransitionMetal">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.finders.</span></span><span class="sig-name descname"><span class="pre">AnyNonTransitionMetal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.finders.AnyNonTransitionMetal" title="Link to this definition">¶</a></dt>
-<dd><p>any atoms that are not transition metals</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.finders.HasAttribute">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.finders.</span></span><span class="sig-name descname"><span class="pre">HasAttribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attribute_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.finders.HasAttribute" title="Link to this definition">¶</a></dt>
-<dd><p>all atoms with the specified attribute</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.finders.VSEPR">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.finders.</span></span><span class="sig-name descname"><span class="pre">VSEPR</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vsepr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.finders.VSEPR" title="Link to this definition">¶</a></dt>
-<dd><p>atoms with the specified VSEPR geometry</p>
-<p>see Atom.get_shape for a list of valid vsepr strings</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.finders.BondedElements">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.finders.</span></span><span class="sig-name descname"><span class="pre">BondedElements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match_exact</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.finders.BondedElements" title="Link to this definition">¶</a></dt>
-<dd><p>atoms bonded to the specified neighboring elements</p>
-<p>if match_exact=True (default), elements must match exactly</p>
-<p>e.g. BondedElements(‘C’) will find
-atoms bonded to only one carbon and nothing else</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.finders.NumberOfBonds">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.finders.</span></span><span class="sig-name descname"><span class="pre">NumberOfBonds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_bonds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.finders.NumberOfBonds" title="Link to this definition">¶</a></dt>
-<dd><p>atoms with the specified number of bonds</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.finders.ChiralCentres">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.finders.</span></span><span class="sig-name descname"><span class="pre">ChiralCentres</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">RS_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.finders.ChiralCentres" title="Link to this definition">¶</a></dt>
-<dd><p>chiral centers</p>
-<p>atoms with a non-planar VSEPR geometry with all bonded groups
-being distinct</p>
-<p>for rings, looks for a set of unique canonical ranks for atoms that 
-are all the same number of bonds away from one atom</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="AaronTools.finders.ChiralCenters">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.finders.</span></span><span class="sig-name descname"><span class="pre">ChiralCenters</span></span><a class="headerlink" href="#AaronTools.finders.ChiralCenters" title="Link to this definition">¶</a></dt>
-<dd><p>alias of <a class="reference internal" href="#AaronTools.finders.ChiralCentres" title="AaronTools.finders.ChiralCentres"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChiralCentres</span></code></a></p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.finders.FlaggedAtoms">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.finders.</span></span><span class="sig-name descname"><span class="pre">FlaggedAtoms</span></span><a class="headerlink" href="#AaronTools.finders.FlaggedAtoms" title="Link to this definition">¶</a></dt>
-<dd><p>atoms with a non-zero flag</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.finders.DummyAtoms">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.finders.</span></span><span class="sig-name descname"><span class="pre">DummyAtoms</span></span><a class="headerlink" href="#AaronTools.finders.DummyAtoms" title="Link to this definition">¶</a></dt>
-<dd><p>dummy atoms</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.finders.CloserTo">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.finders.</span></span><span class="sig-name descname"><span class="pre">CloserTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atom1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atom2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_ties</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.finders.CloserTo" title="Link to this definition">¶</a></dt>
-<dd><p>atoms closer to atom1 than atom2 (based on bonds, not actual distance)</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.finders.IsElement">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.finders.</span></span><span class="sig-name descname"><span class="pre">IsElement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.finders.IsElement" title="Link to this definition">¶</a></dt>
-<dd><p>all atoms of the specified element</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.finders.OfType">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.finders.</span></span><span class="sig-name descname"><span class="pre">OfType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atomtype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_metals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.finders.OfType" title="Link to this definition">¶</a></dt>
-<dd><p>all atoms of the specified GAFF atom type</p>
-<p>if ignore_metals = True (default), bonding with metals will not count towards VSEPR shapes</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.finders.Aromatics">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.finders.</span></span><span class="sig-name descname"><span class="pre">Aromatics</span></span><a class="headerlink" href="#AaronTools.finders.Aromatics" title="Link to this definition">¶</a></dt>
-<dd><p>all atoms in aromatic rings</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.finders.ONIOMLayer">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.finders.</span></span><span class="sig-name descname"><span class="pre">ONIOMLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.finders.ONIOMLayer" title="Link to this definition">¶</a></dt>
-<dd><p>all atoms in a given ONIOM layer or list of ONIOM layers</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.finders.AmideCarbon">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.finders.</span></span><span class="sig-name descname"><span class="pre">AmideCarbon</span></span><a class="headerlink" href="#AaronTools.finders.AmideCarbon" title="Link to this definition">¶</a></dt>
-<dd><p>amide carbons</p>
-<p>trigonal planar carbons bonded to a linear oxygen and a
-nitrogen with 3 bonds</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.finders.Bridgehead">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.finders.</span></span><span class="sig-name descname"><span class="pre">Bridgehead</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ring_sizes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match_exact</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.finders.Bridgehead" title="Link to this definition">¶</a></dt>
-<dd><p>bridgehead atoms</p>
-<p>can specify ring sizes that the atoms bridge</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.finders.SpiroCenters">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.finders.</span></span><span class="sig-name descname"><span class="pre">SpiroCenters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ring_sizes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match_exact</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.finders.SpiroCenters" title="Link to this definition">¶</a></dt>
-<dd><p>atom in two different rings with no other common atoms</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.finders.Residue">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.finders.</span></span><span class="sig-name descname"><span class="pre">Residue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">residue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.finders.Residue" title="Link to this definition">¶</a></dt>
-<dd><p>all atoms in a given residue</p>
-</dd></dl>
-
+          <section id="finders">
+<h1>Finders<a class="headerlink" href="#finders" title="Link to this heading">¶</a></h1>
 </section>
 
         </article>
@@ -583,58 +415,14 @@ nitrogen with 3 bonds</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Finders</a><ul>
-<li><a class="reference internal" href="#AaronTools.finders.get_class"><code class="docutils literal notranslate"><span class="pre">get_class()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.finders.BondsFrom"><code class="docutils literal notranslate"><span class="pre">BondsFrom</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.finders.WithinBondsOf"><code class="docutils literal notranslate"><span class="pre">WithinBondsOf</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.finders.BondedTo"><code class="docutils literal notranslate"><span class="pre">BondedTo</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.finders.WithinRadiusFromPoint"><code class="docutils literal notranslate"><span class="pre">WithinRadiusFromPoint</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.finders.WithinRadiusFromAtom"><code class="docutils literal notranslate"><span class="pre">WithinRadiusFromAtom</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.finders.NotAny"><code class="docutils literal notranslate"><span class="pre">NotAny</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.finders.AnyTransitionMetal"><code class="docutils literal notranslate"><span class="pre">AnyTransitionMetal</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.finders.AnyNonTransitionMetal"><code class="docutils literal notranslate"><span class="pre">AnyNonTransitionMetal</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.finders.HasAttribute"><code class="docutils literal notranslate"><span class="pre">HasAttribute</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.finders.VSEPR"><code class="docutils literal notranslate"><span class="pre">VSEPR</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.finders.BondedElements"><code class="docutils literal notranslate"><span class="pre">BondedElements</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.finders.NumberOfBonds"><code class="docutils literal notranslate"><span class="pre">NumberOfBonds</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.finders.ChiralCentres"><code class="docutils literal notranslate"><span class="pre">ChiralCentres</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.finders.ChiralCenters"><code class="docutils literal notranslate"><span class="pre">ChiralCenters</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.finders.FlaggedAtoms"><code class="docutils literal notranslate"><span class="pre">FlaggedAtoms</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.finders.DummyAtoms"><code class="docutils literal notranslate"><span class="pre">DummyAtoms</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.finders.CloserTo"><code class="docutils literal notranslate"><span class="pre">CloserTo</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.finders.IsElement"><code class="docutils literal notranslate"><span class="pre">IsElement</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.finders.OfType"><code class="docutils literal notranslate"><span class="pre">OfType</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.finders.Aromatics"><code class="docutils literal notranslate"><span class="pre">Aromatics</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.finders.ONIOMLayer"><code class="docutils literal notranslate"><span class="pre">ONIOMLayer</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.finders.AmideCarbon"><code class="docutils literal notranslate"><span class="pre">AmideCarbon</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.finders.Bridgehead"><code class="docutils literal notranslate"><span class="pre">Bridgehead</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.finders.SpiroCenters"><code class="docutils literal notranslate"><span class="pre">SpiroCenters</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.finders.Residue"><code class="docutils literal notranslate"><span class="pre">Residue</span></code></a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>

@@ -6,11 +6,11 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Advanced Topics" href="../advanced/advanced.html" /><link rel="prev" title="PointGroup class" href="symmetry.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/api/utils.html" />
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 7.3.7 and Furo 2025.07.19 -->
         <title>Utilities - AaronTools 1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=acfd86a5" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -182,7 +182,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -261,10 +261,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../cls/condensedFukui.html">condensedFukui.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/grabStatus.html">grabStatus.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/grabThermo.html">grabThermo.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageIR.html">plotAverageIR.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageUVVis.html">plotAverageUVVis.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/plotIR.html">plotIR.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageIR.html">plotAverageIR.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/plotUVVis.html">plotUVVis.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageUVVis.html">plotAverageUVVis.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotNMR.html">plotNMR.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageNMR.html">plotAverageNMR.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printAtomInfo.html">printAtomInfo.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printAtomPairInfo.html">printAtomPairInfo.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printCube.html">printCube.py</a></li>
@@ -360,7 +362,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -369,363 +371,6 @@
           <section id="utilities">
 <h1><code class="docutils literal notranslate"><span class="pre">Utilities</span></code><a class="headerlink" href="#utilities" title="Link to this heading">¶</a></h1>
 <p>General utility functions used throughout AaronTools</p>
-<dl class="py function" id="module-AaronTools.utils.utils">
-<dt class="sig sig-object py" id="AaronTools.utils.utils.range_list">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">range_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">','</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.range_list" title="Link to this definition">¶</a></dt>
-<dd><p>Takes a list of numbers and puts them into a string containing ranges, eg:
-[1, 2, 3, 5, 6, 7, 9, 10] -&gt; “1-3,5-7,9,10”</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>sep</strong> (<em>str</em>) – the separator to use between consecutive ranges</p></li>
-<li><p><strong>sort</strong> (<em>bool</em>) – sort the list before parsing</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AaronTools.utils.utils.proj">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">proj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v_vec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u_vec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.proj" title="Link to this definition">¶</a></dt>
-<dd><p>projection of u_vec into v_vec</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>v_vec</strong> (<em>nparray</em>)</p></li>
-<li><p><strong>u_vec</strong> (<em>nparray</em>) – should have the same shape as v_vec</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>projection</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>nparray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AaronTools.utils.utils.quat_matrix">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">quat_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pt1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pt2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.quat_matrix" title="Link to this definition">¶</a></dt>
-<dd><p>build quaternion matrix from pt1 and pt2</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AaronTools.utils.utils.uptri2sym">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">uptri2sym</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_based</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.uptri2sym" title="Link to this definition">¶</a></dt>
-<dd><p>Converts upper triangular matrix to a symmetric matrix</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>vec</strong> (<em>np.ndarray</em>) – the upper triangle array/matrix</p></li>
-<li><p><strong>n</strong> (<em>int</em>) – the number of rows/columns</p></li>
-<li><p><strong>col_based</strong> (<em>bool</em>) – <dl class="simple">
-<dt>if true, triangular matirx is of the form</dt><dd><p>0 1 3
-- 2 4
-- - 5</p>
-</dd>
-<dt>if false, triangular matrix is of the form</dt><dd><p>0 1 2
-- 3 4
-- - 5</p>
-</dd>
-</dl>
-</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AaronTools.utils.utils.float_vec">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">float_vec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">word</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.float_vec" title="Link to this definition">¶</a></dt>
-<dd><p>Turns strings into floating point vectors</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>word</strong> (<em>str</em>) – a comma-delimited string of numbers</p>
-</dd>
-</dl>
-<p>if no comma or only one element:
-:returns: just the floating point number</p>
-<p>if elements in word are strings:
-:returns: word unchanged</p>
-<p>else
-:returns: a np.array() of floating point numbers</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AaronTools.utils.utils.add_dict">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">add_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">this</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.add_dict" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>skip</strong> (<em>list</em>) – items to avoid adding</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>self</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AaronTools.utils.utils.resolve_concatenation">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">resolve_concatenation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.resolve_concatenation" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AaronTools.utils.utils.combine_dicts">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">combine_dicts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_sensitive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dict2_conditional</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.combine_dicts" title="Link to this definition">¶</a></dt>
-<dd><p>combine dictionaries d1 and d2 to return a dictionary
-with keys d1.keys() + d2.keys()</p>
-<dl>
-<dt>if a key is in d1 and d2, the items will be combined:</dt><dd><p>if they are both dictionaries, combine_dicts is called recursively
-otherwise, d2[key] is appended to d1[key]</p>
-<p>if case_sensitive=False, the key in the output will be the lowercase
-of the d1 key and d2 key (only for combined items)</p>
-</dd>
-</dl>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>case_sensitive</strong> (<em>bool</em>) – considers letter case when True</p></li>
-<li><p><strong>dict2_conditional</strong> (<em>bool</em>) – if True, don’t add d2 keys unless they are also in d1</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AaronTools.utils.utils.subtract_dicts">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">subtract_dicts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_sensitive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.subtract_dicts" title="Link to this definition">¶</a></dt>
-<dd><p>removes items in d2 from d1 to return a new dictionary</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>case_sensitive</strong> (<em>bool</em>) – considers letter case when True</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AaronTools.utils.utils.integrate">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">integrate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fun</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">101</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.integrate" title="Link to this definition">¶</a></dt>
-<dd><p>numerical integration using Simpson’s method</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>fun</strong> (<em>function</em>) – function to integrate</p></li>
-<li><p><strong>start</strong> (<em>float</em>) – starting point for integration</p></li>
-<li><p><strong>stop</strong> (<em>float</em>) – stopping point for integration</p></li>
-<li><p><strong>num</strong> (<em>int</em>) – number of points used for integration</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AaronTools.utils.utils.same_cycle">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">same_cycle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.same_cycle" title="Link to this definition">¶</a></dt>
-<dd><p>Determines if Atom a and Atom b are in the same cycle in an undirected graph</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>True if cycle found containing a and b, False otherwise</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>boolean</p>
-</dd>
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>graph</strong> (<em>list</em><em>|</em><a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – connectivity matrix or Geometry</p></li>
-<li><p><strong>a</strong> (<em>int</em><em>|</em><a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a>) – index in connectivity matrix/Geometry or Atoms in Geometry</p></li>
-<li><p><strong>b</strong> (<em>int</em><em>|</em><a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a>) – index in connectivity matrix/Geometry or Atoms in Geometry</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AaronTools.utils.utils.shortest_path">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">shortest_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.shortest_path" title="Link to this definition">¶</a></dt>
-<dd><p>Find shortest path from start to end in graph using Dijkstra’s algorithm</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>graph</strong> (<em>list</em><em>|</em><a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – the connection matrix or Geometry</p></li>
-<li><p><strong>start</strong> (<em>int</em><em>|</em><a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a>) – the first atom or node index</p></li>
-<li><p><strong>end</strong> (<em>int</em><em>|</em><a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a>) – the last atom or node index</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>list(node_index) if path found, None if path not found</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AaronTools.utils.utils.prune_branches">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">prune_branches</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.prune_branches" title="Link to this definition">¶</a></dt>
-<dd><p>modifies graph in place to remove parts that
-don’t connect to other parts of the graph
-graph is a list of lists defining the connectivity
-i.e. only cycles are kept</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AaronTools.utils.utils.to_closing">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">to_closing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">brace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_escapes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.to_closing" title="Link to this definition">¶</a></dt>
-<dd><p>returns the portion of string from the beginning to the closing
-paratheses or bracket denoted by brace</p>
-<p>brace can be ‘(’, ‘{’, or ‘[’</p>
-<p>if the closing paratheses is not found, returns None instead</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AaronTools.utils.utils.rotation_matrix">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">rotation_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renormalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.rotation_matrix" title="Link to this definition">¶</a></dt>
-<dd><p>rotation matrix for rotating theta radians about axis</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AaronTools.utils.utils.mirror_matrix">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">mirror_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">norm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renormalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.mirror_matrix" title="Link to this definition">¶</a></dt>
-<dd><p>mirror matrix for the specified norm</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AaronTools.utils.utils.fibonacci_sphere">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">fibonacci_sphere</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([0.,</span> <span class="pre">0.,</span> <span class="pre">0.])</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.fibonacci_sphere" title="Link to this definition">¶</a></dt>
-<dd><p>returns a grid of points that are equally spaced on a sphere
-with the specified radius and center
-number of points can be adjusted with num</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AaronTools.utils.utils.lebedev_sphere">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">lebedev_sphere</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([0.,</span> <span class="pre">0.,</span> <span class="pre">0.])</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">302</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.lebedev_sphere" title="Link to this definition">¶</a></dt>
-<dd><p>returns one of the Lebedev grid points (xi, yi, zi)
-and weights (wi) with the specified radius and center.
-Weights do not include r**2, so integral of F(x,y,z)
-over sphere is 4*pi*r**2sum_i{F(xi,yi,zi)wi}. The number
-of points (num) must be one of 110, 194, 302, 590, 974, 1454, 2030, 2702, 5810</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>radius</strong> (<em>float</em>) – radius of sphere</p></li>
-<li><p><strong>center</strong> (<em>np.ndarray</em>) – center of sphere</p></li>
-<li><p><strong>num</strong> (<em>int</em>) – number of points in the grid</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AaronTools.utils.utils.gauss_legendre_grid">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">gauss_legendre_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.gauss_legendre_grid" title="Link to this definition">¶</a></dt>
-<dd><p>returns a Gauss-Legendre grid points (xi) and weights
-(wi)for the range start to stop. Integral over F(x) is
-sum_i{F(xi)wi}. The number of points (num) must be one
-of 20, 32, 64, 75, 99, 127</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>start</strong> (<em>float</em>) – starting coordinate</p></li>
-<li><p><strong>stop</strong> (<em>float</em>) – final coordinate coordinate</p></li>
-<li><p><strong>num</strong> (<em>int</em>) – number of points in the grid</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AaronTools.utils.utils.perp_vector">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">perp_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.perp_vector" title="Link to this definition">¶</a></dt>
-<dd><p>returns a vector orthonormal to vec (np.ndarray)</p>
-<p>if vec is 2D, returns a vector orthonormal to the
-plane of best for the rows of vec</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AaronTools.utils.utils.get_filename">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">get_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_parent_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.get_filename" title="Link to this definition">¶</a></dt>
-<dd><p>returns the name of the file without parent directories or extension</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AaronTools.utils.utils.boltzmann_coefficients">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">boltzmann_coefficients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">energies</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">absolute</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.boltzmann_coefficients" title="Link to this definition">¶</a></dt>
-<dd><p>returns boltzmann weights for the energies and T</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>energies</strong> (<em>np.ndarray</em>) – energies in kcal/mol</p></li>
-<li><p><strong>temperature</strong> (<em>float</em>) – T in K</p></li>
-<li><p><strong>absolute</strong> (<em>bool</em>) – True if the energies given are absolute, false if they are relative energies</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AaronTools.utils.utils.boltzmann_average">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">boltzmann_average</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">energies</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">absolute</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.boltzmann_average" title="Link to this definition">¶</a></dt>
-<dd><p>returns the AVT result for the values corresponding to the energies</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>energies</strong> (<em>np.ndarray</em>) – energies in kcal/mol</p></li>
-<li><p><strong>values</strong> (<em>np.ndarray</em>) – values for which the weighting is applied; the ith value corresponds to the ith energy</p></li>
-<li><p><strong>temperature</strong> (<em>float</em>) – T in K</p></li>
-<li><p><strong>absolute</strong> (<em>bool</em>) – True if the energies given are absolute, false if they are relative energies</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AaronTools.utils.utils.glob_files">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">glob_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">infiles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parser</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">escape_brackets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.glob_files" title="Link to this definition">¶</a></dt>
-<dd><p>globs input files
-used for command line scripts because Windows doesn’t support globbing…</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AaronTools.utils.utils.angle_between_vectors">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">angle_between_vectors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renormalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.angle_between_vectors" title="Link to this definition">¶</a></dt>
-<dd><p>returns the angle between v1 and v2 (numpy arrays)</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AaronTools.utils.utils.getuser">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">getuser</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.getuser" title="Link to this definition">¶</a></dt>
-<dd><p>returns the username of the user</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AaronTools.utils.utils.available_memory">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">available_memory</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.available_memory" title="Link to this definition">¶</a></dt>
-<dd><p>returns available memory in B</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AaronTools.utils.utils.pascals_triangle">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">pascals_triangle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.pascals_triangle" title="Link to this definition">¶</a></dt>
-<dd><p>returns row n of pascal’s triangle</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AaronTools.utils.utils.get_outfile">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">get_outfile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">basename</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">substitutions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.get_outfile" title="Link to this definition">¶</a></dt>
-<dd><p>replace text</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AaronTools.utils.utils.xyzzy_cross">
-<span class="sig-prename descclassname"><span class="pre">AaronTools.utils.utils.</span></span><span class="sig-name descname"><span class="pre">xyzzy_cross</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.utils.utils.xyzzy_cross" title="Link to this definition">¶</a></dt>
-<dd><p>quick cross product of two 3-D vectors</p>
-</dd></dl>
-
 </section>
 
         </article>
@@ -771,62 +416,14 @@ used for command line scripts because Windows doesn’t support globbing…</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">Utilities</span></code></a><ul>
-<li><a class="reference internal" href="#AaronTools.utils.utils.range_list"><code class="docutils literal notranslate"><span class="pre">range_list()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.utils.utils.proj"><code class="docutils literal notranslate"><span class="pre">proj()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.utils.utils.quat_matrix"><code class="docutils literal notranslate"><span class="pre">quat_matrix()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.utils.utils.uptri2sym"><code class="docutils literal notranslate"><span class="pre">uptri2sym()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.utils.utils.float_vec"><code class="docutils literal notranslate"><span class="pre">float_vec()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.utils.utils.add_dict"><code class="docutils literal notranslate"><span class="pre">add_dict()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.utils.utils.resolve_concatenation"><code class="docutils literal notranslate"><span class="pre">resolve_concatenation()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.utils.utils.combine_dicts"><code class="docutils literal notranslate"><span class="pre">combine_dicts()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.utils.utils.subtract_dicts"><code class="docutils literal notranslate"><span class="pre">subtract_dicts()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.utils.utils.integrate"><code class="docutils literal notranslate"><span class="pre">integrate()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.utils.utils.same_cycle"><code class="docutils literal notranslate"><span class="pre">same_cycle()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.utils.utils.shortest_path"><code class="docutils literal notranslate"><span class="pre">shortest_path()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.utils.utils.prune_branches"><code class="docutils literal notranslate"><span class="pre">prune_branches()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.utils.utils.to_closing"><code class="docutils literal notranslate"><span class="pre">to_closing()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.utils.utils.rotation_matrix"><code class="docutils literal notranslate"><span class="pre">rotation_matrix()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.utils.utils.mirror_matrix"><code class="docutils literal notranslate"><span class="pre">mirror_matrix()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.utils.utils.fibonacci_sphere"><code class="docutils literal notranslate"><span class="pre">fibonacci_sphere()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.utils.utils.lebedev_sphere"><code class="docutils literal notranslate"><span class="pre">lebedev_sphere()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.utils.utils.gauss_legendre_grid"><code class="docutils literal notranslate"><span class="pre">gauss_legendre_grid()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.utils.utils.perp_vector"><code class="docutils literal notranslate"><span class="pre">perp_vector()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.utils.utils.get_filename"><code class="docutils literal notranslate"><span class="pre">get_filename()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.utils.utils.boltzmann_coefficients"><code class="docutils literal notranslate"><span class="pre">boltzmann_coefficients()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.utils.utils.boltzmann_average"><code class="docutils literal notranslate"><span class="pre">boltzmann_average()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.utils.utils.glob_files"><code class="docutils literal notranslate"><span class="pre">glob_files()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.utils.utils.angle_between_vectors"><code class="docutils literal notranslate"><span class="pre">angle_between_vectors()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.utils.utils.getuser"><code class="docutils literal notranslate"><span class="pre">getuser()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.utils.utils.available_memory"><code class="docutils literal notranslate"><span class="pre">available_memory()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.utils.utils.pascals_triangle"><code class="docutils literal notranslate"><span class="pre">pascals_triangle()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.utils.utils.get_outfile"><code class="docutils literal notranslate"><span class="pre">get_outfile()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.utils.utils.xyzzy_cross"><code class="docutils literal notranslate"><span class="pre">xyzzy_cross()</span></code></a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>

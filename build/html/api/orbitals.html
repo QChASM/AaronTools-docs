@@ -6,11 +6,11 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="SubmitProcess class" href="job_control.html" /><link rel="prev" title="CompOutput class" href="comp_output.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/api/orbitals.html" />
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 7.3.7 and Furo 2025.07.19 -->
         <title>Orbital class - AaronTools 1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=acfd86a5" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -182,7 +182,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -261,10 +261,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../cls/condensedFukui.html">condensedFukui.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/grabStatus.html">grabStatus.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/grabThermo.html">grabThermo.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageIR.html">plotAverageIR.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageUVVis.html">plotAverageUVVis.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/plotIR.html">plotIR.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageIR.html">plotAverageIR.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/plotUVVis.html">plotUVVis.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageUVVis.html">plotAverageUVVis.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotNMR.html">plotNMR.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageNMR.html">plotAverageNMR.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printAtomInfo.html">printAtomInfo.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printAtomPairInfo.html">printAtomPairInfo.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printCube.html">printCube.py</a></li>
@@ -360,7 +362,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -368,299 +370,6 @@
         <article role="main" id="furo-main-content">
           <section id="orbital-class">
 <h1><code class="docutils literal notranslate"><span class="pre">Orbital</span></code> class<a class="headerlink" href="#orbital-class" title="Link to this heading">¶</a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.orbitals.Orbitals">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.orbitals.</span></span><span class="sig-name descname"><span class="pre">Orbitals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filereader</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.orbitals.Orbitals" title="Link to this definition">¶</a></dt>
-<dd><p>stores functions for the shells in a basis set
-for evaluation at arbitrary points</p>
-<p>attributes:</p>
-<ul>
-<li><p>basis_functions - list(len=n_shell) of lists(len=n_prim_per_shell)
-of functions</p>
-<p>function takes the arguments:</p>
-<ul class="simple">
-<li><p>r2 - float array like, squared distance from the
-shell’s center to each point being evaluated</p></li>
-<li><p>x, y, and z - float or array like, distance from the shell’s
-center to the point(s) being evaluated along
-the x axis</p></li>
-<li><p>mo_coeffs - list(len=funcs_per_shell), MO coefficients
-for the functions in this shell (e.g. 3
-coefficients for the p shell); order
-might depend on input file format
-for example, FCHK files will be px, py, pz
-ORCA files will be pz, px, py</p></li>
-</ul>
-</li>
-<li><p>funcs_per_shell - list(len=n_shell), number of basis functions for
-each shell</p></li>
-<li><p>alpha_coefficients - array(shape=(n_mos, n_mos)), coefficients of
-molecular orbitals for alpha electrons</p></li>
-<li><p>beta_coefficients - same as alpha_coefficients for beta electrons</p></li>
-<li><p>shell_coords - array(shape=(n_shells, 3)), coordinates of each shell
-in Angstroms</p></li>
-<li><p>shell_types - list(str, len=n_shell), type of each shell (e.g. s,
-p, sp, 5d, 6d…)</p></li>
-<li><p>n_shell - number of shells</p></li>
-<li><p>n_prim_per_shell - list(len=n_shell), number of primitives per shell</p></li>
-<li><p>n_mos - number of molecular orbitals</p></li>
-<li><p>exponents - array, exponents for primitives in Eh
-each shell</p></li>
-<li><p>alpha_nrgs - array(len=n_mos), energy of alpha MO’s</p></li>
-<li><p>beta_nrgs - array(len=n_mos), energy of beta MO’s</p></li>
-<li><p>contraction_coeff - array, contraction coefficients for each primitive
-in each shell</p></li>
-<li><p>n_alpha - int, number of alpha electrons</p></li>
-<li><p>n_beta - int, number of beta electrons</p></li>
-</ul>
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.orbitals.Orbitals.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filereader</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.orbitals.Orbitals.__init__" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.orbitals.Orbitals.mo_value">
-<span class="sig-name descname"><span class="pre">mo_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.orbitals.Orbitals.mo_value" title="Link to this definition">¶</a></dt>
-<dd><p>get the MO evaluated at the specified coords</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>mo</strong> (<em>int</em><em>|</em><em>np.ndarray</em>) – index of molecular orbital or an array of MO coefficients</p></li>
-<li><p><strong>coords</strong> (<em>np.ndarray</em>) – array of points (N,3) or (3,)</p></li>
-<li><p><strong>alpha</strong> (<em>bool</em>) – use alpha coefficients (default)</p></li>
-<li><p><strong>n_jobs</strong> (<em>int</em><em>|</em><em>None</em>) – number of parallel threads to use
-this is on top of NumPy’s multithreading, so
-if NumPy uses 8 threads and n_jobs=2, you can
-expect to see 16 threads in use
-if n_jobs is None, determine an appropriate amount of threads
-based on CPU count and available memory</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.orbitals.Orbitals.density_value">
-<span class="sig-name descname"><span class="pre">density_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_occ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta_occ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low_mem</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">big_dot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.orbitals.Orbitals.density_value" title="Link to this definition">¶</a></dt>
-<dd><p>returns the electron density</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>coords</strong> (<em>np.ndarray</em>) – coordinates to calculate e density at</p></li>
-<li><p><strong>n_jobs</strong> (<em>int</em>) – number of concurrent threads to use in orbital values</p></li>
-<li><p><strong>alpha_occ</strong> (<em>np.ndarray</em><em>|</em><em>None</em>) – <p>array of alpha occupancies</p>
-<p>if not specified, defaults to lowest self.n_alpha
-orbitals</p>
-</p></li>
-<li><p><strong>beta_occ</strong> (<em>np.ndarray</em><em>|</em><em>None</em>) – same at alpha_occ, but for beta electrons</p></li>
-<li><p><strong>spin</strong> (<em>bool</em>) – plot spin density</p></li>
-<li><p><strong>big_dot</strong> (<em>bool</em><em>|</em><em>None</em>) – <p>true to use multithreading when taking the inner product</p>
-<p>of orbital coefficients and orbital values. This uses more memory, and will
-be ignored if low_mem is True. Set to None to decide based on available memory</p>
-</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.orbitals.Orbitals.fukui_donor_value">
-<span class="sig-name descname"><span class="pre">fukui_donor_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-12</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.orbitals.Orbitals.fukui_donor_value" title="Link to this definition">¶</a></dt>
-<dd><p>orbital-weighted fukui donor function</p>
-<p>electron density change for removing an electron</p>
-<p>orbital weighting from DOI 10.1002/jcc.24699 accounts
-for nearly degenerate orbitals</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>coords</strong> (<em>np.ndarray</em>) – coordinates to evaluate function at</p></li>
-<li><p><strong>delta</strong> (<em>float</em>) – parameter for weighting</p></li>
-<li><p><strong>kwargs</strong> – passed to density_value</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.orbitals.Orbitals.fukui_acceptor_value">
-<span class="sig-name descname"><span class="pre">fukui_acceptor_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-12</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.orbitals.Orbitals.fukui_acceptor_value" title="Link to this definition">¶</a></dt>
-<dd><p>orbital-weighted fukui acceptor function</p>
-<p>electron density change for removing an electron</p>
-<p>orbital weighting from DOI 10.1021/acs.jpca.9b07516 accounts
-for nearly degenerate orbitals</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>coords</strong> (<em>np.ndarray</em>) – coordinates to evaluate function at</p></li>
-<li><p><strong>delta</strong> (<em>float</em>) – parameter for weighting</p></li>
-<li><p><strong>kwargs</strong> – passed to density_value</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.orbitals.Orbitals.get_cube_array">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_cube_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">padding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spacing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">standard_axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.orbitals.Orbitals.get_cube_array" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>n_pts1, n_pts2, n_pts3, v1, v2, v3, com, u</p>
-</dd>
-</dl>
-<ul class="simple">
-<li><p>n_pts1 is the number of points along the first axis</p></li>
-<li><p>n_pts2 … second axis</p></li>
-<li><p>n_pts3 … third axis</p></li>
-<li><p>v1 is the vector for the first axis, norm should be close to spacing</p></li>
-<li><p>v2 … second axis</p></li>
-<li><p>v3 … third axis</p></li>
-<li><p>com is the center of the cube</p></li>
-<li><p>u is a rotation matrix for the v1, v2, v3 axes relative to xyz</p></li>
-</ul>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a><em>|</em><em>np.ndarray</em>) – structure or coordinatres that will be inside the cube</p></li>
-<li><p><strong>padding</strong> (<em>float</em>) – extra space around atoms in angstrom</p></li>
-<li><p><strong>spacing</strong> (<em>float</em>) – distance between adjacent points in angstrom</p></li>
-<li><p><strong>standard_axes</strong> (<em>bool</em>) – True to use x, y, and z axes
-by default, the cube will be oriented to fit
-the geom and have the smallest volume possible</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.orbitals.Orbitals.get_cube_points">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_cube_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_pts1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_pts2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_pts3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">com</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.orbitals.Orbitals.get_cube_points" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>coords, n_list</p>
-</dd>
-</dl>
-<ul class="simple">
-<li><p>coords is an array of points in the cube</p></li>
-<li><dl class="simple">
-<dt>n_list specifies where each point is along the axes </dt><dd><p>e.g. 5th point along v1, 4th point along v2, 0th point along v3</p>
-</dd>
-</dl>
-</li>
-</ul>
-<p>for a list of parameters, see the returns field of get_cube_array</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.orbitals.Orbitals.memory_estimate">
-<span class="sig-name descname"><span class="pre">memory_estimate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low_mem</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rpoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.orbitals.Orbitals.memory_estimate" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>estimated memory use (in GB) for calling the</p>
-</dd>
-</dl>
-<p>specified function on the specified number of points</p>
-<p>if func_name is a condensed fukui function, apoints
-and rpoints must be given</p>
-<p>otherwise, n_points must be given</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.orbitals.Orbitals.voronoi_integral">
-<span class="sig-name descname"><span class="pre">voronoi_integral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geom</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rpoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1454</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.orbitals.Orbitals.voronoi_integral" title="Link to this definition">¶</a></dt>
-<dd><p>integrates func in the Voronoi cell of the specified target</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – structure target belongs to</p></li>
-<li><p><strong>args</strong> – passed to func</p></li>
-<li><p><strong>rpoints</strong> (<em>int</em>) – radial points used for Gauss-Legendre integral</p></li>
-<li><p><strong>apoints</strong> (<em>int</em>) – angular points for Lebedev integral</p></li>
-<li><p><strong>func</strong> (<em>function</em>) – function to evaluate</p></li>
-<li><p><strong>kwargs</strong> – passed to func</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.orbitals.Orbitals.power_integral">
-<span class="sig-name descname"><span class="pre">power_integral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geom</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radii</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'umn'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rpoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1454</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.orbitals.Orbitals.power_integral" title="Link to this definition">¶</a></dt>
-<dd><p>integrates func in the power cell of the specified targets</p>
-<p>power diagrams are a form of weighted Voronoi diagrams
-that form cells based on the smallest d^2 - r^2</p>
-<p>see wikipedia article: <a class="reference external" href="https://en.wikipedia.org/wiki/Power_diagram">https://en.wikipedia.org/wiki/Power_diagram</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>radii</strong> (<em>str</em><em>|</em><em>dict</em><em>|</em><em>list</em>) – radii to use
-* “bondi” - Bondi vdW radii
-* “umn”   - vdW radii from Mantina, Chamberlin, Valero, Cramer, and Truhlar
-* dict()  - radii are values and elements are keys
-* list()  - list of radii corresponding to targets</p></li>
-<li><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – target belongs to</p></li>
-<li><p><strong>args</strong> – passed to func</p></li>
-<li><p><strong>rpoints</strong> (<em>int</em>) – radial points used for Gauss-Legendre integral</p></li>
-<li><p><strong>apoints</strong> (<em>int</em>) – angular points for Lebedev integral</p></li>
-<li><p><strong>func</strong> (<em>function</em>) – function to evaluate</p></li>
-<li><p><strong>rmax</strong> (<em>float</em><em>|</em><em>function</em><em>|</em><em>None</em>) – max radius around each target in the numerical integration. Default is 3 times the atom’s radius</p></li>
-<li><p><strong>kwargs</strong> – passed to func</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>np.array with each value corresponding to each input target</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.orbitals.Orbitals.condensed_fukui_donor_values">
-<span class="sig-name descname"><span class="pre">condensed_fukui_donor_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.orbitals.Orbitals.condensed_fukui_donor_values" title="Link to this definition">¶</a></dt>
-<dd><p>uses power_integral to integrate the fukui_donor_value
-for all atoms in geom</p>
-<p>values are normalized so they sum to 1</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – structure</p></li>
-<li><p><strong>args</strong> – passed to power_integral</p></li>
-<li><p><strong>kwargs</strong> – passed to power_integral</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>array for each atom’s condensed Fukui donor values</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.orbitals.Orbitals.condensed_fukui_acceptor_values">
-<span class="sig-name descname"><span class="pre">condensed_fukui_acceptor_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.orbitals.Orbitals.condensed_fukui_acceptor_values" title="Link to this definition">¶</a></dt>
-<dd><p>uses power_integral to integrate the fukui_acceptor_value
-for all atoms in geom</p>
-<p>values are normalized so they sum to 1</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – structure</p></li>
-<li><p><strong>args</strong> – passed to power_integral</p></li>
-<li><p><strong>kwargs</strong> – passed to power_integral</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>array for each atom’s condensed Fukui acceptor values</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.orbitals.Orbitals.condensed_fukui_dual_values">
-<span class="sig-name descname"><span class="pre">condensed_fukui_dual_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.orbitals.Orbitals.condensed_fukui_dual_values" title="Link to this definition">¶</a></dt>
-<dd><p>returns the difference between condensed_fukui_acceptor_values
-and condensed_fukui_donor_values</p>
-</dd></dl>
-
-</dd></dl>
-
 </section>
 
         </article>
@@ -706,48 +415,14 @@ and condensed_fukui_donor_values</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">Orbital</span></code> class</a><ul>
-<li><a class="reference internal" href="#AaronTools.orbitals.Orbitals"><code class="docutils literal notranslate"><span class="pre">Orbitals</span></code></a><ul>
-<li><a class="reference internal" href="#AaronTools.orbitals.Orbitals.__init__"><code class="docutils literal notranslate"><span class="pre">Orbitals.__init__()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.orbitals.Orbitals.mo_value"><code class="docutils literal notranslate"><span class="pre">Orbitals.mo_value()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.orbitals.Orbitals.density_value"><code class="docutils literal notranslate"><span class="pre">Orbitals.density_value()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.orbitals.Orbitals.fukui_donor_value"><code class="docutils literal notranslate"><span class="pre">Orbitals.fukui_donor_value()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.orbitals.Orbitals.fukui_acceptor_value"><code class="docutils literal notranslate"><span class="pre">Orbitals.fukui_acceptor_value()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.orbitals.Orbitals.get_cube_array"><code class="docutils literal notranslate"><span class="pre">Orbitals.get_cube_array()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.orbitals.Orbitals.get_cube_points"><code class="docutils literal notranslate"><span class="pre">Orbitals.get_cube_points()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.orbitals.Orbitals.memory_estimate"><code class="docutils literal notranslate"><span class="pre">Orbitals.memory_estimate()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.orbitals.Orbitals.voronoi_integral"><code class="docutils literal notranslate"><span class="pre">Orbitals.voronoi_integral()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.orbitals.Orbitals.power_integral"><code class="docutils literal notranslate"><span class="pre">Orbitals.power_integral()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.orbitals.Orbitals.condensed_fukui_donor_values"><code class="docutils literal notranslate"><span class="pre">Orbitals.condensed_fukui_donor_values()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.orbitals.Orbitals.condensed_fukui_acceptor_values"><code class="docutils literal notranslate"><span class="pre">Orbitals.condensed_fukui_acceptor_values()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.orbitals.Orbitals.condensed_fukui_dual_values"><code class="docutils literal notranslate"><span class="pre">Orbitals.condensed_fukui_dual_values()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>

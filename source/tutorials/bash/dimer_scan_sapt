@@ -10,7 +10,7 @@ for x in `seq 0 0.5 5`; do
         # move one benzene to (x, 0, z)
         translate.py benzene.xyz -v $x 0 $z -o temp.xyz
         
-        # combine benzene.xyz and temp.xyz to form dimer then build Gaussian input file
+        # combine benzene.xyz and temp.xyz to form dimer then build Psi4 input file
         combineMonomers.py benzene.xyz temp.xyz | makeInput.py -e -m sapt0 -b jun-cc-pvdz --before-job 'activate(auto_fragments())' -o $name.in  -np 8 -mem 12
 
         # submit job

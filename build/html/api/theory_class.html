@@ -6,11 +6,11 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Theory parameters" href="theory_parameters.html" /><link rel="prev" title="theory module" href="theory.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/api/theory_class.html" />
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 7.3.7 and Furo 2025.07.19 -->
         <title>Theory class - AaronTools 1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=acfd86a5" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -182,7 +182,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -261,10 +261,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../cls/condensedFukui.html">condensedFukui.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/grabStatus.html">grabStatus.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/grabThermo.html">grabThermo.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageIR.html">plotAverageIR.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageUVVis.html">plotAverageUVVis.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/plotIR.html">plotIR.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageIR.html">plotAverageIR.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/plotUVVis.html">plotUVVis.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageUVVis.html">plotAverageUVVis.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotNMR.html">plotNMR.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageNMR.html">plotAverageNMR.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printAtomInfo.html">printAtomInfo.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printAtomPairInfo.html">printAtomPairInfo.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printCube.html">printCube.py</a></li>
@@ -360,7 +362,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -368,199 +370,6 @@
         <article role="main" id="furo-main-content">
           <section id="theory-class">
 <h1><code class="docutils literal notranslate"><span class="pre">Theory</span></code> class<a class="headerlink" href="#theory-class" title="Link to this heading">¶</a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.theory.Theory">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.</span></span><span class="sig-name descname"><span class="pre">Theory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">charge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multiplicity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ecp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empirical_dispersion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">medium_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high_ecp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">medium_ecp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low_ecp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">medium_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Theory" title="Link to this definition">¶</a></dt>
-<dd><p>A Theory object can be used to create an input file for different QM software.
-The creation of a Theory object does not depend on the specific QM software
-that is determined when the file is written</p>
-<p>attribute names are the same as initialization keywords (with the exception of ecp, which
-is added to the basis attribute)
-valid initialization keywords are:</p>
-<ul class="simple">
-<li><p>geometry                -   AaronTools Geometry</p></li>
-<li><p>charge                  -   total charge</p></li>
-<li><p>multiplicity            -   electronic multiplicity</p></li>
-<li><p>job_type                -   JobType or list(JobType)</p></li>
-<li><p>method                  -   Method object (or str - Method instance will be created) or list(Method) for ONIOM</p></li>
-<li><p>basis                   -   BasisSet object (or str - will be set to BasisSet(Basis(keyword)))</p></li>
-<li><p>ecp                     -   str parsable by BasisSet.parse_basis_str</p></li>
-<li><p>empirical_dispersion    -   EmpiricalDispersion object (or str)</p></li>
-<li><p>grid                    -   IntegrationGrid object (or str)</p></li>
-<li><p>solvent                 -   ImplicitSolvent object</p></li>
-<li><p>memory                  -   int - allocated memory (GB)</p></li>
-<li><p>processors              -   int - allocated cores</p></li>
-</ul>
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.Theory.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">charge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multiplicity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ecp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empirical_dispersion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">medium_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high_ecp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">medium_ecp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low_ecp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">medium_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Theory.__init__" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.Theory.add_kwargs">
-<span class="sig-name descname"><span class="pre">add_kwargs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Theory.add_kwargs" title="Link to this definition">¶</a></dt>
-<dd><p>add kwargs to the theory</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.Theory.remove_kwargs">
-<span class="sig-name descname"><span class="pre">remove_kwargs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Theory.remove_kwargs" title="Link to this definition">¶</a></dt>
-<dd><p>remove kwargs from the theory</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.Theory.make_header">
-<span class="sig-name descname"><span class="pre">make_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gaussian'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditional_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sanity_check_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Theory.make_header" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – structure</p></li>
-<li><p><strong>style</strong> (<em>str</em>) – file format (e.g. gaussian, orca, psi4, oniom, or sqm)</p></li>
-<li><p><strong>conditional_kwargs</strong> (<em>dict</em>) – <p>keys are ORCA_*, PSI4_*, or GAUSSIAN_*</p>
-<p>items in conditional_kwargs will only be added
-to the input if they would otherwise be preset.
-For example, if self.job_type is FrequencyJob and a Gaussian
-input file is being written,
-conditional_kwargs = {GAUSSIAN_ROUTE:{‘opt’:[‘noeigentest’]}}
-will not add opt=noeigentest to the route
-but if it’s an OptimizationJob, it will add opt=noeigentest</p>
-</p></li>
-<li><p><strong>sanity_check_method</strong> (<em>bool</em>) – check if method is available in recent version
-of the target software package (Psi4 checks when its
-footer is created)</p></li>
-<li><p><strong>kwargs</strong> (<em>dict</em>) – see AaronTools.theory parameters for more details</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.Theory.make_molecule">
-<span class="sig-name descname"><span class="pre">make_molecule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gaussian'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditional_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_warnings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Theory.make_molecule" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – structure</p></li>
-<li><p><strong>style</strong> (<em>str</em>) – gaussian, psi4, or sqm</p></li>
-<li><p><strong>conditional_kwargs</strong> (<em>dict</em>) – theory parameters, which will
-only be added if the corresponding section is used elsewhere</p></li>
-<li><p><strong>kwargs</strong> (<em>dict</em>) – see AaronTools.theory parameters for more details</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.Theory.make_footer">
-<span class="sig-name descname"><span class="pre">make_footer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gaussian'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditional_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sanity_check_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Theory.make_footer" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>geom</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – structure</p></li>
-<li><p><strong>style</strong> (<em>str</em>) – program name</p></li>
-<li><p><strong>conditional_kwargs</strong> (<em>dict</em>) – see Theory.make_header</p></li>
-<li><p><strong>sanity_check_method</strong> (<em>bool</em>) – check if method is available in recent version
-of the target software package (Psi4 only)</p></li>
-<li><p><strong>kwargs</strong> (<em>dict</em>) – see AaronTools.theory parameters for more details</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.Theory.get_gaussian_header">
-<span class="sig-name descname"><span class="pre">get_gaussian_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_warnings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditional_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">other_kw_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Theory.get_gaussian_header" title="Link to this definition">¶</a></dt>
-<dd><p>write Gaussian09/16 input file header (up to charge mult)</p>
-<p>other_kw_dict is a dictionary with file positions (using GAUSSIAN_*)
-corresponding to options/keywords</p>
-<p>returns warnings if a certain feature is not available in Gaussian</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.Theory.get_gaussian_molecule">
-<span class="sig-name descname"><span class="pre">get_gaussian_molecule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_warnings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditional_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">other_kw_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Theory.get_gaussian_molecule" title="Link to this definition">¶</a></dt>
-<dd><p>get molecule specification for gaussian input files</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.Theory.get_gaussian_footer">
-<span class="sig-name descname"><span class="pre">get_gaussian_footer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_warnings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditional_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">other_kw_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Theory.get_gaussian_footer" title="Link to this definition">¶</a></dt>
-<dd><p>write footer of gaussian input file</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.Theory.get_orca_header">
-<span class="sig-name descname"><span class="pre">get_orca_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_warnings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditional_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">other_kw_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Theory.get_orca_header" title="Link to this definition">¶</a></dt>
-<dd><p>get ORCA input file header</p>
-<p>other_kw_dict is a dictionary with file positions (using ORCA_*)
-corresponding to options/keywords</p>
-<dl class="simple">
-<dt>if <code class="docutils literal notranslate"><span class="pre">return_warnings==True</span></code>, returns file content and warnings</dt><dd><p>e.g. if a certain feature is not available in ORCA</p>
-</dd>
-</dl>
-<p>else, returns str of header content</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.Theory.get_orca_footer">
-<span class="sig-name descname"><span class="pre">get_orca_footer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_warnings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditional_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">other_kw_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Theory.get_orca_footer" title="Link to this definition">¶</a></dt>
-<dd><p>get ORCA input file header</p>
-<p>other_kw_dict is a dictionary with file positions (using ORCA_*)
-corresponding to options/keywords</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.Theory.get_psi4_header">
-<span class="sig-name descname"><span class="pre">get_psi4_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_warnings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditional_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">other_kw_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Theory.get_psi4_header" title="Link to this definition">¶</a></dt>
-<dd><p>write Psi4 input file</p>
-<p>other_kw_dict is a dictionary with file positions (using PSI4_*)
-corresponding to options/keywords</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.Theory.get_psi4_molecule">
-<span class="sig-name descname"><span class="pre">get_psi4_molecule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_warnings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditional_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">other_kw_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Theory.get_psi4_molecule" title="Link to this definition">¶</a></dt>
-<dd><p>get molecule specification for psi4 input files</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.Theory.get_psi4_footer">
-<span class="sig-name descname"><span class="pre">get_psi4_footer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_warnings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditional_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">other_kw_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Theory.get_psi4_footer" title="Link to this definition">¶</a></dt>
-<dd><p>get psi4 footer</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.Theory.get_xtb_cmdline">
-<span class="sig-name descname"><span class="pre">get_xtb_cmdline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Theory.get_xtb_cmdline" title="Link to this definition">¶</a></dt>
-<dd><p>Uses the config and job type to set command line options for xtb and crest jobs</p>
-<p>Returns a dictionary of option=val pairs; val is None when option doesn’t take
-an argument. This dict should be parsed by the caller into the command line
-string.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.Theory.get_sqm_header">
-<span class="sig-name descname"><span class="pre">get_sqm_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_warnings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditional_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">other_kw_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Theory.get_sqm_header" title="Link to this definition">¶</a></dt>
-<dd><p>retruns header, warnings_list for sqm job</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.Theory.get_sqm_molecule">
-<span class="sig-name descname"><span class="pre">get_sqm_molecule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Theory.get_sqm_molecule" title="Link to this definition">¶</a></dt>
-<dd><p>returns molecule specification for sqm input</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.Theory.get_qchem_header">
-<span class="sig-name descname"><span class="pre">get_qchem_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_warnings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditional_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">other_kw_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Theory.get_qchem_header" title="Link to this definition">¶</a></dt>
-<dd><p>write QChem input file header (up to charge mult)</p>
-<p>other_kw_dict is a dictionary with file positions (using QCHEM_*)
-corresponding to options/keywords</p>
-<p>returns warnings if a certain feature is not available in QChem</p>
-</dd></dl>
-
-</dd></dl>
-
 </section>
 
         </article>
@@ -606,53 +415,14 @@ corresponding to options/keywords</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">Theory</span></code> class</a><ul>
-<li><a class="reference internal" href="#AaronTools.theory.Theory"><code class="docutils literal notranslate"><span class="pre">Theory</span></code></a><ul>
-<li><a class="reference internal" href="#AaronTools.theory.Theory.__init__"><code class="docutils literal notranslate"><span class="pre">Theory.__init__()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.Theory.add_kwargs"><code class="docutils literal notranslate"><span class="pre">Theory.add_kwargs()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.Theory.remove_kwargs"><code class="docutils literal notranslate"><span class="pre">Theory.remove_kwargs()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.Theory.make_header"><code class="docutils literal notranslate"><span class="pre">Theory.make_header()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.Theory.make_molecule"><code class="docutils literal notranslate"><span class="pre">Theory.make_molecule()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.Theory.make_footer"><code class="docutils literal notranslate"><span class="pre">Theory.make_footer()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.Theory.get_gaussian_header"><code class="docutils literal notranslate"><span class="pre">Theory.get_gaussian_header()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.Theory.get_gaussian_molecule"><code class="docutils literal notranslate"><span class="pre">Theory.get_gaussian_molecule()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.Theory.get_gaussian_footer"><code class="docutils literal notranslate"><span class="pre">Theory.get_gaussian_footer()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.Theory.get_orca_header"><code class="docutils literal notranslate"><span class="pre">Theory.get_orca_header()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.Theory.get_orca_footer"><code class="docutils literal notranslate"><span class="pre">Theory.get_orca_footer()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.Theory.get_psi4_header"><code class="docutils literal notranslate"><span class="pre">Theory.get_psi4_header()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.Theory.get_psi4_molecule"><code class="docutils literal notranslate"><span class="pre">Theory.get_psi4_molecule()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.Theory.get_psi4_footer"><code class="docutils literal notranslate"><span class="pre">Theory.get_psi4_footer()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.Theory.get_xtb_cmdline"><code class="docutils literal notranslate"><span class="pre">Theory.get_xtb_cmdline()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.Theory.get_sqm_header"><code class="docutils literal notranslate"><span class="pre">Theory.get_sqm_header()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.Theory.get_sqm_molecule"><code class="docutils literal notranslate"><span class="pre">Theory.get_sqm_molecule()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.Theory.get_qchem_header"><code class="docutils literal notranslate"><span class="pre">Theory.get_qchem_header()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>

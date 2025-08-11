@@ -6,11 +6,11 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="IntegrationGrid class" href="integration_grid.html" /><link rel="prev" title="EmpiricalDispersion class" href="dispersion.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/api/solvent.html" />
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 7.3.7 and Furo 2025.07.19 -->
         <title>ImplicitSolvent class - AaronTools 1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=acfd86a5" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -182,7 +182,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -261,10 +261,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../cls/condensedFukui.html">condensedFukui.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/grabStatus.html">grabStatus.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/grabThermo.html">grabThermo.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageIR.html">plotAverageIR.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageUVVis.html">plotAverageUVVis.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/plotIR.html">plotIR.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageIR.html">plotAverageIR.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/plotUVVis.html">plotUVVis.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageUVVis.html">plotAverageUVVis.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotNMR.html">plotNMR.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageNMR.html">plotAverageNMR.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printAtomInfo.html">printAtomInfo.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printAtomPairInfo.html">printAtomPairInfo.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printCube.html">printCube.py</a></li>
@@ -360,7 +362,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -368,49 +370,6 @@
         <article role="main" id="furo-main-content">
           <section id="implicitsolvent-class">
 <h1><code class="docutils literal notranslate"><span class="pre">ImplicitSolvent</span></code> class<a class="headerlink" href="#implicitsolvent-class" title="Link to this heading">¶</a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.theory.ImplicitSolvent">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.</span></span><span class="sig-name descname"><span class="pre">ImplicitSolvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">solvent_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solvent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.ImplicitSolvent" title="Link to this definition">¶</a></dt>
-<dd><p>implicit solvent info</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.ImplicitSolvent.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">solvent_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solvent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.ImplicitSolvent.__init__" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>solvent_model</strong> (<em>str</em>) – implicit solvent model (e.g. PCM)</p></li>
-<li><p><strong>solvent</strong> (<em>str</em>) – solvent name (e.g. water)</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.ImplicitSolvent.get_gaussian">
-<span class="sig-name descname"><span class="pre">get_gaussian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.ImplicitSolvent.get_gaussian" title="Link to this definition">¶</a></dt>
-<dd><p>returns dict() with solvent information for gaussian input files</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.ImplicitSolvent.get_orca">
-<span class="sig-name descname"><span class="pre">get_orca</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.ImplicitSolvent.get_orca" title="Link to this definition">¶</a></dt>
-<dd><p>returns dict() with solvent information for orca input files</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.ImplicitSolvent.get_psi4">
-<span class="sig-name descname"><span class="pre">get_psi4</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.ImplicitSolvent.get_psi4" title="Link to this definition">¶</a></dt>
-<dd><p>returns dict() with solvent information for psi4 input files</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.theory.ImplicitSolvent.get_qchem">
-<span class="sig-name descname"><span class="pre">get_qchem</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.ImplicitSolvent.get_qchem" title="Link to this definition">¶</a></dt>
-<dd><p>returns dict() with solvent information for qchem input files</p>
-</dd></dl>
-
-</dd></dl>
-
 </section>
 
         </article>
@@ -456,40 +415,14 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">ImplicitSolvent</span></code> class</a><ul>
-<li><a class="reference internal" href="#AaronTools.theory.ImplicitSolvent"><code class="docutils literal notranslate"><span class="pre">ImplicitSolvent</span></code></a><ul>
-<li><a class="reference internal" href="#AaronTools.theory.ImplicitSolvent.__init__"><code class="docutils literal notranslate"><span class="pre">ImplicitSolvent.__init__()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.ImplicitSolvent.get_gaussian"><code class="docutils literal notranslate"><span class="pre">ImplicitSolvent.get_gaussian()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.ImplicitSolvent.get_orca"><code class="docutils literal notranslate"><span class="pre">ImplicitSolvent.get_orca()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.ImplicitSolvent.get_psi4"><code class="docutils literal notranslate"><span class="pre">ImplicitSolvent.get_psi4()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.theory.ImplicitSolvent.get_qchem"><code class="docutils literal notranslate"><span class="pre">ImplicitSolvent.get_qchem()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>

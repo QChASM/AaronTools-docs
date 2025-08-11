@@ -106,8 +106,3 @@ Note that with Psi4 we need to explicitly specify that Psi4 calculate the energy
 If Psi4 does not properly recognize your monomers, or you want more control over how a given complex is divided, you will need to use the Python API.
 See :ref:`python_SAPT_calculations`.
 
-Finally, we can gather the SAPT data, printing both the individual components (electrostatics, exchange repulsion, induction, and dispersion) as well as the total SAPT0 interaction energy:
-
-.. literalinclude:: bash/gather_scan_sapt
-   :language: bash
-

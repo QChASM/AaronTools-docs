@@ -6,11 +6,11 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="JobType classes" href="job_types.html" /><link rel="prev" title="Theory class" href="theory_class.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/api/theory_parameters.html" />
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 7.3.7 and Furo 2025.07.19 -->
         <title>Theory parameters - AaronTools 1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=acfd86a5" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -261,10 +261,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../cls/condensedFukui.html">condensedFukui.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/grabStatus.html">grabStatus.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/grabThermo.html">grabThermo.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageIR.html">plotAverageIR.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageUVVis.html">plotAverageUVVis.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/plotIR.html">plotIR.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageIR.html">plotAverageIR.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/plotUVVis.html">plotUVVis.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageUVVis.html">plotAverageUVVis.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotNMR.html">plotNMR.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageNMR.html">plotAverageNMR.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printAtomInfo.html">printAtomInfo.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printAtomPairInfo.html">printAtomPairInfo.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printCube.html">printCube.py</a></li>
@@ -366,89 +368,8 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="module-AaronTools.theory">
-<span id="theory-parameters"></span><h1>Theory parameters<a class="headerlink" href="#module-AaronTools.theory" title="Link to this heading">¶</a></h1>
-<p>Theory methods that construct headers, footers, or molecule specifications
-can take some keyword arguments (i.e. <cite>**kwargs</cite>).
-For these methods, you can use the parameters below. 
-The value should be as specified.</p>
-<dl class="field-list simple">
-<dt class="field-odd">ORCA<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-<ul class="simple">
-<li><p>ORCA_ROUTE (simple): list(str)</p></li>
-<li><p>ORCA_BLOCKS (blocks): dict(list(str)) - keys are block names minus %</p></li>
-<li><p>ORCA_COORDINATES: ignored</p></li>
-<li><p>ORCA_COMMENT (comment): list(str)</p></li>
-</ul>
-<dl class="field-list simple">
-<dt class="field-odd">Psi4<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-<ul class="simple">
-<li><p>PSI4_SETTINGS (settings): dict(setting_name: [value])</p></li>
-<li><p>PSI4_BEFORE_GEOM (before_molecule): list(str)</p></li>
-<li><p>PSI4_AFTER_JOB (after_job): list(str) $METHOD will be replaced with method name</p></li>
-<li><p>PSI4_COMMENT (comment): list(str)</p></li>
-<li><p>PSI4_MOLECULE (molecule): dict(str:list(str)) e.g. {‘symmetry’: [‘c1’]}</p></li>
-<li><p>PSI4_COORDINATES (coordinates): dict() with keys:
-‘coords’ - array of coordinates with one item for each atom
-‘variables’ - list of name (str), value (float), is_angstrom (bool) tuples
-this is ignored if using a SAPTMethod with a low-spin combination
-of monomers</p></li>
-<li><p>PSI4_JOB (job): dict(optimize/frequencies/etc: list(str $METHOD replaced w/ method))</p></li>
-<li><p>PSI4_OPTKING (optking): dict(setting_name: [value])</p></li>
-</ul>
-<dl class="field-list simple">
-<dt class="field-odd">Gaussian<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-<ul class="simple">
-<li><p>GAUSSIAN_PRE_ROUTE (link0): dict(list(str)) - keys are link0 minus %</p></li>
-<li><p>GAUSSIAN_ROUTE (route): dict(list(str)) - e.g. {‘opt’: [‘NoEigenTest’, ‘Tight’]} or {‘nosym’:’’}</p></li>
-<li><p>GAUSSIAN_COORDINATES (coordinates): list of coordinates and variables/constants</p></li>
-<li><p>GAUSSIAN_CONNECTIVITY (connectivity): list of connectivities (see connectivity section of geom in G16 manual)</p></li>
-<li><p>GAUSSIAN_CONSTRAINTS (constraints): list(str)</p></li>
-<li><p>GAUSSIAN_GEN_BASIS (gen_basis): list(str) - only filled by BasisSet automatically when writing footer</p></li>
-<li><p>GAUSSIAN_GEN_ECP (gen_ecp): list(str) - only filled by BasisSet automatically when writing footer</p></li>
-<li><p>GAUSSIAN_POST (end_of_file): list(str)</p></li>
-<li><p>GAUSSIAN_COMMENT (comment): list(str)</p></li>
-</ul>
-<dl class="field-list simple">
-<dt class="field-odd">SQM<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-<ul class="simple">
-<li><p>SQM_COMMENT (comment): list(str)</p></li>
-<li><p>SQM_QMMM (qmmm): dict()</p></li>
-</ul>
-<dl class="field-list simple">
-<dt class="field-odd">Q-Chem<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-<ul class="simple">
-<li><p>QCHEM_MOLECULE (molecule): list(str) - $molecule section</p></li>
-<li><p>QCHEM_REM (rem): dict(str:str) - $rem section</p></li>
-<li><p>QCHEM_COMMENT (comment): list(str) - comments</p></li>
-<li><p>QCHEM_SETTINGS (section): dict(str:str) - all other sections</p></li>
-</ul>
-<dl class="field-list simple">
-<dt class="field-odd">xTB<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-<ul class="simple">
-<li><p>XTB_CONTROL_BLOCKS (xcontrol): dict - stuff in xcontrol file</p></li>
-<li><p>XTB_COMMAND_LINE (command_line): dict(str:list) - command line stuff, values should be 
-emtpy lists if the command line flag (key) has no arguments</p></li>
-</ul>
-<dl class="field-list simple">
-<dt class="field-odd">CREST<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-<ul class="simple">
-<li><p>CREST_COMMAND_LINE (command_line): crest command line - see XTB_COMMAND_LINE</p></li>
-</ul>
+          <section id="theory-parameters">
+<h1>Theory parameters<a class="headerlink" href="#theory-parameters" title="Link to this heading">¶</a></h1>
 </section>
 
         </article>
@@ -501,7 +422,7 @@ emtpy lists if the command line flag (key) has no arguments</p></li>
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>

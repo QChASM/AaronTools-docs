@@ -6,11 +6,11 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Example Python Scripts for Common Tasks" href="example_python.html" /><link rel="prev" title="Coding with Theory Objects" href="coding_with_theories.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/tutorials/coding_with_filereaders.html" />
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 7.3.7 and Furo 2025.07.19 -->
         <title>Coding with FileReader objects - AaronTools 1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=acfd86a5" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -261,10 +261,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../cls/condensedFukui.html">condensedFukui.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/grabStatus.html">grabStatus.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/grabThermo.html">grabThermo.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageIR.html">plotAverageIR.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageUVVis.html">plotAverageUVVis.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/plotIR.html">plotIR.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageIR.html">plotAverageIR.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/plotUVVis.html">plotUVVis.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageUVVis.html">plotAverageUVVis.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotNMR.html">plotNMR.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageNMR.html">plotAverageNMR.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printAtomInfo.html">printAtomInfo.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printAtomPairInfo.html">printAtomPairInfo.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printCube.html">printCube.py</a></li>
@@ -370,7 +372,7 @@
 <h1>Coding with <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> objects<a class="headerlink" href="#coding-with-filereader-objects" title="Link to this heading">¶</a></h1>
 <p>Here, you will find tutorials and explanations for using AaronTools’
 functions, classes, and subroutines pertaining to our object for reading
-files: <a class="reference internal" href="../api/filereader.html#AaronTools.fileIO.FileReader" title="AaronTools.fileIO.FileReader"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.fileIO.FileReader()</span></code></a>.</p>
+files: <code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.fileIO.FileReader()</span></code>.</p>
 <p>Note that, by default, <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> will read the geometry and
 limited other information (charge, multiplicity, etc) from a QM output file.
 Use <code class="code docutils literal notranslate"><span class="pre">just_geom=False</span></code> to fully parse QM output.
@@ -379,7 +381,7 @@ See <a class="reference internal" href="#calculation-information">Calculation In
 <h2>Creation<a class="headerlink" href="#creation" title="Link to this heading">¶</a></h2>
 <p>A <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> object can be created by passing the path
 to a file. To begin, let’s import <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.fileIO</span><span class="w"> </span><span class="kn">import</span> <span class="n">FileReader</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.fileIO</span> <span class="kn">import</span> <span class="n">FileReader</span>
 
 <span class="n">fr</span> <span class="o">=</span> <span class="n">FileReader</span><span class="p">(</span><span class="s2">&quot;benzene.log&quot;</span><span class="p">)</span>
 </pre></div>
@@ -388,7 +390,7 @@ to a file. To begin, let’s import <code class="code docutils literal notransla
 because of the .log extension.
 Creating a <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> from this <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> is as
 simple as passing it to Geometry:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
 
 <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="n">fr</span><span class="p">)</span>
 </pre></div>
@@ -461,8 +463,8 @@ the <code class="code docutils literal notranslate"><span class="pre">FileReader
 <p>Below is sample code for turning each structure in a
 <code class="code docutils literal notranslate"><span class="pre">FileReader</span></code> into a <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code>, which are then stored in the list
 <code class="code docutils literal notranslate"><span class="pre">geom_list</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.fileIO</span><span class="w"> </span><span class="kn">import</span> <span class="n">FileReader</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">from</span> <span class="nn">AaronTools.fileIO</span> <span class="kn">import</span> <span class="n">FileReader</span>
 
 <span class="n">fr</span> <span class="o">=</span> <span class="n">FileReader</span><span class="p">(</span><span class="s1">&#39;benzene.log&#39;</span><span class="p">,</span> <span class="n">get_all</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
@@ -473,8 +475,8 @@ the <code class="code docutils literal notranslate"><span class="pre">FileReader
 </div>
 <p>Below is similar code for reading an XYZ file with multiple structures
 that will also copy over the comment information from the original XYZ entry</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.fileIO</span><span class="w"> </span><span class="kn">import</span> <span class="n">FileReader</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">from</span> <span class="nn">AaronTools.fileIO</span> <span class="kn">import</span> <span class="n">FileReader</span>
 
 <span class="n">fr</span> <span class="o">=</span> <span class="n">FileReader</span><span class="p">(</span><span class="s1">&#39;mols.xyz&#39;</span><span class="p">,</span> <span class="n">get_all</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
@@ -496,7 +498,7 @@ as if it was a dictionary (<cite>i.e.</cite> <code class="code docutils literal 
 of <code class="code docutils literal notranslate"><span class="pre">fr.other[&quot;energy&quot;]</span></code>).</p>
 <p>For example, the following will first check wither a Psi4 job finished (<code class="code docutils literal notranslate"><span class="pre">fr[&quot;finished&quot;]</span></code>)
 and, if so, print the final energy (<code class="code docutils literal notranslate"><span class="pre">fr[&quot;energy&quot;]</span></code>):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.fileIO</span><span class="w"> </span><span class="kn">import</span> <span class="n">FileReader</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.fileIO</span> <span class="kn">import</span> <span class="n">FileReader</span>
 
 <span class="n">fr</span> <span class="o">=</span> <span class="n">FileReader</span><span class="p">(</span><span class="s1">&#39;output.dat&#39;</span><span class="p">,</span> <span class="n">just_geom</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
@@ -587,7 +589,7 @@ file parsers can grab them can be found on
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>

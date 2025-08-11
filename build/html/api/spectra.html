@@ -6,11 +6,11 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="CompOutput class" href="comp_output.html" /><link rel="prev" title="Ring class" href="rings.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/api/spectra.html" />
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 7.3.7 and Furo 2025.07.19 -->
         <title>Spectra - AaronTools 1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=acfd86a5" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -182,7 +182,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -261,10 +261,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../cls/condensedFukui.html">condensedFukui.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/grabStatus.html">grabStatus.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/grabThermo.html">grabThermo.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageIR.html">plotAverageIR.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageUVVis.html">plotAverageUVVis.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/plotIR.html">plotIR.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageIR.html">plotAverageIR.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/plotUVVis.html">plotUVVis.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageUVVis.html">plotAverageUVVis.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotNMR.html">plotNMR.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cls/plotAverageNMR.html">plotAverageNMR.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printAtomInfo.html">printAtomInfo.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printAtomPairInfo.html">printAtomPairInfo.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cls/printCube.html">printCube.py</a></li>
@@ -360,417 +362,14 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="module-AaronTools.spectra">
-<span id="spectra"></span><h1>Spectra<a class="headerlink" href="#module-AaronTools.spectra" title="Link to this heading">¶</a></h1>
-<p>classes for storing signal data and plotting various spectra (IR, UV/vis, etc.)</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.spectra.Signal">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.spectra.</span></span><span class="sig-name descname"><span class="pre">Signal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_var</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.Signal" title="Link to this definition">¶</a></dt>
-<dd><p>parent class for each signal in a spectrum</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.spectra.Signals">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.spectra.</span></span><span class="sig-name descname"><span class="pre">Signals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gaussian'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.Signals" title="Link to this definition">¶</a></dt>
-<dd><p>parent class for storing data for different signals in the
-spectrum and plotting a simulated spectrum</p>
-<p>Attributes:</p>
-<ul class="simple">
-<li><p>data</p></li>
-<li><p>style</p></li>
-<li><p>lines</p></li>
-</ul>
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.spectra.Signals.parse_gaussian_lines">
-<span class="sig-name descname"><span class="pre">parse_gaussian_lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lines</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.Signals.parse_gaussian_lines" title="Link to this definition">¶</a></dt>
-<dd><p>parse data from Gaussian output files related to this spectrum</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.spectra.Signals.parse_orca_lines">
-<span class="sig-name descname"><span class="pre">parse_orca_lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lines</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.Signals.parse_orca_lines" title="Link to this definition">¶</a></dt>
-<dd><p>parse data from ORCA output files related to this spectrum</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.spectra.Signals.parse_psi4_lines">
-<span class="sig-name descname"><span class="pre">parse_psi4_lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lines</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.Signals.parse_psi4_lines" title="Link to this definition">¶</a></dt>
-<dd><p>parse data from Psi4 output files related to this spectrum</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.spectra.Signals.parse_qchem_lines">
-<span class="sig-name descname"><span class="pre">parse_qchem_lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lines</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.Signals.parse_qchem_lines" title="Link to this definition">¶</a></dt>
-<dd><p>parse data from Q-Chem output files related to this spectrum</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.spectra.Signals.filter_data">
-<span class="sig-name descname"><span class="pre">filter_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.Signals.filter_data" title="Link to this definition">¶</a></dt>
-<dd><p>used to filter out some data from the spectrum (e.g.
-imaginary modes from an IR spec)
-return False if signal should not be in the spectrum</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.spectra.Signals.get_spectrum_functions">
-<span class="sig-name descname"><span class="pre">get_spectrum_functions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fwhm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peak_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pseudo-voigt'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voigt_mixing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scalar_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linear_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quadratic_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">intensity_attr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'intensity'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_attr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'data'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.Signals.get_spectrum_functions" title="Link to this definition">¶</a></dt>
-<dd><p>returns a list of functions that can be evaluated to
-produce a spectrum</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>fwhm</strong> (<em>float</em>) – full width at half max of each peak</p></li>
-<li><p><strong>peak_type</strong> (<em>str</em>) – gaussian, lorentzian, pseudo-voigt, or delta</p></li>
-<li><p><strong>voigt_mixing</strong> (<em>float</em>) – ratio of pseudo-voigt that is gaussian</p></li>
-<li><p><strong>scalar_scale</strong> (<em>float</em>) – shift x data</p></li>
-<li><p><strong>linear_scale</strong> (<em>float</em>) – scale x data</p></li>
-<li><p><strong>quadratic_scale</strong> (<em>float</em>) – <p>scale x data</p>
-<p>x’ = (1 - linear_scale * x - quadratic_scale * x^2 - scalar_scale)</p>
-</p></li>
-<li><p><strong>intensity_attr</strong> (<em>str</em>) – attribute of Signal used for the intensity
-of that signal</p></li>
-<li><p><strong>data_attr</strong> (<em>str</em>) – attribute of self for the list of Signal()</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.spectra.Signals.get_plot_data">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_plot_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">functions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signal_centers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_spacing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transmittance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peak_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pseudo-voigt'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fwhm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">change_x_unit_func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_functions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.Signals.get_plot_data" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>arrays of x_values, y_values for a spectrum</p>
-</dd>
-<dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>point_spacing</strong> (<em>float</em>) – spacing between points, default is higher resolution around
-each peak (i.e. not uniform)
-this is pointless if peak_type == delta</p></li>
-<li><p><strong>fwhm</strong> (<em>float</em>) – full width at half max</p></li>
-<li><p><strong>transmittance</strong> (<em>bool</em>) – if true, take 10^(2 - y_values) before returning
-to get transmittance as a %</p></li>
-<li><p><strong>peak_type</strong> (<em>str</em>) – pseudo-voigt, gaussian, lorentzian, or delta</p></li>
-<li><p><strong>voigt_mixing</strong> (<em>float</em>) – fraction of pseudo-voigt that is gaussian</p></li>
-<li><p><strong>linear_scale</strong> (<em>float</em>) – subtract linear_scale * frequency off each mode</p></li>
-<li><p><strong>quadratic_scale</strong> (<em>float</em>) – subtract quadratic_scale * frequency^2 off each mode</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.spectra.Signals.plot_spectrum">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">plot_spectrum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">figure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other_y_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other_y_style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">centers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">widths</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exp_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'transmittance'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'wavenumber</span> <span class="pre">(cm$^{-1}$)'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peak_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pseudo-voigt'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotate_x_ticks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.Signals.plot_spectrum" title="Link to this definition">¶</a></dt>
-<dd><p>plot the x_data and y_data on figure (matplotlib figure)
-this is intended for IR spectra</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>centers</strong> (<em>np.ndarray</em>) – <p>array-like of float, plot is split into sections centered
-on the frequency specified by centers</p>
-<p>default is to not split into sections</p>
-</p></li>
-<li><p><strong>widths</strong> (<em>np.ndarray</em>) – array-like of float, defines the width of each section</p></li>
-<li><p><strong>exp_data</strong> (<em>list</em>) – other data to plot
-should be a list of (x_data, y_data, color)</p></li>
-<li><p><strong>reverse_x</strong> (<em>bool</em>) – if True, 0 cm^-1 will be on the right</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.spectra.Signals.get_mixed_signals">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_mixed_signals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal_groups</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fractions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_attr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'data'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.Signals.get_mixed_signals" title="Link to this definition">¶</a></dt>
-<dd><p>get signals for a mixture of components or conformers</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>signal_groups</strong> (<em>list</em><em>(</em><a class="reference internal" href="#AaronTools.spectra.Signal" title="AaronTools.spectra.Signal"><em>Signal</em></a><em>)</em><em>|</em><em>list</em><em>(</em><em>list</em><em>(</em><a class="reference internal" href="#AaronTools.spectra.Signal" title="AaronTools.spectra.Signal"><em>Signal</em></a><em>)</em><em>)</em>) – <p>list of Signals() instances or list of lists of Signals()</p>
-<p>a list of Signals() is a group of conformers</p>
-<p>a list of lists of Signals() are the different components</p>
-</p></li>
-<li><p><strong>weights</strong> (<em>iterable</em>) – weights for each conformer, organized according to signal_groups</p></li>
-<li><p><strong>fractions</strong> (<em>iterable</em>) – fraction of each component in the mixture
-default: all components have equal fractions</p></li>
-<li><p><strong>data_attr</strong> (<em>str</em>) – attribute of Signals() for data</p></li>
-<li><p><strong>kwargs</strong> – passed to cls.__init__, along with a new list of data</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.spectra.HarmonicVibration">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.spectra.</span></span><span class="sig-name descname"><span class="pre">HarmonicVibration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_var</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.HarmonicVibration" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.spectra.AnharmonicVibration">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.spectra.</span></span><span class="sig-name descname"><span class="pre">AnharmonicVibration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_var</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.AnharmonicVibration" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.spectra.Frequency">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.spectra.</span></span><span class="sig-name descname"><span class="pre">Frequency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">harmonic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hpmodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.Frequency" title="Link to this definition">¶</a></dt>
-<dd><p>for spectra in the IR/NIR region based on vibrational modes</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.spectra.Frequency.parse_gaussian_lines">
-<span class="sig-name descname"><span class="pre">parse_gaussian_lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lines</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hpmodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">harmonic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.Frequency.parse_gaussian_lines" title="Link to this definition">¶</a></dt>
-<dd><p>parse data from Gaussian output files related to this spectrum</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.spectra.Frequency.parse_qchem_lines">
-<span class="sig-name descname"><span class="pre">parse_qchem_lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lines</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.Frequency.parse_qchem_lines" title="Link to this definition">¶</a></dt>
-<dd><p>parse data from Q-Chem output files related to this spectrum</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.spectra.Frequency.parse_orca_lines">
-<span class="sig-name descname"><span class="pre">parse_orca_lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lines</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.Frequency.parse_orca_lines" title="Link to this definition">¶</a></dt>
-<dd><p>parse lines of orca output related to frequency
-hpmodes is not currently used</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.spectra.Frequency.parse_psi4_lines">
-<span class="sig-name descname"><span class="pre">parse_psi4_lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lines</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.Frequency.parse_psi4_lines" title="Link to this definition">¶</a></dt>
-<dd><p>parse lines of psi4 output related to frequencies
-hpmodes is not used</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.spectra.Frequency.filter_data">
-<span class="sig-name descname"><span class="pre">filter_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.Frequency.filter_data" title="Link to this definition">¶</a></dt>
-<dd><p>used to filter out some data from the spectrum (e.g.
-imaginary modes from an IR spec)
-return False if signal should not be in the spectrum</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.spectra.Frequency.plot_ir">
-<span class="sig-name descname"><span class="pre">plot_ir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">figure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">centers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">widths</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exp_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'transmittance'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peak_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pseudo-voigt'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_spacing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fwhm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anharmonic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotate_x_ticks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_functions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.Frequency.plot_ir" title="Link to this definition">¶</a></dt>
-<dd><p>plot IR data on figure</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>figure</strong> (<em>matplotlib.pyplot.Figure</em>) – matplotlib figure</p></li>
-<li><p><strong>centers</strong> (<em>np.ndarray</em>) – <p>array-like of float, plot is split into sections centered
-on the frequency specified by centers</p>
-<p>default is to not split into sections</p>
-</p></li>
-<li><p><strong>widths</strong> (<em>np.ndarray</em>) – array-like of float, defines the width of each section</p></li>
-<li><p><strong>exp_data</strong> (<em>list</em>) – <p>other data to plot</p>
-<p>should be a list of (x_data, y_data, color)</p>
-</p></li>
-<li><p><strong>reverse_x</strong> (<em>bool</em>) – if True, 0 cm^-1 will be on the right</p></li>
-<li><p><strong>plot_type</strong> (<em>str</em>) – see Frequency.get_plot_data</p></li>
-<li><p><strong>peak_type</strong> (<em>str</em>) – any value allowed by Frequency.get_plot_data</p></li>
-<li><p><strong>kwargs</strong> – keywords for Frequency.get_spectrum_functions</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.spectra.ValenceExcitation">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.spectra.</span></span><span class="sig-name descname"><span class="pre">ValenceExcitation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_var</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.ValenceExcitation" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.spectra.SOCExcitation">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.spectra.</span></span><span class="sig-name descname"><span class="pre">SOCExcitation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_var</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.SOCExcitation" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.spectra.TransientExcitation">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.spectra.</span></span><span class="sig-name descname"><span class="pre">TransientExcitation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.TransientExcitation" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.spectra.ValenceExcitations">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.spectra.</span></span><span class="sig-name descname"><span class="pre">ValenceExcitations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.ValenceExcitations" title="Link to this definition">¶</a></dt>
-<dd><p>for UV/vis data, primarily from TD-DFT</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.spectra.ValenceExcitations.parse_gaussian_lines">
-<span class="sig-name descname"><span class="pre">parse_gaussian_lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lines</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.ValenceExcitations.parse_gaussian_lines" title="Link to this definition">¶</a></dt>
-<dd><p>parse data from Gaussian output files related to this spectrum</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.spectra.ValenceExcitations.parse_orca_lines">
-<span class="sig-name descname"><span class="pre">parse_orca_lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lines</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orca_version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.ValenceExcitations.parse_orca_lines" title="Link to this definition">¶</a></dt>
-<dd><p>parse data from ORCA output files related to this spectrum</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.spectra.ValenceExcitations.parse_psi4_lines">
-<span class="sig-name descname"><span class="pre">parse_psi4_lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lines</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.ValenceExcitations.parse_psi4_lines" title="Link to this definition">¶</a></dt>
-<dd><p>parse data from Psi4 output files related to this spectrum</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.spectra.ValenceExcitations.parse_qchem_lines">
-<span class="sig-name descname"><span class="pre">parse_qchem_lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lines</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.ValenceExcitations.parse_qchem_lines" title="Link to this definition">¶</a></dt>
-<dd><p>parse data from Q-Chem output files related to this spectrum</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.spectra.ValenceExcitations.nm_to_ev">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nm_to_ev</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.ValenceExcitations.nm_to_ev" title="Link to this definition">¶</a></dt>
-<dd><p>convert x nm to eV</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.spectra.ValenceExcitations.ev_to_nm">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ev_to_nm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.ValenceExcitations.ev_to_nm" title="Link to this definition">¶</a></dt>
-<dd><p>convert x eV to nm</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.spectra.ValenceExcitations.plot_uv_vis">
-<span class="sig-name descname"><span class="pre">plot_uv_vis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">figure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">centers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">widths</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exp_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'uv-vis-veloctiy'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peak_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gaussian'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_spacing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fwhm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'nm'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotate_x_ticks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_functions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transient</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.ValenceExcitations.plot_uv_vis" title="Link to this definition">¶</a></dt>
-<dd><p>plot UV/vis data on figure</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>figure</strong> (<em>matplotlib.pyplot.Figure</em>) – matplotlib figure</p></li>
-<li><p><strong>centers</strong> (<em>np.ndarray</em>) – <p>array-like of float, plot is split into sections centered
-on the frequency specified by centers</p>
-<p>default is to not split into sections</p>
-</p></li>
-<li><p><strong>widths</strong> (<em>np.ndarray</em>) – array-like of float, defines the width of each section</p></li>
-<li><p><strong>exp_data</strong> (<em>list</em>) – <p>other data to plot</p>
-<p>should be a list of (x_data, y_data, color)</p>
-</p></li>
-<li><p><strong>reverse_x</strong> (<em>bool</em>) – if True, 0 cm^-1 will be on the right</p></li>
-<li><p><strong>plot_type</strong> (<em>str</em>) – what type of data to plot: uv-vis,
-uv-vis-velocity, ecd, ecd-velocity, transmittance, transmittance-velocity</p></li>
-<li><p><strong>peak_type</strong> (<em>str</em>) – any value allowed by <a class="reference internal" href="#AaronTools.spectra.Signals.get_plot_data" title="AaronTools.spectra.Signals.get_plot_data"><code class="xref py py-func docutils literal notranslate"><span class="pre">Signals.get_plot_data</span></code></a></p></li>
-<li><p><strong>kwargs</strong> – keywords for <a class="reference internal" href="#AaronTools.spectra.Signals.get_spectrum_functions" title="AaronTools.spectra.Signals.get_spectrum_functions"><code class="xref py py-func docutils literal notranslate"><span class="pre">Signals.get_spectrum_functions</span></code></a></p></li>
-</ul>
-</dd>
-</dl>
-<p>most other input is passed to <a class="reference internal" href="#AaronTools.spectra.Signals.plot_spectrum" title="AaronTools.spectra.Signals.plot_spectrum"><code class="xref py py-func docutils literal notranslate"><span class="pre">Signals.plot_spectrum</span></code></a></p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.spectra.Shift">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.spectra.</span></span><span class="sig-name descname"><span class="pre">Shift</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_var</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.Shift" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="AaronTools.spectra.NMR">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.spectra.</span></span><span class="sig-name descname"><span class="pre">NMR</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coupling</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.NMR" title="Link to this definition">¶</a></dt>
-<dd><dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.spectra.NMR.parse_orca_lines">
-<span class="sig-name descname"><span class="pre">parse_orca_lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lines</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.NMR.parse_orca_lines" title="Link to this definition">¶</a></dt>
-<dd><p>parse data from ORCA output files related to this spectrum</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.spectra.NMR.parse_gaussian_lines">
-<span class="sig-name descname"><span class="pre">parse_gaussian_lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lines</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.NMR.parse_gaussian_lines" title="Link to this definition">¶</a></dt>
-<dd><p>parse data from Gaussian output files related to this spectrum</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.spectra.NMR.get_mixed_signals">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_mixed_signals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal_groups</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_attr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'data'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.NMR.get_mixed_signals" title="Link to this definition">¶</a></dt>
-<dd><p>get signals for a mixture of components or conformers</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>signal_groups</strong> (<em>list</em><em>(</em><a class="reference internal" href="#AaronTools.spectra.Signal" title="AaronTools.spectra.Signal"><em>Signal</em></a><em>)</em>) – <p>list of Signals() instances or list of lists of Signals()</p>
-<p>a list of Signals() is a group of conformers</p>
-</p></li>
-<li><p><strong>weights</strong> (<em>iterable</em>) – weights for each conformer, organized according to signal_groups</p></li>
-<li><p><strong>data_attr</strong> (<em>str</em>) – attribute of Signals() for data</p></li>
-<li><p><strong>kwargs</strong> – passed to cls.__init__, along with a new list of data</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.spectra.NMR.get_spectrum_functions">
-<span class="sig-name descname"><span class="pre">get_spectrum_functions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fwhm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peak_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lorentzian'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voigt_mixing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scalar_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linear_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quadratic_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">intensity_attr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'intensity'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_attr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulse_frequency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">60.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">equivalent_nuclei</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coupling_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'H'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">couple_with</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('H',</span> <span class="pre">'Li',</span> <span class="pre">'Be',</span> <span class="pre">'B',</span> <span class="pre">'F',</span> <span class="pre">'Na',</span> <span class="pre">'Al',</span> <span class="pre">'P',</span> <span class="pre">'Cl',</span> <span class="pre">'K',</span> <span class="pre">'Sc',</span> <span class="pre">'V',</span> <span class="pre">'Mn',</span> <span class="pre">'Co',</span> <span class="pre">'Cu',</span> <span class="pre">'Ga',</span> <span class="pre">'As',</span> <span class="pre">'Br',</span> <span class="pre">'Rb',</span> <span class="pre">'Y',</span> <span class="pre">'Nb',</span> <span class="pre">'Rh',</span> <span class="pre">'Ag',</span> <span class="pre">'In',</span> <span class="pre">'Sb',</span> <span class="pre">'I',</span> <span class="pre">'Xe',</span> <span class="pre">'Cs',</span> <span class="pre">'La',</span> <span class="pre">'Pr',</span> <span class="pre">'Pm',</span> <span class="pre">'Eu',</span> <span class="pre">'Tb',</span> <span class="pre">'Dy',</span> <span class="pre">'Ho',</span> <span class="pre">'Tm',</span> <span class="pre">'Lu',</span> <span class="pre">'Ta',</span> <span class="pre">'Re',</span> <span class="pre">'Ir',</span> <span class="pre">'Pt',</span> <span class="pre">'Au')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shifts_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.NMR.get_spectrum_functions" title="Link to this definition">¶</a></dt>
-<dd><p>returns a list of functions that can be evaluated to
-produce a spectrum</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>fwhm</strong> (<em>float</em>) – full width at half max of each peak (Hz)</p></li>
-<li><p><strong>peak_type</strong> (<em>str</em>) – gaussian, lorentzian, pseudo-voigt, or delta</p></li>
-<li><p><strong>voigt_mixing</strong> (<em>float</em>) – ratio of pseudo-voigt that is gaussian</p></li>
-<li><p><strong>scalar_scale</strong> (<em>float</em>) – shift x data</p></li>
-<li><p><strong>linear_scale</strong> (<em>float</em>) – scale x data</p></li>
-<li><p><strong>quadratic_scale</strong> (<em>float</em>) – scale x data
-x’ = scalar_scale - linear_scale * x - quadratic_scale * x^2</p></li>
-<li><p><strong>intensity_attr</strong> (<em>str</em>) – attribute of Signal used for the intensity
-of that signal</p></li>
-<li><p><strong>data_attr</strong> (<em>str</em>) – attribute of self for the list of Signal()</p></li>
-<li><p><strong>pulse_frequency</strong> (<em>float</em>) – magnet pulse frequency (megahertz)</p></li>
-<li><p><strong>equivalent_nuclei</strong> (<em>list</em>) – list of lists of equivalent nuclei</p></li>
-<li><p><strong>geometry</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – used to determine equivalent nuclei if equivalent_nuclei is not given</p></li>
-<li><p><strong>graph</strong> (<em>list</em>) – used to determine equivalent nuclei if given. See <a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry.get_graph" title="AaronTools.geometry.Geometry.get_graph"><code class="xref py py-func docutils literal notranslate"><span class="pre">Geometry.get_graph</span></code></a> for example graphs.</p></li>
-<li><p><strong>coupling_threshold</strong> (<em>float</em>) – coupling threshold for whether or not to split into multiplet</p></li>
-<li><p><strong>element</strong> (<em>list</em>) – include signals with these specified elements</p></li>
-<li><p><strong>couple_with</strong> (<em>list</em>) – list of element symbols to use when determining which nuclei cause splitting</p></li>
-<li><p><strong>shifts_only</strong> (<em>bool</em>) – only determine centers of shifts and not complete splitting pattern</p></li>
-</ul>
-</dd>
-</dl>
-<p>For nuclei to be coupling-equivalent, the must be equivalent nuclei, the
-same number of bonds away from the coupled nucleus, and the sign of their
-coupling constant must be the same.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AaronTools.spectra.NMR.plot_nmr">
-<span class="sig-name descname"><span class="pre">plot_nmr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">figure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">centers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">widths</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exp_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'nmr'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peak_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lorentzian'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_spacing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fwhm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotate_x_ticks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_functions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulse_frequency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">60.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scalar_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linear_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quadratic_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.NMR.plot_nmr" title="Link to this definition">¶</a></dt>
-<dd><p>plot NMR data on figure</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>figure</strong> (<em>matplotlib.pyplot.Figure</em>) – matplotlib figure</p></li>
-<li><p><strong>centers</strong> (<em>np.ndarray</em>) – <p>array-like of float, plot is split into sections centered
-on the frequency specified by centers</p>
-<p>default is to not split into sections</p>
-</p></li>
-<li><p><strong>widths</strong> (<em>np.ndarray</em>) – array-like of float, defines the width of each section</p></li>
-<li><p><strong>exp_data</strong> (<em>list</em>) – <p>other data to plot</p>
-<p>should be a list of (x_data, y_data, color)</p>
-</p></li>
-<li><p><strong>reverse_x</strong> (<em>bool</em>) – if True, 0 cm^-1 will be on the right</p></li>
-<li><p><strong>plot_type</strong> (<em>str</em>) – see <a class="reference internal" href="#AaronTools.spectra.Signals.get_plot_data" title="AaronTools.spectra.Signals.get_plot_data"><code class="xref py py-func docutils literal notranslate"><span class="pre">Signals.get_plot_data</span></code></a></p></li>
-<li><p><strong>peak_type</strong> (<em>str</em>) – any value allowed by <a class="reference internal" href="#AaronTools.spectra.Signals.get_plot_data" title="AaronTools.spectra.Signals.get_plot_data"><code class="xref py py-func docutils literal notranslate"><span class="pre">Signals.get_plot_data</span></code></a></p></li>
-<li><p><strong>pulse_frequency</strong> (<em>float</em>) – pulse frequency in MHz</p></li>
-<li><p><strong>kwargs</strong> – keywords for <a class="reference internal" href="#AaronTools.spectra.NMR.get_spectrum_functions" title="AaronTools.spectra.NMR.get_spectrum_functions"><code class="xref py py-func docutils literal notranslate"><span class="pre">NMR.get_spectrum_functions</span></code></a></p></li>
-</ul>
-</dd>
-</dl>
-<p>other keyword arguments are passed to <a class="reference internal" href="#AaronTools.spectra.NMR.get_spectrum_functions" title="AaronTools.spectra.NMR.get_spectrum_functions"><code class="xref py py-func docutils literal notranslate"><span class="pre">NMR.get_spectrum_functions</span></code></a>
-or <a class="reference internal" href="#AaronTools.spectra.Signals.plot_spectrum" title="AaronTools.spectra.Signals.plot_spectrum"><code class="xref py py-func docutils literal notranslate"><span class="pre">Signals.plot_spectrum</span></code></a></p>
-</dd></dl>
-
-</dd></dl>
-
+          <section id="spectra">
+<h1>Spectra<a class="headerlink" href="#spectra" title="Link to this heading">¶</a></h1>
 </section>
 
         </article>
@@ -816,78 +415,14 @@ or <a class="reference internal" href="#AaronTools.spectra.Signals.plot_spectrum
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Spectra</a><ul>
-<li><a class="reference internal" href="#AaronTools.spectra.Signal"><code class="docutils literal notranslate"><span class="pre">Signal</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.spectra.Signals"><code class="docutils literal notranslate"><span class="pre">Signals</span></code></a><ul>
-<li><a class="reference internal" href="#AaronTools.spectra.Signals.parse_gaussian_lines"><code class="docutils literal notranslate"><span class="pre">Signals.parse_gaussian_lines()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.spectra.Signals.parse_orca_lines"><code class="docutils literal notranslate"><span class="pre">Signals.parse_orca_lines()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.spectra.Signals.parse_psi4_lines"><code class="docutils literal notranslate"><span class="pre">Signals.parse_psi4_lines()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.spectra.Signals.parse_qchem_lines"><code class="docutils literal notranslate"><span class="pre">Signals.parse_qchem_lines()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.spectra.Signals.filter_data"><code class="docutils literal notranslate"><span class="pre">Signals.filter_data()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.spectra.Signals.get_spectrum_functions"><code class="docutils literal notranslate"><span class="pre">Signals.get_spectrum_functions()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.spectra.Signals.get_plot_data"><code class="docutils literal notranslate"><span class="pre">Signals.get_plot_data()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.spectra.Signals.plot_spectrum"><code class="docutils literal notranslate"><span class="pre">Signals.plot_spectrum()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.spectra.Signals.get_mixed_signals"><code class="docutils literal notranslate"><span class="pre">Signals.get_mixed_signals()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#AaronTools.spectra.HarmonicVibration"><code class="docutils literal notranslate"><span class="pre">HarmonicVibration</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.spectra.AnharmonicVibration"><code class="docutils literal notranslate"><span class="pre">AnharmonicVibration</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.spectra.Frequency"><code class="docutils literal notranslate"><span class="pre">Frequency</span></code></a><ul>
-<li><a class="reference internal" href="#AaronTools.spectra.Frequency.parse_gaussian_lines"><code class="docutils literal notranslate"><span class="pre">Frequency.parse_gaussian_lines()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.spectra.Frequency.parse_qchem_lines"><code class="docutils literal notranslate"><span class="pre">Frequency.parse_qchem_lines()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.spectra.Frequency.parse_orca_lines"><code class="docutils literal notranslate"><span class="pre">Frequency.parse_orca_lines()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.spectra.Frequency.parse_psi4_lines"><code class="docutils literal notranslate"><span class="pre">Frequency.parse_psi4_lines()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.spectra.Frequency.filter_data"><code class="docutils literal notranslate"><span class="pre">Frequency.filter_data()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.spectra.Frequency.plot_ir"><code class="docutils literal notranslate"><span class="pre">Frequency.plot_ir()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#AaronTools.spectra.ValenceExcitation"><code class="docutils literal notranslate"><span class="pre">ValenceExcitation</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.spectra.SOCExcitation"><code class="docutils literal notranslate"><span class="pre">SOCExcitation</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.spectra.TransientExcitation"><code class="docutils literal notranslate"><span class="pre">TransientExcitation</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.spectra.ValenceExcitations"><code class="docutils literal notranslate"><span class="pre">ValenceExcitations</span></code></a><ul>
-<li><a class="reference internal" href="#AaronTools.spectra.ValenceExcitations.parse_gaussian_lines"><code class="docutils literal notranslate"><span class="pre">ValenceExcitations.parse_gaussian_lines()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.spectra.ValenceExcitations.parse_orca_lines"><code class="docutils literal notranslate"><span class="pre">ValenceExcitations.parse_orca_lines()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.spectra.ValenceExcitations.parse_psi4_lines"><code class="docutils literal notranslate"><span class="pre">ValenceExcitations.parse_psi4_lines()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.spectra.ValenceExcitations.parse_qchem_lines"><code class="docutils literal notranslate"><span class="pre">ValenceExcitations.parse_qchem_lines()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.spectra.ValenceExcitations.nm_to_ev"><code class="docutils literal notranslate"><span class="pre">ValenceExcitations.nm_to_ev()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.spectra.ValenceExcitations.ev_to_nm"><code class="docutils literal notranslate"><span class="pre">ValenceExcitations.ev_to_nm()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.spectra.ValenceExcitations.plot_uv_vis"><code class="docutils literal notranslate"><span class="pre">ValenceExcitations.plot_uv_vis()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#AaronTools.spectra.Shift"><code class="docutils literal notranslate"><span class="pre">Shift</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.spectra.NMR"><code class="docutils literal notranslate"><span class="pre">NMR</span></code></a><ul>
-<li><a class="reference internal" href="#AaronTools.spectra.NMR.parse_orca_lines"><code class="docutils literal notranslate"><span class="pre">NMR.parse_orca_lines()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.spectra.NMR.parse_gaussian_lines"><code class="docutils literal notranslate"><span class="pre">NMR.parse_gaussian_lines()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.spectra.NMR.get_mixed_signals"><code class="docutils literal notranslate"><span class="pre">NMR.get_mixed_signals()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.spectra.NMR.get_spectrum_functions"><code class="docutils literal notranslate"><span class="pre">NMR.get_spectrum_functions()</span></code></a></li>
-<li><a class="reference internal" href="#AaronTools.spectra.NMR.plot_nmr"><code class="docutils literal notranslate"><span class="pre">NMR.plot_nmr()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
