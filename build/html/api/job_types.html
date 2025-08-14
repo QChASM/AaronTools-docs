@@ -6,11 +6,11 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Basis Set classes" href="basis.html" /><link rel="prev" title="Theory parameters" href="theory_parameters.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/api/job_types.html" />
 
-    <!-- Generated with Sphinx 7.3.7 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
         <title>JobType classes - AaronTools 1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=acfd86a5" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -182,7 +182,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -362,14 +362,477 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="jobtype-classes">
-<h1><code class="docutils literal notranslate"><span class="pre">JobType</span></code> classes<a class="headerlink" href="#jobtype-classes" title="Link to this heading">¶</a></h1>
+          <section id="module-AaronTools.theory.job_types">
+<span id="jobtype-classes"></span><h1><code class="docutils literal notranslate"><span class="pre">JobType</span></code> classes<a class="headerlink" href="#module-AaronTools.theory.job_types" title="Link to this heading">¶</a></h1>
+<p>various job types for Theory() instances</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.job_from_string">
+<span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">job_from_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.job_from_string" title="Link to this definition">¶</a></dt>
+<dd><p>get a job name given a simple name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – <ul>
+<li><p>“opt” or “conf” with “.ts”, “.transition_state”, “.change”, and “.con” extensions</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>.ts and .transition_state indicate a transition state optimization</p></li>
+<li><p>.con indicates a constrained optimization - “constraints” should
+be in kwargs and the value should be a dictionary conformable with 
+the keyword of OptimizationJob</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>”freq” with “.num” extensions</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>.num indicates a numerical frequnecy, as does kwargs[“numerical”] = True
+kwargs can also have a “temperature” key</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>”sp” or “energy” or “single-point”</p></li>
+<li><p>”force” or “gradient” with a “.num” extension</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>.num indicates a numerical frequnecy, as does kwargs[“numerical”] = True</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>job types for the given string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.JobType">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">JobType</span></span><a class="headerlink" href="#AaronTools.theory.job_types.JobType" title="Link to this definition">¶</a></dt>
+<dd><p>parent class of all job types
+initialization keywords should be the same as attribute names</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.JobType.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.JobType.__init__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.JobType.get_gaussian">
+<span class="sig-name descname"><span class="pre">get_gaussian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.JobType.get_gaussian" title="Link to this definition">¶</a></dt>
+<dd><p>overwrite to return dict with GAUSSIAN_* keys</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.JobType.get_orca">
+<span class="sig-name descname"><span class="pre">get_orca</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.JobType.get_orca" title="Link to this definition">¶</a></dt>
+<dd><p>overwrite to return dict with ORCA_* keys</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.JobType.get_psi4">
+<span class="sig-name descname"><span class="pre">get_psi4</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.JobType.get_psi4" title="Link to this definition">¶</a></dt>
+<dd><p>overwrite to return dict with PSI4_* keys</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.JobType.get_sqm">
+<span class="sig-name descname"><span class="pre">get_sqm</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.JobType.get_sqm" title="Link to this definition">¶</a></dt>
+<dd><p>overwrite to return a dict with SQM_* keys</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.JobType.get_qchem">
+<span class="sig-name descname"><span class="pre">get_qchem</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.JobType.get_qchem" title="Link to this definition">¶</a></dt>
+<dd><p>overwrite to return a dict with QCHEM_* keys</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.JobType.get_xtb">
+<span class="sig-name descname"><span class="pre">get_xtb</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.JobType.get_xtb" title="Link to this definition">¶</a></dt>
+<dd><p>overwrite to return a dict with XTB_* keys</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.JobType.resolve_error">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">resolve_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exec_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.JobType.resolve_error" title="Link to this definition">¶</a></dt>
+<dd><p>returns a copy of theory or modifies theory to attempt
+to resolve an error</p>
+<p>theory will be modified if it is not possible for the current theory
+to work for any job</p>
+<p>if the error is specific to the molecule and settings, theory will
+be copied, modified, and returned
+raises NotImplementedError if this job type has no fix for
+the error code</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>error</strong> (<em>str</em>) – error code (e.g. SCF_CONV; see fileIO ERROR)</p></li>
+<li><p><strong>theory</strong> (<a class="reference internal" href="theory_class.html#AaronTools.theory.Theory" title="AaronTools.theory.Theory"><em>Theory</em></a>) – Theory instance used when the error happened</p></li>
+<li><p><strong>exec_type</strong> (<em>str</em>) – software program (i.e. gaussian, orca, etc.)</p></li>
+<li><p><strong>geometry</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – (optional) structure might be adjusted slightly if
+there are close contacts</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.OptimizationJob">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">OptimizationJob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transition_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.OptimizationJob" title="Link to this definition">¶</a></dt>
+<dd><p>optimization job</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.OptimizationJob.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transition_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.OptimizationJob.__init__" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>transition_state</strong> (<em>bool</em>) – request a transition state optimization</p></li>
+<li><p><strong>constraints</strong> (<em>dict</em>) – <p>keys are</p>
+<p><strong>available for ORCA, Gaussian, and Psi4</strong></p>
+<ul>
+<li><p>’atoms’ - atom identifiers/finders - atoms to constrain</p></li>
+<li><p>’bonds’ - list(atom idenifiers/finders) - distances to constrain each atom identifier
+in the list should result in exactly 2 atoms</p></li>
+<li><p>’angles’ - list(atom idenifiers/finders) - 1-3 angles to constrain each atom identifier
+should result in exactly 3 atoms</p></li>
+<li><p>’torsions’ - list(atom identifiers/finders) - constrained dihedral angles each atom
+identifier should result in exactly 4 atoms</p></li>
+</ul>
+<p><strong>available for Gaussian and Psi4</strong></p>
+<ul>
+<li><p>’x’ - list(atom identifiers/finders) - constrain the x coordinate of these atoms. Similarly, ‘y’ and ‘z’ are also accepted.</p></li>
+<li><p>’xgroup’ - list(tuple(list(atom idenifiers), x_val, hold)) -
+constrain the x coordinate of these atoms to be the same</p>
+<blockquote>
+<div><ul>
+<li><p>x_val - set x-coordinate to this value</p></li>
+<li><p>hold - hold this value constant during the optimization if ‘hold’ is omitted,
+the value will not be held constant during the optimization</p>
+<p>e.g. ‘xgroup’:[(“1-6”, 0, False), (“13-24”, 3.25, False)]</p>
+<p>this will keep atoms 1-6 and 13-24 in parallel planes, while also
+allowing those planes to move</p>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>’ygroup’ and ‘zgroup’ are also available, with analagous options</p></li>
+</ul>
+<p><strong>NOTE</strong></p>
+<p>for Gaussian, ‘bonds’, ‘angles’, and ‘torsions’ constraints cannot be mixed
+with ‘x’, ‘y’, ‘z’, ‘xgroup’, ‘ygroup’, or ‘zgroup’ constraints</p>
+</p></li>
+<li><p><strong>geometry</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – will be set when using an AaronTools FileWriter</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.OptimizationJob.get_gaussian">
+<span class="sig-name descname"><span class="pre">get_gaussian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.OptimizationJob.get_gaussian" title="Link to this definition">¶</a></dt>
+<dd><p>returns a dict with keys: GAUSSIAN_ROUTE, GAUSSIAN_CONSTRAINTS</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.OptimizationJob.get_orca">
+<span class="sig-name descname"><span class="pre">get_orca</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.OptimizationJob.get_orca" title="Link to this definition">¶</a></dt>
+<dd><p>returns a dict with keys: ORCA_ROUTE, ORCA_BLOCKS</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.OptimizationJob.get_psi4">
+<span class="sig-name descname"><span class="pre">get_psi4</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.OptimizationJob.get_psi4" title="Link to this definition">¶</a></dt>
+<dd><p>returns a dict with keys: PSI4_JOB, PSI4_OPTKING, PSI4_BEFORE_GEOM</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.OptimizationJob.get_xtb">
+<span class="sig-name descname"><span class="pre">get_xtb</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.OptimizationJob.get_xtb" title="Link to this definition">¶</a></dt>
+<dd><p>Generates xcontrol file constraints</p>
+<p>Returns: dict(fix, constrain, metadyn, cli)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.OptimizationJob.get_sqm">
+<span class="sig-name descname"><span class="pre">get_sqm</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.OptimizationJob.get_sqm" title="Link to this definition">¶</a></dt>
+<dd><p>returns a dict(), warnings for optimization jobs</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.OptimizationJob.get_qchem">
+<span class="sig-name descname"><span class="pre">get_qchem</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.OptimizationJob.get_qchem" title="Link to this definition">¶</a></dt>
+<dd><p>returns dict for Q-Chem</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.OptimizationJob.resolve_error">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">resolve_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exec_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.OptimizationJob.resolve_error" title="Link to this definition">¶</a></dt>
+<dd><p>resolves optimization-specific errors
+errors resolved by JobType take priority</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>error</strong> (<em>str</em>) – error code from FileReader[“error”]</p></li>
+<li><p><strong>theory</strong> (<a class="reference internal" href="theory_class.html#AaronTools.theory.Theory" title="AaronTools.theory.Theory"><em>Theory</em></a>) – theory used</p></li>
+<li><p><strong>exec_type</strong> (<em>str</em>) – program name (gaussian, psi4, orca…)</p></li>
+<li><p><strong>geometry</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – structure used when the error occured</p></li>
+</ul>
+</dd>
+</dl>
+<p>Note that the geometry might be modified when resolving errors</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None|<a class="reference internal" href="theory_class.html#AaronTools.theory.Theory" title="AaronTools.theory.Theory">Theory</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.FrequencyJob">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">FrequencyJob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numerical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.FrequencyJob" title="Link to this definition">¶</a></dt>
+<dd><p>frequnecy job</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.FrequencyJob.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numerical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.FrequencyJob.__init__" title="Link to this definition">¶</a></dt>
+<dd><p>temperature in K for thermochem info, defaults to 298.15 K</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.FrequencyJob.get_gaussian">
+<span class="sig-name descname"><span class="pre">get_gaussian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.FrequencyJob.get_gaussian" title="Link to this definition">¶</a></dt>
+<dd><p>returns a dict with keys: GAUSSIAN_ROUTE</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.FrequencyJob.get_orca">
+<span class="sig-name descname"><span class="pre">get_orca</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.FrequencyJob.get_orca" title="Link to this definition">¶</a></dt>
+<dd><p>returns a dict with keys: ORCA_ROUTE</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.FrequencyJob.get_psi4">
+<span class="sig-name descname"><span class="pre">get_psi4</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.FrequencyJob.get_psi4" title="Link to this definition">¶</a></dt>
+<dd><p>returns a dict with keys: PSI4_JOB</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.FrequencyJob.get_sqm">
+<span class="sig-name descname"><span class="pre">get_sqm</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.FrequencyJob.get_sqm" title="Link to this definition">¶</a></dt>
+<dd><p>overwrite to return a dict with SQM_* keys</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.FrequencyJob.get_qchem">
+<span class="sig-name descname"><span class="pre">get_qchem</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.FrequencyJob.get_qchem" title="Link to this definition">¶</a></dt>
+<dd><p>overwrite to return a dict with QCHEM_* keys</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.FrequencyJob.get_xtb">
+<span class="sig-name descname"><span class="pre">get_xtb</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.FrequencyJob.get_xtb" title="Link to this definition">¶</a></dt>
+<dd><p>overwrite to return a dict with XTB_* keys</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.FrequencyJob.resolve_error">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">resolve_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exec_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.FrequencyJob.resolve_error" title="Link to this definition">¶</a></dt>
+<dd><p>resolves frequnecy-specific errors
+errors resolved by JobType take priority</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.SinglePointJob">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">SinglePointJob</span></span><a class="headerlink" href="#AaronTools.theory.job_types.SinglePointJob" title="Link to this definition">¶</a></dt>
+<dd><p>single point energy</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.SinglePointJob.get_gaussian">
+<span class="sig-name descname"><span class="pre">get_gaussian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.SinglePointJob.get_gaussian" title="Link to this definition">¶</a></dt>
+<dd><p>returns a dict with keys: GAUSSIAN_ROUTE</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.SinglePointJob.get_orca">
+<span class="sig-name descname"><span class="pre">get_orca</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.SinglePointJob.get_orca" title="Link to this definition">¶</a></dt>
+<dd><p>returns a dict with keys: ORCA_ROUTE</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.SinglePointJob.get_psi4">
+<span class="sig-name descname"><span class="pre">get_psi4</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.SinglePointJob.get_psi4" title="Link to this definition">¶</a></dt>
+<dd><p>returns a dict with keys: PSI4_JOB</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.SinglePointJob.get_sqm">
+<span class="sig-name descname"><span class="pre">get_sqm</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.SinglePointJob.get_sqm" title="Link to this definition">¶</a></dt>
+<dd><p>returns a dict with keys: SQM_QMMM</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.SinglePointJob.get_qchem">
+<span class="sig-name descname"><span class="pre">get_qchem</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.SinglePointJob.get_qchem" title="Link to this definition">¶</a></dt>
+<dd><p>overwrite to return a dict with QCHEM_* keys</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.ForceJob">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">ForceJob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numerical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ForceJob" title="Link to this definition">¶</a></dt>
+<dd><p>force/gradient job</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.ForceJob.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numerical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ForceJob.__init__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.ForceJob.get_gaussian">
+<span class="sig-name descname"><span class="pre">get_gaussian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ForceJob.get_gaussian" title="Link to this definition">¶</a></dt>
+<dd><p>returns a dict with keys: GAUSSIAN_ROUTE</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.ForceJob.get_orca">
+<span class="sig-name descname"><span class="pre">get_orca</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ForceJob.get_orca" title="Link to this definition">¶</a></dt>
+<dd><p>returns a dict with keys: ORCA_ROUTE</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.ForceJob.get_psi4">
+<span class="sig-name descname"><span class="pre">get_psi4</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ForceJob.get_psi4" title="Link to this definition">¶</a></dt>
+<dd><p>returns a dict with keys: PSI4_JOB</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.ForceJob.get_qchem">
+<span class="sig-name descname"><span class="pre">get_qchem</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ForceJob.get_qchem" title="Link to this definition">¶</a></dt>
+<dd><p>overwrite to return a dict with QCHEM_* keys</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.ForceJob.get_xtb">
+<span class="sig-name descname"><span class="pre">get_xtb</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ForceJob.get_xtb" title="Link to this definition">¶</a></dt>
+<dd><p>overwrite to return a dict with XTB_* keys</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.ConformerSearchJob">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">ConformerSearchJob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_topology</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ConformerSearchJob" title="Link to this definition">¶</a></dt>
+<dd><p>conformer search (basically only for crest)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.ConformerSearchJob.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_topology</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ConformerSearchJob.__init__" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>constraints</strong> (<em>dict</em>) – <p>valid keys are:</p>
+<ul>
+<li><p>’atoms’ - atom identifiers/finders - atoms to constrain</p></li>
+<li><p>’bonds’ - list(atom idenifiers/finders) - distances to constrain each atom identifier in the list should result in exactly 2 atoms</p></li>
+<li><p>’angles’ - list(atom idenifiers/finders) - 1-3 angles to constrain each atom identifier should result in exactly 3 atoms</p></li>
+<li><dl class="simple">
+<dt>’torsions’ - list(atom identifiers/finders) - constrained dihedral angles</dt><dd><p>each atom identifier should result in exactly 4 atoms</p>
+</dd>
+</dl>
+</li>
+</ul>
+</p></li>
+<li><p><strong>geometry</strong> (<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – will be set when using an AaronTools FileWriter</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.ConformerSearchJob.get_orca">
+<span class="sig-name descname"><span class="pre">get_orca</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.ConformerSearchJob.get_orca" title="Link to this definition">¶</a></dt>
+<dd><p>returns a dict with keys: ORCA_ROUTE, ORCA_BLOCKS</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.TDDFTJob">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">TDDFTJob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">roots</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_of_interest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compute_nacmes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.TDDFTJob" title="Link to this definition">¶</a></dt>
+<dd><p>TD-DFT job</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.TDDFTJob.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">roots</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_of_interest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compute_nacmes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.TDDFTJob.__init__" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>roots</strong> (<em>int</em>) – number of roots</p></li>
+<li><p><strong>root_of_interest</strong> (<em>int</em>) – root for further computations (e.g. forces)</p></li>
+<li><p><strong>compute_nacmes</strong> (<em>bool</em>) – request nonadiabatic coupling matrix elements</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.TDDFTJob.get_gaussian">
+<span class="sig-name descname"><span class="pre">get_gaussian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.TDDFTJob.get_gaussian" title="Link to this definition">¶</a></dt>
+<dd><p>overwrite to return dict with GAUSSIAN_* keys</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.TDDFTJob.get_orca">
+<span class="sig-name descname"><span class="pre">get_orca</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.TDDFTJob.get_orca" title="Link to this definition">¶</a></dt>
+<dd><p>overwrite to return dict with ORCA_* keys</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.TDDFTJob.get_psi4">
+<span class="sig-name descname"><span class="pre">get_psi4</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.TDDFTJob.get_psi4" title="Link to this definition">¶</a></dt>
+<dd><p>overwrite to return dict with PSI4_* keys</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.TDDFTJob.get_qchem">
+<span class="sig-name descname"><span class="pre">get_qchem</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.TDDFTJob.get_qchem" title="Link to this definition">¶</a></dt>
+<dd><p>overwrite to return a dict with QCHEM_* keys</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.NMRJob">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.job_types.</span></span><span class="sig-name descname"><span class="pre">NMRJob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coupling_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.NMRJob" title="Link to this definition">¶</a></dt>
+<dd><p>NMR job</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.NMRJob.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coupling_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.NMRJob.__init__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.NMRJob.get_gaussian">
+<span class="sig-name descname"><span class="pre">get_gaussian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.NMRJob.get_gaussian" title="Link to this definition">¶</a></dt>
+<dd><p>overwrite to return dict with GAUSSIAN_* keys</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.theory.job_types.NMRJob.get_orca">
+<span class="sig-name descname"><span class="pre">get_orca</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.job_types.NMRJob.get_orca" title="Link to this definition">¶</a></dt>
+<dd><p>overwrite to return dict with ORCA_* keys</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
         </article>
@@ -415,14 +878,102 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">JobType</span></code> classes</a><ul>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.job_from_string"><code class="docutils literal notranslate"><span class="pre">job_from_string()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.JobType"><code class="docutils literal notranslate"><span class="pre">JobType</span></code></a><ul>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.JobType.__init__"><code class="docutils literal notranslate"><span class="pre">JobType.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.JobType.get_gaussian"><code class="docutils literal notranslate"><span class="pre">JobType.get_gaussian()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.JobType.get_orca"><code class="docutils literal notranslate"><span class="pre">JobType.get_orca()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.JobType.get_psi4"><code class="docutils literal notranslate"><span class="pre">JobType.get_psi4()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.JobType.get_sqm"><code class="docutils literal notranslate"><span class="pre">JobType.get_sqm()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.JobType.get_qchem"><code class="docutils literal notranslate"><span class="pre">JobType.get_qchem()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.JobType.get_xtb"><code class="docutils literal notranslate"><span class="pre">JobType.get_xtb()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.JobType.resolve_error"><code class="docutils literal notranslate"><span class="pre">JobType.resolve_error()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.OptimizationJob"><code class="docutils literal notranslate"><span class="pre">OptimizationJob</span></code></a><ul>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.OptimizationJob.__init__"><code class="docutils literal notranslate"><span class="pre">OptimizationJob.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.OptimizationJob.get_gaussian"><code class="docutils literal notranslate"><span class="pre">OptimizationJob.get_gaussian()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.OptimizationJob.get_orca"><code class="docutils literal notranslate"><span class="pre">OptimizationJob.get_orca()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.OptimizationJob.get_psi4"><code class="docutils literal notranslate"><span class="pre">OptimizationJob.get_psi4()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.OptimizationJob.get_xtb"><code class="docutils literal notranslate"><span class="pre">OptimizationJob.get_xtb()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.OptimizationJob.get_sqm"><code class="docutils literal notranslate"><span class="pre">OptimizationJob.get_sqm()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.OptimizationJob.get_qchem"><code class="docutils literal notranslate"><span class="pre">OptimizationJob.get_qchem()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.OptimizationJob.resolve_error"><code class="docutils literal notranslate"><span class="pre">OptimizationJob.resolve_error()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.FrequencyJob"><code class="docutils literal notranslate"><span class="pre">FrequencyJob</span></code></a><ul>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.FrequencyJob.__init__"><code class="docutils literal notranslate"><span class="pre">FrequencyJob.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.FrequencyJob.get_gaussian"><code class="docutils literal notranslate"><span class="pre">FrequencyJob.get_gaussian()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.FrequencyJob.get_orca"><code class="docutils literal notranslate"><span class="pre">FrequencyJob.get_orca()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.FrequencyJob.get_psi4"><code class="docutils literal notranslate"><span class="pre">FrequencyJob.get_psi4()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.FrequencyJob.get_sqm"><code class="docutils literal notranslate"><span class="pre">FrequencyJob.get_sqm()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.FrequencyJob.get_qchem"><code class="docutils literal notranslate"><span class="pre">FrequencyJob.get_qchem()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.FrequencyJob.get_xtb"><code class="docutils literal notranslate"><span class="pre">FrequencyJob.get_xtb()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.FrequencyJob.resolve_error"><code class="docutils literal notranslate"><span class="pre">FrequencyJob.resolve_error()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.SinglePointJob"><code class="docutils literal notranslate"><span class="pre">SinglePointJob</span></code></a><ul>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.SinglePointJob.get_gaussian"><code class="docutils literal notranslate"><span class="pre">SinglePointJob.get_gaussian()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.SinglePointJob.get_orca"><code class="docutils literal notranslate"><span class="pre">SinglePointJob.get_orca()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.SinglePointJob.get_psi4"><code class="docutils literal notranslate"><span class="pre">SinglePointJob.get_psi4()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.SinglePointJob.get_sqm"><code class="docutils literal notranslate"><span class="pre">SinglePointJob.get_sqm()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.SinglePointJob.get_qchem"><code class="docutils literal notranslate"><span class="pre">SinglePointJob.get_qchem()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.ForceJob"><code class="docutils literal notranslate"><span class="pre">ForceJob</span></code></a><ul>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.ForceJob.__init__"><code class="docutils literal notranslate"><span class="pre">ForceJob.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.ForceJob.get_gaussian"><code class="docutils literal notranslate"><span class="pre">ForceJob.get_gaussian()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.ForceJob.get_orca"><code class="docutils literal notranslate"><span class="pre">ForceJob.get_orca()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.ForceJob.get_psi4"><code class="docutils literal notranslate"><span class="pre">ForceJob.get_psi4()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.ForceJob.get_qchem"><code class="docutils literal notranslate"><span class="pre">ForceJob.get_qchem()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.ForceJob.get_xtb"><code class="docutils literal notranslate"><span class="pre">ForceJob.get_xtb()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.ConformerSearchJob"><code class="docutils literal notranslate"><span class="pre">ConformerSearchJob</span></code></a><ul>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.ConformerSearchJob.__init__"><code class="docutils literal notranslate"><span class="pre">ConformerSearchJob.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.ConformerSearchJob.get_orca"><code class="docutils literal notranslate"><span class="pre">ConformerSearchJob.get_orca()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.TDDFTJob"><code class="docutils literal notranslate"><span class="pre">TDDFTJob</span></code></a><ul>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.TDDFTJob.__init__"><code class="docutils literal notranslate"><span class="pre">TDDFTJob.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.TDDFTJob.get_gaussian"><code class="docutils literal notranslate"><span class="pre">TDDFTJob.get_gaussian()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.TDDFTJob.get_orca"><code class="docutils literal notranslate"><span class="pre">TDDFTJob.get_orca()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.TDDFTJob.get_psi4"><code class="docutils literal notranslate"><span class="pre">TDDFTJob.get_psi4()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.TDDFTJob.get_qchem"><code class="docutils literal notranslate"><span class="pre">TDDFTJob.get_qchem()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.NMRJob"><code class="docutils literal notranslate"><span class="pre">NMRJob</span></code></a><ul>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.NMRJob.__init__"><code class="docutils literal notranslate"><span class="pre">NMRJob.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.NMRJob.get_gaussian"><code class="docutils literal notranslate"><span class="pre">NMRJob.get_gaussian()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.theory.job_types.NMRJob.get_orca"><code class="docutils literal notranslate"><span class="pre">NMRJob.get_orca()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>

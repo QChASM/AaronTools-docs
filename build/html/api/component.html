@@ -6,11 +6,11 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Substituent class" href="substituent.html" /><link rel="prev" title="Atom class" href="atoms.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/api/component.html" />
 
-    <!-- Generated with Sphinx 7.3.7 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
         <title>Component class - AaronTools 1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=acfd86a5" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -182,7 +182,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -362,7 +362,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -370,6 +370,213 @@
         <article role="main" id="furo-main-content">
           <section id="component-class">
 <h1><code class="docutils literal notranslate"><span class="pre">Component</span></code> class<a class="headerlink" href="#component-class" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="AaronTools.component.Component">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.component.</span></span><span class="sig-name descname"><span class="pre">Component</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detect_backbone</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.component.Component" title="Link to this definition">¶</a></dt>
+<dd><p>class for parts of a Geometry (e.g. ligands)
+Attributes:</p>
+<ul class="simple">
+<li><p>name           str</p></li>
+<li><p>comment        str</p></li>
+<li><p>atoms          list(Atom)</p></li>
+<li><p>other          dict()</p></li>
+<li><p>substituents   list(Substituent) substituents detected</p></li>
+<li><p>backbone       list(Atom) the backbone atoms</p></li>
+<li><p>key_atoms      list(Atom) the atoms used for mapping</p></li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.component.Component.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detect_backbone</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.component.Component.__init__" title="Link to this definition">¶</a></dt>
+<dd><p>comp is either a file, a geometry, or an atom list</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.component.Component.list">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name_regex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coordinating_elements</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">denticity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_ext</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.component.Component.list" title="Link to this definition">¶</a></dt>
+<dd><p>returns a list of ligand names in the library</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name_regex</strong> (<em>str</em>) – regex identifier/name for a library to search</p></li>
+<li><p><strong>coordinating_elements</strong> (<em>list</em><em>(</em><a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a><em>)</em>) – if specified, only lists ligands with included coordinated elements</p></li>
+<li><p><strong>denticity</strong> (<em>int</em>) – if specified, lists ligands with included denticity</p></li>
+<li><p><strong>include_ext</strong> (<em>bool</em>) – includes extensions on each item if True</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.component.Component.c2_symmetric">
+<span class="sig-name descname"><span class="pre">c2_symmetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to_center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.component.Component.c2_symmetric" title="Link to this definition">¶</a></dt>
+<dd><p>determine if center-key atom axis is a C2 axis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>to_center</strong> (<em>list</em><em>(</em><a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a><em>)</em>) – arg. for Geometry.COM(), atoms connected to center</p></li>
+<li><p><strong>tolerance</strong> (<em>float</em>) – buffer for consideration of axis symmetry</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if axis is C2, otherwise False</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.component.Component.sterimol">
+<span class="sig-name descname"><span class="pre">sterimol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to_center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bisect_L</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.component.Component.sterimol" title="Link to this definition">¶</a></dt>
+<dd><p>calculate ligand sterimol parameters for the ligand</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>to_center</strong> (<a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a>) – atom the ligand is coordinated to</p></li>
+<li><p><strong>bisect_L</strong> (<em>bool</em>) – <p>L axis will bisect (or analogous for higher denticity
+ligands) the L-M-L angle</p>
+<p>Default - center to centroid of key atoms</p>
+</p></li>
+<li><p><strong>kwargs</strong> – <ul>
+<li><p>arguments passed to Geometry.sterimol</p></li>
+</ul>
+</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.component.Component.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.component.Component.copy" title="Link to this definition">¶</a></dt>
+<dd><p>creates a new copy of the geometry</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>atoms</strong> (<em>list</em><em>(</em><a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a><em>)</em>) – atoms to copy defaults to all atoms</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – defaults to NAME_copy</p></li>
+<li><p><strong>comment</strong> (<em>str</em>) – comment to add to the copy, defaults to self’s comment</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>copy of self</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry">Geometry</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.component.Component.get_frag_list">
+<span class="sig-name descname"><span class="pre">get_frag_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.component.Component.get_frag_list" title="Link to this definition">¶</a></dt>
+<dd><p>find fragments connected by only one bond
+(both fragments contain no overlapping atoms)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>targets</strong> (<em>list</em><em>(</em><a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a><em>)</em>) – all fragments must include targets if specified</p></li>
+<li><p><strong>max_order</strong> (<em>int</em>) – maximum order/length for fragments</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>all fragments under specified conditions</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list(<a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry">Geometry</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.component.Component.detect_backbone">
+<span class="sig-name descname"><span class="pre">detect_backbone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to_center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.component.Component.detect_backbone" title="Link to this definition">¶</a></dt>
+<dd><p>Detects backbone and substituents attached to backbone
+Will tag atoms as ‘backbone’ or by substituent name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>to_center</strong> (<em>list</em><em>(</em><a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a><em>)</em>) – the atoms connected to the metal/active center</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.component.Component.minimize_sub_torsion">
+<span class="sig-name descname"><span class="pre">minimize_sub_torsion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.component.Component.minimize_sub_torsion" title="Link to this definition">¶</a></dt>
+<dd><p>rotates substituents to minimize LJ potential</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>geom</strong> (<em>None</em><em>|</em><a class="reference internal" href="geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><em>Geometry</em></a>) – calculate LJ potential between self and another geometry-like
+object, instead of just within self</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.component.Component.cone_angle">
+<span class="sig-name descname"><span class="pre">cone_angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'exact'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_cones</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_individual</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radii</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'umn'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.component.Component.cone_angle" title="Link to this definition">¶</a></dt>
+<dd><p>returns cone angle in degrees</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>center</strong> (<a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a>) – that this component is coordinating
+used as the apex of the cone</p></li>
+<li><p><strong>method</strong> (<em>str</em>) – <p>can be:</p>
+<ul>
+<li><p>’Tolman’ - Tolman cone angle for unsymmetric ligands</p>
+<p>See J. Am. Chem. Soc. 1974, 96, 1, 53–60 (DOI: 10.1021/ja00808a009)</p>
+<dl class="field-list simple">
+<dt class="field-odd">NOTE<span class="colon">:</span></dt>
+<dd class="field-odd"><p>this does not make assumptions about the geometry</p>
+</dd>
+</dl>
+</li>
+<li><p>’exact’ - cone angle from Allen et. al.</p>
+<p>See Bilbrey, J.A., Kazez, A.H., Locklin, J. and Allen, W.D.
+(2013), Exact ligand cone angles. J. Comput. Chem., 34:
+1189-1197. (DOI: 10.1002/jcc.23217)</p>
+</li>
+</ul>
+</p></li>
+<li><p><strong>return_cones</strong> (<em>bool</em>) – <p>return cone apex, center of base, and base radius list
+the sides of the cones will be 5 angstroms long</p>
+<p>for Tolman cone angles, multiple cones will be returned, one for
+each substituent coming off the coordinating atom</p>
+</p></li>
+<li><p><strong>return_individual</strong> (<em>bool</em>) – return the angles for each individual
+Tolman cone</p></li>
+<li><p><strong>radii</strong> (<em>str</em><em>|</em><em>dict</em>) – <ul>
+<li><p>‘bondi’ - Bondi vdW radii</p></li>
+<li><p>’umn’   - vdW radii from Mantina, Chamberlin, Valero, Cramer, and Truhlar</p></li>
+<li><p>dict() with elements as keys and radii as values</p></li>
+</ul>
+</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.component.Component.solid_angle">
+<span class="sig-name descname"><span class="pre">solid_angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">center</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radii</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'umn'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5810</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_solid_cone</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.component.Component.solid_angle" title="Link to this definition">¶</a></dt>
+<dd><p>calculate the solid angle of a ligand</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>center</strong> (<a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a>) – atoms or point to denote the center of the sphere</p></li>
+<li><p><strong>radii</strong> (<em>str</em><em>|</em><em>dict</em>) – “umn”, “bondi”, or a dictionary with elements as
+the keys and radii as the values</p></li>
+<li><p><strong>grid</strong> (<em>int</em>) – number of points in lebedev grid</p></li>
+<li><p><strong>return_solid_cone</strong> (<em>bool</em>) – return solid ligand cone angle (degrees)
+instead of solid angle (steradians)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
         </article>
@@ -415,14 +622,45 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">Component</span></code> class</a><ul>
+<li><a class="reference internal" href="#AaronTools.component.Component"><code class="docutils literal notranslate"><span class="pre">Component</span></code></a><ul>
+<li><a class="reference internal" href="#AaronTools.component.Component.__init__"><code class="docutils literal notranslate"><span class="pre">Component.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.component.Component.list"><code class="docutils literal notranslate"><span class="pre">Component.list()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.component.Component.c2_symmetric"><code class="docutils literal notranslate"><span class="pre">Component.c2_symmetric()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.component.Component.sterimol"><code class="docutils literal notranslate"><span class="pre">Component.sterimol()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.component.Component.copy"><code class="docutils literal notranslate"><span class="pre">Component.copy()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.component.Component.get_frag_list"><code class="docutils literal notranslate"><span class="pre">Component.get_frag_list()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.component.Component.detect_backbone"><code class="docutils literal notranslate"><span class="pre">Component.detect_backbone()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.component.Component.minimize_sub_torsion"><code class="docutils literal notranslate"><span class="pre">Component.minimize_sub_torsion()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.component.Component.cone_angle"><code class="docutils literal notranslate"><span class="pre">Component.cone_angle()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.component.Component.solid_angle"><code class="docutils literal notranslate"><span class="pre">Component.solid_angle()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>

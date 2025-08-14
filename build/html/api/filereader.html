@@ -6,11 +6,11 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="FileWriter class" href="filewriter.html" /><link rel="prev" title="Reading and Writing Files" href="fileIO.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/api/filereader.html" />
 
-    <!-- Generated with Sphinx 7.3.7 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
         <title>FileReader class - AaronTools 1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=acfd86a5" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -372,6 +372,308 @@
 <h1><code class="docutils literal notranslate"><span class="pre">FileReader</span></code> class<a class="headerlink" href="#filereader-class" title="Link to this heading">¶</a></h1>
 <p>Any data parsed from by a <code class="docutils literal notranslate"><span class="pre">FileReader</span></code> can be accessed much like a dictiory (<em>i.e.</em> <code class="docutils literal notranslate"><span class="pre">some_filereader[&quot;energy&quot;]</span></code>).
 A nearly complete list of keys for various file types is at the bottom of this page.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="AaronTools.fileIO.FileReader">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.fileIO.</span></span><span class="sig-name descname"><span class="pre">FileReader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_all</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">just_geom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oniom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan_read_all</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conf_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nbo_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileReader" title="Link to this definition">¶</a></dt>
+<dd><p>class for reading files</p>
+<p>Attributes</p>
+<ul class="simple">
+<li><p>name</p></li>
+<li><p>file_type</p></li>
+<li><p>comment</p></li>
+<li><p>atoms list(Atom) or list(OniomAtom)</p></li>
+<li><p>other dict</p></li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.fileIO.FileReader.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_all</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">just_geom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oniom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan_read_all</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conf_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nbo_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileReader.__init__" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fname</strong> (<em>str</em><em>|</em><em>tuple</em>) – either a string specifying the file name of the file to read
+or a tuple of (str(name), str(file_type), str(content))</p></li>
+<li><p><strong>get_all</strong> (<em>bool</em>) – if true, optimization steps are also saved in
+self.all_geom; otherwise only saves last geometry</p></li>
+<li><p><strong>just_geom</strong> (<em>bool</em>) – if true, does not store other information, such as
+frequencies, only what is needed to construct a Geometry() obj</p></li>
+<li><p><strong>freq_name</strong> (<em>str</em>) – Name of the file containing the frequency output. Only use
+if this information is in a different file than <cite>fname</cite> (eg: xtb runs
+using the –hess runtype option)</p></li>
+<li><p><strong>nbo_name</strong> (<em>str</em>) – Name of the file containing the NBO orbital coefficients
+in the AO basis. Only used when reading .47 files.</p></li>
+<li><p><strong>max_length</strong> (<em>int</em>) – <p>maximum array size to store from FCHK files</p>
+<p>any array that would be larger than this will be the
+size the array would be ignored</p>
+</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.fileIO.FileReader.read_file">
+<span class="sig-name descname"><span class="pre">read_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">get_all</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">just_geom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan_read_all</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conf_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nbo_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oniom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileReader.read_file" title="Link to this definition">¶</a></dt>
+<dd><p>Reads geometry information from fname.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>get_all</strong> (<em>bool</em>) – If false (default), only keep the last geom
+If true, self is last geom, but return list
+of all others encountered</p></li>
+<li><p><strong>just_geom</strong> (<em>bool</em>) – determines whether only geoms will be found/read; Default:True</p></li>
+<li><p><strong>scan_read_all</strong> (<em>bool</em>)</p></li>
+<li><p><strong>freq_name</strong> (<em>str</em>) – name of frequency for xtb</p></li>
+<li><p><strong>conf_name</strong> (<em>str</em>) – name of conformer for crest</p></li>
+<li><p><strong>nbo_name</strong> (<em>str</em>) – nbo output file containing coefficients to
+map AO’s to orbitals</p></li>
+<li><p><strong>oniom</strong> (<em>bool</em>) – whether molecule is oniom</p></li>
+<li><p><strong>max_length</strong> (<em>int</em>) – max. array size for arrays to store in FCHK
+files - anything larger will be the size
+the array would not be stored</p></li>
+<li><p><strong>log</strong> (<em>str</em>) – log for reading log files</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.fileIO.FileReader.read_xyz">
+<span class="sig-name descname"><span class="pre">read_xyz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_all</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oniom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileReader.read_xyz" title="Link to this definition">¶</a></dt>
+<dd><p>read xyz files</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> (<em>str</em>) – file to be read</p></li>
+<li><p><strong>get_all</strong> (<em>bool</em>) – retrieves all geoms in file instead of just one</p></li>
+<li><p><strong>oniom</strong> (<em>bool</em>) – whether or not contents are oniom</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.fileIO.FileReader.read_sd">
+<span class="sig-name descname"><span class="pre">read_sd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_all</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileReader.read_sd" title="Link to this definition">¶</a></dt>
+<dd><p>read sdf file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> (<em>str</em>) – file to be read</p></li>
+<li><p><strong>get_all</strong> (<em>bool</em>) – retrieves all geoms in file instead of just one</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.fileIO.FileReader.read_mol2">
+<span class="sig-name descname"><span class="pre">read_mol2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_all</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileReader.read_mol2" title="Link to this definition">¶</a></dt>
+<dd><p>read TRIPOS mol2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> (<em>str</em>) – file to be read</p></li>
+<li><p><strong>get_all</strong> (<em>bool</em>) – retrieves all geoms in file instead of just one</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.fileIO.FileReader.read_psi4_out">
+<span class="sig-name descname"><span class="pre">read_psi4_out</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_all</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">just_geom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileReader.read_psi4_out" title="Link to this definition">¶</a></dt>
+<dd><p>read psi4 output file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> (<em>str</em>) – file to be read</p></li>
+<li><p><strong>get_all</strong> (<em>bool</em>) – retrieves all geoms in file instead of just one</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.fileIO.FileReader.read_orca_out">
+<span class="sig-name descname"><span class="pre">read_orca_out</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_all</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">just_geom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan_read_all</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileReader.read_orca_out" title="Link to this definition">¶</a></dt>
+<dd><p>read orca output file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> (<em>str</em>) – file to be read</p></li>
+<li><p><strong>get_all</strong> (<em>bool</em>) – retrieves all geoms in file instead of just one</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.fileIO.FileReader.read_qchem_out">
+<span class="sig-name descname"><span class="pre">read_qchem_out</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_all</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">just_geom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileReader.read_qchem_out" title="Link to this definition">¶</a></dt>
+<dd><p>read qchem output file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> (<em>str</em>) – file to be read</p></li>
+<li><p><strong>get_all</strong> (<em>bool</em>) – retrieves all geoms in file instead of just one</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.fileIO.FileReader.read_log">
+<span class="sig-name descname"><span class="pre">read_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_all</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">just_geom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan_read_all</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileReader.read_log" title="Link to this definition">¶</a></dt>
+<dd><p>read gaussian output file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> (<em>str</em>) – file to be read</p></li>
+<li><p><strong>get_all</strong> (<em>bool</em>) – retrieves all geoms in file instead of just one</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.fileIO.FileReader.read_com">
+<span class="sig-name descname"><span class="pre">read_com</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileReader.read_com" title="Link to this definition">¶</a></dt>
+<dd><p>read gaussian input file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>f</strong> (<em>str</em>) – file to be read</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.fileIO.FileReader.read_fchk">
+<span class="sig-name descname"><span class="pre">read_fchk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">just_geom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileReader.read_fchk" title="Link to this definition">¶</a></dt>
+<dd><p>read formatted checkpoint file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>f</strong> (<em>str</em>) – file to be read</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.fileIO.FileReader.read_pdb">
+<span class="sig-name descname"><span class="pre">read_pdb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileReader.read_pdb" title="Link to this definition">¶</a></dt>
+<dd><p>read pdb or pdbqt file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> (<em>str</em>) – file to be read</p></li>
+<li><p><strong>qt</strong> (<em>bool</em>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.fileIO.FileReader.read_mmcif">
+<span class="sig-name descname"><span class="pre">read_mmcif</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileReader.read_mmcif" title="Link to this definition">¶</a></dt>
+<dd><p>read mmcif</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>f</strong> (<em>str</em>) – file to be read</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.fileIO.FileReader.read_nbo">
+<span class="sig-name descname"><span class="pre">read_nbo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileReader.read_nbo" title="Link to this definition">¶</a></dt>
+<dd><p>read nbo data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>f</strong> (<em>str</em>) – file to be read</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.fileIO.FileReader.read_crest">
+<span class="sig-name descname"><span class="pre">read_crest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conf_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileReader.read_crest" title="Link to this definition">¶</a></dt>
+<dd><p>Reads crest files</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> (<em>str</em>) – file to be read</p></li>
+<li><p><strong>conf_name</strong> (<em>str</em>) – False to skip conformer loading (doesn’t get written until crest job is done)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.fileIO.FileReader.read_xtb">
+<span class="sig-name descname"><span class="pre">read_xtb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileReader.read_xtb" title="Link to this definition">¶</a></dt>
+<dd><p>read xtb output</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> (<em>str</em>) – file to be read</p></li>
+<li><p><strong>freq_name</strong> (<em>str</em>) – name of frequency to be used for xtb</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.fileIO.FileReader.read_sqm">
+<span class="sig-name descname"><span class="pre">read_sqm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileReader.read_sqm" title="Link to this definition">¶</a></dt>
+<dd><p>read sqm output</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>f</strong> (<em>str</em>) – file to be read</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.fileIO.FileReader.read_nbo_47">
+<span class="sig-name descname"><span class="pre">read_nbo_47</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nbo_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileReader.read_nbo_47" title="Link to this definition">¶</a></dt>
+<dd><p>read nbo .47 file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> (<em>str</em>) – file to be read</p></li>
+<li><p><strong>nbo_name</strong> (<em>str</em>) – Name of the file containing the NBO orbital coefficients in the AO basis. Only used when reading .47 files.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.fileIO.FileReader.read_nbo_31">
+<span class="sig-name descname"><span class="pre">read_nbo_31</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nbo_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileReader.read_nbo_31" title="Link to this definition">¶</a></dt>
+<dd><p>read nbo .31 file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> (<em>str</em>) – file to be read</p></li>
+<li><p><strong>nbo_name</strong> (<em>str</em>) – Name of the file containing the NBO orbital coefficients in the AO basis. Only used when reading .47 files.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.fileIO.FileReader.write_mode">
+<span class="sig-name descname"><span class="pre">write_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vibmode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileReader.write_mode" title="Link to this definition">¶</a></dt>
+<dd><p>returns frequency and XYZ format including displacement vectors along selected vibrational mode (1-indexed)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.fileIO.FileReader.animate">
+<span class="sig-name descname"><span class="pre">animate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vibmode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.fileIO.FileReader.animate" title="Link to this definition">¶</a></dt>
+<dd><p>Display py3Dmol animation of selected mode</p>
+</dd></dl>
+
+</dd></dl>
+
 <section id="filereader-keys-for-various-output-files">
 <span id="fr-keys"></span><h2><code class="docutils literal notranslate"><span class="pre">FileReader</span></code> keys for various output files<a class="headerlink" href="#filereader-keys-for-various-output-files" title="Link to this heading">¶</a></h2>
 <section id="crest-output">
@@ -1073,6 +1375,30 @@ There is also an <code class="docutils literal notranslate"><span class="pre">or
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">FileReader</span></code> class</a><ul>
+<li><a class="reference internal" href="#AaronTools.fileIO.FileReader"><code class="docutils literal notranslate"><span class="pre">FileReader</span></code></a><ul>
+<li><a class="reference internal" href="#AaronTools.fileIO.FileReader.__init__"><code class="docutils literal notranslate"><span class="pre">FileReader.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.fileIO.FileReader.read_file"><code class="docutils literal notranslate"><span class="pre">FileReader.read_file()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.fileIO.FileReader.read_xyz"><code class="docutils literal notranslate"><span class="pre">FileReader.read_xyz()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.fileIO.FileReader.read_sd"><code class="docutils literal notranslate"><span class="pre">FileReader.read_sd()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.fileIO.FileReader.read_mol2"><code class="docutils literal notranslate"><span class="pre">FileReader.read_mol2()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.fileIO.FileReader.read_psi4_out"><code class="docutils literal notranslate"><span class="pre">FileReader.read_psi4_out()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.fileIO.FileReader.read_orca_out"><code class="docutils literal notranslate"><span class="pre">FileReader.read_orca_out()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.fileIO.FileReader.read_qchem_out"><code class="docutils literal notranslate"><span class="pre">FileReader.read_qchem_out()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.fileIO.FileReader.read_log"><code class="docutils literal notranslate"><span class="pre">FileReader.read_log()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.fileIO.FileReader.read_com"><code class="docutils literal notranslate"><span class="pre">FileReader.read_com()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.fileIO.FileReader.read_fchk"><code class="docutils literal notranslate"><span class="pre">FileReader.read_fchk()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.fileIO.FileReader.read_pdb"><code class="docutils literal notranslate"><span class="pre">FileReader.read_pdb()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.fileIO.FileReader.read_mmcif"><code class="docutils literal notranslate"><span class="pre">FileReader.read_mmcif()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.fileIO.FileReader.read_nbo"><code class="docutils literal notranslate"><span class="pre">FileReader.read_nbo()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.fileIO.FileReader.read_crest"><code class="docutils literal notranslate"><span class="pre">FileReader.read_crest()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.fileIO.FileReader.read_xtb"><code class="docutils literal notranslate"><span class="pre">FileReader.read_xtb()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.fileIO.FileReader.read_sqm"><code class="docutils literal notranslate"><span class="pre">FileReader.read_sqm()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.fileIO.FileReader.read_nbo_47"><code class="docutils literal notranslate"><span class="pre">FileReader.read_nbo_47()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.fileIO.FileReader.read_nbo_31"><code class="docutils literal notranslate"><span class="pre">FileReader.read_nbo_31()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.fileIO.FileReader.write_mode"><code class="docutils literal notranslate"><span class="pre">FileReader.write_mode()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.fileIO.FileReader.animate"><code class="docutils literal notranslate"><span class="pre">FileReader.animate()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#filereader-keys-for-various-output-files"><code class="docutils literal notranslate"><span class="pre">FileReader</span></code> keys for various output files</a><ul>
 <li><a class="reference internal" href="#crest-output">CREST output</a></li>
 <li><a class="reference internal" href="#gaussian-output">Gaussian Output</a></li>
@@ -1097,7 +1423,7 @@ There is also an <code class="docutils literal notranslate"><span class="pre">or
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>

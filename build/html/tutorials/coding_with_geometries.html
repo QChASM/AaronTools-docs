@@ -6,11 +6,11 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Coding with Theory Objects" href="coding_with_theories.html" /><link rel="prev" title="Adding Structures to your AaronTools Library" href="adding_to_libraries.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/tutorials/coding_with_geometries.html" />
 
-    <!-- Generated with Sphinx 7.3.7 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
         <title>Coding with Geometry Objects - AaronTools 1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=acfd86a5" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -374,7 +374,7 @@
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
 <p>Here, you will find tutorials and explanations for using AaronTools’ functions,
 classes, and subroutines pertaining to our most basic atomic structure
-object: <code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry()</span></code>.
+object: <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry()</span></code></a>.
 An AaronTools <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> consists of a set of a list of <a class="reference internal" href="../api/atoms.html"><span class="doc">Atom class</span></a>
 objects along with other data associated with the molecule.</p>
 </section>
@@ -384,15 +384,15 @@ objects along with other data associated with the molecule.</p>
 <h3>Reading a File<a class="headerlink" href="#reading-a-file" title="Link to this heading">¶</a></h3>
 <p>The code for creating a Geometry from a file can be as simple as passing the path to
 the file to <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
 
 <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="s2">&quot;benzene.xyz&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>If you’d like more information from the file or you are using an unexpected
-file extension, you can use the <code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.fileIO.FileReader()</span></code> class:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.fileIO</span> <span class="kn">import</span> <span class="n">FileReader</span>
-<span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+file extension, you can use the <a class="reference internal" href="../api/filereader.html#AaronTools.fileIO.FileReader" title="AaronTools.fileIO.FileReader"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.fileIO.FileReader()</span></code></a> class:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.fileIO</span><span class="w"> </span><span class="kn">import</span> <span class="n">FileReader</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
 
 <span class="n">fr</span> <span class="o">=</span> <span class="n">FileReader</span><span class="p">(</span><span class="s2">&quot;benzene.log&quot;</span><span class="p">)</span>
 <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="n">fr</span><span class="p">)</span>
@@ -400,7 +400,7 @@ file extension, you can use the <code class="xref py py-meth docutils literal no
 </div>
 <p>See the <a class="reference internal" href="coding_with_filereaders.html"><span class="doc">Coding with FileReader objects</span></a> tutorial for more information.</p>
 <p>Alternatively, you can also create a Geometry from a SMILES or iupac name:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
 
 <span class="n">smiles_geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="s1">&#39;c1ccccc1&#39;</span><span class="p">)</span>
 <span class="n">iupac_geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="s1">&#39;benzene&#39;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="s1">&#39;iupac&#39;</span><span class="p">)</span>
@@ -413,21 +413,21 @@ file extension, you can use the <code class="xref py py-meth docutils literal no
 contents of an XYZ file for the Geometry or to write the Geometry to a file.
 To get the contents of the XYZ file without actually writing a file, pass <code class="code docutils literal notranslate"><span class="pre">False</span></code>
 to the <code class="code docutils literal notranslate"><span class="pre">outfile</span></code> keyword argument:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
 <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="s1">&#39;benzene.xyz&#39;</span><span class="p">)</span>
 <span class="o">...</span>
 <span class="n">content</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outfile</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Alternatively, simply printing a Geometry will print the XYZ format to the screen:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
 <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="s1">&#39;benzene.xyz&#39;</span><span class="p">)</span>
 <span class="o">...</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">XYZ</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>If you are using AaronTools in a Jupyter Notebook, and have installed py3dmol, you can also display an interactive 3D model of a Geometry using <code class="code docutils literal notranslate"><span class="pre">geom.display()</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
 <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="s1">&#39;benzene.xyz&#39;</span><span class="p">)</span>
 <span class="o">...</span>
 <span class="n">geom</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
@@ -435,7 +435,7 @@ to the <code class="code docutils literal notranslate"><span class="pre">outfile
 </div>
 <p>Note that in Jupyter, atom numbers are displayed by hovering over an atom with your mouse.</p>
 <p>If you’d like to write to a file instead, you can pass the path to the file to <code class="code docutils literal notranslate"><span class="pre">outfile</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
 <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="s1">&#39;benzene.xyz&#39;</span><span class="p">)</span>
 <span class="o">...</span>
 <span class="n">geom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outfile</span><span class="o">=</span><span class="s1">&#39;tnt.xyz&#39;</span><span class="p">)</span>
@@ -443,7 +443,7 @@ to the <code class="code docutils literal notranslate"><span class="pre">outfile
 </div>
 <p>Although the above options will print an XYZ file to stdout or a file, it is instructive to see how to
 manually print an XYZ file from a <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> object to get a feel for how they work:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
 
 <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="s1">&#39;c1ccccc1&#39;</span><span class="p">)</span> <span class="c1"># create Geometry from SMILES</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">geom</span><span class="o">.</span><span class="n">num_atoms</span><span class="p">)</span> <span class="c1"># print number of atoms</span>
@@ -459,10 +459,10 @@ manually print an XYZ file from a <code class="code docutils literal notranslate
 <p>The <code class="code docutils literal notranslate"><span class="pre">style</span></code> keyword determines the file format.
 Changing this to, for example, <code class="code docutils literal notranslate"><span class="pre">com</span></code>, <code class="code docutils literal notranslate"><span class="pre">inp</span></code>, or <code class="code docutils literal notranslate"><span class="pre">in</span></code> allows for writing input files
 for quantum chemistry computations.
-Note that writing input files requires a <code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.Theory()</span></code>.
+Note that writing input files requires a <a class="reference internal" href="../api/theory_class.html#AaronTools.theory.Theory" title="AaronTools.theory.Theory"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.Theory()</span></code></a>.
 See <a class="reference internal" href="coding_with_theories.html"><span class="doc">Coding with Theory Objects</span></a> for information on how to use these.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
-<span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.theory</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="s1">&#39;tnt.xyz&#39;</span><span class="p">)</span>
 
@@ -483,7 +483,7 @@ See <a class="reference internal" href="coding_with_theories.html"><span class="
 <section id="writing-multiple-geometries-to-one-file">
 <h3>Writing Multiple Geometries to One File<a class="headerlink" href="#writing-multiple-geometries-to-one-file" title="Link to this heading">¶</a></h3>
 <p>The option <code class="code docutils literal notranslate"><span class="pre">append=True</span></code> will open the output file in append mode instead of write mode, allowing for multiple <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> objects to be written to a single XYZ file:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
 
 <span class="k">for</span> <span class="n">smiles</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;c1ccccc1&#39;</span><span class="p">,</span> <span class="s1">&#39;c1ccccn1&#39;</span><span class="p">,</span> <span class="s1">&#39;c1cnccn1&#39;</span><span class="p">,</span> <span class="s1">&#39;c1ncncn1&#39;</span><span class="p">,</span> <span class="s1">&#39;c1nncnn1&#39;</span><span class="p">,</span> <span class="s1">&#39;c1nnnnn1&#39;</span><span class="p">,</span> <span class="s1">&#39;n1nnnnn1&#39;</span><span class="p">):</span>
     <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="n">smiles</span><span class="p">)</span>
@@ -496,8 +496,8 @@ See <a class="reference internal" href="coding_with_theories.html"><span class="
 <section id="finding-atoms">
 <h2>Finding Atoms<a class="headerlink" href="#finding-atoms" title="Link to this heading">¶</a></h2>
 <p>The <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> class has two methods that make finding atoms
-easier: <code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.find()</span></code>
-and <code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.find_exact()</span></code>.
+easier: <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry.find" title="AaronTools.geometry.Geometry.find"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.find()</span></code></a>
+and <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry.find_exact" title="AaronTools.geometry.Geometry.find_exact"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.find_exact()</span></code></a>.
 Most of our command line scripts that require atom targets
 (e.g. <a class="reference internal" href="../cls/substitute.html"><span class="doc">substitute.py</span></a>, <a class="reference internal" href="../cls/translate.html"><span class="doc">translate.py</span></a>, <a class="reference internal" href="../cls/rotate.html"><span class="doc">rotate.py</span></a>) use one of these methods.
 For example, to turn a benzene molecule into perfluorobenzene, we can substitute all hydrogens with fluorines:</p>
@@ -631,9 +631,9 @@ the nitrogen that is bound to the metal:</p>
 <p>AaronTools also has a <code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.finders.Finder()</span></code> class.
 An instance of a <code class="code docutils literal notranslate"><span class="pre">Finder</span></code> can be passed to <code class="code docutils literal notranslate"><span class="pre">Geometry.find</span></code> like an atom specifier.
 As an example, we can find the hydrogen atoms meta to another
-hydrogen on our benzene ring using <code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.finders.BondsFrom()</span></code>,
+hydrogen on our benzene ring using <a class="reference internal" href="../api/finders.html#AaronTools.finders.BondsFrom" title="AaronTools.finders.BondsFrom"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.finders.BondsFrom()</span></code></a>,
 which is a subclass of <code class="code docutils literal notranslate"><span class="pre">Finder</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.finders</span> <span class="kn">import</span> <span class="n">BondsFrom</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.finders</span><span class="w"> </span><span class="kn">import</span> <span class="n">BondsFrom</span>
 
 <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="s1">&#39;benzene.xyz&#39;</span><span class="p">)</span>
 <span class="n">h1</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
@@ -682,8 +682,8 @@ H         -3.00385        1.72310       -0.00143
 <p>For reference, here is how the atoms are ordered:</p>
 <img alt="../_images/benzene_numbers.png" src="../_images/benzene_numbers.png" />
 <p>To start, we’ll need to import the <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> and <code class="code docutils literal notranslate"><span class="pre">Substituent</span></code> classes:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
-<span class="kn">from</span> <span class="nn">AaronTools.substituent</span> <span class="kn">import</span> <span class="n">Substituent</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.substituent</span><span class="w"> </span><span class="kn">import</span> <span class="n">Substituent</span>
 </pre></div>
 </div>
 <p>To create a geometry for our benzene, we can simply pass
@@ -717,8 +717,8 @@ previous example and turn it into 1,3,5-tricyanobenzene.
 To accomplish this, we’ll remove the methyl group from TNT and
 change the nitro groups into cyano groups.
 We’ll start by reading in the TNT structure:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
-<span class="kn">from</span> <span class="nn">AaronTools.substituent</span> <span class="kn">import</span> <span class="n">Substituent</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.substituent</span><span class="w"> </span><span class="kn">import</span> <span class="n">Substituent</span>
 
 <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="s1">&#39;tnt.xyz&#39;</span><span class="p">)</span>
 </pre></div>
@@ -753,9 +753,9 @@ to help remove to swap the substituents.</p>
 from above and turn it into TIPS-pentacene.
 To start, we’ll read the benzene structure and grab a second benzene
 structure from the AaronTools ring library:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
-<span class="kn">from</span> <span class="nn">AaronTools.substituent</span> <span class="kn">import</span> <span class="n">Substituent</span>
-<span class="kn">from</span> <span class="nn">AaronTools.ring</span> <span class="kn">import</span> <span class="n">Ring</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.substituent</span><span class="w"> </span><span class="kn">import</span> <span class="n">Substituent</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.ring</span><span class="w"> </span><span class="kn">import</span> <span class="n">Ring</span>
 
 <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="s1">&#39;benzene.xyz&#39;</span><span class="p">)</span>
 <span class="n">benzene_ring</span> <span class="o">=</span> <span class="n">Ring</span><span class="p">(</span><span class="s1">&#39;benzene&#39;</span><span class="p">)</span>
@@ -771,7 +771,7 @@ Instead, we’ll try to get clever with how we determine what
 positions we’re modifying.
 We can find hydrogens that are on adjacent carbons by looking
 for hydrogen atoms that are three bonds away from each other:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.finders</span> <span class="kn">import</span> <span class="n">BondsFrom</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.finders</span><span class="w"> </span><span class="kn">import</span> <span class="n">BondsFrom</span>
 
 <span class="n">hydrogens</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
 <span class="n">h1</span> <span class="o">=</span> <span class="n">hydrogens</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -956,7 +956,7 @@ easily access the hydrogen atoms on the ring we just added:</p>
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>

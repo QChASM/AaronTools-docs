@@ -6,11 +6,11 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Working with AaronTools in Jupyter Notebooks" href="Jupyter_basics.html" /><link rel="prev" title="Example Python Scripts for Common Tasks" href="example_python.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/tutorials/zmat.html" />
 
-    <!-- Generated with Sphinx 7.3.7 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
         <title>Converting Z-Matrices to Cartesian Coordinates - AaronTools 1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=acfd86a5" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -412,9 +412,9 @@ Strangely, there seem to be limited tools available that will convert a general 
 <h2>Reading ZMAT file<a class="headerlink" href="#reading-zmat-file" title="Link to this heading">¶</a></h2>
 <p>The Python below will read the Z-matrix (removing the stars) and variable definitions (stored as a dictionary)
 from a file called ZMAT as shown above.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
-<span class="kn">from</span> <span class="nn">AaronTools.atoms</span> <span class="kn">import</span> <span class="n">Atom</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.atoms</span><span class="w"> </span><span class="kn">import</span> <span class="n">Atom</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;ZMAT&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
 <span class="n">comment</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
@@ -445,7 +445,7 @@ from a file called ZMAT as shown above.</p>
 <section id="converting-z-matrix-to-cartesian-coordinates">
 <h2>Converting Z-Matrix to Cartesian Coordinates<a class="headerlink" href="#converting-z-matrix-to-cartesian-coordinates" title="Link to this heading">¶</a></h2>
 <p>With the Z-matrix definition now saved as <code class="code docutils literal notranslate"><span class="pre">zmat</span></code> and the corresponding variables as the
-dictionary <code class="code docutils literal notranslate"><span class="pre">vars</span></code>, the following Python code will build a new <code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry()</span></code>
+dictionary <code class="code docutils literal notranslate"><span class="pre">vars</span></code>, the following Python code will build a new <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry()</span></code></a>
 object with the corresponding coordinates:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># loop over lines in zmat and build molecule</span>
 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">zmat</span><span class="o">.</span><span class="n">splitlines</span><span class="p">():</span>
@@ -476,13 +476,13 @@ object with the corresponding coordinates:</p>
 </pre></div>
 </div>
 <p>For a given atom, we start by placing that atom in a random position to avoid accidentally having co-linear atoms.
-We then use <code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.change_distance()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.change_angle()</span></code>, and <code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.change_dihedral()</span></code> to set the distance, angle, and dihedral values as specified in the Z-matrix, taking care to move only the newly added atom.
+We then use <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry.change_distance" title="AaronTools.geometry.Geometry.change_distance"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.change_distance()</span></code></a>, <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry.change_angle" title="AaronTools.geometry.Geometry.change_angle"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.change_angle()</span></code></a>, and <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry.change_dihedral" title="AaronTools.geometry.Geometry.change_dihedral"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.change_dihedral()</span></code></a> to set the distance, angle, and dihedral values as specified in the Z-matrix, taking care to move only the newly added atom.
 That’s it!</p>
 <p>For completeness, we can also remove any dummy atoms (X) and then center and place the molecule in a reasonable orientation, then print the resulting coordinates in XYZ format.
 Putting this all together, we have a simple little ZMAT to XYZ converter:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
-<span class="kn">from</span> <span class="nn">AaronTools.atoms</span> <span class="kn">import</span> <span class="n">Atom</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.atoms</span><span class="w"> </span><span class="kn">import</span> <span class="n">Atom</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;ZMAT&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
 <span class="n">comment</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
@@ -625,7 +625,7 @@ Putting this all together, we have a simple little ZMAT to XYZ converter:</p>
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>

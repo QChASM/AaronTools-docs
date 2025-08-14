@@ -6,11 +6,11 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Converting Z-Matrices to Cartesian Coordinates" href="zmat.html" /><link rel="prev" title="Coding with FileReader objects" href="coding_with_filereaders.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/tutorials/example_python.html" />
 
-    <!-- Generated with Sphinx 7.3.7 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
         <title>Example Python Scripts for Common Tasks - AaronTools 1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=acfd86a5" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -382,11 +382,11 @@ More examples will be added over time to make this a sort of ‘cookbook’ of A
 Here we use ORCA as an example, but the script below would instead use Psi4 or Gaussian by simply changing the filename extension to <code class="code docutils literal notranslate"><span class="pre">.in</span></code> or <code class="code docutils literal notranslate"><span class="pre">.com</span></code>, respectfully!</p>
 <p>The following script will submit wB97XD/def2-TZVP optimization and frequency jobs (requesting 8 cores/processors, a 12 hour walltime, and 12 GB of memory) on all XYZ files in the current directory:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># build ORCA input files for optimization + frequency calculation on all XYZ files in current directory</span>
-<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">splitext</span>
-<span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
-<span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">AaronTools.job_control</span> <span class="kn">import</span> <span class="n">SubmitProcess</span>
-<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">os.path</span><span class="w"> </span><span class="kn">import</span> <span class="n">splitext</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.theory</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.job_control</span><span class="w"> </span><span class="kn">import</span> <span class="n">SubmitProcess</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
 
 <span class="c1"># build theory object</span>
 <span class="n">method</span> <span class="o">=</span> <span class="n">Theory</span><span class="p">(</span>
@@ -417,16 +417,16 @@ Here we use ORCA as an example, but the script below would instead use Psi4 or G
 <p>This could be easily modified to use IUPAC names or SMILES.</p>
 <section id="transition-metal-complexes">
 <h3>Transition Metal Complexes<a class="headerlink" href="#transition-metal-complexes" title="Link to this heading">¶</a></h3>
-<p>Alternatively, if we have a set of transition metal complexes, we need to build a <code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.BasisSet()</span></code> object to specify different basis sets/ECPs for the transition metal (See <a class="reference internal" href="coding_with_theories.html"><span class="doc">Coding with Theory Objects</span></a>).</p>
+<p>Alternatively, if we have a set of transition metal complexes, we need to build a <a class="reference internal" href="../api/basis.html#AaronTools.theory.BasisSet" title="AaronTools.theory.BasisSet"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.BasisSet()</span></code></a> object to specify different basis sets/ECPs for the transition metal (See <a class="reference internal" href="coding_with_theories.html"><span class="doc">Coding with Theory Objects</span></a>).</p>
 <p>The following will build Gaussian input files to run optimizations and frequencies at the B3LYP-D3/6-31G(d)/LANL2DZ level of theory for all XYZ files in the current directory:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># build Gaussian input files for optimization + frequency calculation</span>
 <span class="c1"># on all XYZ files in current directory </span>
 <span class="c1"># use LANL2DZ basis and ECP on any transition metal and 6-31G(d) on everything else</span>
 
-<span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
-<span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">AaronTools.job_control</span> <span class="kn">import</span> <span class="n">SubmitProcess</span>
-<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.theory</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.job_control</span><span class="w"> </span><span class="kn">import</span> <span class="n">SubmitProcess</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
 
 <span class="c1"># build basis object</span>
 <span class="n">basis</span> <span class="o">=</span> <span class="n">BasisSet</span><span class="p">(</span>
@@ -469,10 +469,10 @@ Here we use ORCA as an example, but the script below would instead use Psi4 or G
 <span class="c1"># current directory </span>
 <span class="c1"># use LANL2DZ basis and ECP on any transition metal and 6-311+G(d,p) on everything else</span>
 
-<span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
-<span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">AaronTools.job_control</span> <span class="kn">import</span> <span class="n">SubmitProcess</span>
-<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.theory</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.job_control</span><span class="w"> </span><span class="kn">import</span> <span class="n">SubmitProcess</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
 
 <span class="c1"># build basis object</span>
 <span class="n">basis</span> <span class="o">=</span> <span class="n">BasisSet</span><span class="p">(</span>
@@ -521,10 +521,10 @@ If more control is required over how the supermolecule is fragmented for SAPT co
 First, we need to define the <code class="code docutils literal notranslate"><span class="pre">components</span></code> of <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> to be a list of the individual monomers.
 Second, in the <code class="code docutils literal notranslate"><span class="pre">theory</span></code> object we need to use <code class="code docutils literal notranslate"><span class="pre">SAPTMethod</span></code> instead of <code class="code docutils literal notranslate"><span class="pre">Method</span></code>.
 Finally, the <code class="code docutils literal notranslate"><span class="pre">charge</span></code> and <code class="code docutils literal notranslate"><span class="pre">multiplicity</span></code> need to be lists consisting of the charge/multiplicity for the whole system and each monomer.</p>
-<p>For instance, the following will submit a Psi4 job to calculate the SAPT0/jun-cc-pVDZ energy on a dimer (read from <code class="code docutils literal notranslate"><span class="pre">dimer.xyz</span></code>) but use the AaronTools function <code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.get_monomers()</span></code> to separate the monomers:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.component</span> <span class="kn">import</span> <span class="n">Component</span>
-<span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
-<span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="o">*</span>
+<p>For instance, the following will submit a Psi4 job to calculate the SAPT0/jun-cc-pVDZ energy on a dimer (read from <code class="code docutils literal notranslate"><span class="pre">dimer.xyz</span></code>) but use the AaronTools function <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry.get_monomers" title="AaronTools.geometry.Geometry.get_monomers"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.get_monomers()</span></code></a> to separate the monomers:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.component</span><span class="w"> </span><span class="kn">import</span> <span class="n">Component</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.theory</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
 <span class="c1"># make Geometry object from XYZ file containing dimer</span>
 <span class="n">dimer</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="s2">&quot;dimer.xyz&quot;</span><span class="p">)</span>
@@ -566,8 +566,8 @@ This can be done easily in AaronTools:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
 <span class="c1"># split a multistructure XYZ file (e.g. from Crest) into individual XYZ files</span>
 
-<span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
-<span class="kn">from</span> <span class="nn">AaronTools.fileIO</span> <span class="kn">import</span> <span class="n">FileReader</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.fileIO</span><span class="w"> </span><span class="kn">import</span> <span class="n">FileReader</span>
 
 <span class="n">fr</span> <span class="o">=</span> <span class="n">FileReader</span><span class="p">(</span><span class="s1">&#39;crest_conformers.xyz&#39;</span><span class="p">,</span> <span class="n">get_all</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
@@ -582,16 +582,16 @@ This can be done easily in AaronTools:</p>
 </section>
 <section id="analyzing-xyz-trajectories">
 <h2>Analyzing XYZ Trajectories<a class="headerlink" href="#analyzing-xyz-trajectories" title="Link to this heading">¶</a></h2>
-<p>AaronTools <code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.fileIO.FileReader()</span></code> objects can be used to read all geometries from multi-structure XYZ files.
+<p>AaronTools <a class="reference internal" href="../api/filereader.html#AaronTools.fileIO.FileReader" title="AaronTools.fileIO.FileReader"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.fileIO.FileReader()</span></code></a> objects can be used to read all geometries from multi-structure XYZ files.
 This can be used, for example, to analyze distances, angles, etc. from an XYZ trajectory file.</p>
 <p>The script below does this, reading <code class="code docutils literal notranslate"><span class="pre">traj.xyz</span></code> and printing the distance between atoms 1 and 2 and the 2-1-3 angle for each step.
 This could be easily modified to instead only print every N steps, etc. or other geometric parameters.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
 <span class="c1"># print a table of selected distances and angles from an XYZ trajectory</span>
 
-<span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
-<span class="kn">from</span> <span class="nn">AaronTools.fileIO</span> <span class="kn">import</span> <span class="n">FileReader</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.fileIO</span><span class="w"> </span><span class="kn">import</span> <span class="n">FileReader</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">fr</span> <span class="o">=</span> <span class="n">FileReader</span><span class="p">(</span><span class="s1">&#39;traj.xyz&#39;</span><span class="p">,</span> <span class="n">get_all</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
@@ -689,7 +689,7 @@ This could be easily modified to instead only print every N steps, etc. or other
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>

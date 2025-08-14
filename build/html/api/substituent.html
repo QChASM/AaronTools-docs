@@ -6,11 +6,11 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Ring class" href="rings.html" /><link rel="prev" title="Component class" href="component.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/api/substituent.html" />
 
-    <!-- Generated with Sphinx 7.3.7 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
         <title>Substituent class - AaronTools 1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=acfd86a5" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -182,7 +182,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -362,7 +362,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -370,6 +370,152 @@
         <article role="main" id="furo-main-content">
           <section id="substituent-class">
 <h1><code class="docutils literal notranslate"><span class="pre">Substituent</span></code> class<a class="headerlink" href="#substituent-class" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="AaronTools.substituent.Substituent">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.substituent.</span></span><span class="sig-name descname"><span class="pre">Substituent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sub</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conf_num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conf_angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.substituent.Substituent" title="Link to this definition">¶</a></dt>
+<dd><p>Attributes:</p>
+<ul class="simple">
+<li><p>name</p></li>
+<li><p>atoms</p></li>
+<li><p>end         the atom substituent is connected to</p></li>
+<li><p>conf_num    number of conformers</p></li>
+<li><p>conf_angle  angle to rotate by to make next conformer</p></li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.substituent.Substituent.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sub</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conf_num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conf_angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.substituent.Substituent.__init__" title="Link to this definition">¶</a></dt>
+<dd><p>sub is either a file sub, a geometry, or an atom list</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.substituent.Substituent.weighted_sterimol">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">weighted_sterimol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">substituents</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energies</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.substituent.Substituent.weighted_sterimol" title="Link to this definition">¶</a></dt>
+<dd><p>returns Boltzmann-averaged sterimol parameters for the substituents</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>substituents</strong> (<em>list</em><em>(</em><a class="reference internal" href="#AaronTools.substituent.Substituent" title="AaronTools.substituent.Substituent"><em>Substituent</em></a><em>)</em>) – list of Substituent instances</p></li>
+<li><p><strong>energies</strong> (<em>np.ndarray</em>) – energies in kcal/mol; ith energy corresponds to ith substituent</p></li>
+<li><p><strong>temperature</strong> (<em>float</em>) – temperature in K</p></li>
+<li><p><strong>args</strong></p></li>
+<li><p><strong>kwargs</strong> – passed to Substituent.sterimol()</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.substituent.Substituent.from_string">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conf_num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conf_angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">form</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'smiles'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strict_use_rdkit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.substituent.Substituent.from_string" title="Link to this definition">¶</a></dt>
+<dd><p>creates a substituent from a string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – identifier for substituent</p></li>
+<li><p><strong>conf_num</strong> (<em>int</em>) – number of conformers expected for hierarchical conformer generation</p></li>
+<li><p><strong>conf_angle</strong> (<em>int</em>) – angle between conformers</p></li>
+<li><p><strong>form</strong> (<em>str</em>) – type of identifier (smiles, iupac)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.substituent.Substituent.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.substituent.Substituent.copy" title="Link to this definition">¶</a></dt>
+<dd><p>creates a new copy of the geometry
+parameters:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>end</strong> (<a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a>) – atom substituent is connected to</p></li>
+<li><p><strong>kwargs</strong> – passed to super().copy</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.substituent.Substituent.list">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">include_ext</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.substituent.Substituent.list" title="Link to this definition">¶</a></dt>
+<dd><p>list substituents available from AaronTools or the user’s library</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>include_ext</strong> (<em>bool</em>) – includes file extensions when true</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.substituent.Substituent.detect_sub">
+<span class="sig-name descname"><span class="pre">detect_sub</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.substituent.Substituent.detect_sub" title="Link to this definition">¶</a></dt>
+<dd><p>detects conformer information for a substituent by searching the
+substituent library</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.substituent.Substituent.sterimol">
+<span class="sig-name descname"><span class="pre">sterimol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_vector</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radii</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'bondi'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old_L</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.substituent.Substituent.sterimol" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>sterimol parameter values in a dictionary
+keys are B1, B2, B3, B4, B5, and L</p>
+</dd>
+</dl>
+<p>see Verloop, A. and Tipker, J. (1976), Use of linear free energy
+related and other parameters in the study of fungicidal
+selectivity. Pestic. Sci., 7: 379-390.
+(DOI: 10.1002/ps.2780070410)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>return_vector</strong> (<em>bool</em>) – returns dict of tuple(vector start, vector end) instead</p></li>
+<li><p><strong>radii</strong> (<em>str</em><em>|</em><em>dict</em>) – <p>radii to use</p>
+<ul>
+<li><p>”bondi” - Bondi vdW radii</p></li>
+<li><p>”umn”   - vdW radii from Mantina, Chamberlin, Valero, Cramer, and Truhlar</p></li>
+</ul>
+</p></li>
+<li><p><strong>old_L</strong> (<em>bool</em>) – <p>True: use original L (ideal bond length between first substituent
+atom and hydrogen + 0.40 angstrom</p>
+<p>False: use AaronTools definition</p>
+</p></li>
+</ul>
+</dd>
+</dl>
+<p>AaronTools’ definition of the L parameter is different than the original
+STERIMOL program. In STERIMOL, the van der Waals radii of the substituent is
+projected onto a plane parallel to the bond between the molecule and the substituent.
+The L parameter is 0.40 Å plus the distance from the first substituent atom to the
+outer van der Waals surface of the projection along the bond vector. This 0.40 Å is
+a correction for STERIMOL using a hydrogen to represent the molecule, when a carbon
+would be more likely. In AaronTools the substituent is projected the same, but L is
+calculated starting from the van der Waals radius of the first substituent atom
+instead. This means AaronTools will give the same L value even if the substituent
+is capped with something besides a hydrogen. When comparing AaronTools’ L values
+with STERIMOL (using the same set of radii for the atoms), the values usually
+differ by &lt; 0.1 Å.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.substituent.Substituent.align_to_bond">
+<span class="sig-name descname"><span class="pre">align_to_bond</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bond</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.substituent.Substituent.align_to_bond" title="Link to this definition">¶</a></dt>
+<dd><p>align substituent to a bond vector</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.substituent.Substituent.sub_rotate">
+<span class="sig-name descname"><span class="pre">sub_rotate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.substituent.Substituent.sub_rotate" title="Link to this definition">¶</a></dt>
+<dd><p>rotates substituent about bond w/ rest of geometry</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>angle</strong> (<em>float</em>) – in radians</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
         </article>
@@ -415,14 +561,44 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">Substituent</span></code> class</a><ul>
+<li><a class="reference internal" href="#AaronTools.substituent.Substituent"><code class="docutils literal notranslate"><span class="pre">Substituent</span></code></a><ul>
+<li><a class="reference internal" href="#AaronTools.substituent.Substituent.__init__"><code class="docutils literal notranslate"><span class="pre">Substituent.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.substituent.Substituent.weighted_sterimol"><code class="docutils literal notranslate"><span class="pre">Substituent.weighted_sterimol()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.substituent.Substituent.from_string"><code class="docutils literal notranslate"><span class="pre">Substituent.from_string()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.substituent.Substituent.copy"><code class="docutils literal notranslate"><span class="pre">Substituent.copy()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.substituent.Substituent.list"><code class="docutils literal notranslate"><span class="pre">Substituent.list()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.substituent.Substituent.detect_sub"><code class="docutils literal notranslate"><span class="pre">Substituent.detect_sub()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.substituent.Substituent.sterimol"><code class="docutils literal notranslate"><span class="pre">Substituent.sterimol()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.substituent.Substituent.align_to_bond"><code class="docutils literal notranslate"><span class="pre">Substituent.align_to_bond()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.substituent.Substituent.sub_rotate"><code class="docutils literal notranslate"><span class="pre">Substituent.sub_rotate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>

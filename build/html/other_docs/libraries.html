@@ -6,11 +6,11 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="INI Files" href="configuration_files.html" /><link rel="prev" title="Job Submission Templates" href="job_templates.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/other_docs/libraries.html" />
 
-    <!-- Generated with Sphinx 7.3.7 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
         <title>AaronTools Libraries - AaronTools 1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=acfd86a5" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -382,20 +382,20 @@ The library directory should contain several subdirectories, including Subs, Lig
 <p>AaronTools includes a library of ~45 substituents, which are fragments with one bond to a molecule (<cite>e.g.</cite> phenyl).
 These can be added to a structure or used to replace an existing substituent.
 This can be done with the <a class="reference internal" href="../cls/substitute.html"><span class="doc">substitute.py</span></a> command line script, or with the
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.substitute()</span></code> method.
+<a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry.substitute" title="AaronTools.geometry.Geometry.substitute"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.substitute()</span></code></a> method.
 Substituents can also be used as monodentate ligands for various ligand-related features in AaronTools.</p>
 <p>Substituents can be added to the library using the <a class="reference internal" href="../cls/libaddSubstituent.html"><span class="doc">libaddSubstituent.py</span></a>
 command line script or SEQCROW’s “Add to Personal Library” tool.</p>
 <p>It is worth noting that substituents can be fetched from RDKit or the CACTUS web API.
 With this, substituents can be used without added them to the library.
 For more information, look at <a class="reference internal" href="../cls/substitute.html"><span class="doc">substitute.py</span></a> or
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.substituent.Substituent.from_string()</span></code>.</p>
+<a class="reference internal" href="../api/substituent.html#AaronTools.substituent.Substituent.from_string" title="AaronTools.substituent.Substituent.from_string"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.substituent.Substituent.from_string()</span></code></a>.</p>
 </section>
 <section id="ligands">
 <h2>Ligands<a class="headerlink" href="#ligands" title="Link to this heading">¶</a></h2>
 <p>Ligands can be used to replace another ligand on a structure.
 Swapping ligands can be done with the <a class="reference internal" href="../cls/mapLigand.html"><span class="doc">mapLigand.py</span></a> command line script,
-or with <code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.map_ligand()</span></code>.</p>
+or with <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry.map_ligand" title="AaronTools.geometry.Geometry.map_ligand"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.map_ligand()</span></code></a>.</p>
 <p>For example, we can take a relatively simple catalyst structure:</p>
 <img alt="../_images/cat_simple.png" src="../_images/cat_simple.png" />
 <p>and swap the ligand for one of the 30-some other diphosphine ligands in the AaronTools library, (R)-BINAP:</p>
@@ -406,7 +406,7 @@ or with <code class="xref py py-meth docutils literal notranslate"><span class="
 <h2>Rings<a class="headerlink" href="#rings" title="Link to this heading">¶</a></h2>
 <p>Rings that can be used to close an incomplete ring.
 Closing rings can be done with the <a class="reference internal" href="../cls/closeRing.html"><span class="doc">closeRing.py</span></a> command line script,
-or with <code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.ring_substitute()</span></code>.</p>
+or with <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry.ring_substitute" title="AaronTools.geometry.Geometry.ring_substitute"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.ring_substitute()</span></code></a>.</p>
 <p>Rings can be added to the library using the <code class="code docutils literal notranslate"><span class="pre">libaddRing.py</span></code> command line script or SEQCROW’s “Add to Personal Library” tool.</p>
 <p>To better understand how rings are attached to molecules, consider this example.
 Say you want to make tetralin from your benzene structure using the library’s cyclohexane ring below (note - a cyclohexene ring might produce a better structure):</p>
@@ -501,7 +501,7 @@ Each conformer of a ring will be tested to try to find the best fit.</p>
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>

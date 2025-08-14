@@ -6,11 +6,11 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Python API Documentation" href="../api/api.html" /><link rel="prev" title="AaronTools Libraries" href="libraries.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/other_docs/configuration_files.html" />
 
-    <!-- Generated with Sphinx 7.3.7 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
         <title>INI Files - AaronTools 1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=acfd86a5" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -414,7 +414,7 @@ The <code class="docutils literal notranslate"><span class="pre">[DEFAULT]</span
 <p>This is the section used to import molecular structures.</p>
 <p>Option descriptions:</p>
 <ul class="simple">
-<li><p>structure - loads the value as a <code class="xref py py-meth docutils literal notranslate"><span class="pre">Geometry()</span></code> object; the value can be a file name, a smiles string, or a subdirectory (using a subdirectory will import all structures in that location)</p></li>
+<li><p>structure - loads the value as a <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Geometry()</span></code></a> object; the value can be a file name, a smiles string, or a subdirectory (using a subdirectory will import all structures in that location)</p></li>
 <li><p>constraints - comma-separated list of atom-index tuples; applied only for constrained optimizations (see <a class="reference internal" href="../tutorials/coding_with_theories.html#job-types"><span class="std std-ref">Job Types</span></a>)</p></li>
 </ul>
 <p>This will constrain the 1-2 bond length, the 3-4-5 bond angle, and the 6-7-8-9 dihedral</p>
@@ -424,7 +424,7 @@ The <code class="docutils literal notranslate"><span class="pre">[DEFAULT]</span
 <p>Special options:</p>
 <section id="call">
 <h4>&amp;call<a class="headerlink" href="#call" title="Link to this heading">¶</a></h4>
-<p>This is used to apply <code class="xref py py-meth docutils literal notranslate"><span class="pre">Geometry()</span></code> methods to the imported structure(s).
+<p>This is used to apply <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Geometry()</span></code></a> methods to the imported structure(s).
 Take care to use the same syntax you would if calling the method within a Python script when providing the arguments for the function call, eg: using quotes around atom indices since they should be passed as strings, capitalizing boolean values, etc.
 This will set the 1-2-3-4 dihedral to 60-degrees and change atom 2 to Si.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">structure</span> <span class="o">=</span> <span class="n">ethane</span><span class="o">.</span><span class="n">xyz</span>
@@ -871,7 +871,7 @@ By default, X is used for dummy atoms.</p>
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
