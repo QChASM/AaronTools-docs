@@ -2,6 +2,7 @@
 # current directory 
 # use LANL2DZ basis and ECP on any transition metal and 6-311+G(d,p) on everything else
 
+from os.path import splitext
 from AaronTools.geometry import Geometry
 from AaronTools.theory import *
 from AaronTools.job_control import SubmitProcess
@@ -27,8 +28,8 @@ method = Theory(
 )
 
 # loop over LOG files in current directory
-for LOG in glob.glob("*.xyz"):
-    name = LOG.split('.')[0]   # grab name without .log ending
+for LOG in glob.glob("*.log"):
+    name, _ = splitext(LOG)    # grab name without .log ending
     geom = Geometry(LOG)       # build AaronTools geometry
     outfile = f"{name}.sp.com" # build filename with .com extension for Gaussian
     geom.write(outfile=outfile, theory=method) # make input file

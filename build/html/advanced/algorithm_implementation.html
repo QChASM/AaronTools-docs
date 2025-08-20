@@ -1,39 +1,39 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="prev" title="Advanced Topics" href="advanced.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/advanced/algorithm_implementation.html" />
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 7.0.1 and Furo 2024.08.06 -->
         <title>Structure Analysis and Descriptor Implementation - AaronTools 1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=04c057b233f3c8d71940eee6080f658a04e2027d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=cf727022eb7470bc603c08d2e55c3247faec75c9" />
     
     
 
 
 <style>
   body {
-    --color-code-background: #f2f2f2;
-  --color-code-foreground: #1e1e1e;
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
   
   }
   @media not print {
     body[data-theme="dark"] {
-      --color-code-background: #2b2b2b;
-  --color-code-foreground: #f8f8f2;
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
-        --color-code-background: #2b2b2b;
-  --color-code-foreground: #f8f8f2;
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
   
       }
     }
@@ -193,6 +193,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
+  
   <span class="sidebar-brand-text">AaronTools 1.1 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
@@ -349,7 +350,7 @@
     <span class="visually-hidden">View this page</span>
   </a>
 </div><div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/QChASM/AaronTools-docs/edit/main/source/advanced/algorithm_implementation.rst" rel="edit" title="Edit this page">
+  <a class="muted-link" href="https://github.com/QChASM/AaronTools-docs/edit/main/source/advanced/algorithm_implementation.rst" title="Edit this page">
     <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
@@ -369,12 +370,12 @@
         </div>
         <article role="main" id="furo-main-content">
           <section id="structure-analysis-and-descriptor-implementation">
-<h1>Structure Analysis and Descriptor Implementation<a class="headerlink" href="#structure-analysis-and-descriptor-implementation" title="Link to this heading">¶</a></h1>
+<h1>Structure Analysis and Descriptor Implementation<a class="headerlink" href="#structure-analysis-and-descriptor-implementation" title="Permalink to this heading">¶</a></h1>
 <p>This page has information about the AaronTools implementation of several algorithms.
 Although more information might be available in the original publications, this is here in case AaronTools users who are interested in how these methods are implemented.
 Some methods might have ambiguities which could lead different software packages to produce different numbers.</p>
 <section id="sterimol">
-<h2>Sterimol<a class="headerlink" href="#sterimol" title="Link to this heading">¶</a></h2>
+<h2>Sterimol<a class="headerlink" href="#sterimol" title="Permalink to this heading">¶</a></h2>
 <p>Sterimol B<sub>5</sub> and L are determined analytically (unless the user writes a function to define L in a numerical way).
 The procedure for the L parameter is to take each vector from the substituent atom that is bonded to the rest of the molecule to one other substituent atom.
 These vectors are projected onto the L-axis, and the atom’s van der Waals (VDW) radius is added.
@@ -396,14 +397,14 @@ The 3D version shows the B<sub>1</sub> as a black arrow.</p>
 <img alt="../_images/sterimol_b1_EtF5.png" src="../_images/sterimol_b1_EtF5.png" />
 <img alt="../_images/sterimol_EtF5_3d.png" src="../_images/sterimol_EtF5_3d.png" />
 <section id="differences-from-verloop-s-procedure">
-<h3>Differences from Verloop’s procedure<a class="headerlink" href="#differences-from-verloop-s-procedure" title="Link to this heading">¶</a></h3>
+<h3>Differences from Verloop’s procedure<a class="headerlink" href="#differences-from-verloop-s-procedure" title="Permalink to this heading">¶</a></h3>
 <p>Unlike the original implementation, AaronTools uses a structure provided by the user.
 If the B<sub>1</sub> width only depends on a substituent atom that is on the L-axis (e.g. a methoxy substituent), AaronTools can produce different results from the original for B<sub>2</sub>-B<sub>4</sub>.
 This is because of the infinite ways to orient the substituent’s bounding box and still get the same B<sub>1</sub> value.</p>
 <p>AaronTools does not currently allow users to use the same radii as the original program via the command line script.</p>
 </section>
 <section id="sterimol2vec">
-<h3>Sterimol2Vec<a class="headerlink" href="#sterimol2vec" title="Link to this heading">¶</a></h3>
+<h3>Sterimol2Vec<a class="headerlink" href="#sterimol2vec" title="Permalink to this heading">¶</a></h3>
 <p>The Sterimol2Vec parameters are determined by taking atoms within their van der Waals diameter of the desired L coordinate.
 The radii of these atoms are adjusted to the radius of the circle formed by the intersection of the VDW radius with the plane orthogonal to the L-axis passing through the L coordinate.
 Then, the coordinates of those atoms are simply set to the L coordinate.
@@ -412,9 +413,9 @@ The B<sub>1</sub>-B<sub>5</sub> parameters are then determined by the usual meth
 </section>
 </section>
 <section id="cone-angles">
-<h2>Cone Angles<a class="headerlink" href="#cone-angles" title="Link to this heading">¶</a></h2>
+<h2>Cone Angles<a class="headerlink" href="#cone-angles" title="Permalink to this heading">¶</a></h2>
 <section id="tolman-s-cone-angle-for-unsymmetrical-ligands">
-<h3>Tolman’s cone angle for unsymmetrical ligands<a class="headerlink" href="#tolman-s-cone-angle-for-unsymmetrical-ligands" title="Link to this heading">¶</a></h3>
+<h3>Tolman’s cone angle for unsymmetrical ligands<a class="headerlink" href="#tolman-s-cone-angle-for-unsymmetrical-ligands" title="Permalink to this heading">¶</a></h3>
 <p>For this method, the cone angles of each group coming off of the coordinating elements are averaged.
 If the group is a bridge between two coordinating atoms (bidentate ligands only), the cone angle for that group is simply half the L-M-L angle.
 If the group contains a ring that loops back to the ligating atom (e.g. the five-membered rings on DuPhos), the ring is cut in half and treated as two separate groups.</p>
@@ -422,7 +423,7 @@ If the group contains a ring that loops back to the ligating atom (e.g. the five
 Sections of the ring are colored based on how they are grouped into a substituent.</p>
 <img alt="../_images/duphos-split.png" src="../_images/duphos-split.png" />
 <section id="differences-from-tolman-s-procedure">
-<h4>Differences from Tolman’s procedure<a class="headerlink" href="#differences-from-tolman-s-procedure" title="Link to this heading">¶</a></h4>
+<h4>Differences from Tolman’s procedure<a class="headerlink" href="#differences-from-tolman-s-procedure" title="Permalink to this heading">¶</a></h4>
 <p>AaronTools does not enforce Tolman’s 2.28 Å M-L bond length.
 Of course, the user could provide structures with a 2.28 Å M-L bond length.
 AaronTools uses structures provided by the user as-is, so substituents on the coordinating atoms are not rotated to minimize the cone angle.
@@ -445,7 +446,7 @@ For polydentate ligands, the <span class="math notranslate nohighlight">\(\theta
 </section>
 </section>
 <section id="condensed-fukui">
-<h2>Condensed Fukui<a class="headerlink" href="#condensed-fukui" title="Link to this heading">¶</a></h2>
+<h2>Condensed Fukui<a class="headerlink" href="#condensed-fukui" title="Permalink to this heading">¶</a></h2>
 <p>Often times, condensed Fukui values are calculated by calculating partial atomic charges (e.g. Mulliken charges) for the molecule in question, and then calculating the partial atomic charges for the molecule with an electron added or removed.
 Instead of this, AaronTools integrates the orbital-weighted Fukui functions (see <a class="reference external" href="https://doi.org/10.1002/jcc.24699">https://doi.org/10.1002/jcc.24699</a> for weighting scheme) in an area around each atom.</p>
 <p>The condensed Fukui values are calculated by integrating the Fukui acceptor or donor functions over the Laguerre–Voronoi cells of each atom.
@@ -529,12 +530,12 @@ Below is a 2-D depiction of a Voronoi (top) and Laguerre-Voronoi (bottom) tessel
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=a4d4be8e"></script>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/furo.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>

@@ -1,39 +1,39 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Component class" href="component.html" /><link rel="prev" title="IntegrationGrid class" href="integration_grid.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/api/atoms.html" />
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 7.0.1 and Furo 2024.08.06 -->
         <title>Atom class - AaronTools 1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=04c057b233f3c8d71940eee6080f658a04e2027d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=cf727022eb7470bc603c08d2e55c3247faec75c9" />
     
     
 
 
 <style>
   body {
-    --color-code-background: #f2f2f2;
-  --color-code-foreground: #1e1e1e;
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
   
   }
   @media not print {
     body[data-theme="dark"] {
-      --color-code-background: #2b2b2b;
-  --color-code-foreground: #f8f8f2;
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
-        --color-code-background: #2b2b2b;
-  --color-code-foreground: #f8f8f2;
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
   
       }
     }
@@ -193,6 +193,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
+  
   <span class="sidebar-brand-text">AaronTools 1.1 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
@@ -349,7 +350,7 @@
     <span class="visually-hidden">View this page</span>
   </a>
 </div><div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/QChASM/AaronTools-docs/edit/main/source/api/atoms.rst" rel="edit" title="Edit this page">
+  <a class="muted-link" href="https://github.com/QChASM/AaronTools-docs/edit/main/source/api/atoms.rst" title="Edit this page">
     <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
@@ -369,10 +370,10 @@
         </div>
         <article role="main" id="furo-main-content">
           <section id="atom-class">
-<h1><code class="docutils literal notranslate"><span class="pre">Atom</span></code> class<a class="headerlink" href="#atom-class" title="Link to this heading">¶</a></h1>
+<h1><code class="docutils literal notranslate"><span class="pre">Atom</span></code> class<a class="headerlink" href="#atom-class" title="Permalink to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.atoms.</span></span><span class="sig-name descname"><span class="pre">Atom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.atoms.</span></span><span class="sig-name descname"><span class="pre">Atom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom" title="Permalink to this definition">¶</a></dt>
 <dd><p>Attributes:</p>
 <ul class="simple">
 <li><p>element         str</p></li>
@@ -390,7 +391,7 @@
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.__init__" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -408,20 +409,20 @@
 
 <dl class="py property">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.is_dummy">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_dummy</span></span><a class="headerlink" href="#AaronTools.atoms.Atom.is_dummy" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_dummy</span></span><a class="headerlink" href="#AaronTools.atoms.Atom.is_dummy" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns True if the element is a dummy, False otherwise</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.element_is_dummy">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">element_is_dummy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.element_is_dummy" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">element_is_dummy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.element_is_dummy" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns True if the element is a dummy, False otherwise
 This checks the dummy option in the AtomTypes group in config files</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.get_invariant">
-<span class="sig-name descname"><span class="pre">get_invariant</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.get_invariant" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_invariant</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.get_invariant" title="Permalink to this definition">¶</a></dt>
 <dd><p>gets initial invariant, which is formulated using:</p>
 <ol class="arabic simple">
 <li><p>number of non-hydrogen connections (d{1}): nconn</p></li>
@@ -435,20 +436,20 @@ This checks the dummy option in the AtomTypes group in config files</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.get_neighbor_id">
-<span class="sig-name descname"><span class="pre">get_neighbor_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.get_neighbor_id" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_neighbor_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.get_neighbor_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>gets initial invariant based on self’s element and the element of
 the atoms connected to self</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.copy">
-<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.copy" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>creates and returns a copy of self</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.is_connected">
-<span class="sig-name descname"><span class="pre">is_connected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.is_connected" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">is_connected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.is_connected" title="Permalink to this definition">¶</a></dt>
 <dd><p>determines if distance between atoms is small enough to be bonded
 same as dist_is_connected but automatically calculates the distance between the atoms</p>
 <dl class="field-list simple">
@@ -466,7 +467,7 @@ same as dist_is_connected but automatically calculates the distance between the 
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.dist_is_connected">
-<span class="sig-name descname"><span class="pre">dist_is_connected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist_to_other</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.dist_is_connected" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dist_is_connected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist_to_other</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.dist_is_connected" title="Permalink to this definition">¶</a></dt>
 <dd><p>determines if distance between atoms is small enough to be bonded. Used to optimize connected checks when distances can be quickly precalculated,
 like with scipy.spatial.distance_matrix</p>
 <dl class="field-list simple">
@@ -488,13 +489,13 @@ like with scipy.spatial.distance_matrix</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.add_bond_to">
-<span class="sig-name descname"><span class="pre">add_bond_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.add_bond_to" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add_bond_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.add_bond_to" title="Permalink to this definition">¶</a></dt>
 <dd><p>add self and other to eachother’s connected attribute</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.bond">
-<span class="sig-name descname"><span class="pre">bond</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.bond" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">bond</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.bond" title="Permalink to this definition">¶</a></dt>
 <dd><p>retrieves bond vectors</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -508,7 +509,7 @@ like with scipy.spatial.distance_matrix</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.dist">
-<span class="sig-name descname"><span class="pre">dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.dist" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.dist" title="Permalink to this definition">¶</a></dt>
 <dd><p>retrieves distance between Atoms</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -522,7 +523,7 @@ like with scipy.spatial.distance_matrix</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.angle">
-<span class="sig-name descname"><span class="pre">angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.angle" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.angle" title="Permalink to this definition">¶</a></dt>
 <dd><p>determines angle between three Atoms</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -536,7 +537,7 @@ like with scipy.spatial.distance_matrix</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.mass">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mass</span></span><a class="headerlink" href="#AaronTools.atoms.Atom.mass" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mass</span></span><a class="headerlink" href="#AaronTools.atoms.Atom.mass" title="Permalink to this definition">¶</a></dt>
 <dd><p>retrieves mass of an Atom</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -550,7 +551,7 @@ like with scipy.spatial.distance_matrix</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.get_shape">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.get_shape" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.get_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns dummy atoms in an idealized vsepr geometry</p>
 <p>shape_name can be:</p>
 <ul class="simple">
@@ -602,157 +603,157 @@ like with scipy.spatial.distance_matrix</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.linear_shape">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">linear_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.linear_shape" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">linear_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.linear_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a list of 3 dummy atoms in a linear shape</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.trigonal_planar_shape">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trigonal_planar_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.trigonal_planar_shape" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trigonal_planar_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.trigonal_planar_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a list of 4 dummy atoms in a trigonal planar shape</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.tetrahedral_shape">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tetrahedral_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.tetrahedral_shape" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tetrahedral_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.tetrahedral_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a list of 5 dummy atoms in a tetrahedral shape</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.trigonal_bipyramidal_shape">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trigonal_bipyramidal_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.trigonal_bipyramidal_shape" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trigonal_bipyramidal_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.trigonal_bipyramidal_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a list of 6 dummy atoms in a trigonal bipyramidal shape</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.octahedral_shape">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">octahedral_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.octahedral_shape" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">octahedral_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.octahedral_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a list of 7 dummy atoms in an octahedral shape</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.trigonal_prismatic_shape">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trigonal_prismatic_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.trigonal_prismatic_shape" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trigonal_prismatic_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.trigonal_prismatic_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a list of 7 dummy atoms in a trigonal prismatic shape</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.capped_octahedral_shape">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">capped_octahedral_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.capped_octahedral_shape" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">capped_octahedral_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.capped_octahedral_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a list of 8 dummy atoms in a capped ocrahedral shape</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.capped_trigonal_prismatic_shape">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">capped_trigonal_prismatic_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.capped_trigonal_prismatic_shape" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">capped_trigonal_prismatic_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.capped_trigonal_prismatic_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a list of 8 dummy atoms in a capped trigonal prismatic shape</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.pentagonal_bipyramidal_shape">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pentagonal_bipyramidal_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.pentagonal_bipyramidal_shape" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pentagonal_bipyramidal_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.pentagonal_bipyramidal_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a list of 8 dummy atoms in a pentagonal bipyramidal shape</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.biaugmented_trigonal_prismatic_shape">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">biaugmented_trigonal_prismatic_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.biaugmented_trigonal_prismatic_shape" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">biaugmented_trigonal_prismatic_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.biaugmented_trigonal_prismatic_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a list of 9 dummy atoms in a biaugmented trigonal prismatic shape</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.cubic_shape">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cubic_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.cubic_shape" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cubic_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.cubic_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a list of 9 dummy atoms in a cubic shape</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.elongated_trigonal_bipyramidal_shape">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">elongated_trigonal_bipyramidal_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.elongated_trigonal_bipyramidal_shape" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">elongated_trigonal_bipyramidal_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.elongated_trigonal_bipyramidal_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a list of 9 dummy atoms in an elongated trigonal bipyramidal shape</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.hexagonal_bipyramidal_shape">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hexagonal_bipyramidal_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.hexagonal_bipyramidal_shape" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hexagonal_bipyramidal_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.hexagonal_bipyramidal_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a list of 9 dummy atoms in a hexagonal bipyramidal shape</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.square_antiprismatic_shape">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">square_antiprismatic_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.square_antiprismatic_shape" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">square_antiprismatic_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.square_antiprismatic_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a list of 9 dummy atoms in a square antiprismatic shape</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.trigonal_dodecahedral_shape">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trigonal_dodecahedral_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.trigonal_dodecahedral_shape" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trigonal_dodecahedral_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.trigonal_dodecahedral_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a list of 9 dummy atoms in a trigonal dodecahedral shape</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.heptagonal_bipyramidal_shape">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">heptagonal_bipyramidal_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.heptagonal_bipyramidal_shape" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">heptagonal_bipyramidal_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.heptagonal_bipyramidal_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a list of 10 dummy atoms in a heptagonal bipyramidal shape</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.capped_cube_shape">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">capped_cube_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.capped_cube_shape" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">capped_cube_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.capped_cube_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a list of 10 dummy atoms in a capped cube shape</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.capped_square_antiprismatic_shape">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">capped_square_antiprismatic_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.capped_square_antiprismatic_shape" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">capped_square_antiprismatic_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.capped_square_antiprismatic_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a list of 10 dummy atoms in a capped square antiprismatic shape</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.enneagonal_shape">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">enneagonal_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.enneagonal_shape" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">enneagonal_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.enneagonal_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a list of 10 dummy atoms in an enneagonal shape</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.hula_hoop_shape">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hula_hoop_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.hula_hoop_shape" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hula_hoop_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.hula_hoop_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a list of 10 dummy atoms in a hula hoop shape</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.triangular_cupola_shape">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">triangular_cupola_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.triangular_cupola_shape" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">triangular_cupola_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.triangular_cupola_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a list of 10 dummy atoms in a triangular cupola shape</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.tridiminished_icosahedral_shape">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tridiminished_icosahedral_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.tridiminished_icosahedral_shape" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tridiminished_icosahedral_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.tridiminished_icosahedral_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a list of 10 dummy atoms in a tridiminished icosahedral shape</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.muffin_shape">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">muffin_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.muffin_shape" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">muffin_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.muffin_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a list of 10 dummy atoms in a muffin shape</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.octagonal_pyramidal_shape">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">octagonal_pyramidal_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.octagonal_pyramidal_shape" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">octagonal_pyramidal_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.octagonal_pyramidal_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a list of 10 dummy atoms in an octagonal pyramidal shape</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.tricapped_trigonal_prismatic_shape">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tricapped_trigonal_prismatic_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.tricapped_trigonal_prismatic_shape" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tricapped_trigonal_prismatic_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.tricapped_trigonal_prismatic_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a list of 10 dummy atoms in a tricapped trigonal prismatic shape</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.new_shape">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">new_shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">old_shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_connectivity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bond_change</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.new_shape" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">new_shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">old_shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_connectivity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bond_change</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.new_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns the name of the expected vsepr geometry when the number of bonds
 changes by +/- 1</p>
 <dl class="field-list simple">
@@ -768,7 +769,7 @@ changes by +/- 1</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.get_vsepr">
-<span class="sig-name descname"><span class="pre">get_vsepr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.get_vsepr" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_vsepr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.get_vsepr" title="Permalink to this definition">¶</a></dt>
 <dd><p>determine vsepr geometry around an atom</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -795,7 +796,7 @@ changes by +/- 1</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.atoms.Atom.draw_atom">
-<span class="sig-name descname"><span class="pre">draw_atom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ascale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linewidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.draw_atom" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">draw_atom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ascale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linewidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.atoms.Atom.draw_atom" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw HoukMol style atom and add to Matplotlib axis ax</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -925,11 +926,11 @@ changes by +/- 1</p>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=a4d4be8e"></script>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/furo.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
     </body>
 </html>

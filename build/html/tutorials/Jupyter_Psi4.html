@@ -1,39 +1,39 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="AaronTools and Matplotlib" href="Jupyter_Matplotlib.html" /><link rel="prev" title="Working with AaronTools in Jupyter Notebooks" href="Jupyter_basics.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/tutorials/Jupyter_Psi4.html" />
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 7.0.1 and Furo 2024.08.06 -->
         <title>AaronTools and Psi4 - AaronTools 1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=04c057b233f3c8d71940eee6080f658a04e2027d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=cf727022eb7470bc603c08d2e55c3247faec75c9" />
     
     
 
 
 <style>
   body {
-    --color-code-background: #f2f2f2;
-  --color-code-foreground: #1e1e1e;
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
   
   }
   @media not print {
     body[data-theme="dark"] {
-      --color-code-background: #2b2b2b;
-  --color-code-foreground: #f8f8f2;
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
-        --color-code-background: #2b2b2b;
-  --color-code-foreground: #f8f8f2;
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
   
       }
     }
@@ -193,6 +193,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
+  
   <span class="sidebar-brand-text">AaronTools 1.1 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
@@ -349,7 +350,7 @@
     <span class="visually-hidden">View this page</span>
   </a>
 </div><div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/QChASM/AaronTools-docs/edit/main/source/tutorials/Jupyter_Psi4.ipynb" rel="edit" title="Edit this page">
+  <a class="muted-link" href="https://github.com/QChASM/AaronTools-docs/edit/main/source/tutorials/Jupyter_Psi4.ipynb" title="Edit this page">
     <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
@@ -369,15 +370,15 @@
         </div>
         <article role="main" id="furo-main-content">
           <section id="aarontools-and-psi4">
-<h1>AaronTools and Psi4<a class="headerlink" href="#aarontools-and-psi4" title="Link to this heading">¶</a></h1>
+<h1>AaronTools and Psi4<a class="headerlink" href="#aarontools-and-psi4" title="Permalink to this heading">¶</a></h1>
 <p>You can download the Jupyter Notebook version of this page <a href="https://github.com/QChASM/AaronTools-docs/blob/main/source/tutorials/Jupyter_Psi4.ipynb" target="_blank">here</a> (click “Download raw file”).</p>
 <p>Psi4 is an open-source quantum chemistry package that has a simple Python API that lets you run quantum chemistry computations straight from Jupyter.
 By combining this with the molecular building, visualization, and analysis tools from AaronTools, you can do quite a lot right from a Jupyter Notebook.</p>
 <p>For example, below we first build formadlehyde using AaronTools:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="s1">&#39;formaldehyde&#39;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="s1">&#39;iupac&#39;</span><span class="p">)</span>
 <span class="n">geom</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
@@ -457,7 +458,7 @@ Note that the native geometry optimizer in Psi4 (OptKing) will print all sorts o
 Once finished, it should say <code class="docutils literal notranslate"><span class="pre">Optimization</span> <span class="pre">complete</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">psi4</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">psi4</span>
 <span class="n">mol</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">convert_to_Psi4</span><span class="p">()</span>
 
 <span class="c1"># set psi4 parameters </span>
@@ -573,8 +574,8 @@ We can list the values of all real and imaginary frequencies or print a table of
 <p>We also plot a simulated IR spectrum using <code class="docutils literal notranslate"><span class="pre">freq.plot_ir()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.fileIO</span><span class="w"> </span><span class="kn">import</span> <span class="n">FileReader</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.fileIO</span> <span class="kn">import</span> <span class="n">FileReader</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="c1"># create FileReader</span>
 <span class="n">fr</span> <span class="o">=</span> <span class="n">FileReader</span><span class="p">(</span><span class="s1">&#39;formaldehyde_freq.dat&#39;</span><span class="p">,</span> <span class="n">just_geom</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -629,7 +630,7 @@ By default, Psi4 computed these quantities at 298.15K. However, we can use Aaron
 We do this using using a <code class="docutils literal notranslate"><span class="pre">CompOutput</span></code> object in AaronTools, which can be created by reading any QM output file containing frequencies.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.comp_output</span><span class="w"> </span><span class="kn">import</span> <span class="n">CompOutput</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.comp_output</span> <span class="kn">import</span> <span class="n">CompOutput</span>
 
 <span class="c1"># create CompOutput object </span>
 <span class="n">co</span> <span class="o">=</span> <span class="n">CompOutput</span><span class="p">(</span><span class="s1">&#39;water_freq.dat&#39;</span><span class="p">)</span>
@@ -708,11 +709,11 @@ For formaldehyde, these three approximations will be essentially equivalent, bec
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=a4d4be8e"></script>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/furo.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
     </body>
 </html>

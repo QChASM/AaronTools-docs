@@ -1,39 +1,39 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Python API Documentation" href="../api/api.html" /><link rel="prev" title="AaronTools Libraries" href="libraries.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/other_docs/configuration_files.html" />
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 7.0.1 and Furo 2024.08.06 -->
         <title>INI Files - AaronTools 1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=04c057b233f3c8d71940eee6080f658a04e2027d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=cf727022eb7470bc603c08d2e55c3247faec75c9" />
     
     
 
 
 <style>
   body {
-    --color-code-background: #f2f2f2;
-  --color-code-foreground: #1e1e1e;
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
   
   }
   @media not print {
     body[data-theme="dark"] {
-      --color-code-background: #2b2b2b;
-  --color-code-foreground: #f8f8f2;
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
-        --color-code-background: #2b2b2b;
-  --color-code-foreground: #f8f8f2;
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
   
       }
     }
@@ -193,6 +193,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
+  
   <span class="sidebar-brand-text">AaronTools 1.1 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
@@ -349,7 +350,7 @@
     <span class="visually-hidden">View this page</span>
   </a>
 </div><div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/QChASM/AaronTools-docs/edit/main/source/other_docs/configuration_files.rst" rel="edit" title="Edit this page">
+  <a class="muted-link" href="https://github.com/QChASM/AaronTools-docs/edit/main/source/other_docs/configuration_files.rst" title="Edit this page">
     <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
@@ -369,13 +370,13 @@
         </div>
         <article role="main" id="furo-main-content">
           <section id="ini-files">
-<h1>INI Files<a class="headerlink" href="#ini-files" title="Link to this heading">¶</a></h1>
+<h1>INI Files<a class="headerlink" href="#ini-files" title="Permalink to this heading">¶</a></h1>
 <p>AaronTools provides INI configuration file parsing with <code class="docutils literal notranslate"><span class="pre">AaronTools.config.Config(&quot;/path/to/config.ini&quot;)</span></code> allowing one to cleanly pass information AaronTools needs.
 This functionality is also used by <a class="reference external" href="https://github.com/QChASM/AaronJr">AaronJr</a>.
 Note that AaronJr development is not complete.</p>
 <p>Built-in configuration defaults are provided in <code class="docutils literal notranslate"><span class="pre">$QCHASM/AaronTools/config.ini</span></code> and user-defined defaults can be put in <code class="docutils literal notranslate"><span class="pre">$AARONLIB/config.ini</span></code> to stream-line job-specific configuration files.</p>
 <section id="ini-configuration-format-overview">
-<h2>INI configuration format overview<a class="headerlink" href="#ini-configuration-format-overview" title="Link to this heading">¶</a></h2>
+<h2>INI configuration format overview<a class="headerlink" href="#ini-configuration-format-overview" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">global_option</span> <span class="o">=</span> <span class="n">value</span>
 
 <span class="p">[</span><span class="n">Section</span><span class="p">]</span>
@@ -397,9 +398,9 @@ Note that AaronJr development is not complete.</p>
 This is especially helpful when the workflow includes higher-level single points or when relaxing substituted components using a lower-level of theory prior to optimization.</p>
 </section>
 <section id="configuration-sections-and-their-options">
-<h2>Configuration sections and their options<a class="headerlink" href="#configuration-sections-and-their-options" title="Link to this heading">¶</a></h2>
+<h2>Configuration sections and their options<a class="headerlink" href="#configuration-sections-and-their-options" title="Permalink to this heading">¶</a></h2>
 <section id="default">
-<h3>[DEFAULT]<a class="headerlink" href="#default" title="Link to this heading">¶</a></h3>
+<h3>[DEFAULT]<a class="headerlink" href="#default" title="Permalink to this heading">¶</a></h3>
 <p>This is the global section, and option/value pairs are available in all sections.
 The <code class="docutils literal notranslate"><span class="pre">[DEFAULT]</span></code> section header is optional as long as the global option/value pairs come at the top of the file.</p>
 <p>Option descriptions:</p>
@@ -410,7 +411,7 @@ The <code class="docutils literal notranslate"><span class="pre">[DEFAULT]</span
 </ul>
 </section>
 <section id="geometry">
-<h3>[Geometry]<a class="headerlink" href="#geometry" title="Link to this heading">¶</a></h3>
+<h3>[Geometry]<a class="headerlink" href="#geometry" title="Permalink to this heading">¶</a></h3>
 <p>This is the section used to import molecular structures.</p>
 <p>Option descriptions:</p>
 <ul class="simple">
@@ -423,7 +424,7 @@ The <code class="docutils literal notranslate"><span class="pre">[DEFAULT]</span
 </div>
 <p>Special options:</p>
 <section id="call">
-<h4>&amp;call<a class="headerlink" href="#call" title="Link to this heading">¶</a></h4>
+<h4>&amp;call<a class="headerlink" href="#call" title="Permalink to this heading">¶</a></h4>
 <p>This is used to apply <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry" title="AaronTools.geometry.Geometry"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Geometry()</span></code></a> methods to the imported structure(s).
 Take care to use the same syntax you would if calling the method within a Python script when providing the arguments for the function call, eg: using quotes around atom indices since they should be passed as strings, capitalizing boolean values, etc.
 This will set the 1-2-3-4 dihedral to 60-degrees and change atom 2 to Si.</p>
@@ -435,7 +436,7 @@ This will set the 1-2-3-4 dihedral to 60-degrees and change atom 2 to Si.</p>
 </div>
 </section>
 <section id="for-name-in-iterator">
-<h4>&amp;for {name} in {iterator}<a class="headerlink" href="#for-name-in-iterator" title="Link to this heading">¶</a></h4>
+<h4>&amp;for {name} in {iterator}<a class="headerlink" href="#for-name-in-iterator" title="Permalink to this heading">¶</a></h4>
 <p>This is used to generate starting structures using a for loop; use a suffix on the <cite>structure</cite> key to distinguish the generated structures from one another.
 The following will create structures corresponding to a H-C-C-H dihedral scan in 10-degree increments.
 Note that we are changing the dihedral for <code class="docutils literal notranslate"><span class="pre">structure.0</span></code> to 0-degrees (just in case the dihedral for the structure in <code class="docutils literal notranslate"><span class="pre">ethane.xyz</span></code> is not equal to 0), so we iterate starting at 0 degrees.
@@ -459,7 +460,7 @@ Finally, most Geometry() methods are implemented as in-place changes to the stru
 </section>
 </section>
 <section id="theory">
-<h3>[Theory]<a class="headerlink" href="#theory" title="Link to this heading">¶</a></h3>
+<h3>[Theory]<a class="headerlink" href="#theory" title="Permalink to this heading">¶</a></h3>
 <p>This section is used to specify options that will be used to define the level of theory requested in the input files built for computational software.</p>
 <p>Option descriptions:</p>
 <ul class="simple">
@@ -476,7 +477,7 @@ Finally, most Geometry() methods are implemented as in-place changes to the stru
 See <a class="reference internal" href="#software-specific-theory-options"><span class="std std-ref">Software Specific Theory Options</span></a> for more info.</p>
 </section>
 <section id="job">
-<h3>[Job]<a class="headerlink" href="#job" title="Link to this heading">¶</a></h3>
+<h3>[Job]<a class="headerlink" href="#job" title="Permalink to this heading">¶</a></h3>
 <p>This section is used to specify options that define the computational job, eg: what to compute, what software to use, resources to request, etc.
 Not all of these options will need to be specified.
 Check the template file used to build computational files.
@@ -498,7 +499,7 @@ Note that if you are using AaronJr, the <code class="docutils literal notranslat
 <p>The user can add any other options they wish to be used when filling in job submission templates or execuatable templates. See <a class="reference internal" href="job_templates.html"><span class="doc">Job Submission Templates</span></a> for more information.</p>
 </section>
 <section id="hpc">
-<h3>[HPC]<a class="headerlink" href="#hpc" title="Link to this heading">¶</a></h3>
+<h3>[HPC]<a class="headerlink" href="#hpc" title="Permalink to this heading">¶</a></h3>
 <p>These options are used to define how to connect to the HPC and queuing system when submitting jobs.</p>
 <p>Option descriptions:</p>
 <ul class="simple">
@@ -510,7 +511,7 @@ Note that if you are using AaronJr, the <code class="docutils literal notranslat
 </ul>
 </section>
 <section id="substitution">
-<h3>[Substitution]<a class="headerlink" href="#substitution" title="Link to this heading">¶</a></h3>
+<h3>[Substitution]<a class="headerlink" href="#substitution" title="Permalink to this heading">¶</a></h3>
 <p>This section is used to define the changes that will be made to a Geometry object when using AaronJr.
 To quickly list what changes will be made to to generate the new structures, use the <code class="docutils literal notranslate"><span class="pre">listChanges.py</span></code> command-line script included with AaronTools.</p>
 <p>Options:</p>
@@ -560,7 +561,7 @@ Combinations can also be used similar to a list:</p>
 </ul>
 </section>
 <section id="mapping">
-<h3>[Mapping]<a class="headerlink" href="#mapping" title="Link to this heading">¶</a></h3>
+<h3>[Mapping]<a class="headerlink" href="#mapping" title="Permalink to this heading">¶</a></h3>
 <p>“Key atoms” are used to properly map the new ligand to the old ligand.
 For transition metal centered systems, the key atoms would be the atoms of the ligand that coordinate with the metal center.
 It may be helpful to look at some of the ligands provided in the AaronTools ligand library (You can browse the AARON and AaronTools libraries at with SEQCROW’s <a class="reference external" href="https://github.com/QChASM/SEQCROW/wiki/Browse-AaronTools-Libraries-Tool">Browse AaronTools Libraries</a> tool) to see which atoms are defined as the key atoms for that ligand.</p>
@@ -589,7 +590,7 @@ This can be more complex with higher denticity ligands.</p>
 <p>Replaces the ligand(s) with key atoms 1 and 2 with two monodentate PPh3 ligands (one at atom 1 and one at atom 2) to form the <code class="docutils literal notranslate"><span class="pre">lig1</span></code> structure. Does similarly with XPhos to form the <code class="docutils literal notranslate"><span class="pre">lig2</span></code> structure.</p>
 </section>
 <section id="substitutions-and-mappings-in-the-same-config-file">
-<h3>Substitutions and Mappings in the same config file<a class="headerlink" href="#substitutions-and-mappings-in-the-same-config-file" title="Link to this heading">¶</a></h3>
+<h3>Substitutions and Mappings in the same config file<a class="headerlink" href="#substitutions-and-mappings-in-the-same-config-file" title="Permalink to this heading">¶</a></h3>
 <p>Structures are generated by combinatorially applying each substitution with each mapping. By default, the original template structure is not optimized again. Use the <cite>reopt</cite> option in either the [Substitution] or [Mapping] section to reoptimize the template structure.</p>
 <p>The following will generate four structures (original, sub1 only, lig1 only, sub1+lig1):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Substitution</span><span class="p">]</span>
@@ -613,7 +614,7 @@ This can be more complex with higher denticity ligands.</p>
 </section>
 </section>
 <section id="using-functions">
-<h2>Using functions<a class="headerlink" href="#using-functions" title="Link to this heading">¶</a></h2>
+<h2>Using functions<a class="headerlink" href="#using-functions" title="Permalink to this heading">¶</a></h2>
 <p>Complex interpolation of the configuration file is provided to simplify configuration. For example, consider one wants to always request 2GB of memory for every processor requested on the HPC. In the user’s default configuration file, the memory option is defined as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span># snippet from $AARONLIB/config.ini
 [HPC]
@@ -641,9 +642,9 @@ exec_options = -temp %{ $Job:temperature }
 </div>
 </section>
 <section id="software-specific-theory-options">
-<h2>Software Specific Theory Options<a class="headerlink" href="#software-specific-theory-options" title="Link to this heading">¶</a></h2>
+<h2>Software Specific Theory Options<a class="headerlink" href="#software-specific-theory-options" title="Permalink to this heading">¶</a></h2>
 <section id="gaussian">
-<h3>Gaussian<a class="headerlink" href="#gaussian" title="Link to this heading">¶</a></h3>
+<h3>Gaussian<a class="headerlink" href="#gaussian" title="Permalink to this heading">¶</a></h3>
 <p>Gaussian has the following options:</p>
 <ul class="simple">
 <li><p>link0</p></li>
@@ -670,7 +671,7 @@ Options for route keywords should follow the keyword, separated by commas. For e
 <p>The format for comments is identical to the format of end_of_line.</p>
 </section>
 <section id="orca">
-<h3>ORCA<a class="headerlink" href="#orca" title="Link to this heading">¶</a></h3>
+<h3>ORCA<a class="headerlink" href="#orca" title="Permalink to this heading">¶</a></h3>
 <p>ORCA has the following options:</p>
 <ul class="simple">
 <li><p>simple</p></li>
@@ -701,7 +702,7 @@ Options for route keywords should follow the keyword, separated by commas. For e
 <p>to ORCA input files.</p>
 </section>
 <section id="psi4">
-<h3>Psi4<a class="headerlink" href="#psi4" title="Link to this heading">¶</a></h3>
+<h3>Psi4<a class="headerlink" href="#psi4" title="Permalink to this heading">¶</a></h3>
 <p>Psi4 has the following options:</p>
 <ul class="simple">
 <li><p>settings</p></li>
@@ -730,7 +731,7 @@ Options for route keywords should follow the keyword, separated by commas. For e
 <p>comments uses the same format as before_molecule, etc., though the “#” should be omitted.</p>
 </section>
 <section id="crest-and-xtb">
-<h3>Crest and xtb<a class="headerlink" href="#crest-and-xtb" title="Link to this heading">¶</a></h3>
+<h3>Crest and xtb<a class="headerlink" href="#crest-and-xtb" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>gfn - The GFN version to use (default = 2)</p></li>
 <li><p>cmdline - A string containing any other desired command line options (e.g.: <code class="docutils literal notranslate"><span class="pre">cmdline</span> <span class="pre">=</span> <span class="pre">--esp</span> <span class="pre">--opt</span> <span class="pre">extreme</span></code>. These will be appended to the command line options built from the [Theory] section options (temperature, solvent, charge, multiplicity, etc.), so it is possible to override automatically-generated options.</p></li>
@@ -738,7 +739,7 @@ Options for route keywords should follow the keyword, separated by commas. For e
 </section>
 </section>
 <section id="basis-options">
-<h2>Basis Options<a class="headerlink" href="#basis-options" title="Link to this heading">¶</a></h2>
+<h2>Basis Options<a class="headerlink" href="#basis-options" title="Permalink to this heading">¶</a></h2>
 <p>Basis sets and effective core potentials can be specified with the <code class="docutils literal notranslate"><span class="pre">basis</span></code> and <code class="docutils literal notranslate"><span class="pre">ecp</span></code> options, respectively.
 By default, basis sets will by used for all elements, and ECP’s will only apply to d-block elements. The simplest basis specification is</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">basis</span> <span class="o">=</span> <span class="n">def2</span><span class="o">-</span><span class="n">SVP</span>
@@ -766,7 +767,7 @@ By default, basis sets will by used for all elements, and ECP’s will only appl
 <p>ECP’s will not be printed to Psi4 input files, as Psi4 expects ECP’s to be included in the basis set definition.</p>
 </section>
 <section id="atom-types">
-<h2>Atom Types<a class="headerlink" href="#atom-types" title="Link to this heading">¶</a></h2>
+<h2>Atom Types<a class="headerlink" href="#atom-types" title="Permalink to this heading">¶</a></h2>
 <p>Symbols for dummy atoms can be defined in config files.
 By default, X is used for dummy atoms.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">AtomTypes</span><span class="p">]</span>
@@ -870,11 +871,11 @@ By default, X is used for dummy atoms.</p>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=a4d4be8e"></script>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/furo.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
     </body>
 </html>

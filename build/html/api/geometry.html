@@ -1,39 +1,39 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Reading and Writing Files" href="fileIO.html" /><link rel="prev" title="Python API Documentation" href="api.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/api/geometry.html" />
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 7.0.1 and Furo 2024.08.06 -->
         <title>Geometry class - AaronTools 1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=04c057b233f3c8d71940eee6080f658a04e2027d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=cf727022eb7470bc603c08d2e55c3247faec75c9" />
     
     
 
 
 <style>
   body {
-    --color-code-background: #f2f2f2;
-  --color-code-foreground: #1e1e1e;
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
   
   }
   @media not print {
     body[data-theme="dark"] {
-      --color-code-background: #2b2b2b;
-  --color-code-foreground: #f8f8f2;
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
-        --color-code-background: #2b2b2b;
-  --color-code-foreground: #f8f8f2;
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
   
       }
     }
@@ -193,6 +193,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
+  
   <span class="sidebar-brand-text">AaronTools 1.1 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
@@ -349,7 +350,7 @@
     <span class="visually-hidden">View this page</span>
   </a>
 </div><div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/QChASM/AaronTools-docs/edit/main/source/api/geometry.rst" rel="edit" title="Edit this page">
+  <a class="muted-link" href="https://github.com/QChASM/AaronTools-docs/edit/main/source/api/geometry.rst" title="Edit this page">
     <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
@@ -369,10 +370,10 @@
         </div>
         <article role="main" id="furo-main-content">
           <section id="geometry-class">
-<h1><code class="docutils literal notranslate"><span class="pre">Geometry</span></code> class<a class="headerlink" href="#geometry-class" title="Link to this heading">¶</a></h1>
+<h1><code class="docutils literal notranslate"><span class="pre">Geometry</span></code> class<a class="headerlink" href="#geometry-class" title="Permalink to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.geometry.</span></span><span class="sig-name descname"><span class="pre">Geometry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refresh_connected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refresh_ranks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.geometry.</span></span><span class="sig-name descname"><span class="pre">Geometry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refresh_connected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refresh_ranks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry" title="Permalink to this definition">¶</a></dt>
 <dd><p>Attributes:</p>
 <blockquote>
 <div><ul class="simple">
@@ -385,7 +386,7 @@
 </div></blockquote>
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refresh_connected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refresh_ranks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.__init__" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refresh_connected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refresh_ranks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -408,7 +409,7 @@ can save time for methods that only don’t rely on ranks by using
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.iupac2smiles">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">iupac2smiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.iupac2smiles" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">iupac2smiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.iupac2smiles" title="Permalink to this definition">¶</a></dt>
 <dd><p>convert IUPAC name to SMILES using the OPSIN web API</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -422,7 +423,7 @@ can save time for methods that only don’t rely on ranks by using
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.from_string">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">form</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'smiles'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strict_use_rdkit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.from_string" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">form</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'smiles'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strict_use_rdkit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.from_string" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts a string input into a Geometry object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -447,7 +448,7 @@ can save time for methods that only don’t rely on ranks by using
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.get_coordination_complexes">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_coordination_complexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">center</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ligands</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c2_symmetric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_coordination_complexes" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_coordination_complexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">center</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ligands</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c2_symmetric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_coordination_complexes" title="Permalink to this definition">¶</a></dt>
 <dd><p>get all unique coordination complexes
 uses templates from Inorg. Chem. 2018, 57, 17, 10557–10567</p>
 <dl class="field-list simple">
@@ -481,7 +482,7 @@ general formula of the complexes</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.get_diastereomers">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_diastereomers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_diastereomers" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_diastereomers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_diastereomers" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate diastereomers of Geometry</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -501,7 +502,7 @@ general formula of the complexes</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.weighted_percent_buried_volume">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">weighted_percent_buried_volume</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energies</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.weighted_percent_buried_volume" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">weighted_percent_buried_volume</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energies</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.weighted_percent_buried_volume" title="Permalink to this definition">¶</a></dt>
 <dd><p>Boltzmann-averaged percent buried volume</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -521,7 +522,7 @@ general formula of the complexes</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.get_solvent">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_solvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">solvent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_solvent" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_solvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">solvent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_solvent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts the name of a solvent into a Geometry representation
 based on solvents within AaronTools libraries
 Note: list_solvents provides a str array of solvents within the libraries</p>
@@ -543,7 +544,7 @@ Note: list_solvents provides a str array of solvents within the libraries</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.ring_conformers">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ring_conformers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_uncommon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.ring_conformers" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ring_conformers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_uncommon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.ring_conformers" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a list of Geometry objects with varying ring conformations
 :param Geometry geometry: structure to look for conformers of
 :param Atom targets: atoms in rings to search for conformers of (default is all rings)</p>
@@ -551,7 +552,7 @@ Note: list_solvents provides a str array of solvents within the libraries</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.list_solvents">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">list_solvents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">include_ext</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.list_solvents" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">list_solvents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">include_ext</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.list_solvents" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieves a list of solvents stored in AaronTools</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -566,25 +567,25 @@ each solvent when true.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.elements">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">elements</span></span><a class="headerlink" href="#AaronTools.geometry.Geometry.elements" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">elements</span></span><a class="headerlink" href="#AaronTools.geometry.Geometry.elements" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns list of elements composing the atoms in the geometry</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.num_atoms">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_atoms</span></span><a class="headerlink" href="#AaronTools.geometry.Geometry.num_atoms" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_atoms</span></span><a class="headerlink" href="#AaronTools.geometry.Geometry.num_atoms" title="Permalink to this definition">¶</a></dt>
 <dd><p>number of atoms</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.coords">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coords</span></span><a class="headerlink" href="#AaronTools.geometry.Geometry.coords" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coords</span></span><a class="headerlink" href="#AaronTools.geometry.Geometry.coords" title="Permalink to this definition">¶</a></dt>
 <dd><p>array of coordinates (read only)</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.coordinates">
-<span class="sig-name descname"><span class="pre">coordinates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.coordinates" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">coordinates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.coordinates" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>atoms</strong> (<em>list</em><em>(</em><a class="reference internal" href="atoms.html#AaronTools.atoms.Atom" title="AaronTools.atoms.Atom"><em>Atom</em></a><em>)</em>) – atoms to be searched</p>
@@ -601,7 +602,7 @@ each solvent when true.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.tag">
-<span class="sig-name descname"><span class="pre">tag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.tag" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">tag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.tag" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds a tag to atoms within a Geometry object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -615,7 +616,7 @@ each solvent when true.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.write">
-<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.write" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.write" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write geometry to a file</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -630,7 +631,7 @@ each solvent when true.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.display">
-<span class="sig-name descname"><span class="pre">display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'stick'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorscheme</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Jmol'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.display" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'stick'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorscheme</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Jmol'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.display" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display py3Dmol viewer from Geometry</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -644,7 +645,7 @@ each solvent when true.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.convert_to_Psi4">
-<span class="sig-name descname"><span class="pre">convert_to_Psi4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">charge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mult</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fix_com</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fix_orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.convert_to_Psi4" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">convert_to_Psi4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">charge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mult</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fix_com</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fix_orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.convert_to_Psi4" title="Permalink to this definition">¶</a></dt>
 <dd><p>converts Geometry into Psi4 Molecule object (requires Psi4)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -663,7 +664,7 @@ each solvent when true.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ascale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bwidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.15</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.plot" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ascale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bwidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.15</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.plot" title="Permalink to this definition">¶</a></dt>
 <dd><p>displays HoukMol style molecule in Matplotlib</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -680,7 +681,7 @@ each solvent when true.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.copy">
-<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy_atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.copy" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy_atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>creates a new copy of the geometry</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -696,19 +697,19 @@ each solvent when true.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.parse_comment">
-<span class="sig-name descname"><span class="pre">parse_comment</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.parse_comment" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">parse_comment</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.parse_comment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Saves auxillary data found in comment line</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.fix_comment">
-<span class="sig-name descname"><span class="pre">fix_comment</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.fix_comment" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">fix_comment</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.fix_comment" title="Permalink to this definition">¶</a></dt>
 <dd><p>sets self.comment to define key atoms for ligands, etc.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.freeze">
-<span class="sig-name descname"><span class="pre">freeze</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.freeze" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">freeze</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.freeze" title="Permalink to this definition">¶</a></dt>
 <dd><p>freezes atoms in the geometry</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -719,7 +720,7 @@ each solvent when true.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.relax">
-<span class="sig-name descname"><span class="pre">relax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.relax" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">relax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.relax" title="Permalink to this definition">¶</a></dt>
 <dd><p>relaxes atoms in the geometry</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -730,7 +731,7 @@ each solvent when true.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.get_constraints">
-<span class="sig-name descname"><span class="pre">get_constraints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">as_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_constraints" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_constraints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">as_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_constraints" title="Permalink to this definition">¶</a></dt>
 <dd><p>get frozen atoms</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -747,7 +748,7 @@ each solvent when true.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.get_connectivity">
-<span class="sig-name descname"><span class="pre">get_connectivity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_connectivity" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_connectivity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_connectivity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Iterates through each atom and finds its connected atoms</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -761,7 +762,7 @@ each solvent when true.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.get_frag_list">
-<span class="sig-name descname"><span class="pre">get_frag_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_frag_list" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_frag_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_frag_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>find fragments connected by only one bond
 (both fragments contain no overlapping atoms)</p>
 <dl class="field-list simple">
@@ -784,7 +785,7 @@ defining fragments</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.get_graph">
-<span class="sig-name descname"><span class="pre">get_graph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_graph" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_graph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_graph" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a graph based on connectivity
 graph consists of a list for each atom consisting of a list of connected atoms
 For example, for H2O with O as atom 1, graph = [[1,2], [0], [0]]</p>
@@ -797,13 +798,13 @@ For example, for H2O with O as atom 1, graph = [[1,2], [0], [0]]</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.detect_substituents">
-<span class="sig-name descname"><span class="pre">detect_substituents</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.detect_substituents" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">detect_substituents</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.detect_substituents" title="Permalink to this definition">¶</a></dt>
 <dd><p>sets self.substituents to a list of substituents</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.find">
-<span class="sig-name descname"><span class="pre">find</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.find" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">find</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.find" title="Permalink to this definition">¶</a></dt>
 <dd><p>finds atom in geometry</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -827,7 +828,7 @@ but were screened out using the &amp;&amp; argument form</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.find_exact">
-<span class="sig-name descname"><span class="pre">find_exact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.find_exact" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">find_exact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.find_exact" title="Permalink to this definition">¶</a></dt>
 <dd><p>finds exactly the same number of atoms as arguments used.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -848,7 +849,7 @@ consisting of those you want to check self for</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.refresh_connected">
-<span class="sig-name descname"><span class="pre">refresh_connected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.refresh_connected" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">refresh_connected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.refresh_connected" title="Permalink to this definition">¶</a></dt>
 <dd><p>reset connected atoms</p>
 <p>atoms are connected if their distance from each other is less than
 the sum of their covalent radii plus a threshold</p>
@@ -865,7 +866,7 @@ covalent bond length</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.refresh_ranks">
-<span class="sig-name descname"><span class="pre">refresh_ranks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">invariant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.refresh_ranks" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">refresh_ranks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">invariant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.refresh_ranks" title="Permalink to this definition">¶</a></dt>
 <dd><p>updates ranks of all atoms</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -876,7 +877,7 @@ covalent bond length</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.make_oniom">
-<span class="sig-name descname"><span class="pre">make_oniom</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.make_oniom" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">make_oniom</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.make_oniom" title="Permalink to this definition">¶</a></dt>
 <dd><p>convert existing geometry composed of Atom objects
 to geometry of OniomAtom objects including changing
 all atoms in attribute lists to OniomAtom objects</p>
@@ -884,7 +885,7 @@ all atoms in attribute lists to OniomAtom objects</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.get_invariants">
-<span class="sig-name descname"><span class="pre">get_invariants</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">heavy_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_invariants" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_invariants</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">heavy_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_invariants" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a list of invariants for the specified targets
 see Atom.get_invariant for some more details</p>
 <dl class="field-list simple">
@@ -899,7 +900,7 @@ see Atom.get_invariant for some more details</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.canonical_rank">
-<span class="sig-name descname"><span class="pre">canonical_rank</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">heavy_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">break_ties</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invariant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_ranks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.canonical_rank" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">canonical_rank</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">heavy_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">break_ties</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invariant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_ranks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.canonical_rank" title="Permalink to this definition">¶</a></dt>
 <dd><p>determine canonical ranking for atoms</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -923,7 +924,7 @@ if False, use neighbor IDs</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.element_counts">
-<span class="sig-name descname"><span class="pre">element_counts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.element_counts" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">element_counts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.element_counts" title="Permalink to this definition">¶</a></dt>
 <dd><p>number of each element in this Geometry</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -934,7 +935,7 @@ if False, use neighbor IDs</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.reorder">
-<span class="sig-name descname"><span class="pre">reorder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heavy_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.reorder" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">reorder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heavy_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.reorder" title="Permalink to this definition">¶</a></dt>
 <dd><p>Depth-first reorder of atoms based on canonical ranking</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -952,7 +953,7 @@ if False, use neighbor IDs</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.detect_fragments">
-<span class="sig-name descname"><span class="pre">detect_fragments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avoid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.detect_fragments" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">detect_fragments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avoid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.detect_fragments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a list of Geometries in which the connection to other
 atoms in the larger geometry must go through the center atoms</p>
 <p>for example,</p>
@@ -981,7 +982,7 @@ atoms in the larger geometry must go through the center atoms</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.shortest_path">
-<span class="sig-name descname"><span class="pre">shortest_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atom1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atom2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avoid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.shortest_path" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">shortest_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atom1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atom2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avoid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.shortest_path" title="Permalink to this definition">¶</a></dt>
 <dd><p>Uses Dijkstra’s algorithm to find shortest path between atom1 and atom2</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1002,7 +1003,7 @@ atoms in the larger geometry must go through the center atoms</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.get_monomers">
-<span class="sig-name descname"><span class="pre">get_monomers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_monomers" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_monomers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_monomers" title="Permalink to this definition">¶</a></dt>
 <dd><p>Searches a geometry for monomers</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -1016,7 +1017,7 @@ atoms in the larger geometry must go through the center atoms</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.bond">
-<span class="sig-name descname"><span class="pre">bond</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.bond" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">bond</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.bond" title="Permalink to this definition">¶</a></dt>
 <dd><p>takes two atoms and returns the bond vector (need to fix formatting)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1033,7 +1034,7 @@ atoms in the larger geometry must go through the center atoms</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.angle">
-<span class="sig-name descname"><span class="pre">angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.angle" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.angle" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a1-a2-a3 angle</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1051,7 +1052,7 @@ atoms in the larger geometry must go through the center atoms</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.dihedral">
-<span class="sig-name descname"><span class="pre">dihedral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a4</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.dihedral" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dihedral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a4</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.dihedral" title="Permalink to this definition">¶</a></dt>
 <dd><p>measures dihedral angle of a1 and a4 with respect to a2-a3 bond</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1070,7 +1071,7 @@ atoms in the larger geometry must go through the center atoms</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.COM">
-<span class="sig-name descname"><span class="pre">COM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heavy_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charge_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.COM" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">COM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heavy_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charge_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.COM" title="Permalink to this definition">¶</a></dt>
 <dd><p>calculates center of mass of the target atoms
 mass_weight and charge_weight cannot both be true</p>
 <dl class="field-list simple">
@@ -1090,7 +1091,7 @@ mass_weight and charge_weight cannot both be true</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.RMSD">
-<span class="sig-name descname"><span class="pre">RMSD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">align</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heavy_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refresh_ranks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.RMSD" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">RMSD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">align</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heavy_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refresh_ranks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.RMSD" title="Permalink to this definition">¶</a></dt>
 <dd><p>calculates the RMSD between two geometries</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1119,7 +1120,7 @@ if False, just calculate the RMSD</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.RMSD_permute">
-<span class="sig-name descname"><span class="pre">RMSD_permute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">align</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heavy_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'smallest'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.RMSD_permute" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">RMSD_permute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">align</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heavy_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'smallest'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.RMSD_permute" title="Permalink to this definition">¶</a></dt>
 <dd><p>calculate the RMSD between two structures by considering permutations
 of equivalent atoms</p>
 <dl class="field-list simple">
@@ -1147,7 +1148,7 @@ of equivalent atoms</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.get_near">
-<span class="sig-name descname"><span class="pre">get_near</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">by_bond</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_ref</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_near" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_near</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">by_bond</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_ref</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_near" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list of atoms within a distance or number of bonds of a
@@ -1174,7 +1175,7 @@ returned list, (default=False, do not include ref in returned list)</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.get_principle_axes">
-<span class="sig-name descname"><span class="pre">get_principle_axes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_principle_axes" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_principle_axes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_principle_axes" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -1191,7 +1192,7 @@ returned list, (default=False, do not include ref in returned list)</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.LJ_energy">
-<span class="sig-name descname"><span class="pre">LJ_energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_prev_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.LJ_energy" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">LJ_energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_prev_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.LJ_energy" title="Permalink to this definition">¶</a></dt>
 <dd><p>computes LJ energy using autodock parameters</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1208,7 +1209,7 @@ LJ_energy calls, like minimize_torsion</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.examine_constraints">
-<span class="sig-name descname"><span class="pre">examine_constraints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">thresh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.examine_constraints" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">examine_constraints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">thresh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.examine_constraints" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determines if constrained atoms are too close/ too far apart</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1224,7 +1225,7 @@ by the flag and it will adjust in the correct direction)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.compare_connectivity">
-<span class="sig-name descname"><span class="pre">compare_connectivity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thresh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_idx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.compare_connectivity" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">compare_connectivity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thresh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_idx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.compare_connectivity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compares connectivity of self relative to ref</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1252,7 +1253,7 @@ between bond distances is below a threshold, default None</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.percent_buried_volume">
-<span class="sig-name descname"><span class="pre">percent_buried_volume</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radii</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'umn'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.17</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lebedev'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rpoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1454</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.percent_buried_volume" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">percent_buried_volume</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radii</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'umn'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.17</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lebedev'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rpoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1454</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.percent_buried_volume" title="Permalink to this definition">¶</a></dt>
 <dd><p>calculates % buried volume (%V_bur) using Monte-Carlo or Gauss-Legendre/Lebedev integration</p>
 <p>see Organometallics 2008, 27, 12, 2679–2681 (DOI: 10.1021/om8001119) for details</p>
 <dl class="field-list simple">
@@ -1292,7 +1293,7 @@ using multiple threads doesn’t benefit performance very much</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.steric_map">
-<span class="sig-name descname"><span class="pre">steric_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radii</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'umn'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oop_vector</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ip_vector</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_pts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'circle'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.steric_map" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">steric_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radii</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'umn'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oop_vector</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ip_vector</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_pts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'circle'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.steric_map" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a steric map based on a Geometry</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1331,7 +1332,7 @@ key_atoms and the center</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.sterimol">
-<span class="sig-name descname"><span class="pre">sterimol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">L_axis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_atom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L_func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_vector</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radii</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'bondi'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">at_L</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buried</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_error</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.sterimol" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">sterimol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">L_axis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_atom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L_func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_vector</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radii</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'bondi'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">at_L</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buried</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_error</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.sterimol" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determines sterimol parameters of a Geometry.</p>
 <p>B1 is determined numerically; B2-B4 depend on B1</p>
 <p>B5 and L are analytical (unless L_func is not analytical)</p>
@@ -1412,7 +1413,7 @@ go slightly faster</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.update_geometry">
-<span class="sig-name descname"><span class="pre">update_geometry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.update_geometry" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">update_geometry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.update_geometry" title="Permalink to this definition">¶</a></dt>
 <dd><p>Replace current coords with those from :structure:</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1423,7 +1424,7 @@ go slightly faster</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.get_all_connected">
-<span class="sig-name descname"><span class="pre">get_all_connected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_all_connected" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_all_connected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_all_connected" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds all elements of a monomer</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1440,7 +1441,7 @@ go slightly faster</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.get_fragment">
-<span class="sig-name descname"><span class="pre">get_fragment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_object</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">biggest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_fragment" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_fragment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_object</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">biggest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_fragment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds and returns a fragment of a Geometry object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1467,7 +1468,7 @@ instead of smallest</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.remove_fragment">
-<span class="sig-name descname"><span class="pre">remove_fragment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avoid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_H</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.remove_fragment" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">remove_fragment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avoid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_H</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.remove_fragment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes a fragment of the geometry</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1497,7 +1498,7 @@ add_H=False overrides this behaviour</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.coord_shift">
-<span class="sig-name descname"><span class="pre">coord_shift</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.coord_shift" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">coord_shift</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.coord_shift" title="Permalink to this definition">¶</a></dt>
 <dd><p>shifts the coordinates of the target atoms by a vector</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1511,7 +1512,7 @@ add_H=False overrides this behaviour</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.change_distance">
-<span class="sig-name descname"><span class="pre">change_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjust</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.change_distance" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">change_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjust</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.change_distance" title="Permalink to this definition">¶</a></dt>
 <dd><p>For setting/adjusting bond length between atoms</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1533,7 +1534,7 @@ as well, as_group=False will only move the requested atom(s)</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.rotate_fragment">
-<span class="sig-name descname"><span class="pre">rotate_fragment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avoid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.rotate_fragment" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">rotate_fragment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avoid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.rotate_fragment" title="Permalink to this definition">¶</a></dt>
 <dd><p>rotates the all atoms on the ‘start’ side of the
 start-avoid bond about the bond vector by angle</p>
 <dl class="field-list simple">
@@ -1549,7 +1550,7 @@ start-avoid bond about the bond vector by angle</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.rotate">
-<span class="sig-name descname"><span class="pre">rotate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.rotate" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">rotate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.rotate" title="Permalink to this definition">¶</a></dt>
 <dd><p>rotates target atoms by an angle about an axis</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1568,7 +1569,7 @@ back after rotation</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.mirror">
-<span class="sig-name descname"><span class="pre">mirror</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plane</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'xy'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.mirror" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">mirror</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plane</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'xy'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.mirror" title="Permalink to this definition">¶</a></dt>
 <dd><p>mirror self across a plane</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1580,13 +1581,13 @@ can be xy, xz, yz, or an array for a vector orthogonal to a plane</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.invert">
-<span class="sig-name descname"><span class="pre">invert</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.invert" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">invert</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.invert" title="Permalink to this definition">¶</a></dt>
 <dd><p>invert self’s coordinates</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.change_angle">
-<span class="sig-name descname"><span class="pre">change_angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radians</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjust</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.change_angle" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">change_angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radians</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjust</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.change_angle" title="Permalink to this definition">¶</a></dt>
 <dd><p>For setting/adjusting angle between atoms</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1609,7 +1610,7 @@ as well, as_group=False will only move the requested atom(s)</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.change_dihedral">
-<span class="sig-name descname"><span class="pre">change_dihedral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.change_dihedral" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">change_dihedral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.change_dihedral" title="Permalink to this definition">¶</a></dt>
 <dd><p>For setting/adjusting dihedrals</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1684,7 +1685,7 @@ as_group=False will only move the requested atom(s)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.minimize_sub_torsion">
-<span class="sig-name descname"><span class="pre">minimize_sub_torsion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">all_frags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">increment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_planar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.minimize_sub_torsion" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">minimize_sub_torsion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">all_frags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">increment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_planar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.minimize_sub_torsion" title="Permalink to this definition">¶</a></dt>
 <dd><p>rotate substituents to try to minimize LJ potential</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1703,7 +1704,7 @@ planar to be rotated</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.minimize_torsion">
-<span class="sig-name descname"><span class="pre">minimize_torsion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">increment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.minimize_torsion" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">minimize_torsion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">increment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.minimize_torsion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rotate targets to minimize the LJ potential</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1721,7 +1722,7 @@ object, instead of just within self</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.substitute">
-<span class="sig-name descname"><span class="pre">substitute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sub</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attached_to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.substitute" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">substitute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sub</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attached_to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.substitute" title="Permalink to this definition">¶</a></dt>
 <dd><p>substitutes fragment containing <cite>target</cite> with substituent <cite>sub</cite></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1739,7 +1740,7 @@ object, instead of just within self</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.find_substituent">
-<span class="sig-name descname"><span class="pre">find_substituent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">for_confs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.find_substituent" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">find_substituent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">for_confs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.find_substituent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds a substituent based on a given atom (matches start==sub.atoms[0])</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1760,7 +1761,7 @@ be rotated to generate conformers</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.get_substituents">
-<span class="sig-name descname"><span class="pre">get_substituents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">for_confs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_substituents" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_substituents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">for_confs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_substituents" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns list of all substituents found on all components</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1778,7 +1779,7 @@ be rotated to generate conformers</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.ring_substitute">
-<span class="sig-name descname"><span class="pre">ring_substitute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ring_fragment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flip_walk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.ring_substitute" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">ring_substitute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ring_fragment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flip_walk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.ring_substitute" title="Permalink to this definition">¶</a></dt>
 <dd><p>take ring, reorient it, put it on self and replace targets with atoms
 on the ring fragment</p>
 <dl class="field-list simple">
@@ -1796,7 +1797,7 @@ in the library to see if they fit better</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.change_element">
-<span class="sig-name descname"><span class="pre">change_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjust_bonds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjust_hydrogens</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hold_steady</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.change_element" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">change_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjust_bonds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjust_hydrogens</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hold_steady</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.change_element" title="Permalink to this definition">¶</a></dt>
 <dd><p>change the element of an atom on self</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1829,7 +1830,7 @@ adjusting bonds; Default - longest fragment</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.map_ligand">
-<span class="sig-name descname"><span class="pre">map_ligand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ligands</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old_keys</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.map_ligand" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">map_ligand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ligands</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old_keys</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.map_ligand" title="Permalink to this definition">¶</a></dt>
 <dd><p>Maps new ligand according to key_map</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1851,7 +1852,7 @@ adjusting bonds; Default - longest fragment</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.remove_clash">
-<span class="sig-name descname"><span class="pre">remove_clash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sub_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.remove_clash" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">remove_clash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sub_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.remove_clash" title="Permalink to this definition">¶</a></dt>
 <dd><p>rotates substituents slightly to reduce steric clashing</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1868,7 +1869,7 @@ adjusting bonds; Default - longest fragment</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.minimize">
-<span class="sig-name descname"><span class="pre">minimize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">increment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.minimize" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">minimize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">increment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.minimize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rotates substituents in each component to minimize LJ_energy.
 Different from Component.minimize_sub_torsion() in that it minimizes
 with respect to the entire catalyst instead of just the component</p>
@@ -1876,7 +1877,7 @@ with respect to the entire catalyst instead of just the component</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.next_conformer">
-<span class="sig-name descname"><span class="pre">next_conformer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conf_spec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_spec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.next_conformer" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">next_conformer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conf_spec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_spec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.next_conformer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates the next possible conformer</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1894,7 +1895,7 @@ with respect to the entire catalyst instead of just the component</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.oniom_layer">
-<span class="sig-name descname"><span class="pre">oniom_layer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low_layer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_object</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.oniom_layer" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">oniom_layer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low_layer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_object</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.oniom_layer" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns atoms for the specified layer and adds link atoms to satisfy valence</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1916,7 +1917,7 @@ with respect to the entire catalyst instead of just the component</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.add_links">
-<span class="sig-name descname"><span class="pre">add_links</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">high_layer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low_layer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.add_links" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add_links</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">high_layer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low_layer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.add_links" title="Permalink to this definition">¶</a></dt>
 <dd><p>adds link atom hydrogens to molecular structure (useful when separating out a layer as a fragment)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1936,7 +1937,7 @@ with respect to the entire catalyst instead of just the component</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.sub_link_hosts">
-<span class="sig-name descname"><span class="pre">sub_link_hosts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.sub_link_hosts" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">sub_link_hosts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.sub_link_hosts" title="Permalink to this definition">¶</a></dt>
 <dd><p>remove link atom hosts from a molecular structure</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -1950,7 +1951,7 @@ with respect to the entire catalyst instead of just the component</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.sub_links">
-<span class="sig-name descname"><span class="pre">sub_links</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.sub_links" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">sub_links</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.sub_links" title="Permalink to this definition">¶</a></dt>
 <dd><p>remove link atoms from a molecular structure</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -1964,7 +1965,7 @@ with respect to the entire catalyst instead of just the component</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.make_conformer">
-<span class="sig-name descname"><span class="pre">make_conformer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conf_spec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.make_conformer" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">make_conformer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conf_spec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.make_conformer" title="Permalink to this definition">¶</a></dt>
 <dd><p>rotates substituents according to the specified conformer specification</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1979,7 +1980,7 @@ conf_spec, False if not allowed or invalid</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.get_aromatic_atoms">
-<span class="sig-name descname"><span class="pre">get_aromatic_atoms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_rings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_aromatic_atoms" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_aromatic_atoms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_rings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_aromatic_atoms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds atoms within aromatic rings in a molecule</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2005,7 +2006,7 @@ conf_spec, False if not allowed or invalid</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.get_gaff_geom">
-<span class="sig-name descname"><span class="pre">get_gaff_geom</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_gaff_geom" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_gaff_geom</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.get_gaff_geom" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>geometry comprised of OniomAtoms with GAFF atomtypes from OfType finder</p>
@@ -2015,7 +2016,7 @@ conf_spec, False if not allowed or invalid</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.define_layer">
-<span class="sig-name descname"><span class="pre">define_layer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bond_based</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expand</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">res_based</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.define_layer" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">define_layer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bond_based</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expand</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">res_based</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.define_layer" title="Permalink to this definition">¶</a></dt>
 <dd><p>define an ONIOM layer based on reference information
 reference can be list(Atom), list(list(float)), list(float), or str representing a layer (H, M, L, !H, etc)
 if defining a 3 layer job, start at High layer (reaction center)</p>
@@ -2036,7 +2037,7 @@ if defining a 3 layer job, start at High layer (reaction center)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.change_chirality">
-<span class="sig-name descname"><span class="pre">change_chirality</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.change_chirality" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">change_chirality</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.change_chirality" title="Permalink to this definition">¶</a></dt>
 <dd><p>change chirality of the target atom</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2055,7 +2056,7 @@ though spiro centers are allowed</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.detect_solvent">
-<span class="sig-name descname"><span class="pre">detect_solvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">solvent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.detect_solvent" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">detect_solvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">solvent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.detect_solvent" title="Permalink to this definition">¶</a></dt>
 <dd><p>detects solvent based on either an input solvent xyz, solvent in solvent library, or input SMILES</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2072,7 +2073,7 @@ though spiro centers are allowed</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.from_pdb">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_pdb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.from_pdb" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_pdb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.from_pdb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a list of Geometry objects from pdb files with multiple structural poses</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2092,7 +2093,7 @@ though spiro centers are allowed</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.update_charges">
-<span class="sig-name descname"><span class="pre">update_charges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">charges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.update_charges" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">update_charges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">charges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.update_charges" title="Permalink to this definition">¶</a></dt>
 <dd><p>update the atomic partial charges.
 accepts Tuple or List(charges), Dict{atom name: charge}</p>
 <dl class="field-list simple">
@@ -2104,7 +2105,7 @@ accepts Tuple or List(charges), Dict{atom name: charge}</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.geometry.Geometry.update_atom_types">
-<span class="sig-name descname"><span class="pre">update_atom_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atom_types</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.update_atom_types" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">update_atom_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atom_types</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.geometry.Geometry.update_atom_types" title="Permalink to this definition">¶</a></dt>
 <dd><p>update the molecular mechanics atom types.
 accepts Tuple or List(atom types), Dict{atom name: atom type}</p>
 <dl class="field-list simple">
@@ -2278,11 +2279,11 @@ accepts Tuple or List(atom types), Dict{atom name: atom type}</p>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=a4d4be8e"></script>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/furo.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
     </body>
 </html>

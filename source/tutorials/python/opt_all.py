@@ -16,7 +16,7 @@ method = Theory(
 
 # loop over XYZ files in current directory
 for XYZ in glob.glob("*.xyz"):
-    name, _ = splitext(XYZ)  # grab name without .xyz ending
+    name, _ = splitext(XYZ)   # grab name without .xyz ending
     geom = Geometry(XYZ)      # build AaronTools geometry
     outfile = f"{name}.inp"   # filename with .inp extension for ORCA
     geom.write(outfile=outfile, theory=method) # make input file

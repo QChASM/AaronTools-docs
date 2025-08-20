@@ -1,39 +1,39 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Method classes" href="method.html" /><link rel="prev" title="JobType classes" href="job_types.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/api/basis.html" />
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 7.0.1 and Furo 2024.08.06 -->
         <title>Basis Set classes - AaronTools 1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=04c057b233f3c8d71940eee6080f658a04e2027d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=cf727022eb7470bc603c08d2e55c3247faec75c9" />
     
     
 
 
 <style>
   body {
-    --color-code-background: #f2f2f2;
-  --color-code-foreground: #1e1e1e;
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
   
   }
   @media not print {
     body[data-theme="dark"] {
-      --color-code-background: #2b2b2b;
-  --color-code-foreground: #f8f8f2;
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
-        --color-code-background: #2b2b2b;
-  --color-code-foreground: #f8f8f2;
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
   
       }
     }
@@ -193,6 +193,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
+  
   <span class="sidebar-brand-text">AaronTools 1.1 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
@@ -349,7 +350,7 @@
     <span class="visually-hidden">View this page</span>
   </a>
 </div><div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/QChASM/AaronTools-docs/edit/main/source/api/basis.rst" rel="edit" title="Edit this page">
+  <a class="muted-link" href="https://github.com/QChASM/AaronTools-docs/edit/main/source/api/basis.rst" title="Edit this page">
     <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
@@ -369,10 +370,10 @@
         </div>
         <article role="main" id="furo-main-content">
           <section id="basis-set-classes">
-<h1>Basis Set classes<a class="headerlink" href="#basis-set-classes" title="Link to this heading">¶</a></h1>
+<h1>Basis Set classes<a class="headerlink" href="#basis-set-classes" title="Permalink to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="AaronTools.theory.Basis">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.</span></span><span class="sig-name descname"><span class="pre">Basis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elements</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aux_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_defined</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oniom_layer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Basis" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.</span></span><span class="sig-name descname"><span class="pre">Basis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elements</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aux_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_defined</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oniom_layer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Basis" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Has attributes<span class="colon">:</span></dt>
 <dd class="field-odd"><p></p></dd>
@@ -396,7 +397,7 @@ updated with Bases.refresh_atoms</p></li>
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.Basis.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elements</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aux_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_defined</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oniom_layer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Basis.__init__" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elements</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aux_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_defined</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oniom_layer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Basis.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -430,19 +431,19 @@ False for builtin basis sets</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.Basis.refresh_elements">
-<span class="sig-name descname"><span class="pre">refresh_elements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometry</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Basis.refresh_elements" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">refresh_elements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometry</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Basis.refresh_elements" title="Permalink to this definition">¶</a></dt>
 <dd><p>sets self’s elements for the geometry</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.Basis.refresh_atoms">
-<span class="sig-name descname"><span class="pre">refresh_atoms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometry</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Basis.refresh_atoms" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">refresh_atoms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometry</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Basis.refresh_atoms" title="Permalink to this definition">¶</a></dt>
 <dd><p>sets self’s atoms for the geometry</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.Basis.sanity_check_basis">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sanity_check_basis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">program</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Basis.sanity_check_basis" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sanity_check_basis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">program</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Basis.sanity_check_basis" title="Permalink to this definition">¶</a></dt>
 <dd><p>checks the basis set name against a list of basis sets
 that are built-in to the specified program</p>
 <dl class="field-list simple">
@@ -457,49 +458,45 @@ that are built-in to the specified program</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.Basis.get_gaussian">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_gaussian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Basis.get_gaussian" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_gaussian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Basis.get_gaussian" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns the Gaussian09/16 name of the basis set
 currently just removes the hyphen from the Karlsruhe def2 ones</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.Basis.get_orca">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_orca</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Basis.get_orca" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_orca</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Basis.get_orca" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns the ORCA name of the basis set
 currently just adds hyphen to Karlsruhe basis if it isn’t there</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.Basis.get_psi4">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_psi4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Basis.get_psi4" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_psi4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Basis.get_psi4" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns the Psi4 name of the basis set
 currently just adds hyphen to Karlsruhe basis if it isn’t there</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.Basis.get_qchem">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_qchem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Basis.get_qchem" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_qchem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.Basis.get_qchem" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns the Q-Chem name of the basis set
 currently just adds hyphen to Karlsruhe basis if it isn’t there</p>
 </dd></dl>
 
 </dd></dl>
 
-digraph inheritanceb5c416252b {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;AaronTools.theory.basis.Basis&quot; [URL=&quot;#AaronTools.theory.Basis&quot;,color=purple4,fillcolor=lightslateblue,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=12,height=0.25,shape=box,style=filled,target=&quot;_top&quot;,tooltip=&quot;:has attributes:&quot;];
-  &quot;AaronTools.theory.basis.ECP&quot; [URL=&quot;#AaronTools.theory.ECP&quot;,color=purple4,fillcolor=lightslateblue,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=12,height=0.25,shape=box,style=filled,target=&quot;_top&quot;,tooltip=&quot;ECP - aux info will be ignored&quot;];
-  &quot;AaronTools.theory.basis.Basis&quot; -&gt; &quot;AaronTools.theory.basis.ECP&quot; [arrowsize=1.5,color=royalblue,penwidth=1.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-<dl class="py class">
+<div class="graphviz"><img src="../_images/inheritance-0ab2aca17d9f53faa88c56ff9c03372cc8ba2a16.png" alt="Inheritance diagram of AaronTools.theory.ECP" usemap="#inheritanceb5c416252b" class="inheritance graphviz" /></div>
+<map id="inheritanceb5c416252b" name="inheritanceb5c416252b">
+<area shape="rect" id="node1" href="#AaronTools.theory.Basis" target="_top" title=":has attributes:" alt="" coords="5,5,260,33"/>
+<area shape="rect" id="node2" href="#AaronTools.theory.ECP" target="_top" title="ECP &#45; aux info will be ignored" alt="" coords="308,5,553,33"/>
+</map><dl class="py class">
 <dt class="sig sig-object py" id="AaronTools.theory.ECP">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.</span></span><span class="sig-name descname"><span class="pre">ECP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.ECP" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.</span></span><span class="sig-name descname"><span class="pre">ECP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.ECP" title="Permalink to this definition">¶</a></dt>
 <dd><p>ECP - aux info will be ignored</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.ECP.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.ECP.__init__" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.ECP.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -533,7 +530,7 @@ False for builtin basis sets</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.ECP.sanity_check_basis">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sanity_check_basis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">program</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.ECP.sanity_check_basis" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sanity_check_basis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">program</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.ECP.sanity_check_basis" title="Permalink to this definition">¶</a></dt>
 <dd><p>checks the basis set name against a list of basis sets
 that are built-in to the specified program</p>
 <dl class="field-list simple">
@@ -550,11 +547,11 @@ that are built-in to the specified program</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="AaronTools.theory.BasisSet">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.</span></span><span class="sig-name descname"><span class="pre">BasisSet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ecp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angular_momentum_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.BasisSet" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AaronTools.theory.</span></span><span class="sig-name descname"><span class="pre">BasisSet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ecp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angular_momentum_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.BasisSet" title="Permalink to this definition">¶</a></dt>
 <dd><p>used to more easily get basis set info for writing input files</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.BasisSet.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ecp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angular_momentum_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.BasisSet.__init__" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ecp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angular_momentum_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.BasisSet.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>basis: list(Basis), Basis, str, or None
 ecp: list(ECP) or None
 angular_momentum_type: pure, cartesian, or None</p>
@@ -562,19 +559,19 @@ angular_momentum_type: pure, cartesian, or None</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="AaronTools.theory.BasisSet.elements_in_basis">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">elements_in_basis</span></span><a class="headerlink" href="#AaronTools.theory.BasisSet.elements_in_basis" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">elements_in_basis</span></span><a class="headerlink" href="#AaronTools.theory.BasisSet.elements_in_basis" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a list of elements in self’s basis</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="AaronTools.theory.BasisSet.atoms_in_basis">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">atoms_in_basis</span></span><a class="headerlink" href="#AaronTools.theory.BasisSet.atoms_in_basis" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">atoms_in_basis</span></span><a class="headerlink" href="#AaronTools.theory.BasisSet.atoms_in_basis" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a list of atoms in self’s basis</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.BasisSet.parse_basis_str">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parse_basis_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">basis_str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cls=&lt;class</span> <span class="pre">'AaronTools.theory.basis.Basis'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.BasisSet.parse_basis_str" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parse_basis_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">basis_str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cls=&lt;class</span> <span class="pre">'AaronTools.theory.basis.Basis'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.BasisSet.parse_basis_str" title="Permalink to this definition">¶</a></dt>
 <dd><p>parse basis set specification string and returns list(cls)</p>
 <p>cls should be Basis or ECP (or subclasses of these)</p>
 <p>basis info should have:</p>
@@ -611,46 +608,46 @@ angular_momentum_type: pure, cartesian, or None</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.BasisSet.add_ecp">
-<span class="sig-name descname"><span class="pre">add_ecp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ecp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.BasisSet.add_ecp" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add_ecp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ecp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.BasisSet.add_ecp" title="Permalink to this definition">¶</a></dt>
 <dd><p>add ecp to this BasisSet
 ecp - ECP</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.BasisSet.add_basis">
-<span class="sig-name descname"><span class="pre">add_basis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">basis</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.BasisSet.add_basis" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add_basis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">basis</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.BasisSet.add_basis" title="Permalink to this definition">¶</a></dt>
 <dd><p>add basis to this BasisSet
 basis - Basis</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.BasisSet.refresh_elements">
-<span class="sig-name descname"><span class="pre">refresh_elements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometry</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.BasisSet.refresh_elements" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">refresh_elements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometry</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.BasisSet.refresh_elements" title="Permalink to this definition">¶</a></dt>
 <dd><p>evaluate element specifications for each basis and ecp to
 make them compatible with the supplied geometry</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.BasisSet.refresh_atoms">
-<span class="sig-name descname"><span class="pre">refresh_atoms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometry</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.BasisSet.refresh_atoms" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">refresh_atoms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometry</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.BasisSet.refresh_atoms" title="Permalink to this definition">¶</a></dt>
 <dd><p>evaluate atom specification for each basis to make them compatible with the specified  geometry</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.BasisSet.get_gaussian_basis_info">
-<span class="sig-name descname"><span class="pre">get_gaussian_basis_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.BasisSet.get_gaussian_basis_info" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_gaussian_basis_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.BasisSet.get_gaussian_basis_info" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns dict used by get_gaussian_header/footer with basis info</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.BasisSet.get_orca_basis_info">
-<span class="sig-name descname"><span class="pre">get_orca_basis_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.BasisSet.get_orca_basis_info" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_orca_basis_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.BasisSet.get_orca_basis_info" title="Permalink to this definition">¶</a></dt>
 <dd><p>return dict for get_orca_header</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.BasisSet.get_psi4_basis_info">
-<span class="sig-name descname"><span class="pre">get_psi4_basis_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sapt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.BasisSet.get_psi4_basis_info" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_psi4_basis_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sapt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.BasisSet.get_psi4_basis_info" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>sapt</strong> (<em>bool</em>) – use df_basis_sapt instead of df_basis_scf for jk basis</p>
@@ -663,13 +660,13 @@ make them compatible with the supplied geometry</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.BasisSet.check_for_elements">
-<span class="sig-name descname"><span class="pre">check_for_elements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count_ecps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.BasisSet.check_for_elements" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">check_for_elements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count_ecps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.BasisSet.check_for_elements" title="Permalink to this definition">¶</a></dt>
 <dd><p>checks to make sure each element is in a basis set</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.theory.BasisSet.get_qchem_basis_info">
-<span class="sig-name descname"><span class="pre">get_qchem_basis_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.BasisSet.get_qchem_basis_info" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_qchem_basis_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.theory.BasisSet.get_qchem_basis_info" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns dict used by get_qchem_header with basis info</p>
 </dd></dl>
 
@@ -776,11 +773,11 @@ make them compatible with the supplied geometry</p>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=a4d4be8e"></script>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/furo.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
     </body>
 </html>

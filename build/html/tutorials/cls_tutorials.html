@@ -1,39 +1,39 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Example BASH Scripts for Common Tasks" href="example_bash.html" /><link rel="prev" title="Tutorials" href="tut_list.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/tutorials/cls_tutorials.html" />
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 7.0.1 and Furo 2024.08.06 -->
         <title>Intro to Command Line Scripts - AaronTools 1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=04c057b233f3c8d71940eee6080f658a04e2027d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=cf727022eb7470bc603c08d2e55c3247faec75c9" />
     
     
 
 
 <style>
   body {
-    --color-code-background: #f2f2f2;
-  --color-code-foreground: #1e1e1e;
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
   
   }
   @media not print {
     body[data-theme="dark"] {
-      --color-code-background: #2b2b2b;
-  --color-code-foreground: #f8f8f2;
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
-        --color-code-background: #2b2b2b;
-  --color-code-foreground: #f8f8f2;
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
   
       }
     }
@@ -193,6 +193,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
+  
   <span class="sidebar-brand-text">AaronTools 1.1 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
@@ -349,7 +350,7 @@
     <span class="visually-hidden">View this page</span>
   </a>
 </div><div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/QChASM/AaronTools-docs/edit/main/source/tutorials/cls_tutorials.rst" rel="edit" title="Edit this page">
+  <a class="muted-link" href="https://github.com/QChASM/AaronTools-docs/edit/main/source/tutorials/cls_tutorials.rst" title="Edit this page">
     <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
@@ -369,9 +370,9 @@
         </div>
         <article role="main" id="furo-main-content">
           <section id="intro-to-command-line-scripts">
-<h1>Intro to Command Line Scripts<a class="headerlink" href="#intro-to-command-line-scripts" title="Link to this heading">¶</a></h1>
+<h1>Intro to Command Line Scripts<a class="headerlink" href="#intro-to-command-line-scripts" title="Permalink to this heading">¶</a></h1>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
 <p>Here, you will find tutorials and generalizations for AaronTools’ various command line scripts
 (see <a class="reference internal" href="../cls/list.html"><span class="doc">List of Command Line Scripts</span></a>).
 For many of the scripts covered here, some options might not be described.
@@ -379,9 +380,9 @@ To see the full list of options for a script, run it with just the –help flag 
 <p>For examples of BASH scripts that use CLSs to automate common tasks, see <a class="reference internal" href="example_bash.html"><span class="doc">Example BASH Scripts for Common Tasks</span></a>.</p>
 </section>
 <section id="file-input-output">
-<h2>File Input/Output<a class="headerlink" href="#file-input-output" title="Link to this heading">¶</a></h2>
+<h2>File Input/Output<a class="headerlink" href="#file-input-output" title="Permalink to this heading">¶</a></h2>
 <section id="reading-a-file">
-<h3>Reading a file<a class="headerlink" href="#reading-a-file" title="Link to this heading">¶</a></h3>
+<h3>Reading a file<a class="headerlink" href="#reading-a-file" title="Permalink to this heading">¶</a></h3>
 <p>To get a command line script to read a file, it can be as simple as passing the path to the file to the script:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>printXYZ.py<span class="w"> </span>benzene.log
 </pre></div>
@@ -400,7 +401,7 @@ and then change the bond length between atoms 6 and 7 by 0.3 Angstroms (using <a
 </div>
 </section>
 <section id="writing-geometry-to-a-file">
-<h3>Writing Geometry to a File<a class="headerlink" href="#writing-geometry-to-a-file" title="Link to this heading">¶</a></h3>
+<h3>Writing Geometry to a File<a class="headerlink" href="#writing-geometry-to-a-file" title="Permalink to this heading">¶</a></h3>
 <p>Many of our scripts accept the <code class="code docutils literal notranslate"><span class="pre">-o</span></code> flag to specify the destination of the output.
 If no <code class="code docutils literal notranslate"><span class="pre">-o</span></code> flag is specified, the script’s normal output will be printed to the standard output.</p>
 <p>The <a class="reference internal" href="../cls/printXYZ.html"><span class="doc">printXYZ.py</span></a> command can be used to convert any AaronTools-readable file (XYZ, Gaussian
@@ -431,7 +432,7 @@ If no <code class="code docutils literal notranslate"><span class="pre">-o</span
 </section>
 </section>
 <section id="finding-atoms">
-<h2>Finding Atoms<a class="headerlink" href="#finding-atoms" title="Link to this heading">¶</a></h2>
+<h2>Finding Atoms<a class="headerlink" href="#finding-atoms" title="Permalink to this heading">¶</a></h2>
 <p>Atoms can be specified by atom number (1-indexed) or by element.
 For example, to replace atom 7 (one of the hydrogens) of benzene with CN, you would do</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">substitute</span><span class="o">.</span><span class="n">py</span> <span class="n">benzene</span><span class="o">.</span><span class="n">xyz</span> <span class="o">-</span><span class="n">s</span> <span class="mi">7</span><span class="o">=</span><span class="n">CN</span>
@@ -451,9 +452,9 @@ to list all atoms that are bonded to only a single other atom:</p>
 </div>
 </section>
 <section id="structure-modification">
-<h2>Structure Modification<a class="headerlink" href="#structure-modification" title="Link to this heading">¶</a></h2>
+<h2>Structure Modification<a class="headerlink" href="#structure-modification" title="Permalink to this heading">¶</a></h2>
 <section id="changing-substituents">
-<h3>Changing Substituents<a class="headerlink" href="#changing-substituents" title="Link to this heading">¶</a></h3>
+<h3>Changing Substituents<a class="headerlink" href="#changing-substituents" title="Permalink to this heading">¶</a></h3>
 <p>In this example, we will be building 2,4,6-trinitrotoluene (TNT) from benzene and the substituents in the AaronTools Library.
 Here is the benzene structure we are starting with:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">12</span>
@@ -514,9 +515,9 @@ SMILES for a radical can also be used, if prefixed with <code class="code docuti
 </section>
 </section>
 <section id="running-jobs">
-<h2>Running Jobs<a class="headerlink" href="#running-jobs" title="Link to this heading">¶</a></h2>
+<h2>Running Jobs<a class="headerlink" href="#running-jobs" title="Permalink to this heading">¶</a></h2>
 <section id="creating-input-files">
-<h3>Creating Input Files<a class="headerlink" href="#creating-input-files" title="Link to this heading">¶</a></h3>
+<h3>Creating Input Files<a class="headerlink" href="#creating-input-files" title="Permalink to this heading">¶</a></h3>
 <p>Now that we’ve modified benzene to get TNT, we ought to minimize our TNT structure before we analyze it.
 <a class="reference internal" href="../cls/makeInput.html"><span class="doc">makeInput.py</span></a> can help us set up the input file.
 We’ll be optimizing the structure and computing harmonic vibrational frequencies at the B3LYP/def2-SVP
@@ -580,7 +581,7 @@ For instance, the following will read the final geometry from <code class="code 
 <p>N.B. <code class="code docutils literal notranslate"><span class="pre">makeInput.py</span> <span class="pre">-u</span></code> does not currently read things like solvent model, so make sure you carefully check any input files generated to make sure that all options are correctly copied over!</p>
 </section>
 <section id="submitting-to-the-queue">
-<h3>Submitting to the Queue<a class="headerlink" href="#submitting-to-the-queue" title="Link to this heading">¶</a></h3>
+<h3>Submitting to the Queue<a class="headerlink" href="#submitting-to-the-queue" title="Permalink to this heading">¶</a></h3>
 <p>If we’re logged on to a computing cluster, we can submit this optimization job to the queue with jobSubmit.py.
 We’ll need to have a template job file that’s compatible with the queuing software (e.g. SGE, PBS, Slurm).
 All clusters are different, and may have different ways to load a module (e.g. <code class="code docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">gaussian</span></code> vs. <code class="code docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">g16</span></code>).
@@ -662,10 +663,10 @@ Job ID                  Username    Queue    Jobname          SessID  NDS   TSK 
 </section>
 </section>
 <section id="analyzing-output">
-<h2>Analyzing Output<a class="headerlink" href="#analyzing-output" title="Link to this heading">¶</a></h2>
+<h2>Analyzing Output<a class="headerlink" href="#analyzing-output" title="Permalink to this heading">¶</a></h2>
 <p>Now that we are running jobs with AaronTools, we will look at processing the output.</p>
 <section id="grabbing-thermochemical-corrections">
-<h3>Grabbing Thermochemical Corrections<a class="headerlink" href="#grabbing-thermochemical-corrections" title="Link to this heading">¶</a></h3>
+<h3>Grabbing Thermochemical Corrections<a class="headerlink" href="#grabbing-thermochemical-corrections" title="Permalink to this heading">¶</a></h3>
 <p>AaronTools can calculate several thermochemical corrections from the output of a frequency job: zero-point energy (or H 0K), rigid-rotor/harmonic oscillator (RRHO) enthalpy, RRHO free energy, quasi-RRHO free energy, and quasi-harmonic free energy.
 AaronTools will recalculate each of these, even if they are printed in the output file, to maintain consistency with the constants that AaronTools uses.
 The <a class="reference internal" href="../cls/grabThermo.html"><span class="doc">grabThermo.py</span></a> command line script can be used to print thermochemistry:</p>
@@ -674,7 +675,7 @@ The <a class="reference internal" href="../cls/grabThermo.html"><span class="doc
 </div>
 </section>
 <section id="plotting-simulated-ir-spectra">
-<h3>Plotting Simulated IR Spectra<a class="headerlink" href="#plotting-simulated-ir-spectra" title="Link to this heading">¶</a></h3>
+<h3>Plotting Simulated IR Spectra<a class="headerlink" href="#plotting-simulated-ir-spectra" title="Permalink to this heading">¶</a></h3>
 <p>At the time of writing, Psi4 does not compute IR intensities for DFT methods.
 However, if we had used Gaussian, ORCA, or Q-Chem to perform this computation, we could generate an IR spectra from the output using the <a class="reference internal" href="../cls/plotIR.html"><span class="doc">plotIR.py</span></a> script:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plotIR</span><span class="o">.</span><span class="n">py</span> <span class="n">tnt</span><span class="o">.</span><span class="n">log</span>
@@ -772,11 +773,11 @@ However, if we had used Gaussian, ORCA, or Q-Chem to perform this computation, w
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=a4d4be8e"></script>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/furo.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
     </body>
 </html>

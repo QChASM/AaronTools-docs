@@ -1,39 +1,39 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Coding with FileReader objects" href="coding_with_filereaders.html" /><link rel="prev" title="Coding with Geometry Objects" href="coding_with_geometries.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/tutorials/coding_with_theories.html" />
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 7.0.1 and Furo 2024.08.06 -->
         <title>Coding with Theory Objects - AaronTools 1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=04c057b233f3c8d71940eee6080f658a04e2027d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=cf727022eb7470bc603c08d2e55c3247faec75c9" />
     
     
 
 
 <style>
   body {
-    --color-code-background: #f2f2f2;
-  --color-code-foreground: #1e1e1e;
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
   
   }
   @media not print {
     body[data-theme="dark"] {
-      --color-code-background: #2b2b2b;
-  --color-code-foreground: #f8f8f2;
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
-        --color-code-background: #2b2b2b;
-  --color-code-foreground: #f8f8f2;
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
   
       }
     }
@@ -193,6 +193,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
+  
   <span class="sidebar-brand-text">AaronTools 1.1 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
@@ -349,7 +350,7 @@
     <span class="visually-hidden">View this page</span>
   </a>
 </div><div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/QChASM/AaronTools-docs/edit/main/source/tutorials/coding_with_theories.rst" rel="edit" title="Edit this page">
+  <a class="muted-link" href="https://github.com/QChASM/AaronTools-docs/edit/main/source/tutorials/coding_with_theories.rst" title="Edit this page">
     <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
@@ -369,7 +370,7 @@
         </div>
         <article role="main" id="furo-main-content">
           <section id="coding-with-theory-objects">
-<h1>Coding with <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> Objects<a class="headerlink" href="#coding-with-theory-objects" title="Link to this heading">¶</a></h1>
+<h1>Coding with <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> Objects<a class="headerlink" href="#coding-with-theory-objects" title="Permalink to this heading">¶</a></h1>
 <p><a class="reference internal" href="../api/theory_class.html#AaronTools.theory.Theory" title="AaronTools.theory.Theory"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.Theory()</span></code></a> is used to designate computational options when building input files for different QM packages.
 It is designed to keep much of the code for writing quantum chemistry input files similar across different software packages
 to avoid having to dig into the nuances of the corresponding input file formats or worry
@@ -400,12 +401,12 @@ automatically construct the required object.</p>
 This control is most often needed for <code class="code docutils literal notranslate"><span class="pre">basis</span></code> (e.g. when using mixed basis sets or ECPs, etc).</p>
 <p>For specifying solvent and continuum solvent model, you must use the <a class="reference internal" href="../api/solvent.html"><span class="doc">ImplicitSolvent class</span></a> object.</p>
 <section id="building-basic-input-files">
-<h2>Building Basic Input Files<a class="headerlink" href="#building-basic-input-files" title="Link to this heading">¶</a></h2>
+<h2>Building Basic Input Files<a class="headerlink" href="#building-basic-input-files" title="Permalink to this heading">¶</a></h2>
 <p>As a first example, the following will build a Gaussian input file called <code class="code docutils literal notranslate"><span class="pre">benzene.com</span></code> that
 does a B3LYP/def2-SVP optimization of the coordinates in <code class="code docutils literal notranslate"><span class="pre">benzene.xyz</span></code>
 followed by the computation of vibrational frequencies</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.theory</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="s1">&#39;benzene.xyz&#39;</span><span class="p">)</span>
 
@@ -420,8 +421,8 @@ followed by the computation of vibrational frequencies</p>
 </div>
 <p>Note that the resulting Gaussian input file will use <code class="code docutils literal notranslate"><span class="pre">def2svp</span></code> for the basis set, even though we specified <code class="code docutils literal notranslate"><span class="pre">def2-SVP</span></code>.</p>
 <p>Equivalently, we could have done the following, where we explicitly build <code class="code docutils literal notranslate"><span class="pre">Method</span></code> and <code class="code docutils literal notranslate"><span class="pre">BasisSet</span></code> objects:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.theory</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="s1">&#39;benzene.xyz&#39;</span><span class="p">)</span>
 
@@ -459,8 +460,8 @@ followed by the computation of vibrational frequencies</p>
 and keyword changes (def2-svp vs def2svp, etc) are automatically handled.</p>
 <p>For example, the example below will write (essentially) equivalent
 input files for Gaussian, ORCA, and Psi4.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.theory</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="s1">&#39;benzene.xyz&#39;</span><span class="p">)</span>
 
@@ -475,8 +476,8 @@ input files for Gaussian, ORCA, and Psi4.</p>
 </div>
 <p>The above examples will all be in the gas phase.
 To instead use a continuum solvent model (e.g. PCM, SMD, etc.) we create and then use an <code class="code docutils literal notranslate"><span class="pre">ImplicitSolvent</span></code> object (here requesting the SMD model and water as solvent):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.theory</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="s1">&#39;benzene.xyz&#39;</span><span class="p">)</span>
 
@@ -492,7 +493,7 @@ To instead use a continuum solvent model (e.g. PCM, SMD, etc.) we create and the
 </pre></div>
 </div>
 <section id="job-types">
-<h3>Job Types<a class="headerlink" href="#job-types" title="Link to this heading">¶</a></h3>
+<h3>Job Types<a class="headerlink" href="#job-types" title="Permalink to this heading">¶</a></h3>
 <p>There are currently seven job types in the theory package:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../api/job_types.html#AaronTools.theory.job_types.OptimizationJob" title="AaronTools.theory.job_types.OptimizationJob"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.job_types.OptimizationJob()</span></code></a></p></li>
@@ -519,7 +520,7 @@ Other programs are not sensitive to the order these jobs will appear in the inpu
 <p>Many of these job types take additional arguments (click the links above to see the options).
 For example, for a transition state optimization you need to specify <code class="code docutils literal notranslate"><span class="pre">OptimizationJob(transition_state=True)</span></code>.</p>
 <section id="jobtype-abbreviations">
-<h4>JobType Abbreviations<a class="headerlink" href="#jobtype-abbreviations" title="Link to this heading">¶</a></h4>
+<h4>JobType Abbreviations<a class="headerlink" href="#jobtype-abbreviations" title="Permalink to this heading">¶</a></h4>
 <p>There are shorthand versions of many common job types.  For instance, to request numerical frequencies you could do</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">job_type</span> <span class="o">=</span> <span class="n">FrequencyJob</span><span class="p">(</span><span class="n">numerical</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
@@ -539,7 +540,7 @@ For example, for a transition state optimization you need to specify <code class
 <p>See <a class="reference internal" href="../api/job_types.html#AaronTools.theory.job_types.job_from_string" title="AaronTools.theory.job_types.job_from_string"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.job_types.job_from_string()</span></code></a> for more information.</p>
 </section>
 <section id="constrained-optimizations">
-<h4>Constrained Optimizations<a class="headerlink" href="#constrained-optimizations" title="Link to this heading">¶</a></h4>
+<h4>Constrained Optimizations<a class="headerlink" href="#constrained-optimizations" title="Permalink to this heading">¶</a></h4>
 <p>If we want to do a constrained optimization, we need to do a little more work.
 For example, suppose we have an AaronTools <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code> (probably not benzene) called <code class="code docutils literal notranslate"><span class="pre">geom</span></code> and we want to write an input file
 for an optimization with a constraint on the distance between atoms 1 and 4.
@@ -578,7 +579,7 @@ The following (silly) example will constrain distances 1-4 and 7-11, angle 2-3-5
 For example, suppose we want to optimize the structure of benzene with all C-H bonds frozen.
 We could look up the atom numbers for each carbon and the associated H, or we can loop over all H atoms
 and use <a class="reference internal" href="../api/finders.html#AaronTools.finders.BondedTo" title="AaronTools.finders.BondedTo"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.finders.BondedTo()</span></code></a> to figure out the connected C atom:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.finders</span><span class="w"> </span><span class="kn">import</span> <span class="n">BondedTo</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.finders</span> <span class="kn">import</span> <span class="n">BondedTo</span>
 
 <span class="n">constraints</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="n">constraints</span><span class="p">[</span><span class="s2">&quot;bonds&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
@@ -598,16 +599,16 @@ and use <a class="reference internal" href="../api/finders.html#AaronTools.finde
 </section>
 </section>
 <section id="finer-control">
-<h2>Finer Control<a class="headerlink" href="#finer-control" title="Link to this heading">¶</a></h2>
+<h2>Finer Control<a class="headerlink" href="#finer-control" title="Permalink to this heading">¶</a></h2>
 <p>If you need more control over one or more of these objects you can explicitly define various objects and pass these to <code class="code docutils literal notranslate"><span class="pre">Theory</span></code>.
 This is most likely to occur for <code class="code docutils literal notranslate"><span class="pre">BasisSet</span></code>, for example, when working with mixed basis sets and/or ECPs.</p>
 <p>The various objects that can be passed to <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> are discussed below.</p>
 <section id="method-class">
-<h3>Method Class<a class="headerlink" href="#method-class" title="Link to this heading">¶</a></h3>
+<h3>Method Class<a class="headerlink" href="#method-class" title="Permalink to this heading">¶</a></h3>
 <p><a class="reference internal" href="../api/method.html#AaronTools.theory.Method" title="AaronTools.theory.Method"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.Method()</span></code></a> is used to keep method keywords
 the same across different formats.
 As an example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.theory</span><span class="w"> </span><span class="kn">import</span> <span class="n">Method</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="n">Method</span>
 
 <span class="n">pbe0</span> <span class="o">=</span> <span class="n">Method</span><span class="p">(</span><span class="s2">&quot;PBE0&quot;</span><span class="p">)</span>
 </pre></div>
@@ -622,7 +623,7 @@ Gaussian keyword for PBE0 (PBE1PBE).</p>
 will cause basis set information to be omitted.</p>
 </section>
 <section id="saptmethod">
-<h3>SAPTMethod<a class="headerlink" href="#saptmethod" title="Link to this heading">¶</a></h3>
+<h3>SAPTMethod<a class="headerlink" href="#saptmethod" title="Permalink to this heading">¶</a></h3>
 <p><a class="reference internal" href="../api/method.html#AaronTools.theory.SAPTMethod" title="AaronTools.theory.SAPTMethod"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.SAPTMethod()</span></code></a> is a subclass of <code class="code docutils literal notranslate"><span class="pre">Method</span></code>
 that is specific for SAPT jobs. When used to make a Psi4 input file,
 the molecule will be split into monomers, which are specified by the
@@ -633,7 +634,7 @@ components attribute of the Geometry instance.</p>
 <p>See <a class="reference internal" href="example_python.html#python-sapt-calculations"><span class="std std-ref">SAPT Calculations</span></a> for an example.</p>
 </section>
 <section id="basis-sets">
-<h3>Basis Sets<a class="headerlink" href="#basis-sets" title="Link to this heading">¶</a></h3>
+<h3>Basis Sets<a class="headerlink" href="#basis-sets" title="Permalink to this heading">¶</a></h3>
 <p>The <a class="reference internal" href="../api/basis.html#AaronTools.theory.BasisSet" title="AaronTools.theory.BasisSet"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.BasisSet()</span></code></a> object is a collection of
 <a class="reference internal" href="../api/basis.html#AaronTools.theory.Basis" title="AaronTools.theory.Basis"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.Basis()</span></code></a> and (optionally) <a class="reference internal" href="../api/basis.html#AaronTools.theory.ECP" title="AaronTools.theory.ECP"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.ECP()</span></code></a> objects.</p>
 <p>The second argument given to each <code class="code docutils literal notranslate"><span class="pre">Basis</span></code> determines which elements that basis applies to.
@@ -641,7 +642,7 @@ By default, a <code class="code docutils literal notranslate"><span class="pre">
 <p>For example, suppose we have some Pt carbonyl complex.
 To build a <code class="code docutils literal notranslate"><span class="pre">BasisSet</span></code> object for a calculation in which we use LANL2DZ basis set
 and ECP on Pt and 6-31G(d) on C and O, we could do</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.theory</span><span class="w"> </span><span class="kn">import</span> <span class="n">Basis</span><span class="p">,</span> <span class="n">ECP</span><span class="p">,</span> <span class="n">BasisSet</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="n">Basis</span><span class="p">,</span> <span class="n">ECP</span><span class="p">,</span> <span class="n">BasisSet</span>
 <span class="n">basis</span> <span class="o">=</span> <span class="n">BasisSet</span><span class="p">(</span>
     <span class="p">[</span>
         <span class="n">Basis</span><span class="p">(</span><span class="s2">&quot;6-31G(d)&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;O&quot;</span><span class="p">]),</span>
@@ -652,8 +653,8 @@ and ECP on Pt and 6-31G(d) on C and O, we could do</p>
 </pre></div>
 </div>
 <p>Alternatively, we can use <a class="reference internal" href="../api/finders.html"><span class="doc">Finders</span></a> to automatically build lists of elements:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.theory</span><span class="w"> </span><span class="kn">import</span> <span class="n">Basis</span><span class="p">,</span> <span class="n">ECP</span><span class="p">,</span> <span class="n">BasisSet</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.finders</span><span class="w"> </span><span class="kn">import</span> <span class="n">AnyTransitionMetal</span><span class="p">,</span> <span class="n">AnyNonTransitionMetal</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="n">Basis</span><span class="p">,</span> <span class="n">ECP</span><span class="p">,</span> <span class="n">BasisSet</span>
+<span class="kn">from</span> <span class="nn">AaronTools.finders</span> <span class="kn">import</span> <span class="n">AnyTransitionMetal</span><span class="p">,</span> <span class="n">AnyNonTransitionMetal</span>
 
 <span class="n">basis</span> <span class="o">=</span> <span class="n">BasisSet</span><span class="p">(</span>
     <span class="p">[</span>
@@ -666,8 +667,8 @@ and ECP on Pt and 6-31G(d) on C and O, we could do</p>
 </div>
 <p>Finally, the <code class="code docutils literal notranslate"><span class="pre">aux_type</span></code> keyword is used for ORCA and Psi4 input files to specify
 auxiliary basis sets.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.theory</span><span class="w"> </span><span class="kn">import</span> <span class="n">Basis</span><span class="p">,</span> <span class="n">ECP</span><span class="p">,</span> <span class="n">BasisSet</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.finders</span><span class="w"> </span><span class="kn">import</span> <span class="n">AnyTransitionMetal</span><span class="p">,</span> <span class="n">AnyNonTransitionMetal</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="n">Basis</span><span class="p">,</span> <span class="n">ECP</span><span class="p">,</span> <span class="n">BasisSet</span>
+<span class="kn">from</span> <span class="nn">AaronTools.finders</span> <span class="kn">import</span> <span class="n">AnyTransitionMetal</span><span class="p">,</span> <span class="n">AnyNonTransitionMetal</span>
 <span class="n">basis</span> <span class="o">=</span> <span class="n">BasisSet</span><span class="p">(</span>
     <span class="p">[</span>
         <span class="n">Basis</span><span class="p">(</span><span class="s2">&quot;cc-pVTZ&quot;</span><span class="p">,</span> <span class="n">AnyNonTransitionMetal</span><span class="p">()),</span>
@@ -682,9 +683,9 @@ auxiliary basis sets.</p>
 <p>Any of these <code class="code docutils literal notranslate"><span class="pre">BasiSet</span></code> objects can then be passed to a <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> object.
 For example, the following will write a Gaussian input file <code class="code docutils literal notranslate"><span class="pre">TM_complex.com</span></code> for an optimization + frequency
 job at the M06-2X/6-31G(d)/LANL2DZ level of theory for any transition metal complex in <code class="code docutils literal notranslate"><span class="pre">TM_complex.xyz</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geometry</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.theory</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.finders</span><span class="w"> </span><span class="kn">import</span> <span class="n">AnyTransitionMetal</span><span class="p">,</span> <span class="n">AnyNonTransitionMetal</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+<span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">AaronTools.finders</span> <span class="kn">import</span> <span class="n">AnyTransitionMetal</span><span class="p">,</span> <span class="n">AnyNonTransitionMetal</span>
 
 <span class="n">geom</span> <span class="o">=</span> <span class="n">Geometry</span><span class="p">(</span><span class="s1">&#39;TM_complex.xyz&#39;</span><span class="p">)</span>
 
@@ -707,10 +708,10 @@ job at the M06-2X/6-31G(d)/LANL2DZ level of theory for any transition metal comp
 </section>
 </section>
 <section id="empirical-dispersion">
-<h2>Empirical Dispersion<a class="headerlink" href="#empirical-dispersion" title="Link to this heading">¶</a></h2>
+<h2>Empirical Dispersion<a class="headerlink" href="#empirical-dispersion" title="Permalink to this heading">¶</a></h2>
 <p><a class="reference internal" href="../api/dispersion.html#AaronTools.theory.EmpiricalDispersion" title="AaronTools.theory.emp_dispersion.EmpiricalDispersion"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.emp_dispersion.EmpiricalDispersion()</span></code></a> keeps specifying dispersion
 corrections consistent across different input file formats.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.theory</span><span class="w"> </span><span class="kn">import</span> <span class="n">EmpiricalDispersion</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="n">EmpiricalDispersion</span>
 
 <span class="n">disp</span> <span class="o">=</span> <span class="n">EmpiricalDispersion</span><span class="p">(</span><span class="s2">&quot;Grimme D2&quot;</span><span class="p">)</span>
 
@@ -727,17 +728,17 @@ Check the <code class="code docutils literal notranslate"><span class="pre">get_
 acceptable dispersion methods.</p>
 </section>
 <section id="continuum-solvent-model">
-<h2>Continuum Solvent Model<a class="headerlink" href="#continuum-solvent-model" title="Link to this heading">¶</a></h2>
+<h2>Continuum Solvent Model<a class="headerlink" href="#continuum-solvent-model" title="Permalink to this heading">¶</a></h2>
 <p>The <a class="reference internal" href="../api/solvent.html#AaronTools.theory.ImplicitSolvent" title="AaronTools.theory.ImplicitSolvent"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.ImplicitSolvent()</span></code></a> object is how you request a continuum solvent model
 in a <code class="code docutils literal notranslate"><span class="pre">Theory</span></code> object:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.theory</span><span class="w"> </span><span class="kn">import</span> <span class="n">ImplicitSolvent</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="n">ImplicitSolvent</span>
 
 <span class="n">solvent</span> <span class="o">=</span> <span class="n">ImplicitSolvent</span><span class="p">(</span><span class="s2">&quot;PCM&quot;</span><span class="p">,</span> <span class="s2">&quot;toluene&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="integration-grid">
-<h2>Integration Grid<a class="headerlink" href="#integration-grid" title="Link to this heading">¶</a></h2>
+<h2>Integration Grid<a class="headerlink" href="#integration-grid" title="Permalink to this heading">¶</a></h2>
 <p>As with other objects in the <code class="code docutils literal notranslate"><span class="pre">AaronTools.theory</span></code> package, the
 <a class="reference internal" href="../api/integration_grid.html#AaronTools.theory.IntegrationGrid" title="AaronTools.theory.IntegrationGrid"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.theory.IntegrationGrid()</span></code></a> object is a way to
 specify grids in a similar manner across different file formats.</p>
@@ -746,7 +747,7 @@ This, combined with varied grid pruning algorithms, mean that getting exactly
 equivalent grids in two QM programs is nearly impossible.
 If you use a keyword from one program to make an input file for a different program,
 <code class="code docutils literal notranslate"><span class="pre">IntegrationGrid</span></code> will at least try to specify an equivalent grid.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AaronTools.theory</span><span class="w"> </span><span class="kn">import</span> <span class="n">IntegrationGrid</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AaronTools.theory</span> <span class="kn">import</span> <span class="n">IntegrationGrid</span>
 
 <span class="n">grid</span> <span class="o">=</span> <span class="n">IntegrationGrid</span><span class="p">(</span><span class="s2">&quot;SuperFineGrid&quot;</span><span class="p">)</span>
 </pre></div>
@@ -770,7 +771,7 @@ the number of radial points is set indirectly with the <code class="code docutil
 of the periodic table.</p>
 </section>
 <section id="additional-keywords">
-<h2>Additional Keywords<a class="headerlink" href="#additional-keywords" title="Link to this heading">¶</a></h2>
+<h2>Additional Keywords<a class="headerlink" href="#additional-keywords" title="Permalink to this heading">¶</a></h2>
 <p>Additional program options are often program-specific and are passed to <a class="reference internal" href="../api/geometry.html#AaronTools.geometry.Geometry.write" title="AaronTools.geometry.Geometry.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AaronTools.geometry.Geometry.write()</span></code></a> differently depending on the QM package and the location where the additional options are required.
 These keywords are described in <a class="reference internal" href="../api/theory_parameters.html"><span class="doc">Theory parameters</span></a>.</p>
 <p>For example, in <a class="reference internal" href="#constrained-optimizations">Constrained Optimizations</a> we added constraints using the <code class="code docutils literal notranslate"><span class="pre">constraints</span></code> option in <code class="code docutils literal notranslate"><span class="pre">OptimizationJob()</span></code>.
@@ -883,11 +884,11 @@ We can do this by defining a dictionary with key <code class="code docutils lite
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=a4d4be8e"></script>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/furo.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
     </body>
 </html>

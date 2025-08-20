@@ -1,39 +1,39 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Tutorials" href="tut_list.html" /><link rel="prev" title="Welcome to the AaronTools Documentation!" href="../index.html" />
         <link rel="canonical" href="https://aarontools.readthedocs.io/en/latest/tutorials/install.html" />
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 7.0.1 and Furo 2024.08.06 -->
         <title>Installation Guide - AaronTools 1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=04c057b233f3c8d71940eee6080f658a04e2027d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=cf727022eb7470bc603c08d2e55c3247faec75c9" />
     
     
 
 
 <style>
   body {
-    --color-code-background: #f2f2f2;
-  --color-code-foreground: #1e1e1e;
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
   
   }
   @media not print {
     body[data-theme="dark"] {
-      --color-code-background: #2b2b2b;
-  --color-code-foreground: #f8f8f2;
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
-        --color-code-background: #2b2b2b;
-  --color-code-foreground: #f8f8f2;
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
   
       }
     }
@@ -193,6 +193,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
+  
   <span class="sidebar-brand-text">AaronTools 1.1 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
@@ -349,7 +350,7 @@
     <span class="visually-hidden">View this page</span>
   </a>
 </div><div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/QChASM/AaronTools-docs/edit/main/source/tutorials/install.rst" rel="edit" title="Edit this page">
+  <a class="muted-link" href="https://github.com/QChASM/AaronTools-docs/edit/main/source/tutorials/install.rst" title="Edit this page">
     <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
@@ -369,16 +370,16 @@
         </div>
         <article role="main" id="furo-main-content">
           <section id="installation-guide">
-<h1>Installation Guide<a class="headerlink" href="#installation-guide" title="Link to this heading">¶</a></h1>
+<h1>Installation Guide<a class="headerlink" href="#installation-guide" title="Permalink to this heading">¶</a></h1>
 <section id="requirements">
-<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading">¶</a></h2>
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Python 3.x</p></li>
 <li><p>SciPy ≥ 0.13.x</p></li>
 </ul>
 </section>
 <section id="recommended">
-<h2>Recommended<a class="headerlink" href="#recommended" title="Link to this heading">¶</a></h2>
+<h2>Recommended<a class="headerlink" href="#recommended" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>RDKit - AaronTools can utilize RDKit (if installed) to generate molecular structures (<em>i.e.</em> with the fetchMolecule command line script or the <code class="code docutils literal notranslate"><span class="pre">from_string</span></code> methods of the <code class="code docutils literal notranslate"><span class="pre">Geometry</span></code>, <code class="code docutils literal notranslate"><span class="pre">Substituent</span></code>, or <code class="code docutils literal notranslate"><span class="pre">Ring</span></code> classes). Without RDKit, it falls back to the CATCVS database.</p></li>
 <li><p>jinja2 - For parsing template files used in job submission routines</p></li>
@@ -387,7 +388,7 @@
 </ul>
 </section>
 <section id="any-os-using-pip">
-<h2>Any OS, using pip<a class="headerlink" href="#any-os-using-pip" title="Link to this heading">¶</a></h2>
+<h2>Any OS, using pip<a class="headerlink" href="#any-os-using-pip" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>AaronTools
 </pre></div>
 </div>
@@ -401,13 +402,13 @@ One way to find this is by running:</p>
 </div>
 <p>To enable job submission, follow <a class="reference internal" href="../other_docs/job_templates.html"><span class="doc">Job Submission Templates</span></a>.</p>
 <section id="install-with-optional-dependencies">
-<h3>Install with optional dependencies<a class="headerlink" href="#install-with-optional-dependencies" title="Link to this heading">¶</a></h3>
+<h3>Install with optional dependencies<a class="headerlink" href="#install-with-optional-dependencies" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;AaronTools[extras]&quot;</span>
 </pre></div>
 </div>
 </section>
 <section id="security-external-connections">
-<h3>Security/External Connections<a class="headerlink" href="#security-external-connections" title="Link to this heading">¶</a></h3>
+<h3>Security/External Connections<a class="headerlink" href="#security-external-connections" title="Permalink to this heading">¶</a></h3>
 <p>Unless RDKit is installed and accessible, AaronTools will try to connect to external servers for
 the generation of structures from IUPAC names and SMILES.
 To <strong>disable all remote connections</strong> set</p>
@@ -418,9 +419,9 @@ To <strong>disable all remote connections</strong> set</p>
 </section>
 </section>
 <section id="linux-mac">
-<h2>Linux/Mac<a class="headerlink" href="#linux-mac" title="Link to this heading">¶</a></h2>
+<h2>Linux/Mac<a class="headerlink" href="#linux-mac" title="Permalink to this heading">¶</a></h2>
 <section id="download-from-github">
-<h3>Download from GitHub<a class="headerlink" href="#download-from-github" title="Link to this heading">¶</a></h3>
+<h3>Download from GitHub<a class="headerlink" href="#download-from-github" title="Permalink to this heading">¶</a></h3>
 <p>Clone AaronTools.py from GitHub into a directory named “AaronTools”.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/QChASM
 git<span class="w"> </span>clone<span class="w"> </span>https://github.com/QChASM/AaronTools.py.git<span class="w"> </span>AaronTools
@@ -428,7 +429,7 @@ git<span class="w"> </span>clone<span class="w"> </span>https://github.com/QChAS
 </div>
 </section>
 <section id="set-up-environment">
-<h3>Set up environment<a class="headerlink" href="#set-up-environment" title="Link to this heading">¶</a></h3>
+<h3>Set up environment<a class="headerlink" href="#set-up-environment" title="Permalink to this heading">¶</a></h3>
 <p>In your <code class="code docutils literal notranslate"><span class="pre">.bashrc</span></code> or similar:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span>/home/<span class="nv">$USER</span>/QChASM/:<span class="nv">$PYTHONPATH</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">AARONLIB</span><span class="o">=</span>/home/<span class="nv">$USER</span>/Aaron_libs
@@ -450,11 +451,11 @@ environment variable. In your shell’s startup file (<em>e.g.</em> <code class=
 </section>
 </section>
 <section id="windows-10">
-<h2>Windows 10<a class="headerlink" href="#windows-10" title="Link to this heading">¶</a></h2>
+<h2>Windows 10<a class="headerlink" href="#windows-10" title="Permalink to this heading">¶</a></h2>
 <section id="id1">
-<h3>Download from GitHub<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<h3>Download from GitHub<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
 <section id="command-prompt">
-<h4>Command Prompt<a class="headerlink" href="#command-prompt" title="Link to this heading">¶</a></h4>
+<h4>Command Prompt<a class="headerlink" href="#command-prompt" title="Permalink to this heading">¶</a></h4>
 <ol class="arabic simple">
 <li><p>Open the Command Prompt.</p></li>
 <li><p>Clone AaronTools.py from GitHub into a directory named “AaronTools”:</p></li>
@@ -467,7 +468,7 @@ C<span class="p">:</span><span class="nl">\Users\CoolUser\QChASM</span><span cla
 </div>
 </section>
 <section id="github-desktop">
-<h4>GitHub Desktop<a class="headerlink" href="#github-desktop" title="Link to this heading">¶</a></h4>
+<h4>GitHub Desktop<a class="headerlink" href="#github-desktop" title="Permalink to this heading">¶</a></h4>
 <ol class="arabic simple">
 <li><p>File → Clone repository…</p></li>
 <li><p>on the URL tab, enter <a class="reference external" href="https://github.com/QChASM/AaronTools.py.git">https://github.com/QChASM/AaronTools.py.git</a></p></li>
@@ -478,7 +479,7 @@ C<span class="p">:</span><span class="nl">\Users\CoolUser\QChASM</span><span cla
 </section>
 </section>
 <section id="environment-setup">
-<h3>Environment setup<a class="headerlink" href="#environment-setup" title="Link to this heading">¶</a></h3>
+<h3>Environment setup<a class="headerlink" href="#environment-setup" title="Permalink to this heading">¶</a></h3>
 <ol class="arabic">
 <li><p>On the taskbar, search “Edit environment variables for your account”. This should bring up the environment variable settings.</p></li>
 <li><p>If the PYTHONPATH environment variable is not set:</p>
@@ -546,7 +547,7 @@ C<span class="p">:</span><span class="nl">\Users\CoolUser\QChASM</span><span cla
 </section>
 </section>
 <section id="testing-installation">
-<h2>Testing installation<a class="headerlink" href="#testing-installation" title="Link to this heading">¶</a></h2>
+<h2>Testing installation<a class="headerlink" href="#testing-installation" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>discover<span class="w"> </span>AaronTools
 </pre></div>
 </div>
@@ -642,11 +643,11 @@ C<span class="p">:</span><span class="nl">\Users\CoolUser\QChASM</span><span cla
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=a4d4be8e"></script>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/furo.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
     </body>
 </html>
