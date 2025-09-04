@@ -11,7 +11,7 @@ fr = FileReader('traj.xyz', get_all=True)
 print("  Step     R(1,2)   A(2,1,3)")
 
 # loop over all XYZ files
-for step,struc in enumerate(fr.all_geom):
+for step, struc in enumerate(fr.all_geom):
     geom = Geometry(struc["atoms"])
     # get atoms 1, 2, 3
     a1, a2, a3 = geom.find(['1','2','3'])

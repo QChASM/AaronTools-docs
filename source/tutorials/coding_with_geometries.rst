@@ -71,7 +71,7 @@ Alternatively, simply printing a Geometry will print the XYZ format to the scree
     from AaronTools.geometry import Geometry
     geom = Geometry('benzene.xyz')
     ...
-    print(XYZ)
+    print(geom)
 
 
 If you are using AaronTools in a Jupyter Notebook, and have installed py3dmol, you can also display an interactive 3D model of a Geometry using :code:`geom.display()`:

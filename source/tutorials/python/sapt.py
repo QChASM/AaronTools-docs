@@ -1,6 +1,7 @@
 from AaronTools.component import Component
 from AaronTools.geometry import Geometry
 from AaronTools.theory import *
+from AaronTools.job_control import SubmitProcess
 
 # make Geometry object from XYZ file containing dimer
 dimer = Geometry("dimer.xyz")

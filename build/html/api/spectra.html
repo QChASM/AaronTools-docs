@@ -554,6 +554,27 @@ hpmodes is not used</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="AaronTools.spectra.Frequency.get_mixed_signals">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_mixed_signals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_attr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'data'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.Frequency.get_mixed_signals" title="Permalink to this definition">¶</a></dt>
+<dd><p>get signals for a mixture of components or conformers</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>signal_groups</strong> (<em>list</em><em>(</em><a class="reference internal" href="#AaronTools.spectra.Signal" title="AaronTools.spectra.Signal"><em>Signal</em></a><em>)</em><em>|</em><em>list</em><em>(</em><em>list</em><em>(</em><a class="reference internal" href="#AaronTools.spectra.Signal" title="AaronTools.spectra.Signal"><em>Signal</em></a><em>)</em><em>)</em>) – <p>list of Signals() instances or list of lists of Signals()</p>
+<p>a list of Signals() is a group of conformers</p>
+<p>a list of lists of Signals() are the different components</p>
+</p></li>
+<li><p><strong>weights</strong> (<em>iterable</em>) – weights for each conformer, organized according to signal_groups</p></li>
+<li><p><strong>fractions</strong> (<em>iterable</em>) – fraction of each component in the mixture
+default: all components have equal fractions</p></li>
+<li><p><strong>data_attr</strong> (<em>str</em>) – attribute of Signals() for data</p></li>
+<li><p><strong>kwargs</strong> – passed to cls.__init__, along with a new list of data</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="AaronTools.spectra.Frequency.filter_data">
 <span class="sig-name descname"><span class="pre">filter_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AaronTools.spectra.Frequency.filter_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>used to filter out some data from the spectrum (e.g.
@@ -852,6 +873,7 @@ or <a class="reference internal" href="#AaronTools.spectra.Signals.plot_spectrum
 <li><a class="reference internal" href="#AaronTools.spectra.Frequency.parse_qchem_lines"><code class="docutils literal notranslate"><span class="pre">Frequency.parse_qchem_lines()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.spectra.Frequency.parse_orca_lines"><code class="docutils literal notranslate"><span class="pre">Frequency.parse_orca_lines()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.spectra.Frequency.parse_psi4_lines"><code class="docutils literal notranslate"><span class="pre">Frequency.parse_psi4_lines()</span></code></a></li>
+<li><a class="reference internal" href="#AaronTools.spectra.Frequency.get_mixed_signals"><code class="docutils literal notranslate"><span class="pre">Frequency.get_mixed_signals()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.spectra.Frequency.filter_data"><code class="docutils literal notranslate"><span class="pre">Frequency.filter_data()</span></code></a></li>
 <li><a class="reference internal" href="#AaronTools.spectra.Frequency.plot_ir"><code class="docutils literal notranslate"><span class="pre">Frequency.plot_ir()</span></code></a></li>
 </ul>
